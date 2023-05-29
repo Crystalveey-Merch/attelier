@@ -1,0 +1,208 @@
+@tailwind base;
+
+.middle {
+  @apply before:bg-black  font-bold transition duration-500 ease-in-out;
+}
+
+@tailwind components;
+@tailwind utilities;
+
+.middle {
+  position: relative;
+}
+.middle:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -10px;
+  left: 0;
+  /* background-color: rgb(20 83 45); */
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.middle:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+  /* background-color: rgb(134 239 172); */
+}
+
+/* Stylesheet or inline styles */
+/* Override the Swiper CSS variables */
+.swiper-pagination-bullet {
+  --swiper-pagination-bullet-width: 16px !important;
+  --swiper-pagination-bullet-height: 16px !important;
+  --swiper-pagination-bullet-border-radius: 50% !important;
+  --swiper-pagination-bullet-inactive-color: #fff !important;
+  --swiper-pagination-bullet-inactive-opacity: 0.5 !important;
+  --swiper-pagination-color: #fff !important;
+  /* Add your additional styling */
+  /* ... */
+}
+
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  --swiper-pagination-bullet-horizontal-gap: 10px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-navigation-color: #fff;
+  --swiper-navigation-size: 50px;
+}
+
+.font-lifesavers {
+  font-family: "Life Savers", cursive;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.hamburger {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.harburger-top,
+.harburger-middle,
+.harburger-bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  transform: translate(0px);
+  transition: all 0.5s;
+}
+.harburger-middle {
+  transform: translateY(7px);
+}
+.harburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+.open .harburger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+.open .harburger-middle {
+  display: none;
+}
+.open .harburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+/* section four width */
+.secFWid {
+  width: 500px;
+}
+
+/* section one both images height */
+.secOHig {
+  height: 800px;
+}
+
+/* section two div height */
+.secTDivH{
+  height: 550px;
+}
+
+/* section two four images width */
+/* .secTIMGI{
+  width: ;
+} */
+
+@media screen and (max-width: 1279px) {
+  .secFWid {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .secOHig {
+    height: 88vh;
+  }
+
+  .secTIMGI{
+    width: 48%;
+  }
+  /* .header-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(180deg, #fefcf7 30%, #fefcf781 55.94%);
+
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    padding-top: 81px;
+    gap: 32px;
+  } */
+  /*.header-links {
+    position: fixed;
+    top: 6rem;
+    right: 0;
+    height: 100%;
+    width: 45%;
+    z-index: 1;
+    transform: translateX(100%);
+
+    /* background-color: rgb(35 44 58); 
+  }*/
+
+  /* .header-links.open {
+    transform: translateX(0%);
+  } */
+
+  .header-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-right: 80px;
+  }
+
+  .header-links.open {
+    transform: translateX(0);
+  }
+}
+
+
+@media screen and (max-width: 639px) {
+  /* .secTIMGI{
+    width: 100%;
+  } */
+
+  .secOHig {
+    height: 400px;
+  }
+
+ /*both image height in section one  */
+  .secOBotImg{
+   height: 80vh;
+  }
+
+  /* section two div height */
+.secTDivH{
+  height: 330px;
+}
+}

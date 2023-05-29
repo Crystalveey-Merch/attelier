@@ -1,0 +1,45 @@
+import { datas } from "../../assets/data.js";
+
+export const SectionThree = () => {
+  const collections = datas.collections;
+  //const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  return (
+    <div className=" flex flex-col gap-10 items-center px-52 2xl:px-28 xl:px-10 md:px-3 sm:gap-5">
+      <div className="flex flex-col gap-4">
+        <p className="text-pink-700 text-base font-semibold">Shop</p>
+        <h3 className=" text-pink-950 font-semibold text-5xl uppercase sm:text-3xl">
+          Collections
+        </h3>
+      </div>
+      <ul className="flex justify-between gap-10 lg:flex-wrap md:gap-6 sm:gap-3">
+        {collections.map((collection) => {
+          return (
+            <li
+              className="secTIMGI flex flex-col gap-3 items-center sm:gap-2"
+              key={collection.id}
+              // onMouseEnter={() => setHoveredIndex(collection.id)}
+              // onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="">
+                <img
+                  src={collection.images[0].src}
+                  alt={collection.name}
+                  className="w-96 secTDivH sm:w-full"
+                  // style={{ height: "550px" }}
+                />
+              </div>
+
+              <h5 className=" text-gray-900 font-light text-3xl uppercase font-sans">
+                {collection.name}
+              </h5>
+              <button className="w-max px-3 py-2 bg-white text-pink-950 border border-pink-950 font-medium text-base hover:bg-pink-950 hover:text-white transition duration-300 ease-in-out">
+                Shop Now
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
