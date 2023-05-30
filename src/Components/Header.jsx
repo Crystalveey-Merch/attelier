@@ -16,8 +16,13 @@ export const Header = () => {
       });
     });
     setMenuOpen((prev) => !prev);
+
+    // Toggle body classes separately
+    document.body.classList.toggle("overflow-hidden");
+    document.body.classList.toggle("is-menu-open");
   };
 
+  const [toggleAccount, setToggleAccount] = useState(false);
   return (
     <div
       className="px-24  flex flex-col gap-6 py-5 items-center xl:px-8 sm:px-3  "
@@ -31,9 +36,9 @@ export const Header = () => {
             menuOpen ? "open" : ""
           } hidden lg:block focus:outline-none z-30 `}
         >
-          <span className="harburger-top bg-pink-900 transition duration-500 ease-in-out  "></span>
-          <span className="harburger-middle bg-pink-900 transition duration-500 ease-in-out  "></span>
-          <span className="harburger-bottom bg-pink-900 transition duration-500 ease-in-out  "></span>
+          <span className="harburger-top bg-gray-900 transition duration-500 ease-in-out  "></span>
+          <span className="harburger-middle bg-gray-900 transition duration-500 ease-in-out  "></span>
+          <span className="harburger-bottom bg-gray-900 transition duration-500 ease-in-out  "></span>
         </button>
         <ul className=" flex gap-3 text-black lg:hidden">
           <li className="link-item">
@@ -91,7 +96,11 @@ export const Header = () => {
               ></path>
             </svg>
           </button>
-          <button className=" ">
+          <button
+            className="relative h-max"
+            onMouseEnter={() => setToggleAccount(true)}
+            onMouseLeave={() => setToggleAccount(false)}
+          >
             <svg
               width="24"
               height="24"
@@ -106,6 +115,34 @@ export const Header = () => {
                 fill="currentColor"
               />
             </svg>
+            {toggleAccount && (
+              <ul className="px-5 w-48 py-5 bg-white shadow-2xl absolute top-5 -right-7 flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
+                <li>
+                  <Link
+                    to="/"
+                    className="middle  text-base  font-semibold hover:text-gray-750"
+                  >
+                    Account
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/"
+                    className="middle  text-base  font-semibold hover:text-gray-750"
+                  >
+                    Men
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/"
+                    className="middle  text-base font-semibold hover:text-gray-750"
+                  >
+                    Children
+                  </Link>
+                </li>
+              </ul>
+            )}
           </button>
           <button className="  h-6 w-6">
             <svg
@@ -125,9 +162,7 @@ export const Header = () => {
           </button>
         </div>
       </div>
-      <p className="bg-gray-200 h-px w-full md:hidden">
-
-      </p>
+      <p className="bg-gray-200 h-px w-full md:hidden"></p>
       <ul className="text-black flex justify-center gap-10 xl:gap-6 lg:hidden">
         <li>
           <Link
@@ -211,7 +246,47 @@ export const Header = () => {
         </li> */}
       </ul>
       <div className=" header-links z-20">
-        <h1 className="hidden lg:block bg-white">hh</h1>
+        <div className="hidden bg-white lg:flex flex-col gap-14 h-screen px-10 py-5 pl-20 sm:pl-14 sm:px-6">
+          <input
+            type="text"
+            placeholder="Search"
+            className="border-2 border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-gray-500 "
+          />
+          <ul className="flex flex-col gap-5">
+            <li className="border-b border-gray-700 pb-3">
+              <Link
+                to="/"
+                className="middle  text-base  font-semibold hover:text-gray-750"
+              >
+                New Arrivals
+              </Link>
+            </li>
+            <li className="border-b border-gray-700 pb-3">
+              <Link
+                to="/"
+                className="middle  text-base  font-semibold hover:text-gray-750"
+              >
+                New Arrivals
+              </Link>
+            </li>
+            <li className="border-b border-gray-700 pb-3">
+              <Link
+                to="/"
+                className="middle  text-base  font-semibold hover:text-gray-750"
+              >
+                New Arrivals
+              </Link>
+            </li>
+            <li className="border-b border-gray-700 pb-3">
+              <Link
+                to="/"
+                className="middle  text-base  font-semibold hover:text-gray-750"
+              >
+                New Arrivals
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );

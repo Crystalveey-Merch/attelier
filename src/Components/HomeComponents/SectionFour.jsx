@@ -5,7 +5,7 @@ export const SectionFour = () => {
         <div
           className="secFWid text-left  flex flex-col gap-2 lg:w-full"
         >
-          <h4 className="text-rose-950 text-lg font-medium font-serif">
+          <h4 className="text-gray-950 text-lg font-medium font-serif">
             Sign Up for Email and Get 15% off Your First Purchase
           </h4>
           <p className="text-gray-800  text-sm">
@@ -15,7 +15,7 @@ export const SectionFour = () => {
         </div>
         <form className="flex gap-4 items-end sm:flex-col sm:w-full">
           <label htmlFor="email" className="text-left flex flex-col gap-1 sm:w-full">
-            <p className="text-red-900 text-base font-semibold">
+            <p className="text-gray-900 text-base font-semibold">
               Email Address:
             </p>
             <input
@@ -25,7 +25,7 @@ export const SectionFour = () => {
             />
           </label>
 
-          <button className=" px-8 py-2 bg-pink-950 text-white font-medium text-base hover:bg-red-900 hover:text-white transition duration-300 ease-in-out sm:w-full">
+          <button className=" px-8 py-2 bg-gray-950 text-white font-medium text-base hover:bg-gray-900 hover:text-white transition duration-300 ease-in-out sm:w-full">
             Submit
           </button>
         </form>

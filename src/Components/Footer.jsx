@@ -3,10 +3,10 @@ export const Footer = () => {
     <div className="flex flex-col gap-10 px-20 pl-48 pt-16 pb-8 bg-gray-50 2xl:pl-20 xl:pl-7 sm:gap-6 sm:pl-4 sm:px-5">
       <div className="flex justify-between pr-40 2xl:pr-16 xl:pr-7  lg:flex lg:flex-wrap lg:gap-16 sm:gap-8 sm:pr-0">
         <div className="flex flex-col gap-4 w-60 lg:w-5/12 lg:order-1 sm:w-full">
-          <h2 className="font-lifesavers font-bold text-2xl text-pink-900">
+          <h2 className="font-lifesavers font-bold text-2xl text-gray-900">
             Crystalveey&apos;s Atelier
           </h2>
-          <p className=" text-rose-800 font-semibold text-base">
+          <p className=" text-gray-800 font-semibold text-base">
             Your Destination for Fashion and Elegance
           </p>
         </div>
