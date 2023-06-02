@@ -13,7 +13,7 @@ import {
 
 export const Home = () => {
   return (
-    <div className="text-center relative flex flex-col gap-20 sm:gap-14">
+    <div className="text-center relative flex flex-col gap-20 mt-52 lg:mt-24 sm:gap-14">
       <SectionOne />
       <SectionTwo />
       <SectionThree />

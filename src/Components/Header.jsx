@@ -18,14 +18,13 @@ export const Header = () => {
     setMenuOpen((prev) => !prev);
 
     // Toggle body classes separately
-    document.body.classList.toggle("overflow-hidden");
-    document.body.classList.toggle("is-menu-open");
+    document.body.classList.toggle("is-side-menu-open");
   };
 
   const [toggleAccount, setToggleAccount] = useState(false);
   return (
     <div
-      className="px-24  flex flex-col gap-6 py-5 items-center xl:px-8 sm:px-3  "
+      className="fixed top-0 left-0 w-full z-30 px-24 bg-white flex flex-col gap-6 py-5 items-center xl:px-8 sm:px-3  "
       // style={{ backgroundColor: "#efd7ec" }}
     >
       <div className=" flex justify-between items-center w-full ">
@@ -162,7 +161,7 @@ export const Header = () => {
           </button>
         </div>
       </div>
-      <p className="bg-gray-200 h-px w-full md:hidden"></p>
+      <p className="bg-gray-200 h-px w-full lg:hidden"></p>
       <ul className="text-black flex justify-center gap-10 xl:gap-6 lg:hidden">
         <li>
           <Link

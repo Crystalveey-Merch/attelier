@@ -10,7 +10,7 @@ export const SectionTwo = () => {
     <div className=" flex flex-col gap-10 items-center px-16 xl:px-5 sm:px-3 sm:gap-5">
       <div className="flex flex-col gap-4">
         <p className="text-gray-700 text-base font-semibold">Shop</p>
-        <h3 className=" text-black font-semibold text-4xl">NEW ARRIVALS</h3>
+        <h3 className=" text-black font-semibold text-4xl md:text-3xl">NEW ARRIVALS</h3>
       </div>
       <ul className=" flex justify-between gap-16 xl:gap-4 lg:flex-wrap sm:gap-2">
         {items.map((item) => {

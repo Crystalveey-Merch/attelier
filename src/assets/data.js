@@ -11,8 +11,8 @@ export const datas = {
     {
       id: 2,
       image: "/Images/Fashionista/male-model-2.jpg",
-      title: "Black T-Shirt",
-      category: "T-Shirt & Trouser",
+      title: "Brown Trouser",
+      category: "Trouser",
       price: "$ 110.00",
     },
     {
