@@ -184,7 +184,6 @@
   .header-links.open {
     transform: translateX(0);
   }
- 
 }
 
 body.is-side-menu-open {
@@ -196,7 +195,6 @@ body.is-side-menu-open {
     height: 400px;
   }
 }
-
 
 @media screen and (max-width: 639px) {
   .header-links {

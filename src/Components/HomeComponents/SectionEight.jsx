@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -8,7 +8,7 @@ import manTwoImg from "../../Images/Avatar/man-two.png";
 import manThreeImg from "../../Images/Avatar/man-three.png";
 import womanOneImg from "../../Images/Avatar/woman-one.png";
 import womanTwoImg from "../../Images/Avatar/woman-two.png";
-import womanThreeImg from "../../Images/Avatar/woman-three.png";
+//import womanThreeImg from "../../Images/Avatar/woman-three.png";
 
 export const SectionEight = () => {
   return (

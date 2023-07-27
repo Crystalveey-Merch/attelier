@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
@@ -17,9 +17,21 @@ export const Header = () => {
     });
     setMenuOpen((prev) => !prev);
 
-    // Toggle body classes separately
-    document.body.classList.toggle("is-side-menu-open");
+   
   };
+
+  const preventScroll = () => {
+    if (menuOpen) {
+      document.body.classList.add("is-side-menu-open");
+    } else {
+      document.body.classList.remove("is-side-menu-open");
+    }
+  };
+
+  useEffect(() => {
+    preventScroll();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [menuOpen]);
 
   const [toggleAccount, setToggleAccount] = useState(false);
   return (
