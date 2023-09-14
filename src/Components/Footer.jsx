@@ -1,6 +1,8 @@
 export const Footer = () => {
   return (
-    <div className="flex flex-col gap-10 px-20 pl-48 pt-16 pb-8 bg-gray-50 2xl:pl-20 xl:pl-7 sm:gap-6 sm:pl-4 sm:px-5">
+    <div 
+    style={{backgroundColor:"#D7DDE4"}}
+    className="flex flex-col gap-10 px-20 pl-48 pt-16 pb-8 bg-gray-50 2xl:pl-20 xl:pl-7 sm:gap-6 sm:pl-4 sm:px-5 Quicksand">
       <div className="flex justify-between pr-40 2xl:pr-16 xl:pr-7  lg:flex lg:flex-wrap lg:gap-16 sm:gap-8 sm:pr-0">
         <div className="flex flex-col gap-4 w-60 lg:w-5/12 lg:order-1 sm:w-full">
           <h2 className="font-lifesavers font-bold text-2xl text-gray-900">

@@ -1,12 +1,31 @@
 @tailwind base;
 
 .middle {
-  @apply before:bg-black  font-bold transition duration-500 ease-in-out;
+  @apply before:bg-black   transition duration-500 ease-in-out;
 }
 
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Aceh";
+  src: local("Aceh"),
+   url("./fonts/aceh-1/AcehSoft-Medium.ttf") format("truetype");
+  font-weight: bold;
+ }
+@font-face {
+  font-family: "Quicksand";
+  src: local("Quicksand"),
+   url("./fonts/Quicksand/Quicksand-VariableFont_wght.ttf") format("truetype");
+  ;
+ }
+
+ .Quicksand{
+  font-family: "Quicksand", Arial !important;
+}
+.Aceh{
+  font-family: "Aceh";
+}
 .middle {
   position: relative;
 }

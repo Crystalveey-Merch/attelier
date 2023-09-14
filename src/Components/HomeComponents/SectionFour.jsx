@@ -1,6 +1,6 @@
 export const SectionFour = () => {
   return (
-    <div className="py-10 flex flex-col gap-6 items-center justify-center bg-gray-50 border-b border-gray-200 px-5 lg:px-11 sm:px-5">
+    <div className="py-10 flex flex-col gap-6 items-center Quicksand justify-center bg-gray-50 border-b border-gray-200 px-5 lg:px-11 sm:px-5">
       <div className="flex gap-44 items-center xl:gap-16 lg:flex-col lg:w-full lg:items-start lg:gap-6">
         <div
           className="secFWid text-left  flex flex-col gap-2 lg:w-full"

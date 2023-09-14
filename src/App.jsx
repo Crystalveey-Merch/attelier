@@ -37,9 +37,9 @@ function App() {
     >
       <Header />
       <div
-        className={`fixed top-0 left-0 w-full z-20 ${colors[animationIndex]} pt-5 pb-3 mt-40 lg:mt-16 sm:pt-3 sm:pb-2 sm:text-sm`}
+        className={`fixed top-0 left-0 w-full z-20 ${colors[animationIndex]} Aceh  pt-5 pb-3 mt-40 lg:mt-16 sm:pt-3 sm:pb-2 sm:text-sm`}
       >
-        <p className="text-white text-center">{texts[animationIndex]}</p>
+        <p className="text-white text-center text-2xl">{texts[animationIndex]}</p>
       </div>
 
       <Routes>

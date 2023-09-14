@@ -39,7 +39,7 @@ export const Header = () => {
       className="fixed top-0 left-0 w-full z-30 px-24 bg-white flex flex-col gap-6 py-5 items-center xl:px-8 sm:px-3  "
       // style={{ backgroundColor: "#efd7ec" }}
     >
-      <div className=" flex justify-between items-center w-full ">
+      <div className=" flex Quicksand justify-between items-center w-full ">
         <button
           id="menu-btn"
           onClick={handleMenu}
@@ -52,18 +52,11 @@ export const Header = () => {
           <span className="harburger-bottom bg-gray-900 transition duration-500 ease-in-out  "></span>
         </button>
         <ul className=" flex gap-3 text-black lg:hidden">
+          
           <li className="link-item">
             <Link
               to="/"
-              className="middle  text-base font-semibold hover:text-gray-750"
-            >
-              Shop
-            </Link>
-          </li>
-          <li className="link-item">
-            <Link
-              to="/"
-              className="middle  text-base  font-semibold hover:text-gray-750"
+              className="middle  text-base   hover:text-gray-750"
             >
               About
             </Link>
@@ -71,7 +64,7 @@ export const Header = () => {
           <li>
             <Link
               to="/"
-              className="middle  text-base  font-semibold hover:text-gray-750"
+              className="middle  text-base   hover:text-gray-750"
             >
               Contact
             </Link>
@@ -79,7 +72,7 @@ export const Header = () => {
           <li>
             <Link
               to="/"
-              className="middle  text-base  font-semibold hover:text-gray-750"
+              className="middle  text-base   hover:text-gray-750"
             >
               Blog
             </Link>
@@ -90,7 +83,7 @@ export const Header = () => {
         </h2>
         <div className="flex gap-3 items-center text-black sm:gap-1">
           <div>
-            <h4 className=" text-lg font-semibold">USD</h4>
+            <h4 className=" text-lg ">USD</h4>
           </div>
           <button className=" lg:hidden">
             <svg
@@ -131,7 +124,7 @@ export const Header = () => {
                 <li>
                   <Link
                     to="/"
-                    className="middle  text-base  font-semibold hover:text-gray-750"
+                    className="middle  text-base   hover:text-gray-750"
                   >
                     Account
                   </Link>
@@ -139,7 +132,7 @@ export const Header = () => {
                 <li>
                   <Link
                     to="/"
-                    className="middle  text-base  font-semibold hover:text-gray-750"
+                    className="middle  text-base   hover:text-gray-750"
                   >
                     Men
                   </Link>
@@ -147,7 +140,7 @@ export const Header = () => {
                 <li>
                   <Link
                     to="/"
-                    className="middle  text-base font-semibold hover:text-gray-750"
+                    className="middle  text-base  hover:text-gray-750"
                   >
                     Children
                   </Link>
@@ -174,19 +167,12 @@ export const Header = () => {
         </div>
       </div>
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>
-      <ul className="text-black flex justify-center gap-10 xl:gap-6 lg:hidden">
+      <ul className="text-black flex justify-center gap-10 xl:gap-6 Quicksand lg:hidden">
+       
         <li>
           <Link
             to="/"
-            className="middle  text-base font-semibold hover:text-gray-750"
-          >
-            New Arrivals
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/"
-            className="middle  text-base  font-semibold hover:text-gray-750"
+            className="middle  text-base   hover:text-gray-750"
           >
             Shop Ready to Wear
           </Link>
@@ -194,63 +180,35 @@ export const Header = () => {
         <li>
           <Link
             to="/"
-            className="middle  text-base  font-semibold hover:text-gray-750"
+            className="middle  text-base   hover:text-gray-750"
           >
             Other Custom Made
           </Link>
         </li>
+        <div className="dropdown middle dropdown-end hover:text-gray-750">
+        <label tabIndex={0} className="text-center">Categories <span className="">&#8964;</span>
+  </label>
+        <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-white rounded-box w-52 mt-4">
+          <li><a>Women</a></li> 
+          <li><a>Men</a></li>
+          <li><a>Kids</a></li>
+          <li><a>Accessories</a></li>
+          
+        </ul>
+      </div>
+       
         <li>
           <Link
             to="/"
-            className="middle  text-base  font-semibold hover:text-gray-750"
+            className="middle  text-base  hover:text-gray-750"
           >
-            Men
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/"
-            className="middle  text-base font-semibold hover:text-gray-750"
-          >
-            Children
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/"
-            className="middle  text-base  font-semibold hover:text-gray-750"
-          >
-            Women
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/"
-            className="middle  text-base  font-semibold hover:text-gray-750"
-          >
-            Accessories
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/"
-            className="middle  text-base  font-semibold hover:text-gray-750"
-          >
-            Collections
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/"
-            className="middle  text-base font-semibold hover:text-gray-750"
-          >
-            Shop
+            Shop Untag
           </Link>
         </li>
         {/* <li>
           <Link
             to="/"
-            className="middle  text-base  font-semibold hover:text-gray-750"
+            className="middle  text-base   hover:text-gray-750"
           >
             About
           </Link>
@@ -267,7 +225,7 @@ export const Header = () => {
             <li className="border-b border-gray-700 pb-3">
               <Link
                 to="/"
-                className="middle  text-base  font-semibold hover:text-gray-750"
+                className="middle  text-base   hover:text-gray-750"
               >
                 New Arrivals
               </Link>
@@ -275,7 +233,7 @@ export const Header = () => {
             <li className="border-b border-gray-700 pb-3">
               <Link
                 to="/"
-                className="middle  text-base  font-semibold hover:text-gray-750"
+                className="middle  text-base   hover:text-gray-750"
               >
                 New Arrivals
               </Link>
@@ -283,7 +241,7 @@ export const Header = () => {
             <li className="border-b border-gray-700 pb-3">
               <Link
                 to="/"
-                className="middle  text-base  font-semibold hover:text-gray-750"
+                className="middle  text-base   hover:text-gray-750"
               >
                 New Arrivals
               </Link>
@@ -291,7 +249,7 @@ export const Header = () => {
             <li className="border-b border-gray-700 pb-3">
               <Link
                 to="/"
-                className="middle  text-base  font-semibold hover:text-gray-750"
+                className="middle  text-base   hover:text-gray-750"
               >
                 New Arrivals
               </Link>
