@@ -1,6 +1,6 @@
-import image1 from "../../Images/sec3/image1.png";  
-import image2 from "../../Images/sec3/image2.png";  
-import image3 from "../../Images/sec3/image3.png"; 
+import image1 from "../../Images/sec3/Image1.png";  
+import image2 from "../../Images/sec3/Image2.png";  
+import image3 from "../../Images/sec3/Image3.png"; 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
