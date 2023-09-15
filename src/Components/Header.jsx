@@ -86,8 +86,8 @@ export const Header = () => {
         </h2>
         <div className="flex gap-3 items-center text-black sm:gap-1">
         <select className="select w-full max-w-xs bg-white outline outline-0">
-  <option  >NGN</option>
-  <option>USD</option>
+  <option  >₦ NGN</option>
+  <option>$ USD</option>
  
 </select>
           <button className=" lg:hidden">
@@ -198,7 +198,7 @@ export const Header = () => {
           </Link>
         </li>
         <div className="dropdown middle dropdown-end hover:text-gray-750">
-        <label tabIndex={0} className="text-center">Categories <span className="">&#8964;</span>
+        <label tabIndex={0} className="text-center m-auto text-center">Categories &#8964;
   </label>
         <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-white rounded-box w-52 mt-4">
           <li><a>Women</a></li> 
