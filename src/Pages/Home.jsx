@@ -3,7 +3,8 @@ import {
    SectionTwo,
    SectionThree,
    SectionFour,
-  // SectionFive,
+  SectionFive,
+  SectionSix,
   // SectionSix,
   // SectionSeven,
   // SectionEight,
@@ -18,6 +19,8 @@ export const Home = () => {
       <SectionTwo />
       <SectionThree />
       <SectionFour />
+      <SectionFive/>
+      <SectionSix/>
     </div>
   );
 };

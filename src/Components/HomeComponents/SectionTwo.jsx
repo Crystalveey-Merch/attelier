@@ -9,22 +9,22 @@ export const SectionTwo = () => {
   return (
     <div className=" Aceh flex flex-col gap-10 items-center px-16 xl:px-5 sm:px-3 sm:gap-5">
       <div className="flex flex-col gap-4">
-        <p className="text-gray-700 Aceh text-base ">Shop</p>
-        <h3 className=" text-black Aceh text-4xl md:text-3xl">NEW ARRIVALS</h3>
+        <p className="text-gray-700 Aceh text-base text-xl">Shop</p>
+        <h3 className=" text-black Quicksand text-2xl md:text-3xl">NEW ARRIVALS</h3>
       </div>
       <ul className=" flex justify-between gap-16 xl:gap-4 lg:flex-wrap sm:gap-2">
         {items.map((item) => {
           return (
             <li className="secTIMGI flex flex-col gap-3 " key={item.id}>
               <div
-                className="secTDivH w-full h-max relative cursor-pointer "
+                className="secTDivH w-full h-max relative hvr-float cursor-pointer "
                 onMouseEnter={() => setIsHovered(item.id)}
                 onMouseLeave={() => setIsHovered(null)}
               >
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-full"
+                  className="w-60 h-80"
                 />
                 {isHovered === item.id && (
                   <button className="w-full bg-gray-900 bg-opacity-50 text-white font-medium text-base py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0">
@@ -33,7 +33,7 @@ export const SectionTwo = () => {
                 )}
               </div>
               <div className=" flex flex-col gap-2 sm:gap-1 sm:mb-2">
-                <h5 className=" text-gray-900 font-light text-3xl uppercase font-sans sm:text-xl">
+                <h5 className=" text-gray-900 font-light text-xl  font-sans sm:text-xl">
                   {item.category}
                 </h5>
                 {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}

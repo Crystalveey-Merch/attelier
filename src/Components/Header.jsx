@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
+
+
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -167,8 +170,15 @@ export const Header = () => {
         </div>
       </div>
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>
-      <ul className="text-black flex justify-center gap-10 xl:gap-6 Quicksand lg:hidden">
-       
+      <ul className="text-black flex justify-center gap-10 h-4  xl:gap-6 Quicksand lg:hidden">
+      <li>
+          <Link
+            to="/"
+            className="middle  text-base   hover:text-gray-750"
+          >
+            New Arrivals
+          </Link>
+        </li>
         <li>
           <Link
             to="/"
@@ -182,7 +192,7 @@ export const Header = () => {
             to="/"
             className="middle  text-base   hover:text-gray-750"
           >
-            Other Custom Made
+            Order Custom Made
           </Link>
         </li>
         <div className="dropdown middle dropdown-end hover:text-gray-750">
@@ -215,7 +225,7 @@ export const Header = () => {
         </li> */}
       </ul>
       <div className=" header-links z-20">
-        <div className="hidden bg-white lg:flex flex-col gap-14 h-screen px-10 py-5 pl-20 sm:pl-14 sm:px-6">
+        <div className="hidden bg-white lg:flex flex-col gap-14 h-screen px-10 py-3 pl-20 sm:pl-14 sm:px-6">
           <input
             type="text"
             placeholder="Search"
@@ -227,7 +237,7 @@ export const Header = () => {
                 to="/"
                 className="middle  text-base   hover:text-gray-750"
               >
-                New Arrivals
+                Shop ready to wear
               </Link>
             </li>
             <li className="border-b border-gray-700 pb-3">

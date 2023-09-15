@@ -1,22 +1,102 @@
 import modelOne from "../../Images/Models/man-one.jpg";
+import image1 from "../../Images/sec1/image1.jpeg";  
+import image2 from "../../Images/sec1/image2.jpeg";  
+import image3 from "../../Images/sec1/image3.png";  
+import image4 from "../../Images/sec1/image4.png";  
 import modelTwo from "../../Images/Models/woman-two.jpg";
+import { Swiper, SwiperSlide } from "swiper/react";
+// import { EffectFade } from 'swiper/modules';
+import 'swiper/css/effect-fade';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation, EffectFade, } from "swiper";
+
 
 export const SectionOne = () => {
+  const breakpoints = {
+    639: {
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        hideOnClick: true,
+      },
+    },
+  };
   return (
+   
     // reduce the height and make image full at mobile screen size
-    <div className="secOHig flex justify-center items-center px-28 gap-0 relative lg:px-4 sm:px-0">
+    <div className=" flex justify-center items-center px-28 gap-0 relative lg:px-4 sm:px-0">
+    <div className="flex  w-screen m-auto h-srceen justify-center">
+     <Swiper
+    modules={[ EffectFade, Autoplay]}
+    breakpoints={breakpoints}
+    loop={true}
+    effect="fade"
+    // direction={"vertical"}
+    pagination={{
+      clickable: true,
+    }}
+    autoplay={{
+      delay: 4000,
+      disableOnInteraction: false,
+    }}
+    // navigation={true}
+    className="mySwiper z-0 swiper-v effect-fade h-full w-4/5"
+  >
+
+    <SwiperSlide>
+    <img
+          src={image1}
+          alt="imgSeven"
+          className="h-full w-screen z-0 shadow-lg " />
+
+    </SwiperSlide>
+    <SwiperSlide>
+    <img
+          src={image2}
+          alt="imgSeven"
+          className="h-full w-screen   shadow-lg " />
+
+    </SwiperSlide>
+  </Swiper>
+  <Swiper
+    modules={[ EffectFade, Autoplay]}
+    breakpoints={breakpoints}
+    loop={true}
+    effect="fade"
+    // direction={"vertical"}
+    pagination={{
+      clickable: true,
+    }}
+    autoplay={{
+      delay: 6000,
+      disableOnInteraction: false,
+    }}
+    className="mySwiper  swiper-v h-full  z-0 w-4/5 justify-center">
+    <SwiperSlide>
+    <img
+          src={image3}
+          alt="imgSeven"
+          className="h-full w-screen  shadow-lg " />
+    </SwiperSlide>
+    <SwiperSlide>
+    <img
+          src={image4}
+          alt="imgSeven"
+          className="h-full w-screen  shadow-lg " />
+
+    </SwiperSlide>
+  </Swiper>
+  </div>
       <div className="w-6/12 h-full z-10 flex justify-center items-center  ">
-        <h1 className="Aceh text-gray-900 text-6xl font-bold text-center bg-white opacity-60 p-7 lg:text-5xl md:p-4 md:text-4xl sm:font-semibold sm:p-2 sm:text-3xl ">
-          boys
-        </h1>
+        
       </div>
       <div className="w-6/12 h-full z-10 flex justify-center items-center  ">
-        <h1 className=" Aceh text-gray-900 text-6xl font-bold text-center bg-white opacity-60 p-7 lg:text-5xl md:p-4 md:text-4xl sm:font-semibold  sm:p-2 sm:text-3xl">
-          Men
-        </h1>
+       
       </div>
 
-      <div className="secOHig flex justify-around absolute w-full px-28 lg:px-4 sm:px-0">
+      {/* <div className="secOHig flex justify-around absolute w-full px-28 lg:px-4 sm:px-0">
         <img
           src={modelTwo}
           alt="female model"
@@ -29,7 +109,7 @@ export const SectionOne = () => {
           alt="male model"
           className="w-6/12 h-full object-cover object-top "
         />
-      </div>
+      </div> */}
     </div>
   );
 };

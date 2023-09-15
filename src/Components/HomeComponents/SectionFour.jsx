@@ -1,49 +1,54 @@
-export const SectionFour = () => {
-  return (
-    <div className="py-10 flex flex-col gap-6 items-center Quicksand justify-center bg-gray-50 border-b border-gray-200 px-5 lg:px-11 sm:px-5">
-      <div className="flex gap-44 items-center xl:gap-16 lg:flex-col lg:w-full lg:items-start lg:gap-6">
-        <div
-          className="secFWid text-left  flex flex-col gap-2 lg:w-full"
-        >
-          <h4 className="text-gray-950 text-lg font-medium font-serif">
-            Sign Up for Email and Get 15% off Your First Purchase
-          </h4>
-          <p className="text-gray-800  text-sm">
-            Sign up to receive Crystalveey&apos;s Atelier emails and get first
-            dibs on new arrivals, sales, exclusive content, events and more!
-          </p>
-        </div>
-        <form className="flex gap-4 items-end sm:flex-col sm:w-full">
-          <label htmlFor="email" className="text-left flex flex-col gap-1 sm:w-full">
-            <p className="text-gray-900 text-base font-semibold">
-              Email Address:
-            </p>
-            <input
-              type="text"
-              placeholder="Enter your email address"
-              className="w-96 px-4 py-2 border-none focus:outline-none focus:ring-2 focus:ring-pink-200 focus:border-transparent sm:w-full"
-            />
-          </label>
+import { datas } from "../../assets/data.js";
+import { useState } from "react";
 
-          <button className=" px-8 py-2 bg-gray-950 text-white font-medium text-base hover:bg-gray-900 hover:text-white transition duration-300 ease-in-out sm:w-full">
-            Submit
-          </button>
-        </form>
+export const SectionFour = () => {
+  const collections = datas.collections;
+  //const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div className=" flex flex-col gap-10  items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
+      <div className="flex flex-col gap-2">
+        <p className="text-gray-700 Aceh text-base text-xl">Shop</p>
+        <h3 className=" text-black Quicksand text-2xl md:text-xl">
+          Collections
+        </h3>
       </div>
-      <p className="text-gray-800 text-sm font-sans">
-        By entering your email address, you agree to receive Crystalveey&apos;s
-        Atelier offers, promotions, other commercial messages. You can view our
-        <a href="/" className="text-pink-950 font-medium hover:underline">
-          {" "}
-          privacy policy
-        </a>{" "}
-        here and you may
-        <a href="/" className="text-pink-950 font-medium hover:underline">
-          {" "}
-          unsubscribe
-        </a>{" "}
-        at any time.
-      </p>
+      <ul className="flex justify-between gap-10 lg:flex-wrap lg:gap-6 md:gap-6 sm:gap-3 sm:gap-y-8">
+        {collections.map((collection) => {
+          return (
+            <li
+              className="secTIMGI flex flex-col gap-3 items-center sm:gap-2"
+              key={collection.id}
+              onMouseEnter={() => setIsHovered(collection.id)}
+                onMouseLeave={() => setIsHovered(null)}
+              // onMouseEnter={() => setHoveredIndex(collection.id)}
+              // onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="hvr-bounce-in">
+                <img
+                  src={collection.images[0].src}
+                  alt={collection.name}
+                  className="w-96  secTDivH sm:w-full"
+                  // style={{ height: "550px" }}
+                />
+                 {isHovered === collection.id && (
+                  <button className="w-full h-full bg-gray-900 bg-opacity-50 text-white font-medium text-base py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0">
+                   Shop Now
+                  </button>
+                )}
+              </div>
+
+              <h5 className=" text-gray-900 font-light text-xl  font-sans md:text-2xl sm:text-xl">
+                {collection.name}
+              </h5>
+              
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
+
+

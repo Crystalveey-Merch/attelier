@@ -1,45 +1,81 @@
-import { datas } from "../../assets/data.js";
+import image1 from "../../Images/sec3/image1.png";  
+import image2 from "../../Images/sec3/image2.png";  
+import image3 from "../../Images/sec3/image3.png"; 
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation, } from "swiper";
+
+
+
+
 
 export const SectionThree = () => {
-  const collections = datas.collections;
   //const [hoveredIndex, setHoveredIndex] = useState(null);
+  const breakpoints = {
+    639: {
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        hideOnClick: true,
+      },
+    },
+  };
 
   return (
-    <div className=" flex flex-col gap-10 items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
-      <div className="flex flex-col gap-4">
-        <p className="text-gray-700 text-base font-semibold">Shop</p>
-        <h3 className=" text-gray-950 font-semibold text-5xl uppercase md:text-3xl">
-          Collections
+    <div className=" flex flex-col gap-10 outline mx-10 py-10 rounded-lg rounded items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
+      <div className="flex flex-col gap-4 py-10">
+        <p className="text-gray-700 Aceh text-5xl">Crystalveey's Untagged</p>
+        <h3 className=" text-black Quicksand text-2xl md:text-xl">
+          Explore a careful selecion of stylish refurblished preowned fashion items.
         </h3>
       </div>
-      <ul className="flex justify-between gap-10 lg:flex-wrap lg:gap-6 md:gap-6 sm:gap-3 sm:gap-y-8">
-        {collections.map((collection) => {
-          return (
-            <li
-              className="secTIMGI flex flex-col gap-3 items-center sm:gap-2"
-              key={collection.id}
-              // onMouseEnter={() => setHoveredIndex(collection.id)}
-              // onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div className="">
-                <img
-                  src={collection.images[0].src}
-                  alt={collection.name}
-                  className="w-96 secTDivH sm:w-full"
-                  // style={{ height: "550px" }}
-                />
-              </div>
+      <Swiper
+      slidesPerView={3}
+       modules={[ Pagination, Navigation, Autoplay]}
+    breakpoints={breakpoints}
+    loop={true}
+    // direction={"vertical"}
+    pagination={{
+      clickable: true,
+    }}
+    autoplay={{
+      delay: 4000,
+      disableOnInteraction: false,
+    }}
+    // navigation={true}
+    className="mySwiper z-0 swiper-v effect-fade h-full w-4/5">
+        <SwiperSlide className="hvr-bob">
+        <img
+          src={image1}
+          alt="imgSeven"
+          className="h-full w-screen z-0 " />
 
-              <h5 className=" text-gray-900 font-light text-3xl uppercase font-sans md:text-2xl sm:text-xl">
-                {collection.name}
-              </h5>
+        </SwiperSlide>
+        <SwiperSlide className="
+        hvr-bob">
+        <img
+          src={image2}
+          alt="imgSeven"
+          className="h-full w-screen z-0" />
+
+        </SwiperSlide>
+        <SwiperSlide className="hvr-bob">
+        <img
+          src={image3}
+          alt="imgSeven"
+          className="h-full w-screen z-0  " />
+
+        </SwiperSlide>
+      </Swiper>
+      
               <button className="w-max px-3 py-2 bg-white text-gray-950 border border-gray-950 font-medium text-base hover:bg-gray-950 hover:text-white transition duration-300 ease-in-out sm:px-2 sm:py-1 sm:font-normal">
                 Shop Now
               </button>
-            </li>
-          );
-        })}
-      </ul>
+         
     </div>
   );
 };
+
+
