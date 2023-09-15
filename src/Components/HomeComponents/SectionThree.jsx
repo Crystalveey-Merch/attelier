@@ -14,6 +14,22 @@ import { Autoplay, Pagination, Navigation, } from "swiper";
 export const SectionThree = () => {
   //const [hoveredIndex, setHoveredIndex] = useState(null);
   const breakpoints = {
+    300: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    639: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
     639: {
       pagination: {
         el: ".swiper-pagination",
@@ -26,8 +42,8 @@ export const SectionThree = () => {
   return (
     <div className=" flex flex-col gap-10 outline mx-10 py-10 rounded-lg rounded items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
       <div className="flex flex-col gap-4 py-10">
-        <p className="text-gray-700 Aceh text-5xl">Crystalveey's Untagged</p>
-        <h3 className=" text-black Quicksand text-2xl md:text-xl">
+        <p className="text-gray-700 Aceh text-5xl sm:text-3xl">Crystalveey's Untagged</p>
+        <h3 className=" text-black Quicksand text-2xl md:text-xl sm:text-xl">
           Explore a careful selecion of stylish refurblished preowned fashion items.
         </h3>
       </div>
@@ -46,6 +62,28 @@ export const SectionThree = () => {
     }}
     // navigation={true}
     className="mySwiper z-0 swiper-v effect-fade h-full w-4/5">
+        <SwiperSlide className="hvr-bob">
+        <img
+          src={image1}
+          alt="imgSeven"
+          className="h-full w-screen z-0 " />
+
+        </SwiperSlide>
+        <SwiperSlide className="
+        hvr-bob">
+        <img
+          src={image2}
+          alt="imgSeven"
+          className="h-full w-screen z-0" />
+
+        </SwiperSlide>
+        <SwiperSlide className="hvr-bob">
+        <img
+          src={image3}
+          alt="imgSeven"
+          className="h-full w-screen z-0  " />
+
+        </SwiperSlide>
         <SwiperSlide className="hvr-bob">
         <img
           src={image1}

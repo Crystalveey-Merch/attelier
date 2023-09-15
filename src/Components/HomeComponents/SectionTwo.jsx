@@ -32,7 +32,7 @@ export const SectionTwo = () => {
                   </button>
                 )}
               </div>
-              <div className=" flex flex-col gap-2 sm:gap-1 sm:mb-2">
+              <div className=" flex flex-col gap-2 sm:gap-4 sm:mb-2 sm:mt-10">
                 <h5 className=" text-gray-900 font-light text-xl  font-sans sm:text-xl">
                   {item.category}
                 </h5>

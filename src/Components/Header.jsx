@@ -85,9 +85,11 @@ export const Header = () => {
           Crystalveey&apos;s Atelier
         </h2>
         <div className="flex gap-3 items-center text-black sm:gap-1">
-          <div>
-            <h4 className=" text-lg ">USD</h4>
-          </div>
+        <select className="select w-full max-w-xs bg-white outline outline-0">
+  <option  >NGN</option>
+  <option>USD</option>
+ 
+</select>
           <button className=" lg:hidden">
             <svg
               aria-hidden="true"

@@ -12,7 +12,7 @@ export const SectionFive = () => {
   <button className="p-4 sm:p-5 text-left rounded-full bg-white text-black text-2xl m-10">Order Now</button>
 </div>
 <div>
-<img src={image1}></img>
+<img src={image1} className="animate-pulse"></img>
 </div>
     </div>
   );
