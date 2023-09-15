@@ -9,7 +9,7 @@ export const SectionFive = () => {
   </h1>
   <hr />
   <h3 className="text-3xl text-left">Order your CUSTOM MADE wares now!!</h3>
-  <button className="p-10 sm:p-5 text-left rounded-full bg-white text-black text-3xl m-10">Order Now</button>
+  <button className="p-4 sm:p-5 text-left rounded-full bg-white text-black text-2xl m-10">Order Now</button>
 </div>
 <div>
 <img src={image1}></img>
