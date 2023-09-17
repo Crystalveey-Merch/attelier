@@ -40,7 +40,7 @@ export const SectionThree = () => {
   };
 
   return (
-    <div className=" flex flex-col gap-10 outline mx-10 py-10 rounded-lg rounded items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
+    <div className=" flex flex-col gap-10 outline mx-10 sm:mx-2 py-10 rounded-lg rounded items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
       <div className="flex flex-col gap-4 py-10">
         <p className="text-gray-700 Aceh text-5xl sm:text-3xl">Crystalveey's Untagged</p>
         <h3 className=" text-black Quicksand text-2xl md:text-xl sm:text-xl">

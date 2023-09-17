@@ -20,7 +20,7 @@ export const Home = () => {
       <SectionThree />
       <SectionFour />
       <SectionFive/>
-      <SectionSix/>
+      {/* <SectionSix/> */}
     </div>
   );
 };

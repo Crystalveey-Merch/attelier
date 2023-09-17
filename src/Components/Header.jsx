@@ -173,14 +173,7 @@ export const Header = () => {
       </div>
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>
       <ul className="text-black flex justify-center gap-10 h-4  xl:gap-6 Quicksand lg:hidden">
-      <li>
-          <Link
-            to="/"
-            className="middle  text-base   hover:text-gray-750"
-          >
-            New Arrivals
-          </Link>
-        </li>
+      
         <li>
           <Link
             to="/"
