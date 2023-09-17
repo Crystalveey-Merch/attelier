@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-
-
-
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,8 +16,6 @@ export const Header = () => {
       });
     });
     setMenuOpen((prev) => !prev);
-
-   
   };
 
   const preventScroll = () => {
@@ -33,7 +28,7 @@ export const Header = () => {
 
   useEffect(() => {
     preventScroll();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [menuOpen]);
 
   const [toggleAccount, setToggleAccount] = useState(false);
@@ -55,28 +50,18 @@ export const Header = () => {
           <span className="harburger-bottom bg-gray-900 transition duration-500 ease-in-out  "></span>
         </button>
         <ul className=" flex gap-3 text-black lg:hidden">
-          
           <li className="link-item">
-            <Link
-              to="/"
-              className="middle  text-base   hover:text-gray-750"
-            >
+            <Link to="/" className="middle  text-sm   hover:text-gray-750">
               About
             </Link>
           </li>
           <li>
-            <Link
-              to="/"
-              className="middle  text-base   hover:text-gray-750"
-            >
+            <Link to="/" className="middle  text-sm   hover:text-gray-750">
               Contact
             </Link>
           </li>
           <li>
-            <Link
-              to="/"
-              className="middle  text-base   hover:text-gray-750"
-            >
+            <Link to="/" className="middle  text-sm   hover:text-gray-750">
               Blog
             </Link>
           </li>
@@ -85,11 +70,10 @@ export const Header = () => {
           Crystalveey&apos;s Atelier
         </h2>
         <div className="flex gap-3 items-center text-black sm:gap-1">
-        <select className="select w-full max-w-xs bg-white outline outline-0">
-  <option  >₦ NGN</option>
-  <option>$ USD</option>
- 
-</select>
+          <select className="select w-full max-w-xs bg-white outline outline-0">
+            <option>₦ NGN</option>
+            <option>$ USD</option>
+          </select>
           <button className=" lg:hidden">
             <svg
               aria-hidden="true"
@@ -129,7 +113,7 @@ export const Header = () => {
                 <li>
                   <Link
                     to="/"
-                    className="middle  text-base   hover:text-gray-750"
+                    className="middle  text-sm   hover:text-gray-750"
                   >
                     Account
                   </Link>
@@ -137,7 +121,7 @@ export const Header = () => {
                 <li>
                   <Link
                     to="/"
-                    className="middle  text-base   hover:text-gray-750"
+                    className="middle  text-sm   hover:text-gray-750"
                   >
                     Men
                   </Link>
@@ -145,7 +129,7 @@ export const Header = () => {
                 <li>
                   <Link
                     to="/"
-                    className="middle  text-base  hover:text-gray-750"
+                    className="middle  text-sm  hover:text-gray-750"
                   >
                     Children
                   </Link>
@@ -172,48 +156,49 @@ export const Header = () => {
         </div>
       </div>
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>
-      <ul className="text-black flex justify-center gap-10 h-4  xl:gap-6 Quicksand lg:hidden">
-      
+      <ul className="text-black text-sm flex justify-center gap-10 h-4  xl:gap-6 Quicksand lg:hidden">
         <li>
-          <Link
-            to="/"
-            className="middle  text-base   hover:text-gray-750"
-          >
+          <Link to="/" className="middle  text-sm   hover:text-gray-750">
             Shop Ready to Wear
           </Link>
         </li>
         <li>
-          <Link
-            to="/"
-            className="middle  text-base   hover:text-gray-750"
-          >
+          <Link to="/" className="middle  text-sm   hover:text-gray-750">
             Order Custom Made
           </Link>
         </li>
         <div className="dropdown middle dropdown-end hover:text-gray-750">
-        <label tabIndex={0} className="text-center m-auto text-center">Categories &#8964;
-  </label>
-        <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-white rounded-box w-52 mt-4">
-          <li><a>Women</a></li> 
-          <li><a>Men</a></li>
-          <li><a>Kids</a></li>
-          <li><a>Accessories</a></li>
-          
-        </ul>
-      </div>
-       
-        <li>
-          <Link
-            to="/"
-            className="middle  text-base  hover:text-gray-750"
+          <label tabIndex={0} className="text-center m-auto ">
+            Categories &#8964;
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu dropdown-content z-[1] p-2 shadow bg-white rounded-box w-52 mt-4"
           >
+            <li>
+              <a>Women</a>
+            </li>
+            <li>
+              <a>Men</a>
+            </li>
+            <li>
+              <a>Kids</a>
+            </li>
+            <li>
+              <a>Accessories</a>
+            </li>
+          </ul>
+        </div>
+
+        <li>
+          <Link to="/" className="middle  text-sm  hover:text-gray-750">
             Shop Untag
           </Link>
         </li>
         {/* <li>
           <Link
             to="/"
-            className="middle  text-base   hover:text-gray-750"
+            className="middle  text-sm   hover:text-gray-750"
           >
             About
           </Link>
@@ -228,34 +213,22 @@ export const Header = () => {
           />
           <ul className="flex flex-col gap-5">
             <li className="border-b border-gray-700 pb-3">
-              <Link
-                to="/"
-                className="middle  text-base   hover:text-gray-750"
-              >
+              <Link to="/" className="middle  text-sm   hover:text-gray-750">
                 Shop ready to wear
               </Link>
             </li>
             <li className="border-b border-gray-700 pb-3">
-              <Link
-                to="/"
-                className="middle  text-base   hover:text-gray-750"
-              >
+              <Link to="/" className="middle  text-sm   hover:text-gray-750">
                 New Arrivals
               </Link>
             </li>
             <li className="border-b border-gray-700 pb-3">
-              <Link
-                to="/"
-                className="middle  text-base   hover:text-gray-750"
-              >
+              <Link to="/" className="middle  text-sm   hover:text-gray-750">
                 New Arrivals
               </Link>
             </li>
             <li className="border-b border-gray-700 pb-3">
-              <Link
-                to="/"
-                className="middle  text-base   hover:text-gray-750"
-              >
+              <Link to="/" className="middle  text-sm   hover:text-gray-750">
                 New Arrivals
               </Link>
             </li>
