@@ -219,6 +219,10 @@ body.is-side-menu-open {
   .header-links {
     padding-right: 30%;
   }
+  .imghgt{
+    height: 300px  !important;;
+    width: 220px  !important;;
+  }
   /* .secTIMGI{
     width: 100%;
   } */

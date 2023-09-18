@@ -9,8 +9,8 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 export const SectionFour = () => {
   const breakpoints = {
     300: {
-      slidesPerView: 1.2,
-      spaceBetween: 10,
+      slidesPerView: 2.3,
+      spaceBetween: 1,
     },
     639: {
       slidesPerView: 2,
@@ -39,9 +39,8 @@ export const SectionFour = () => {
   return (
     <div className=" flex flex-col gap-10  items-center px-4 2xl:px-20 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
       <div className="flex flex-col gap-2">
-        <p className="text-gray-700 Aceh text-base text-xl">Shop</p>
-        <h3 className=" text-black Quicksand text-2xl md:text-xl">
-          Collections
+        <h3 className=" text-black Quicksand text-xl md:text-xl">
+          Shop Collections
         </h3>
       </div>
       <Swiper
@@ -65,7 +64,7 @@ export const SectionFour = () => {
           return (
             <SwiperSlide key={collection.id}>
               <div
-                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer overflow-hidden mb-10 "
+                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer overflow-hidden mb-10 p-2 sm:p-0 "
                 onMouseEnter={() => setIsHovered(collection.id)}
                 onMouseLeave={() => setIsHovered(null)}
                 key={collection.id}
@@ -74,20 +73,20 @@ export const SectionFour = () => {
                   <img
                     src={collection.images[0].src}
                     alt={collection.name}
-                    className="w-96  sm:w-full m-auto"
-                    style={{ height: "550px" }}
+                    className="  sm:w-full m-auto imghgt"
+                    style={{ height: "420px", width: "306px" }}
                   />
                   {isHovered === collection.id && (
                     <button
                       
-                      className="w-full h-full bg-gray-900 bg-opacity-50 text-white font-medium text-base py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
+                      className="w-full h-full bg-gray-900 bg-opacity-50 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
                     >
                       Shop {collection.name} Now
                     </button>
                   )}
                 </div>
 
-                <h5 className=" text-gray-900 font-light text-xl  font-sans md:text-2xl sm:text-xl">
+                <h5 className=" text-gray-900 font-light text-x  font-sans md:text-x sm:text-x">
                   {collection.name}
                 </h5>
               </div>

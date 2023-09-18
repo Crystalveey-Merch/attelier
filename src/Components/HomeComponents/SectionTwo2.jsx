@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectCoverflow} from "swiper";
 
-export const SectionTwo = () => {
+export const SectionTwo2 = () => {
   const breakpoints = {
     300: {
       slidesPerView: 2.3,
@@ -43,7 +43,8 @@ export const SectionTwo = () => {
   return (
     <div className=" Aceh flex flex-col gap-10 items-center p-10 xl:px-5 sm:px-0 sm:gap-5">
       <div className="flex flex-col gap-4">
-        <h3 className=" text-black Quicksand text-xl"> Shop New Arrivals</h3>
+        <h3 className=" text-black Quicksand text-xl"> Shop Categories
+        </h3>
       </div>
 
       <Swiper
@@ -64,16 +65,18 @@ export const SectionTwo = () => {
           return (
             <SwiperSlide key={item.id} className="m-2">
               <div
-                className=" w-full h-full relative hvr-float cursor-pointer "
+                className=" w-full h-full  rounded-full relative hvr-float cursor-pointer "
                 onMouseEnter={() => setIsHovered(item.id)}
                 onMouseLeave={() => setIsHovered(null)}
               >
+              <div className="rounded-full relative overflow-hidden w-40 h-40">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full  m-auto imghgt"
+                  className="w-full  m-auto imghgt "
                   style={{ height: "420px", width: "306px" }}
                 />
+                </div>
                 {isHovered === item.id && (
                   <button className="w-full bg-black bg-opacity-80 text-white font-medium text-base  hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0">
                     Quick Shop
