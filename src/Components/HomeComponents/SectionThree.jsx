@@ -15,11 +15,11 @@ export const SectionThree = () => {
       spaceBetween: 20,
     },
     639: {
-      slidesPerView: 2,
+      slidesPerView: 3,
       spaceBetween: 20,
     },
     768: {
-      slidesPerView: 2,
+      slidesPerView: 3,
       spaceBetween: 40,
     },
     1024: {
@@ -36,7 +36,7 @@ export const SectionThree = () => {
   };
 
   return (
-    <div className=" flex flex-col gap-10  mx-10 sm:mx-2 py-10 rounded-3xl bg-sky-50 rounded items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
+    <div className=" flex flex-col gap-10  mx-10 sm:mx-0 py-10 rounded-3xl bg-gray-100 rounded items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
       <div className="flex flex-col gap-4 py-10">
         <p className="text-gray-700 Aceh text-5xl sm:text-3xl">
           Crystalveey's Untagged

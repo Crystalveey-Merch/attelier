@@ -9,7 +9,7 @@ import { Autoplay, Pagination, Navigation, EffectCoverflow} from "swiper";
 export const SectionTwo = () => {
   const breakpoints = {
     300: {
-      slidesPerView: 2.3,
+      slidesPerView: 2.9,
       spaceBetween: 1,
       
     },
@@ -62,18 +62,20 @@ export const SectionTwo = () => {
       >
         {items.map((item) => {
           return (
-            <SwiperSlide key={item.id} className="m-2">
+            <SwiperSlide key={item.id} className="mx-2">
               <div
                 className=" w-full h-full relative hvr-float cursor-pointer "
                 onMouseEnter={() => setIsHovered(item.id)}
                 onMouseLeave={() => setIsHovered(null)}
               >
+              <div className="w-full  overflow overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full  m-auto imghgt"
-                  style={{ height: "420px", width: "306px" }}
+                  className="w-full   imghgt"
+                  style={{ height: "330px", width: "600px" }}
                 />
+              </div>
                 {isHovered === item.id && (
                   <button className="w-full bg-black bg-opacity-80 text-white font-medium text-base  hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0">
                     Quick Shop

@@ -9,7 +9,7 @@ import { Autoplay, Pagination, Navigation, EffectCoverflow} from "swiper";
 export const SectionTwo2 = () => {
   const breakpoints = {
     300: {
-      slidesPerView: 2.3,
+      slidesPerView: 2.7,
       spaceBetween: 1,
       
     },
@@ -36,7 +36,7 @@ export const SectionTwo2 = () => {
       },
     },
   };
-  const items = datas.newItems;
+  const items = datas.categories;
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -59,33 +59,29 @@ export const SectionTwo2 = () => {
           clickable: true,
         }}
         modules={[Pagination, Navigation]}
-        className="mySwiper w-full "
+        className="mySwiper w-full  px-60 sm:px-0 lg:px-10"
       >
         {items.map((item) => {
           return (
-            <SwiperSlide key={item.id} className="m-2">
+            <SwiperSlide key={item.id} className=" hover:border m-auto sm:mx-0">
               <div
-                className=" w-full h-full  rounded-full relative hvr-float cursor-pointer "
+                className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(item.id)}
                 onMouseLeave={() => setIsHovered(null)}
               >
-              <div className="rounded-full relative overflow-hidden w-40 h-40">
+              <div className="rounded-full relative m-auto overflow-hidden w-40 sm:w-24 sm:h-24 h-40 ">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full  m-auto imghgt "
-                  style={{ height: "420px", width: "306px" }}
+                  className="w-full  m-auto imghgt2 "
+                  style={{ height: "420px", width: "400px" }}
                 />
                 </div>
-                {isHovered === item.id && (
-                  <button className="w-full bg-black bg-opacity-80 text-white font-medium text-base  hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0">
-                    Quick Shop
-                  </button>
-                )}
+               
               </div>
               <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
-                <h5 className=" text-gray-900 font-light text-x  font-sans sm:text-x">
-                  {item.category}
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
+                  {item.name}
                 </h5>
                 {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
                 <p className="text-black mb-4">{item.price}</p>
@@ -95,9 +91,7 @@ export const SectionTwo2 = () => {
         })}
       </Swiper>
 
-      <button className=" px-9 py-2 bg-gray-950 hover:bg-white border border-gray-950  hover:text-black text-white font-medium text-base hover:bg-gray-900 transition duration-300 ease-in-out">
-        See More
-      </button>
+     
     </div>
   );
 };
