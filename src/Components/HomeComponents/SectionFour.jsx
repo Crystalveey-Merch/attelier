@@ -9,7 +9,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 export const SectionFour = () => {
   const breakpoints = {
     300: {
-      slidesPerView: 1,
+      slidesPerView: 1.2,
       spaceBetween: 10,
     },
     639: {
@@ -31,7 +31,7 @@ export const SectionFour = () => {
         hideOnClick: true,
       },
     },
-  }
+  };
   const collections = datas.collections;
   //const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -45,6 +45,7 @@ export const SectionFour = () => {
         </h3>
       </div>
       <Swiper
+        navigation={true}
         slidesPerView={3}
         modules={[Pagination, Navigation, Autoplay]}
         breakpoints={breakpoints}
@@ -62,10 +63,9 @@ export const SectionFour = () => {
       >
         {collections.map((collection) => {
           return (
-
             <SwiperSlide key={collection.id}>
               <div
-                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer overflow-hidden "
+                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer overflow-hidden mb-10 "
                 onMouseEnter={() => setIsHovered(collection.id)}
                 onMouseLeave={() => setIsHovered(null)}
                 key={collection.id}
@@ -75,11 +75,14 @@ export const SectionFour = () => {
                     src={collection.images[0].src}
                     alt={collection.name}
                     className="w-96  sm:w-full m-auto"
-                  style={{ height: "550px" }}
+                    style={{ height: "550px" }}
                   />
                   {isHovered === collection.id && (
-                    <button className="w-full h-full bg-gray-900 bg-opacity-50 text-white font-medium text-base py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0">
-                      Shop Now
+                    <button
+                      
+                      className="w-full h-full bg-gray-900 bg-opacity-50 text-white font-medium text-base py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
+                    >
+                      Shop {collection.name} Now
                     </button>
                   )}
                 </div>
@@ -88,14 +91,11 @@ export const SectionFour = () => {
                   {collection.name}
                 </h5>
               </div>
-
             </SwiperSlide>
-          )
+          );
         })}
       </Swiper>
       
     </div>
   );
 };
-
-

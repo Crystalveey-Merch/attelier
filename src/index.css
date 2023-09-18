@@ -51,12 +51,12 @@
 /* Stylesheet or inline styles */
 /* Override the Swiper CSS variables */
 .swiper-pagination-bullet {
-  --swiper-pagination-bullet-width: 16px !important;
-  --swiper-pagination-bullet-height: 16px !important;
+  --swiper-pagination-bullet-width: 10px !important;
+  --swiper-pagination-bullet-height: 10px !important;
   --swiper-pagination-bullet-border-radius: 50% !important;
-  --swiper-pagination-bullet-inactive-color: #fff !important;
+  --swiper-pagination-bullet-inactive-color: #000000 !important;
   --swiper-pagination-bullet-inactive-opacity: 0.5 !important;
-  --swiper-pagination-color: #fff !important;
+  --swiper-pagination-color: #000000 !important;
   /* Add your additional styling */
   /* ... */
 }
@@ -68,7 +68,7 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  --swiper-navigation-color: #fff;
+  --swiper-navigation-color: #030000;
   --swiper-navigation-size: 50px;
 }
 

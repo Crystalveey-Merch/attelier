@@ -34,10 +34,10 @@ export const Header = () => {
   const [toggleAccount, setToggleAccount] = useState(false);
   return (
     <div
-      className="fixed top-0 left-0 w-full z-30 px-24 bg-white flex flex-col gap-6 py-5 items-center xl:px-8 sm:px-3  "
+      className="fixed top-0 left-0 w-full z-30  bg-white flex flex-col gap-0  items-center xl:px-8 sm:px-0  "
       // style={{ backgroundColor: "#efd7ec" }}
     >
-      <div className=" flex Quicksand justify-between items-center w-full ">
+      <div className=" flex Quicksand justify-between items-center w-full px-10 sm:px-3 py-2 ">
         <button
           id="menu-btn"
           onClick={handleMenu}
@@ -66,8 +66,10 @@ export const Header = () => {
             </Link>
           </li>
         </ul>
-        <h2 className="font-lifesavers text-3xl font-extrabold text-black sm:text-xl">
+        <h2 className="font-lifesavers text-2xl font-extrabold text-black sm:text-xl">
+        <Link to="/">
           Crystalveey&apos;s Atelier
+          </Link>
         </h2>
         <div className="flex gap-3 items-center text-black sm:gap-1">
           <select className="select w-full max-w-xs bg-white outline outline-0">
@@ -109,36 +111,34 @@ export const Header = () => {
               />
             </svg>
             {toggleAccount && (
-              <ul className="px-5 w-48 py-5 bg-white shadow-2xl absolute top-5 -right-7 flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
+              <ul className="px-5 w-48 py-5 text-white bg-black shadow-2xl absolute top-5 -right-7 text-left flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
                 <li>
                   <Link
                     to="/"
-                    className="middle  text-sm   hover:text-gray-750"
+                    className="  text-sm   hover:text-gray-750"
                   >
-                    Account
+                    Welcome
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/"
-                    className="middle  text-sm   hover:text-gray-750"
-                  >
-                    Men
+                <Link to="/login">
+                  Login
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/"
-                    className="middle  text-sm  hover:text-gray-750"
-                  >
-                    Children
-                  </Link>
+                  Signup 
                 </li>
+                <li>
+                  Help Center
+                </li>
+                
               </ul>
             )}
           </button>
           <button className="  h-6 w-6">
             <svg
+            width="24"
+              height="24"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
@@ -156,7 +156,7 @@ export const Header = () => {
         </div>
       </div>
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>
-      <ul className="text-black text-sm flex justify-center gap-10 h-4  xl:gap-6 Quicksand lg:hidden">
+      <ul className="text-white text-sm flex justify-center gap-10 h-full p-4  xl:gap-6 Quicksand lg:hidden bg-black w-full">
         <li>
           <Link to="/" className="middle  text-sm   hover:text-gray-750">
             Shop Ready to Wear
@@ -173,7 +173,7 @@ export const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu dropdown-content z-[1] p-2 shadow bg-white rounded-box w-52 mt-4"
+            className="menu dropdown-content z-[1] p-2 shadow bg-black rounded-box w-52 mt-4"
           >
             <li>
               <a>Women</a>
@@ -212,22 +212,22 @@ export const Header = () => {
             className="border-2 border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-gray-500 "
           />
           <ul className="flex flex-col gap-5">
-            <li className="border-b border-gray-700 pb-3">
+            <li className="border-b border-gray-200 pb-3">
               <Link to="/" className="middle  text-sm   hover:text-gray-750">
                 Shop ready to wear
               </Link>
             </li>
-            <li className="border-b border-gray-700 pb-3">
+            <li className="border-b border-gray-200 pb-3">
               <Link to="/" className="middle  text-sm   hover:text-gray-750">
                 New Arrivals
               </Link>
             </li>
-            <li className="border-b border-gray-700 pb-3">
+            <li className="border-b border-gray-200 pb-3">
               <Link to="/" className="middle  text-sm   hover:text-gray-750">
                 New Arrivals
               </Link>
             </li>
-            <li className="border-b border-gray-700 pb-3">
+            <li className="border-b border-gray-200 pb-3">
               <Link to="/" className="middle  text-sm   hover:text-gray-750">
                 New Arrivals
               </Link>
