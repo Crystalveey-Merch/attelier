@@ -74,19 +74,19 @@ export const SectionFour = () => {
                     src={collection.images[0].src}
                     alt={collection.name}
                     className="  sm:w-full m-auto imghgt"
-                    style={{ height: "420px", width: "306px" }}
+                    style={{ height: "360px", width: "306px" }}
                   />
                   {isHovered === collection.id && (
                     <button
                       
-                      className="w-full h-full bg-gray-900 bg-opacity-50 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
+                      className="w-full sm:hidden h-full bg-gray-900 bg-opacity-50 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
                     >
                       Shop {collection.name} Now
                     </button>
                   )}
                 </div>
 
-                <h5 className=" text-gray-900 font-light text-x  font-sans md:text-x sm:text-x">
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
                   {collection.name}
                 </h5>
               </div>

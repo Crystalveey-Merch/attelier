@@ -48,7 +48,7 @@ export const Header = () => {
             menuOpen ? "open" : ""
           } hidden lg:block focus:outline-none z-30 `}
         >
-          <span className="harburger-top bg-gray-900 transition duration-500 ease-in-out  "></span>
+          <span className="harburger-top  bg-gray-900 transition duration-500 ease-in-out  "></span>
           <span className="harburger-middle bg-gray-900 transition duration-500 ease-in-out  "></span>
           <span className="harburger-bottom bg-gray-900 transition duration-500 ease-in-out  "></span>
         </button>
@@ -69,11 +69,11 @@ export const Header = () => {
             </Link>
           </li>
         </ul>
-        <h2 className="font-lifesavers text-2xl font-extrabold text-black sm:text-xl">
+        <h2 className="font-lifesavers text-xl font-extrabold text-black sm:text-xl">
           <Link to="/">Crystalveey&apos;s Atelier</Link>
         </h2>
         <div className="flex gap-3 items-center text-black sm:gap-1">
-          <select className="select w-full max-w-xs bg-white outline outline-0">
+          <select className="select w-full text-xl max-w-xs bg-white outline outline-0 ">
             <option>₦</option>
             <option>$</option>
           </select>
@@ -195,14 +195,14 @@ export const Header = () => {
           </Link>
         </li> */}
       </ul>
-      <div className=" header-links z-20">
-        <div className="hidden bg-white text-black lg:flex flex-col gap-4 h-screen w-full p-4 pt-10  ">
+      <div className=" header-links z-20 ">
+        <div className="hidden bg-white text-black lg:flex flex-col gap-4 h-screen w-full p-4 pt-10  w-full  ">
           
-          <div className="tabs w-full  text-black">
+          <div className="tabs w-full   text-black">
             {tabs.map((tab, index) => (
               <a
                 key={index}
-                className={`tab tab-bordered text-black ${
+                className={`tab tab-bordered text-black m-auto Aceh  ${
                   activeTabIndex === index ? "tab-active" : ""
                 }`}
                 onClick={() => setActiveTabIndex(index)}
@@ -213,8 +213,8 @@ export const Header = () => {
             </div>
 
             {activeTabIndex === 0 && (
-              <div>
-                <ul className="flex flex-col gap-5">
+              <div className="Quicksand">
+                <ul className="flex flex-col my-4 gap-5">
                   <li className=" border-gray-200 pb-2">
                     <Link
                       to="/"
@@ -248,8 +248,8 @@ export const Header = () => {
                     </Link>
                   </li>
                 </ul>
-                <hr></hr>
-                <ul className="flex flex-col gap-5">
+                <hr ></hr>
+                <ul className="flex flex-col my-4 gap-5">
                   <li className="border-gray-200 pb-2">
                   <Link
                       to="/"
@@ -276,7 +276,7 @@ export const Header = () => {
                   </li>
                 </ul>
                 <hr></hr>
-                <ul>
+                <ul className="my-4">
                 <li>Contact Us</li>
                 </ul>
               </div>

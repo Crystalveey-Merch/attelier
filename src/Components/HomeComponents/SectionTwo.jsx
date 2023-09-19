@@ -76,15 +76,11 @@ export const SectionTwo = () => {
                   style={{ height: "330px", width: "600px" }}
                 />
               </div>
-                {isHovered === item.id && (
-                  <button className="w-full bg-black bg-opacity-80 text-white font-medium text-base  hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0">
-                    Quick Shop
-                  </button>
-                )}
+               
               </div>
               <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
                 <h5 className=" text-gray-900 font-light text-x  font-sans sm:text-x">
-                  {item.category}
+                  {item.title}
                 </h5>
                 {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
                 <p className="text-black mb-4">{item.price}</p>

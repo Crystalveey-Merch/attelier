@@ -73,8 +73,8 @@ export const SectionTwo2 = () => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full  m-auto imghgt2 "
-                  style={{ height: "420px", width: "400px" }}
+                  className="w-full h-full  m-auto "
+                //   style={{ height: "150px", width: "400px" }}
                 />
                 </div>
                
