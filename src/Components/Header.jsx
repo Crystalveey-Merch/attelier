@@ -18,6 +18,9 @@ export const Header = () => {
     setMenuOpen((prev) => !prev);
   };
 
+  const tabs = ["Crystaveey", "Untag"];
+  const [activeTabIndex, setActiveTabIndex] = useState(1);
+
   const preventScroll = () => {
     if (menuOpen) {
       document.body.classList.add("is-side-menu-open");
@@ -67,14 +70,12 @@ export const Header = () => {
           </li>
         </ul>
         <h2 className="font-lifesavers text-2xl font-extrabold text-black sm:text-xl">
-        <Link to="/">
-          Crystalveey&apos;s Atelier
-          </Link>
+          <Link to="/">Crystalveey&apos;s Atelier</Link>
         </h2>
         <div className="flex gap-3 items-center text-black sm:gap-1">
           <select className="select w-full max-w-xs bg-white outline outline-0">
-            <option>₦ NGN</option>
-            <option>$ USD</option>
+            <option>₦</option>
+            <option>$</option>
           </select>
           <button className=" lg:hidden">
             <svg
@@ -113,31 +114,21 @@ export const Header = () => {
             {toggleAccount && (
               <ul className="px-5 w-48 py-5 text-white bg-black shadow-2xl absolute top-5 -right-7 text-left flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
                 <li>
-                  <Link
-                    to="/"
-                    className="  text-sm   hover:text-gray-750"
-                  >
+                  <Link to="/" className="  text-sm   hover:text-gray-750">
                     Welcome
                   </Link>
                 </li>
                 <li>
-                <Link to="/login">
-                  Login
-                  </Link>
+                  <Link to="/login">Login</Link>
                 </li>
-                <li>
-                  Signup 
-                </li>
-                <li>
-                  Help Center
-                </li>
-                
+                <li>Signup</li>
+                <li>Help Center</li>
               </ul>
             )}
           </button>
           <button className="  h-6 w-6">
             <svg
-            width="24"
+              width="24"
               height="24"
               fill="none"
               stroke="currentColor"
@@ -205,34 +196,124 @@ export const Header = () => {
         </li> */}
       </ul>
       <div className=" header-links z-20">
-        <div className="hidden bg-white lg:flex flex-col gap-14 h-screen px-10 py-3 pl-20 sm:pl-14 sm:px-6">
-          <input
-            type="text"
-            placeholder="Search"
-            className="border-2 border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-gray-500 "
-          />
-          <ul className="flex flex-col gap-5">
-            <li className="border-b border-gray-200 pb-3">
-              <Link to="/" className="middle  text-sm   hover:text-gray-750">
-                Shop ready to wear
-              </Link>
-            </li>
-            <li className="border-b border-gray-200 pb-3">
-              <Link to="/" className="middle  text-sm   hover:text-gray-750">
-                New Arrivals
-              </Link>
-            </li>
-            <li className="border-b border-gray-200 pb-3">
-              <Link to="/" className="middle  text-sm   hover:text-gray-750">
-                New Arrivals
-              </Link>
-            </li>
-            <li className="border-b border-gray-200 pb-3">
-              <Link to="/" className="middle  text-sm   hover:text-gray-750">
-                New Arrivals
-              </Link>
-            </li>
-          </ul>
+        <div className="hidden bg-white text-black lg:flex flex-col gap-4 h-screen w-full p-4 pt-10  ">
+          
+          <div className="tabs w-full  text-black">
+            {tabs.map((tab, index) => (
+              <a
+                key={index}
+                className={`tab tab-bordered text-black ${
+                  activeTabIndex === index ? "tab-active" : ""
+                }`}
+                onClick={() => setActiveTabIndex(index)}
+              >
+                {tab}
+              </a>
+            ))}
+            </div>
+
+            {activeTabIndex === 0 && (
+              <div>
+                <ul className="flex flex-col gap-5">
+                  <li className=" border-gray-200 pb-2">
+                    <Link
+                      to="/"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                      Women
+                    </Link>
+                  </li>
+                  <li className=" border-gray-200 pb-2">
+                    <Link
+                      to="/"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                      Men
+                    </Link>
+                  </li>
+                  <li className="border-gray-200 pb-2">
+                    <Link
+                      to="/"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                      Children
+                    </Link>
+                  </li>
+                  <li className="border-gray-200 pb-2">
+                    <Link
+                      to="/"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                      Accessories
+                    </Link>
+                  </li>
+                </ul>
+                <hr></hr>
+                <ul className="flex flex-col gap-5">
+                  <li className="border-gray-200 pb-2">
+                  <Link
+                      to="/"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                  Custom Order
+                  </Link>
+                  </li>
+                  <li className="border-gray-200 pb-2" >
+                  <Link
+                      to="/"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                  About Us
+                  </Link>
+                  </li>
+                  <li className="border-gray-200 pb-2">
+                  <Link
+                      to="/"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                  Gift Cards
+                  </Link>
+                  </li>
+                </ul>
+                <hr></hr>
+                <ul>
+                <li>Contact Us</li>
+                </ul>
+              </div>
+            )}
+
+            {activeTabIndex === 1 && 
+            <div>
+            <ul className="flex flex-col gap-5">
+                  <li className="border-gray-200 pb-2">
+                  <Link
+                      to="/"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                  Refurblish
+                  </Link>
+                  </li>
+                  <li className="border-gray-200 pb-2" >
+                  <Link
+                      to="/"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                  Sell Order
+                  </Link>
+                  </li>
+                  <li className="border-gray-200 pb-2">
+                  <Link
+                      to="/"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                  Buy Order
+                  </Link>
+                  </li>
+                </ul>
+                </div>
+            
+            }
+          
         </div>
       </div>
     </div>

@@ -63,7 +63,7 @@ export const SectionTwo2 = () => {
       >
         {items.map((item) => {
           return (
-            <SwiperSlide key={item.id} className=" hover:border m-auto sm:mx-0">
+            <SwiperSlide key={item.id} className="  m-auto sm:mx-0">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(item.id)}
