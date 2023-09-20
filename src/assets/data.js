@@ -72,7 +72,7 @@ export const datas = {
       images: [
         {
           id: 1,
-          src: "src/Images/sec4/afro.jpeg",
+          src: "/src/Images/sec4/afro.jpeg",
         },
         
       ],
@@ -83,7 +83,7 @@ export const datas = {
       images: [
         {
           id: 1,
-          src: "src/Images/sec4/bag.jpeg",
+          src: "/src/Images/sec4/bag.jpeg",
         },
        
       ],
@@ -94,7 +94,7 @@ export const datas = {
       images: [
         {
           id: 1,
-          src: "src/Images/sec4/shoes.jpeg",
+          src: "/src/Images/sec4/shoes.jpeg",
         },
         
       ],
@@ -105,7 +105,7 @@ export const datas = {
       images: [
         {
           id: 1,
-          src: "src/Images/sec4/casual.jpeg",
+          src: "/src/Images/sec4/casual.jpeg",
         },
         
       
@@ -117,7 +117,7 @@ export const datas = {
       images: [
         {
           id: 1,
-          src: "src/Images/sec4/corporate.jpeg",
+          src: "/src/Images/sec4/corporate.jpeg",
         },
         
       
@@ -128,26 +128,26 @@ export const datas = {
     {
       id: 1,
       name: "Children",         
-      image: "src/Images/sec2.2/girl.jpeg",
+      image: "/src/Images/sec2.2/girl.jpeg",
       
         
     },
     {
       id: 2,
       name: "Women",         
-      image: "src/Images/sec2.2/woman.jpeg",
+      image: "/src/Images/sec2.2/woman.jpeg",
         
     },
     {
       id: 3,
       name: "Men",         
-      image: "src/Images/sec2.2/men.jpeg",
+      image: "/src/Images/sec2.2/men.jpeg",
         
     },
     {
       id: 4,
       name: "Accessories",         
-      image: "src/Images/sec2.2/watch.jpeg",
+      image: "/src/Images/sec2.2/watch.jpeg",
         
     },
   ],
