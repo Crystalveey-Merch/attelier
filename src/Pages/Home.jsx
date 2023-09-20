@@ -19,9 +19,9 @@ export const Home = () => {
       <SectionOne />
       <SectionTwo />
       <SectionTwo2/>
-      <SectionThree />
       <SectionFour />
       <SectionFive/>
+      <SectionThree />
       {/* <SectionSix/> */}
     </div>
   );

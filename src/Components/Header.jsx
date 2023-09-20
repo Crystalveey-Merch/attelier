@@ -18,6 +18,7 @@ export const Header = () => {
     setMenuOpen((prev) => !prev);
   };
 
+ 
   const tabs = ["Crystaveey", "Untag"];
   const [activeTabIndex, setActiveTabIndex] = useState(1);
 
@@ -40,7 +41,10 @@ export const Header = () => {
       className="fixed top-0 left-0 w-full z-30  bg-white flex flex-col gap-0  items-center xl:px-8 sm:px-0  "
       // style={{ backgroundColor: "#efd7ec" }}
     >
+
+
       <div className=" flex Quicksand justify-between items-center w-full px-10 sm:px-3 py-2 ">
+      
         <button
           id="menu-btn"
           onClick={handleMenu}
@@ -218,12 +222,12 @@ export const Header = () => {
                   <li className=" border-gray-200 pb-2">
                     <Link
                       to="/"
-                      className="middle  text-sm   hover:text-gray-750"
+                      className="middle  text-sm link-item   hover:text-gray-750"
                     >
                       Women
                     </Link>
                   </li>
-                  <li className=" border-gray-200 pb-2">
+                  <li className=" border-gray-200 link-item pb-2">
                     <Link
                       to="/"
                       className="middle  text-sm   hover:text-gray-750"
@@ -231,7 +235,7 @@ export const Header = () => {
                       Men
                     </Link>
                   </li>
-                  <li className="border-gray-200 pb-2">
+                  <li className="border-gray-200 link-item pb-2">
                     <Link
                       to="/"
                       className="middle  text-sm   hover:text-gray-750"
@@ -239,7 +243,7 @@ export const Header = () => {
                       Children
                     </Link>
                   </li>
-                  <li className="border-gray-200 pb-2">
+                  <li className="border-gray-200 link-item pb-2">
                     <Link
                       to="/"
                       className="middle  text-sm   hover:text-gray-750"
@@ -253,7 +257,7 @@ export const Header = () => {
                   <li className="border-gray-200 pb-2">
                   <Link
                       to="/custommade"
-                      className="middle  text-sm   hover:text-gray-750"
+                      className="middle  text-sm link-item  hover:text-gray-750"
                     >
                   Custom Order
                   </Link>
@@ -261,7 +265,7 @@ export const Header = () => {
                   <li className="border-gray-200 pb-2" >
                   <Link
                       to="/"
-                      className="middle  text-sm   hover:text-gray-750"
+                      className="middle  text-sm link-item  hover:text-gray-750"
                     >
                   About Us
                   </Link>
@@ -269,7 +273,7 @@ export const Header = () => {
                   <li className="border-gray-200 pb-2">
                   <Link
                       to="/"
-                      className="middle  text-sm   hover:text-gray-750"
+                      className="middle  text-sm link-item   hover:text-gray-750"
                     >
                   Gift Cards
                   </Link>
@@ -277,7 +281,7 @@ export const Header = () => {
                 </ul>
                 <hr></hr>
                 <ul className="my-4">
-                <li>Contact Us</li>
+                <li className="link-item">Contact Us</li>
                 </ul>
               </div>
             )}
@@ -288,7 +292,7 @@ export const Header = () => {
                   <li className="border-gray-200 pb-2">
                   <Link
                       to="/"
-                      className="middle  text-sm   hover:text-gray-750"
+                      className="middle  text-sm  link-item hover:text-gray-750"
                     >
                   Refurblish
                   </Link>
@@ -296,7 +300,7 @@ export const Header = () => {
                   <li className="border-gray-200 pb-2" >
                   <Link
                       to="/"
-                      className="middle  text-sm   hover:text-gray-750"
+                      className="middle  text-sm link-item  hover:text-gray-750"
                     >
                   Sell Order
                   </Link>
@@ -304,7 +308,7 @@ export const Header = () => {
                   <li className="border-gray-200 pb-2">
                   <Link
                       to="/"
-                      className="middle  text-sm   hover:text-gray-750"
+                      className="middle  text-sm link-item  hover:text-gray-750"
                     >
                   Buy Order
                   </Link>

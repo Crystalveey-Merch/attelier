@@ -10,7 +10,7 @@ const CustomMade = () => {
       <div className="flex flex-row">
         <img src={custom} className="w-2/4 sm:hidden" />
 
-        <div className="w-2/4 p-10 sm:w-full">
+        <div className="w-2/4 p-10 sm:w-full shadow-2xl ">
           <h1 className="text-black text-2xl Aceh text-center">
             Order Custom Made
           </h1>

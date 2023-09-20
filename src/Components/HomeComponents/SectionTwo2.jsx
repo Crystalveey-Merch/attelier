@@ -59,7 +59,7 @@ export const SectionTwo2 = () => {
           clickable: true,
         }}
         modules={[Pagination, Navigation]}
-        className="mySwiper w-full  px-60 sm:px-0 lg:px-10"
+        className="mySwiper w-full  px-4 sm:px-0 lg:px-10"
       >
         {items.map((item) => {
           return (
@@ -69,12 +69,12 @@ export const SectionTwo2 = () => {
                 onMouseEnter={() => setIsHovered(item.id)}
                 onMouseLeave={() => setIsHovered(null)}
               >
-              <div className="rounded-full relative m-auto overflow-hidden w-40 sm:w-24 sm:h-24 h-40 ">
+              <div className="  overflow-hidden ">
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-full  m-auto "
-                //   style={{ height: "150px", width: "400px" }}
+                  className="w-full m-auto imghgt "
+                  style={{ height: "360px", width: "400px" }}
                 />
                 </div>
                
