@@ -1,4 +1,3 @@
-import image1 from "../../Images/sec6/image1.png";
 import image2 from "../../Images/sec6/image2.jpeg";
 
 export const SectionFive = () => {
