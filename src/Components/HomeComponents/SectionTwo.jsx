@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { datas } from "../../assets/data.js";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation, EffectCoverflow} from "swiper";
+import {  Pagination, Navigation, } from "swiper";
 
 export const SectionTwo = () => {
   const breakpoints = {
@@ -16,6 +15,11 @@ export const SectionTwo = () => {
     639: {
       slidesPerView: 3,
       spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        hideOnClick: true,
+      },
     },
     768: {
       slidesPerView: 3,
@@ -28,17 +32,10 @@ export const SectionTwo = () => {
       centeredSlides: false,
       
     },
-    639: {
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        hideOnClick: true,
-      },
-    },
+   
   };
   const items = datas.newItems;
 
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className=" Aceh flex flex-col gap-10 items-center p-10 xl:px-5 sm:px-0 sm:gap-5">
@@ -65,8 +62,7 @@ export const SectionTwo = () => {
             <SwiperSlide key={item.id} className="mx-2">
               <div
                 className=" w-full h-full relative hvr-float cursor-pointer "
-                onMouseEnter={() => setIsHovered(item.id)}
-                onMouseLeave={() => setIsHovered(null)}
+               
               >
               <div className="w-full  overflow overflow-hidden">
                 <img

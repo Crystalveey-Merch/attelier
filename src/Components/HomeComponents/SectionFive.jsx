@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import image2 from "../../Images/sec6/image2.jpeg";
 
 export const SectionFive = () => {
@@ -14,9 +15,11 @@ export const SectionFive = () => {
         <h3 className="text-2xl sm:text-xl text-black Quicksand text-center sm:text-white ">
           Order your CUSTOM MADE wares now!!
         </h3>
+        <Link to="/custommade">
         <button className="p-4 sm:p-5 text-left rounded-full bg-black text-white text-xl m-10">
           Order Now
         </button>
+        </Link>
       </div>
     </div>
   );

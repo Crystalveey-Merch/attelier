@@ -3,6 +3,7 @@ import { Home } from "./Pages/Home";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Login from "./Pages/Login";
+import CustomMade from "./Pages/CustomMade";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -30,7 +31,7 @@ function App() {
     const interval = setInterval(changeAnimation, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [colors.length]);
   return (
     <div
       className=" min-h-screen bg-white"
@@ -46,6 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/custommade" element={<CustomMade/>} />
       </Routes>
       <Footer />
     </div>
