@@ -154,7 +154,7 @@ export const Header = () => {
           </Link>
         </li>
         <li>
-          <Link to="/" className="middle  text-sm   hover:text-gray-750">
+          <Link to="/custommade" className="middle  text-sm   hover:text-gray-750">
             Order Custom Made
           </Link>
         </li>
@@ -252,7 +252,7 @@ export const Header = () => {
                 <ul className="flex flex-col my-4 gap-5">
                   <li className="border-gray-200 pb-2">
                   <Link
-                      to="/"
+                      to="/custommade"
                       className="middle  text-sm   hover:text-gray-750"
                     >
                   Custom Order

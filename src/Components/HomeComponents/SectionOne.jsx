@@ -1,9 +1,7 @@
-import modelOne from "../../Images/Models/man-one.jpg";
 import image1 from "../../Images/sec1/image1.jpeg";  
 import image2 from "../../Images/sec1/image2.png";  
 import image3 from "../../Images/sec1/image3.png";  
 import image4 from "../../Images/sec1/image4.png";  
-import modelTwo from "../../Images/Models/woman-two.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { EffectFade } from 'swiper/modules';
 import 'swiper/css/effect-fade';
