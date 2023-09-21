@@ -4,9 +4,9 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Login from "./Pages/Login";
 import CustomMade from "./Pages/CustomMade";
-import NewArrival from "./Pages/NewArrival";
+import NewArrival from "./Pages/newArrival";
 import Categories from "./Pages/Categories";
-import Productdes from "./Pages/productdes";
+// import Productdes from "./Pages/productdes";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -52,7 +52,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/custommade" element={<CustomMade/>} />
         <Route path="/newArrival" element={<NewArrival/>} />
-        <Route path="/productdes" element={<Productdes/>} />
+        {/* <Route path="/productdes" element={<Productdes/>} /> */}
       
         <Route path="/category/:collectionName" element={<Categories />} />
       </Routes>
