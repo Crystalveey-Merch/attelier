@@ -3,6 +3,7 @@ import { datas } from "../../assets/data.js";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectCoverflow} from "swiper";
 
@@ -16,6 +17,11 @@ export const SectionTwo2 = () => {
     639: {
       slidesPerView: 3,
       spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        hideOnClick: true,
+      },
     },
     768: {
       slidesPerView: 3,
@@ -28,13 +34,7 @@ export const SectionTwo2 = () => {
       centeredSlides: false,
       
     },
-    639: {
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        hideOnClick: true,
-      },
-    },
+ 
   };
   const items = datas.categories;
 
@@ -64,6 +64,7 @@ export const SectionTwo2 = () => {
         {items.map((item) => {
           return (
             <SwiperSlide key={item.id} className="  m-auto sm:mx-0">
+              <Link to={`/category/${item.name}/${item.id}`}>
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(item.id)}
@@ -83,9 +84,9 @@ export const SectionTwo2 = () => {
                 <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
                   {item.name}
                 </h5>
-                {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
-                <p className="text-black mb-4">{item.price}</p>
+               
               </div>
+              </Link>
             </SwiperSlide>
           );
         })}

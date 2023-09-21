@@ -15,31 +15,31 @@ export const SectionFour = () => {
     639: {
       slidesPerView: 2,
       spaceBetween: 10,
-    },
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 10,
-    },
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 10,
-    },
-    639: {
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
         hideOnClick: true,
       },
     },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    1024: {
+      slidesPerView: 5,
+      spaceBetween: 10,
+    },
+   
+
   };
   const collections = datas.collections;
   //const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className=" flex flex-col gap-10  items-center px-4 2xl:px-20 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
-      <div className="flex flex-col gap-2">
-        <h3 className=" text-black Quicksand text-xl md:text-xl">
+    <div className=" flex flex-col gap-10 bg-gray-200  items-center  2xl:px-10 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
+      <div className="flex flex-col  ">
+        <h3 className=" text-black Quicksand text-xl sm:my-5 my-10 md:text-xl">
           Shop Collections
         </h3>
       </div>
@@ -64,7 +64,7 @@ export const SectionFour = () => {
           return (
             <SwiperSlide key={collection.id}>
               <div
-                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer overflow-hidden mb-10 p-2 sm:p-0 "
+                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
                 onMouseEnter={() => setIsHovered(collection.id)}
                 onMouseLeave={() => setIsHovered(null)}
                 key={collection.id}

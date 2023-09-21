@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {  Pagination, Navigation, } from "swiper";
+import { Link } from "react-router-dom";
 
 export const SectionTwo = () => {
   const breakpoints = {
@@ -62,15 +63,15 @@ export const SectionTwo = () => {
           return (
             <SwiperSlide key={item.id} className="mx-2">
               <div
-                className=" w-full h-full relative hvr-float cursor-pointer "
+                className=" w-full h-full border rounded-lg  relative hvr-float cursor-pointer "
                
               >
-              <div className="w-full  overflow overflow-hidden">
+              <div className="w-full flex justify-center  overflow overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.name}
                   className="w-full   imghgt"
-                  style={{ height: "330px", width: "600px" }}
+                  style={{ height: "330px", width: "200px" }}
                 />
               </div>
                
@@ -87,9 +88,11 @@ export const SectionTwo = () => {
         })}
       </Swiper>
 
+<Link to="/newArrival">
       <button className=" px-9 py-2 bg-gray-950 hover:bg-white border border-gray-950  hover:text-black text-white font-medium text-base hover:bg-gray-900 transition duration-300 ease-in-out">
         See More
       </button>
+      </Link>
     </div>
   );
 };

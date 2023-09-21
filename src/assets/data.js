@@ -74,6 +74,14 @@ export const datas = {
           id: 1,
           src: "/Images/sec4/afro.jpeg",
         },
+        {
+          id: 2,
+          src: "/Images/sec4/casual.jpeg",
+        },
+        {
+          id: 3,
+          src: "/Images/sec4/casual.jpeg",
+        },
         
       ],
     },
@@ -84,6 +92,14 @@ export const datas = {
       images: [
         {
           id: 1,
+          src: "/Images/sec4/casual.jpeg",
+        },
+        {
+          id: 2,
+          src: "/Images/sec4/casual.jpeg",
+        },
+        {
+          id: 3,
           src: "/Images/sec4/casual.jpeg",
         },
         
@@ -98,6 +114,14 @@ export const datas = {
           id: 1,
           src: "/Images/sec4/corporate.jpeg",
         },
+        {
+          id: 2,
+          src: "/Images/sec4/corporate.jpeg",
+        },
+        {
+          id: 3,
+          src: "/Images/sec4/corporate.jpeg",
+        },
         
       
       ],
@@ -108,6 +132,14 @@ export const datas = {
       images: [
         {
           id: 1,
+          src: "/Images/sec4/occassion.jpeg",
+        },
+        {
+          id: 2,
+          src: "/Images/sec4/occassion.jpeg",
+        },
+        {
+          id: 3,
           src: "/Images/sec4/occassion.jpeg",
         },
         
@@ -122,60 +154,170 @@ export const datas = {
           id: 1,
           src: "/Images/sec4/holiday.jpeg",
         },
+        {
+          id: 2,
+          src: "/Images/sec4/holiday.jpeg",
+        },
+        {
+          id: 3,
+          src: "/Images/sec4/holiday.jpeg",
+        },
         
       
       ],
     },
   ],
-  categories: [
-    {
-      id: 1,
-      name: "Children",         
-      image: "/Images/sec2.2/girl.jpeg",
+ categories: [
+   
+        {
+          id: 1,
+          category: "children",
+          name: "children shoe",
+          price: "N5000",
+          src: "/Images/sec4/holiday.jpeg",
+        },
+        {
+          id: 2,
+          name: "children shoe",
+          category: "children",
+          price: "N5000",
+          src: "/Images/sec4/holiday.jpeg",
+        },
+        {
+          id: 3,
+          name: "children shoe",
+          category: "children",
+          price: "N5000",
+          src: "/Images/sec4/holiday.jpeg",
+        },
+        {
+          id: 4,
+          name: "children shoe",
+          category: "children",
+          price: "N5000",
+          src: "/Images/sec4/holiday.jpeg",
+        },
+        {
+          id: 5,
+          name: "children shoe",
+          category: "children",
+          price: "N5000",
+          src: "/Images/sec4/holiday.jpeg",
+        },
+        {
+          id: 6,
+          name: "children shoe",
+          category: "children",
+          price: "N5000",
+          src: "/Images/sec4/holiday.jpeg",
+        },
+        {
+          id: 7,
+          name: "children shoe",
+          category: "children",
+          price: "N5000",
+          src: "/Images/sec4/holiday.jpeg",
+        },
+        {
+          id: 8,
+          name: "children shoe",
+          category: "children",
+          price: "N5000",
+          src: "/Images/sec4/holiday.jpeg",
+        },
+        {
+          id: 9,
+          name: "children shoe",
+          category: "children",
+          price: "N5000",
+          src: "/Images/sec4/holiday.jpeg",
+        },
+        
+      //women
+      {
+        id: 4,
+        name: "women shoe",
+        category: "women",
+        price: "N5000",
+        src: "/Images/sec4/holiday.jpeg",
+      },
+      {
+        id: 5,
+        name: "women shoe",
+        category: "women",
+        price: "N5000",
+        src: "/Images/sec4/holiday.jpeg",
+      },
+      {
+        id: 6,
+        name: "women shoe",
+        category: "women",
+        price: "N5000",
+        src: "/Images/sec4/holiday.jpeg",
+      },
+
+   //men
+
+      {
+        id: 7,
+        name: "men shoe",
+        category: "men",
+        price: "N5000",
+        src: "/Images/sec4/holiday.jpeg",
+      },
+      {
+        id: 8,
+        name: "men shoe",
+        category: "men",
+
+        price: "N5000",
+        src: "/Images/sec4/holiday.jpeg",
+      },
+      {
+        id: 9,
+        name: "men shoe",
+        category: "men",
+
+        price: "N5000",
+        src: "/Images/sec4/holiday.jpeg",
+      },
+      
+   //accessories
+
+   {
+  id: 10,
+  name: "men watch",
+  price: "N5000",
+  category: "accessories",
+  src: "/Images/sec4/holiday.jpeg",
+  },
+  {
+  id: 11,
+  name: "men watch",
+  category: "accessories",
+
+  price: "N5000",
+  src: "/Images/sec4/holiday.jpeg",
+  },
+  {
+  id: 12,
+  name: "men watch",
+  category: "accessories",
+
+  price: "N5000",
+  src: "/Images/sec4/holiday.jpeg",
+  },
+
+ ],
       
         
-    },
-    {
-      id: 2,
-      name: "Women",         
-      image: "/Images/sec2.2/woman.jpeg",
+}
+    
         
-    },
-    {
-      id: 3,
-      name: "Men",         
-      image: "/Images/sec2.2/men.jpeg",
         
-    },
-    {
-      id: 4,
-      name: "Accessories",         
-      image: "/Images/sec2.2/watch.jpeg",
+      
+    
+   
+     
         
-    },
-    {
-      id: 5,
-      name: "Handbags",
-      image: "/Images/sec4/bag.jpeg"
-      // images: [
-      //   {
-      //     id: 1,
-      //     src: "/Images/sec4/bag.jpeg",
-      //   },
-       
-      // ],
-    },
-    {
-      id: 6,
-      name: "Shoes",
-      image: "/Images/sec4/shoes.jpeg"
-      // images: [
-      //   {
-      //     id: 1,
-      //     src: "/Images/sec4/shoes.jpeg",
-      //   },
-        
-      // ],
-    },
-  ],
-};
+    

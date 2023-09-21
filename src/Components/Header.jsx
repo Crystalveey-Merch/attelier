@@ -220,63 +220,63 @@ export const Header = () => {
               <div className="Quicksand">
                 <ul className="flex flex-col my-4 gap-5">
                   <li className=" border-gray-200 pb-2">
-                    <Link
-                      to="/"
+                    <a
+                      href="/"
                       className="middle  text-sm link-item   hover:text-gray-750"
                     >
                       Women
-                    </Link>
+                    </a>
                   </li>
                   <li className=" border-gray-200 link-item pb-2">
-                    <Link
-                      to="/"
+                    <a
+                      href="/"
                       className="middle  text-sm   hover:text-gray-750"
                     >
                       Men
-                    </Link>
+                    </a>
                   </li>
                   <li className="border-gray-200 link-item pb-2">
-                    <Link
-                      to="/"
+                    <a
+                      href="/"
                       className="middle  text-sm   hover:text-gray-750"
                     >
                       Children
-                    </Link>
+                    </a>
                   </li>
                   <li className="border-gray-200 link-item pb-2">
-                    <Link
-                      to="/"
+                    <a
+                      href="/"
                       className="middle  text-sm   hover:text-gray-750"
                     >
                       Accessories
-                    </Link>
+                    </a>
                   </li>
                 </ul>
                 <hr ></hr>
                 <ul className="flex flex-col my-4 gap-5">
                   <li className="border-gray-200 pb-2">
-                  <Link
-                      to="/custommade"
+                  <a
+                      href="/custommade"
                       className="middle  text-sm link-item  hover:text-gray-750"
                     >
                   Custom Order
-                  </Link>
+                  </a>
                   </li>
                   <li className="border-gray-200 pb-2" >
-                  <Link
-                      to="/"
+                  <a
+                      href="/"
                       className="middle  text-sm link-item  hover:text-gray-750"
                     >
                   About Us
-                  </Link>
+                  </a>
                   </li>
                   <li className="border-gray-200 pb-2">
-                  <Link
+                  <a
                       to="/"
                       className="middle  text-sm link-item   hover:text-gray-750"
                     >
                   Gift Cards
-                  </Link>
+                  </a>
                   </li>
                 </ul>
                 <hr></hr>
@@ -290,28 +290,28 @@ export const Header = () => {
             <div>
             <ul className="flex flex-col gap-5">
                   <li className="border-gray-200 pb-2">
-                  <Link
-                      to="/"
+                  <a
+                      href="/"
                       className="middle  text-sm  link-item hover:text-gray-750"
                     >
                   Refurblish
-                  </Link>
+                  </a>
                   </li>
                   <li className="border-gray-200 pb-2" >
-                  <Link
-                      to="/"
+                  <a
+                      href="/"
                       className="middle  text-sm link-item  hover:text-gray-750"
                     >
                   Sell Order
-                  </Link>
+                  </a>
                   </li>
                   <li className="border-gray-200 pb-2">
-                  <Link
-                      to="/"
+                  <a
+                      href="/"
                       className="middle  text-sm link-item  hover:text-gray-750"
                     >
                   Buy Order
-                  </Link>
+                  </a>
                   </li>
                 </ul>
                 </div>
