@@ -6,7 +6,6 @@ import {
   SectionFive,
   
 } from "../Components/HomeComponents";
-import { SectionTwo2 } from "../Components/HomeComponents/SectionTwo2";
 import { SectionTwoTest } from "../Components/HomeComponents/SectionTwoTest";
 
 export const Home = () => {

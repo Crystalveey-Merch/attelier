@@ -6,7 +6,8 @@ import Login from "./Pages/Login";
 import CustomMade from "./Pages/CustomMade";
 import NewArrival from "./Pages/NewArrival";
 import Categories from "./Pages/Categories";
-// import Productdes from "./Pages/productdes";
+import Collection from "./Pages/Collection";
+import Productdes from "./Pages/productdes";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -52,9 +53,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/custommade" element={<CustomMade/>} />
         <Route path="/newArrival" element={<NewArrival/>} />
-        {/* <Route path="/productdes" element={<Productdes/>} /> */}
+        <Route path="/collection/:collectionName" element={<Collection />} />
+        <Route path="/productdes/:productId" element={<Productdes/>} />
       
-        <Route path="/category/:collectionName" element={<Categories />} />
+        <Route path="/category/:categoryName" element={<Categories />} />
       </Routes>
       <Footer />
     </div>

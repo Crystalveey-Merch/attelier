@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation, EffectCoverflow} from "swiper";
+import {  Pagination, Navigation} from "swiper";
 
 export const SectionTwo2 = () => {
   const breakpoints = {

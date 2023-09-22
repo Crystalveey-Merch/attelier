@@ -17,6 +17,11 @@ export const SectionThree = () => {
     639: {
       slidesPerView: 3,
       spaceBetween: 20,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        hideOnClick: true,
+      },
     },
     768: {
       slidesPerView: 3,
@@ -26,13 +31,7 @@ export const SectionThree = () => {
       slidesPerView: 3,
       spaceBetween: 30,
     },
-    639: {
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        hideOnClick: true,
-      },
-    },
+  
   };
 
   return (

@@ -71,13 +71,13 @@ export const Footer = () => {
                 href="mailto:office.crystalveey@gmail.com"
                 className="hover:text-gray-750"
               >
-                <i class="fa-solid fa-envelope"></i> {"    "}
+                <i className="fa-solid fa-envelope"></i> {"    "}
                 office.crystalveey@gmail.com
               </a>
             </li>
             <li className=" flex gap-1 items-center  font-medium text-sm cursor-pointer w-max">
               <a href="tel:+2548126091411" className="hover:text-gray-750">
-                <i class="fa-solid fa-phone"></i> +254 812 609 1411
+                <i className="fa-solid fa-phone"></i> +254 812 609 1411
               </a>
             </li>
           </ul>
@@ -86,16 +86,16 @@ export const Footer = () => {
           <h4 className="  text-base font-semibold ">Follow Us</h4>
           <div className="flex gap-4 text-xl mt-5">
             <a href="https://www.instagram.com/explorecrystalveey/">
-              <i class="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-instagram"></i>
             </a>
             <a href="https://web.facebook.com/crystalveeyshop">
-              <i class="fa-brands fa-facebook"></i>
+              <i className="fa-brands fa-facebook"></i>
             </a>
             <a href="https://twitter.com/crystalveeyshop">
-              <i class="fa-brands fa-x-twitter"></i>
+              <i className="fa-brands fa-x-twitter"></i>
             </a>
             <a href="https://wa.link/s55ykr">
-              <i class="fa-brands fa-whatsapp"></i>
+              <i className="fa-brands fa-whatsapp"></i>
             </a>
           </div>
 

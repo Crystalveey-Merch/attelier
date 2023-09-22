@@ -1,10 +1,10 @@
-import { datas } from "../../assets/data.js";
 import { useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 
 export const SectionFour = () => {
   const breakpoints = {
@@ -32,7 +32,6 @@ export const SectionFour = () => {
    
 
   };
-  const collections = datas.collections;
   //const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -60,39 +59,164 @@ export const SectionFour = () => {
         // navigation={true}
         className="mySwiper z-0 swiper-v  h-full w-full"
       >
-        {collections.map((collection) => {
-          return (
-            <SwiperSlide key={collection.id}>
+        
+        
+            <SwiperSlide >
+            <Link to="/collection/afrocentric">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
-                onMouseEnter={() => setIsHovered(collection.id)}
-                onMouseLeave={() => setIsHovered(null)}
-                key={collection.id}
+               
+              
               >
                 <div className="hvr-bounce-in">
                   <img
-                    src={collection.images[0].src}
-                    alt={collection.name}
+                    src="/Images/sec4/afro.jpeg"
+                    alt="Afrocentric"
                     className="  sm:w-full m-auto imghgt"
                     style={{ height: "360px", width: "306px" }}
                   />
-                  {isHovered === collection.id && (
+                  
                     <button
                       
-                      className="w-full sm:hidden h-full bg-gray-900 bg-opacity-50 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
+                      className="w-full sm:hidden h-10 bg-gray-900 bg-opacity-75 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
                     >
-                      Shop {collection.name} Now
+                      Shop Now
                     </button>
-                  )}
+                  
                 </div>
 
                 <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
-                  {collection.name}
+                Afrocentric Wears
                 </h5>
               </div>
+              </Link>
             </SwiperSlide>
-          );
-        })}
+            <SwiperSlide >
+            <Link to="/collection/casual">
+              <div
+                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
+                
+              
+              >
+                <div className="hvr-bounce-in">
+                  <img
+                    src="/Images/sec4/casual.jpeg"
+                    alt="Afrocentric"
+                    className="  sm:w-full m-auto imghgt"
+                    style={{ height: "360px", width: "306px" }}
+                  />
+                  
+                    <button
+                      
+                      className="w-full sm:hidden h-10 bg-gray-900 bg-opacity-75 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
+                    >
+                      Shop Now
+                    </button>
+                 
+                </div>
+
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
+                Casual Wears
+                </h5>
+              </div>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide >
+            <Link to="/collection/corporate">
+              <div
+                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
+                
+              
+              >
+                <div className="hvr-bounce-in">
+                  <img
+                    src="/Images/sec4/corporate.jpeg"
+                    alt="Corporate"
+                    className="  sm:w-full m-auto imghgt"
+                    style={{ height: "360px", width: "306px" }}
+                  />
+                 
+                    <button
+                      
+                      className="w-full sm:hidden h-10 bg-gray-900 bg-opacity-75 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
+                    >
+                      Shop Now
+                    </button>
+                 
+                </div>
+
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
+                Corporate Wears
+                </h5>
+              </div>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide >
+            <Link to="/collection/occasion">
+
+              <div
+                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
+                onMouseEnter={() => setIsHovered (true)}
+                onMouseLeave={() => setIsHovered(null)}
+              
+              >
+                <div className="hvr-bounce-in">
+                  <img
+                    src="/Images/sec4/occassion.jpeg"
+                    alt="Occassion"
+                    className="  sm:w-full m-auto imghgt"
+                    style={{ height: "360px", width: "306px" }}
+                  />
+                 
+                    <button
+                      
+                      className="w-full sm:hidden h-10 bg-gray-900 bg-opacity-75 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
+                    >
+                      Shop Now
+                    </button>
+                 
+                </div>
+
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
+                Ocassion Wears
+                </h5>
+              </div>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide >
+            <Link to="/collection/corporate">
+
+              <div
+                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
+                onMouseEnter={() => setIsHovered (true)}
+                onMouseLeave={() => setIsHovered(null)}
+              
+              >
+                <div className="hvr-bounce-in">
+                  <img
+                    src="/Images/sec4/holiday.jpeg"
+                    alt="Holiday Wears"
+                    className="  sm:w-full m-auto imghgt"
+                    style={{ height: "360px", width: "306px" }}
+                  />
+                 
+                    <button
+                      
+                      className="w-full sm:hidden h-10 bg-gray-900 bg-opacity-75 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
+                    >
+                      Shop Now
+                    </button>
+                 
+                </div>
+
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
+              Holiday Wears
+                </h5>
+              </div>
+              </Link>
+            </SwiperSlide>
+          
+       
       </Swiper>
       
     </div>

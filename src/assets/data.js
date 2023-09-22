@@ -167,69 +167,81 @@ export const datas = {
       ],
     },
   ],
- categories: [
+ products: [
    
         {
           id: 1,
           category: "children",
           name: "children shoe",
-          price: "N5000",
+          price: "2000",
+          collection: "corporate" ,
           src: "/Images/sec4/holiday.jpeg",
         },
         {
           id: 2,
           name: "children shoe",
           category: "children",
-          price: "N5000",
+          price: "5000",
+          collection: "corporate" ,
           src: "/Images/sec4/holiday.jpeg",
         },
         {
           id: 3,
           name: "children shoe",
           category: "children",
-          price: "N5000",
+          price: "3000",
+          collection: "casual" ,
           src: "/Images/sec4/holiday.jpeg",
         },
         {
           id: 4,
           name: "children shoe",
           category: "children",
-          price: "N5000",
+          price: "1000",
+          collection: "casual" ,
           src: "/Images/sec4/holiday.jpeg",
         },
         {
           id: 5,
           name: "children shoe",
           category: "children",
-          price: "N5000",
+          price: "10000",
+          collection: "afrocentric" ,
           src: "/Images/sec4/holiday.jpeg",
         },
         {
           id: 6,
           name: "children shoe",
           category: "children",
-          price: "N5000",
+          price: "3700",
+          collection: "afrocentric" ,
           src: "/Images/sec4/holiday.jpeg",
         },
         {
           id: 7,
           name: "children shoe",
           category: "children",
-          price: "N5000",
+          price: "15000",
+          collection: "occassion" ,
+
           src: "/Images/sec4/holiday.jpeg",
         },
         {
           id: 8,
           name: "children shoe",
           category: "children",
-          price: "N5000",
+          price: "55000",
+          collection: "afrocentric" ,
+
           src: "/Images/sec4/holiday.jpeg",
         },
         {
           id: 9,
           name: "children shoe",
           category: "children",
-          price: "N5000",
+          price: "1500",
+          collection: "occassion" ,
+
           src: "/Images/sec4/holiday.jpeg",
         },
         
@@ -238,21 +250,25 @@ export const datas = {
         id: 4,
         name: "women shoe",
         category: "women",
-        price: "N5000",
+        price: "12000",
+        collection: "occassion" ,
+
         src: "/Images/sec4/holiday.jpeg",
       },
       {
         id: 5,
         name: "women shoe",
         category: "women",
-        price: "N5000",
+        price: "7000",
+        collection: "holiday" ,
+
         src: "/Images/sec4/holiday.jpeg",
       },
       {
         id: 6,
         name: "women shoe",
         category: "women",
-        price: "N5000",
+        price: "3000",
         src: "/Images/sec4/holiday.jpeg",
       },
 
@@ -262,23 +278,27 @@ export const datas = {
         id: 7,
         name: "men shoe",
         category: "men",
-        price: "N5000",
+        price: "9000",
+        collection: "holiday" ,
+
         src: "/Images/sec4/holiday.jpeg",
       },
       {
         id: 8,
         name: "men shoe",
         category: "men",
+        collection: "holiday" ,
 
-        price: "N5000",
+        price: "10000",
         src: "/Images/sec4/holiday.jpeg",
       },
       {
         id: 9,
         name: "men shoe",
         category: "men",
+        collection: "afrocentric" ,
 
-        price: "N5000",
+        price: "2000",
         src: "/Images/sec4/holiday.jpeg",
       },
       
@@ -287,7 +307,7 @@ export const datas = {
    {
   id: 10,
   name: "men watch",
-  price: "N5000",
+  price: "15000",
   category: "accessories",
   src: "/Images/sec4/holiday.jpeg",
   },
@@ -296,7 +316,7 @@ export const datas = {
   name: "men watch",
   category: "accessories",
 
-  price: "N5000",
+  price: "35000",
   src: "/Images/sec4/holiday.jpeg",
   },
   {
@@ -304,11 +324,20 @@ export const datas = {
   name: "men watch",
   category: "accessories",
 
-  price: "N5000",
+  price: "7000",
   src: "/Images/sec4/holiday.jpeg",
+  },
+  {
+    id: 13,
+    src: "/Images/newArrivals/image3.jpeg",
+    name: "Bloom Dress",
+    category: "women",
+    collection: "corporate" ,
+    price: "12000",
   },
 
  ],
+ 
       
         
 }
