@@ -11,8 +11,8 @@ const Productdes = () => {
         return <div>Product not found.</div>;
       }
   return (
-    <div className="mt-40 px-20 flex justify-center" key={product.id}>
-        <div className="border m-20 ">
+    <div className="mt-40  sm:mt-28 px-20 sm:px-0 flex sm:block justify-center" key={product.id}>
+        <div className="border m-20 sm:m-5 ">
             <img src={product.src}
             style={{ height: "500px", width: "400px" }}
 

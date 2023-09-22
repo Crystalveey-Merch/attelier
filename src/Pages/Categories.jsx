@@ -94,7 +94,7 @@ const Categories = () => {
             </ul>
           </div>
         </div>
-        <div className="flex mt-24 ">
+        <div className="flex mt-24 sm:block">
           <div className="sm:hidden">
             <SideNav />
           </div>
