@@ -7,7 +7,7 @@ import CustomMade from "./Pages/CustomMade";
 import NewArrival from "./Pages/NewArrival";
 import Categories from "./Pages/Categories";
 import Collection from "./Pages/Collection";
-import Productdes from "./Pages/productdes";
+import Productdes from "./Pages/Productdes";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
