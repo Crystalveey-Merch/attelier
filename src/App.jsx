@@ -2,12 +2,16 @@ import { Footer, Header } from "./Components";
 import { Home } from "./Pages/Home";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Login from "./Pages/Login";
+import Login from  "./Pages/Login";
 import CustomMade from "./Pages/CustomMade";
 import NewArrival from "./Pages/NewArrival";
 import Categories from "./Pages/Categories";
 import Collection from "./Pages/Collection";
 import Productdes from "./Pages/Productdes";
+import Aboutus from "./Pages/Aboutus";
+import Shoes from "./Pages/Shoes"
+import Bags from "./Pages/Bags";
+import Accessories from "./Pages/Accessories";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -55,7 +59,11 @@ function App() {
         <Route path="/newArrival" element={<NewArrival/>} />
         <Route path="/collection/:collectionName" element={<Collection />} />
         <Route path="/productdes/:productId" element={<Productdes/>} />
-      
+        <Route path="/aboutus" element={<Aboutus/>} />
+    <Route path="/accessories" element={<Accessories/>}/>
+    <Route path="/bags" element={<Bags/>}/>
+
+    <Route path="/shoes" element={<Shoes/>}/>
         <Route path="/category/:categoryName" element={<Categories />} />
       </Routes>
       <Footer />

@@ -72,16 +72,11 @@ export const SectionFour = () => {
                   <img
                     src="/Images/sec4/afro.jpeg"
                     alt="Afrocentric"
-                    className="  sm:w-full m-auto imghgt"
+                    className="  sm:w-full m-auto imghgt2"
                     style={{ height: "360px", width: "306px" }}
                   />
                   
-                    <button
-                      
-                      className="w-full sm:hidden h-10 bg-gray-900 bg-opacity-75 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
-                    >
-                      Shop Now
-                    </button>
+                    
                   
                 </div>
 
@@ -102,21 +97,16 @@ export const SectionFour = () => {
                   <img
                     src="/Images/sec4/casual.jpeg"
                     alt="Afrocentric"
-                    className="  sm:w-full m-auto imghgt"
+                    className="  sm:w-full m-auto imghgt2"
                     style={{ height: "360px", width: "306px" }}
                   />
                   
-                    <button
-                      
-                      className="w-full sm:hidden h-10 bg-gray-900 bg-opacity-75 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
-                    >
-                      Shop Now
-                    </button>
+                    
                  
                 </div>
 
                 <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
-                Casual Wears
+                Comfort Wears
                 </h5>
               </div>
               </Link>
@@ -132,21 +122,16 @@ export const SectionFour = () => {
                   <img
                     src="/Images/sec4/corporate.jpeg"
                     alt="Corporate"
-                    className="  sm:w-full m-auto imghgt"
+                    className="  sm:w-full m-auto imghgt2"
                     style={{ height: "360px", width: "306px" }}
                   />
                  
-                    <button
-                      
-                      className="w-full sm:hidden h-10 bg-gray-900 bg-opacity-75 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
-                    >
-                      Shop Now
-                    </button>
+                    
                  
                 </div>
 
                 <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
-                Corporate Wears
+                Formal Wears
                 </h5>
               </div>
               </Link>
@@ -164,21 +149,15 @@ export const SectionFour = () => {
                   <img
                     src="/Images/sec4/occassion.jpeg"
                     alt="Occassion"
-                    className="  sm:w-full m-auto imghgt"
+                    className="  sm:w-full m-auto imghgt2"
                     style={{ height: "360px", width: "306px" }}
                   />
                  
-                    <button
-                      
-                      className="w-full sm:hidden h-10 bg-gray-900 bg-opacity-75 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
-                    >
-                      Shop Now
-                    </button>
                  
                 </div>
 
                 <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
-                Ocassion Wears
+                Party Wears
                 </h5>
               </div>
               </Link>
@@ -196,25 +175,48 @@ export const SectionFour = () => {
                   <img
                     src="/Images/sec4/holiday.jpeg"
                     alt="Holiday Wears"
-                    className="  sm:w-full m-auto imghgt"
+                    className="  sm:w-full m-auto imghgt2"
                     style={{ height: "360px", width: "306px" }}
                   />
                  
-                    <button
-                      
-                      className="w-full sm:hidden h-10 bg-gray-900 bg-opacity-75 text-white font-medium text-x py-2 hover:bg-gray-800 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0"
-                    >
-                      Shop Now
-                    </button>
+                    
                  
                 </div>
 
                 <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
-              Holiday Wears
+              Resort Wears
                 </h5>
               </div>
               </Link>
             </SwiperSlide>
+            <SwiperSlide >
+            <Link to="/collection/occassion">
+
+              <div
+                className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
+                onMouseEnter={() => setIsHovered (true)}
+                onMouseLeave={() => setIsHovered(null)}
+              
+              >
+                <div className="hvr-bounce-in">
+                  <img
+                    src="/Images/sec4/holiday.jpeg"
+                    alt="Holiday Wears"
+                    className="  sm:w-full m-auto imghgt2"
+                    style={{ height: "360px", width: "306px" }}
+                  />
+                 
+                    
+                 
+                </div>
+
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans md:text-x sm:text-x">
+              Occassion Wears
+                </h5>
+              </div>
+              </Link>
+            </SwiperSlide>
+            
           
        
       </Swiper>

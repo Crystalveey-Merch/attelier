@@ -1,70 +1,6 @@
 //import img from "../../public/Images";
 export const datas = {
-  newItems: [
-    {
-      id: 9,
-      image: "/Images/newArrivals/image3.jpeg",
-      title: "Bloom Dress",
-      category: "Women",
-      price: "N 120.00",
-    },
-    {
-      id: 8,
-      image: "/Images/newArrivals/image14.jpeg",
-      title: "Tia Dress",
-      category: "Trouser",
-      price: "N10,500",
-    },
-    {
-      id: 7,
-      image: "/Images/newArrivals/image13.jpeg",
-      title: "Zendra",
-      category: "Coat & Jacket",
-      price: "N9,500",
-    },
-    {
-      id: 6,
-      image: "/Images/newArrivals/image11.jpeg",
-      title: "Bloom Dress",
-      category: "Women",
-      price: "N15,000",
-    },
-    {
-      id: 5,
-      image: "/Images/newArrivals/image12.jpeg",
-      title: "Luxe Maxi",
-      category: "Coat & Jacket",
-      price: "N12,500",
-    },
-    {
-      id: 4,
-      image: "/Images/newArrivals/image5.jpeg",
-      title: "Luxe Maxi",
-      category: "Coat & Jacket",
-      price: "N12,500",
-    },
-    {
-      id: 3,
-      image: "/Images/newArrivals/image8.jpeg",
-      title: "Luxe Maxi",
-      category: "Coat & Jacket",
-      price: "N12,500",
-    },
-    {
-      id: 2,
-      image: "/Images/newArrivals/image10.jpeg",
-      title: "Luxe Maxi",
-      category: "Coat & Jacket",
-      price: "N12,500",
-    },
-    {
-      id: 1,
-      image: "/Images/newArrivals/image16.jpeg",
-      title: "Luxe Maxi",
-      category: "Coat & Jacket",
-      price: "N12,500",
-    },
-  ],
+ 
   collections: [
     {
       id: 1,
@@ -82,10 +18,9 @@ export const datas = {
           id: 3,
           src: "/Images/sec4/casual.jpeg",
         },
-        
       ],
     },
-    
+
     {
       id: 4,
       name: "Casual Wears",
@@ -102,8 +37,6 @@ export const datas = {
           id: 3,
           src: "/Images/sec4/casual.jpeg",
         },
-        
-      
       ],
     },
     {
@@ -122,8 +55,6 @@ export const datas = {
           id: 3,
           src: "/Images/sec4/corporate.jpeg",
         },
-        
-      
       ],
     },
     {
@@ -132,18 +63,16 @@ export const datas = {
       images: [
         {
           id: 1,
-          src: "/Images/sec4/occassion.jpeg",
+          src: "/Images/sec4/occasion.jpeg",
         },
         {
           id: 2,
-          src: "/Images/sec4/occassion.jpeg",
+          src: "/Images/sec4/occasion.jpeg",
         },
         {
           id: 3,
-          src: "/Images/sec4/occassion.jpeg",
+          src: "/Images/sec4/occasion.jpeg",
         },
-        
-      
       ],
     },
     {
@@ -162,191 +91,303 @@ export const datas = {
           id: 3,
           src: "/Images/sec4/holiday.jpeg",
         },
-        
-      
       ],
     },
   ],
- products: [
-   
-        {
-          id: 1,
-          category: "children",
-          name: "children shoe",
-          price: "2000",
-          collection: "corporate" ,
-          src: "/Images/sec4/holiday.jpeg",
-        },
-        {
-          id: 2,
-          name: "children shoe",
-          category: "children",
-          price: "5000",
-          collection: "corporate" ,
-          src: "/Images/sec4/holiday.jpeg",
-        },
-        {
-          id: 3,
-          name: "children shoe",
-          category: "children",
-          price: "3000",
-          collection: "casual" ,
-          src: "/Images/sec4/holiday.jpeg",
-        },
-        {
-          id: 4,
-          name: "children shoe",
-          category: "children",
-          price: "1000",
-          collection: "casual" ,
-          src: "/Images/sec4/holiday.jpeg",
-        },
-        {
-          id: 5,
-          name: "children shoe",
-          category: "children",
-          price: "10000",
-          collection: "afrocentric" ,
-          src: "/Images/sec4/holiday.jpeg",
-        },
-        {
-          id: 6,
-          name: "children shoe",
-          category: "children",
-          price: "3700",
-          collection: "afrocentric" ,
-          src: "/Images/sec4/holiday.jpeg",
-        },
-        {
-          id: 7,
-          name: "children shoe",
-          category: "children",
-          price: "15000",
-          collection: "occassion" ,
+  products: [
+    //children
+    {
+      id: 1,
+      category: "children",
+      name: "children shoe",
+      price: "2000",
+      collection: "corporate",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 1.1,
+      name: "children shoe",
+      category: "children",
+      price: "5000",
+      collection: "corporate",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 1.2,
+      name: "children shoe",
+      category: "children",
+      price: "3000",
+      collection: "casual",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 1.3,
+      name: "children shoe",
+      category: "children",
+      price: "1000",
+      collection: "casual",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 1.4,
+      name: "children shoe",
+      category: "children",
+      price: "10000",
+      collection: "afrocentric",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 1.5,
+      name: "children shoe",
+      category: "children",
+      price: "3700",
+      collection: "afrocentric",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 1.6,
+      name: "children shoe",
+      category: "children",
+      price: "15000",
+      collection: "occasion",
 
-          src: "/Images/sec4/holiday.jpeg",
-        },
-        {
-          id: 8,
-          name: "children shoe",
-          category: "children",
-          price: "55000",
-          collection: "afrocentric" ,
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 1.7,
+      name: "children shoe",
+      category: "children",
+      price: "55000",
+      collection: "afrocentric",
 
-          src: "/Images/sec4/holiday.jpeg",
-        },
-        {
-          id: 9,
-          name: "children shoe",
-          category: "children",
-          price: "1500",
-          collection: "occassion" ,
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 1.8,
+      name: "children shoe",
+      category: "children",
+      price: "1500",
+      collection: "occasion",
 
-          src: "/Images/sec4/holiday.jpeg",
-        },
-        
-      //women
-      {
-        id: 4,
-        name: "women shoe",
-        category: "women",
-        price: "12000",
-        collection: "occassion" ,
+      src: "/Images/sec4/holiday.jpeg",
+    },
 
-        src: "/Images/sec4/holiday.jpeg",
-      },
-      {
-        id: 5,
-        name: "women shoe",
-        category: "women",
-        price: "7000",
-        collection: "holiday" ,
+    //women
+    {
+      id: 200,
+      name: "women shoe",
+      category: "women",
+      price: "12000",
+      collection: "occasion",
 
-        src: "/Images/sec4/holiday.jpeg",
-      },
-      {
-        id: 6,
-        name: "women shoe",
-        category: "women",
-        price: "3000",
-        src: "/Images/sec4/holiday.jpeg",
-      },
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 201,
+      name: "women shoe",
+      category: "women",
+      price: "7000",
+      collection: "holiday",
 
-   //men
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 203,
+      name: "women shoe",
+      category: "women",
+      price: "3000",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 204,
+      src: "/Images/newArrivals/image3.jpeg",
+      name: "Bloom Dress",
+      newarrival: true,
+      category: "women",
+      collection: "corporate",
+      price: "12000",
+    },
+    {
+      id: 205,
+      src: "/Images/newArrivals/image3.jpeg",
+      name: "Bloom Dress",
+      newarrival: true,
+      category: "women",
+      price: " 16000",
+    },
+    {
+      id: 206,
+      src: "/Images/newArrivals/image14.jpeg",
+      name: "Tia Dress",
+      category: "women",
+      collection: "corporate",
+      newarrival: true,
+      price: "10,500",
+    },
+    {
+      id: 207,
+      src: "/Images/newArrivals/image13.jpeg",
+      name: "Zendra",
+      category: "women",
+      newarrival: true,
+      price: "9,500",
+    },
+    {
+      id: 208,
+      src: "/Images/newArrivals/image11.jpeg",
+      name: "Bloom Dress",
+      category: "women",
+      newarrival: true,
+      price: "15,000",
+    },
+    {
+      id: 209,
+      src: "/Images/newArrivals/image12.jpeg",
+      name: "Luxe Maxi",
+      newarrival: true,
+      category: "women",
+      price: "12,500",
+    },
+    {
+      id: 210,
+      src: "/Images/newArrivals/image5.jpeg",
+      name: "Luxe Maxi",
+      category: "women",
+      newarrival: true,
+      price: "12,500",
+    },
+    {
+      id: 211,
+      src: "/Images/newArrivals/image8.jpeg",
+      name: "Luxe Maxi",
+      category: "women",
+      newarrival: true,
+      price: "12,500",
+    },
+    {
+      id: 212,
+      src: "/Images/newArrivals/image10.jpeg",
+      name: "Luxe Maxi",
+      category: "women",
+      newarrival: true,
+      price: "12,500",
+    },
+    {
+      id: 213,
+      src: "/Images/newArrivals/image16.jpeg",
+      name: "Luxe Maxi",
+      newarrival: true,
+      category: "women",
+      price: "12,500",
+    },
 
-      {
-        id: 7,
-        name: "men shoe",
-        category: "men",
-        price: "9000",
-        collection: "holiday" ,
+    //MEN Clothes
 
-        src: "/Images/sec4/holiday.jpeg",
-      },
-      {
-        id: 8,
-        name: "men shoe",
-        category: "men",
-        collection: "holiday" ,
+    {
+      id: 300,
+      name: "men clothes",
+      category: "men",
+      price: "9000",
+      collection: "holiday",
 
-        price: "10000",
-        src: "/Images/sec4/holiday.jpeg",
-      },
-      {
-        id: 9,
-        name: "men shoe",
-        category: "men",
-        collection: "afrocentric" ,
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 301,
+      name: "men Clothe",
+      category: "men",
+      collection: "holiday",
 
-        price: "2000",
-        src: "/Images/sec4/holiday.jpeg",
-      },
-      
-   //accessories
+      price: "10000",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 302,
+      name: "men Clothes",
+      category: "men",
+      collection: "afrocentric",
 
-   {
-  id: 10,
-  name: "men watch",
-  price: "15000",
-  category: "accessories",
-  src: "/Images/sec4/holiday.jpeg",
-  },
-  {
-  id: 11,
-  name: "men watch",
-  category: "accessories",
+      price: "2000",
+      src: "/Images/sec4/holiday.jpeg",
+    },
 
-  price: "35000",
-  src: "/Images/sec4/holiday.jpeg",
-  },
-  {
-  id: 12,
-  name: "men watch",
-  category: "accessories",
+    //accessories
 
-  price: "7000",
-  src: "/Images/sec4/holiday.jpeg",
-  },
-  {
-    id: 13,
-    src: "/Images/newArrivals/image3.jpeg",
-    name: "Bloom Dress",
-    category: "women",
-    collection: "corporate" ,
-    price: "12000",
-  },
+    {
+      id: 401,
+      name: "men watch",
+      price: "15000",
+      category: "men",
+      accessories: "watch",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 402,
+      name: "men watch",
+      accessories: "watch",
+      category: "women",
+      price: "35000",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 403,
+      name: "men watch",
+      category: "men",
+      accessories: "watch",
+      price: "7000",
+      src: "/Images/sec4/holiday.jpeg",
+    },
 
- ],
- 
-      
-        
-}
-    
-        
-        
-      
-    
-   
-     
-        
-    
+    //SHOES
+    {
+      id: 500,
+      name: "men shoe",
+      price: "15000",
+      category: "men",
+      shoes: "true",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 501,
+      name: "momen shoes",
+      category: "women",
+      shoes: "true",
+      price: "35000",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 502,
+      name: "men shoe",
+      category: "men",
+      shoes: "true",
+      price: "7000",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+
+    //Bags
+    {
+      id: 600,
+      name: "men Bag",
+      price: "15000",
+      bags: "true",
+      category: "men",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 601,
+      name: "Woman Bag",
+      bags: "true",
+      category: "women",
+      price: "35000",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+    {
+      id: 602,
+      name: "Women bags",
+      bags: "true",
+      category: "women",
+      price: "7000",
+      src: "/Images/sec4/holiday.jpeg",
+    },
+  ],
+};

@@ -1,6 +1,6 @@
 const SideNav = () => {
   return (
-    <div className="join join-vertical w-58 text-sm">
+    <div className="join join-vertical w-68 text-sm">
       <div className="collapse collapse-arrow join-item  border-b border-gray-300">
         <input type="radio" name="my-accordion-4" />
         <div className="collapse-title  text-sm font-medium">Categories</div>
@@ -15,9 +15,7 @@ const SideNav = () => {
             <a href="/category/children">
               <li className="cursor-pointer hover:text-black">Children</li>
             </a>
-            <a href="/category/accessories">
-              <li className="cursor-pointer hover:text-black">Accessories</li>
-            </a>
+
           </ul>
         </div>
       </div>
@@ -41,16 +39,27 @@ const SideNav = () => {
             <a href="/collection/holiday">
               <li className="cursor-pointer hover:text-black">Holiday</li>
             </a>
+          
           </ul>
         </div>
       </div>
       <div className="collapse collapse-arrow join-item border-b border-gray-300">
         <input type="radio" name="my-accordion-4" />
         <div className="collapse-title text-sm  font-medium">
-          Click to open this one and close others
+          Other Categories
         </div>
         <div className="collapse-content">
-          <p>hello</p>
+        <ul className="ml-10 flex flex-col gap-5">
+        <a href="/accessories">
+              <li className="cursor-pointer hover:text-black">Accessories</li>
+            </a>
+            <a href="/bags">
+              <li className="cursor-pointer hover:text-black">Bags</li>
+            </a>
+            <a href="/shoes">
+              <li className="cursor-pointer hover:text-black">Shoes</li>
+            </a>
+            </ul>
         </div>
       </div>
     </div>

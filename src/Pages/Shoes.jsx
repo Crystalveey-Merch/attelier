@@ -3,81 +3,58 @@ import { datas } from "../assets/data.js";
 import { useState } from "react";
 import SideNav from "../Components/sidebarComponent/SideNav.jsx";
 
+const Shoes = () => {
+    const { categoryName } = useParams();
 
-const Categories = () => {
-  const { categoryName } = useParams();
-
-  const allProducts = datas.products.filter(
-    (product) => product.category === categoryName
-  );
-  const [filteredProducts, setFilteredProducts] = useState(allProducts);
-
+    const allProducts = datas.products.filter(
+      (product) => product.shoes
+    );
+    const [filteredProducts, setFilteredProducts] = useState(allProducts);
   
-  const [sortOrder, setSortOrder] = useState('asc');
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleSort = (order) => {
-    const sorted = [...filteredProducts];
-    if (order === 'asc') {
-      sorted.sort((a, b) => a.price - b.price);
-      setSortOrder('asc');
-    } else {
-      sorted.sort((a, b) => b.price - a.price);
-      setSortOrder('desc');
-    }
-    setFilteredProducts(sorted); // Update filteredProducts with the sorted array
-  };
-  const clearFilter = () => {
-    setFilteredProducts(allProducts); // Reset the filteredProducts to original order
-    setSortOrder("asc"); // Reset the sorting order
-  };
-  const filterAfroCollection = () => {
-    // Filter products with a data collection called "men"
-    const menProducts = allProducts.filter(
-      (product) => product.collection === "afrocentric"
-    );
-    setFilteredProducts(menProducts);
-  };
-  const filterCasualCollection = () => {
-    // Filter products with a data collection called "men"
-    const menProducts = allProducts.filter(
-      (product) => product.collection === "casual"
-    );
-    setFilteredProducts(menProducts);
-  };
-  const filterCorporateCollection = () => {
-    // Filter products with a data collection called "men"
-    const menProducts = allProducts.filter(
-      (product) => product.collection === "corporate"
-    );
-    setFilteredProducts(menProducts);
-  };
-  const filterOccasionCollection = () => {
-    // Filter products with a data collection called "men"
-    const menProducts = allProducts.filter(
-      (product) => product.collection === "occasion"
-    );
-    setFilteredProducts(menProducts);
-  };
-  const filterHolidayCollection = () => {
-    // Filter products with a data collection called "men"
-    const menProducts = allProducts.filter(
-      (product) => product.collection === "holiday"
-    );
-    setFilteredProducts(menProducts);
-  };
-  const filterAccessoriesCollection = () => {
-    // Filter products with a data collection called "men"
-    const menProducts = allProducts.filter(
-      (product) => product.collection === "accessories"
-    );
-    setFilteredProducts(menProducts);
-  };
-
+    
+    const [sortOrder, setSortOrder] = useState('asc');
+    const [isHovered, setIsHovered] = useState(false);
+  
+    const handleSort = (order) => {
+      const sorted = [...filteredProducts];
+      if (order === 'asc') {
+        sorted.sort((a, b) => a.price - b.price);
+        setSortOrder('asc');
+      } else {
+        sorted.sort((a, b) => b.price - a.price);
+        setSortOrder('desc');
+      }
+      setFilteredProducts(sorted); // Update filteredProducts with the sorted array
+    };
+    const clearFilter = () => {
+      setFilteredProducts(allProducts); // Reset the filteredProducts to original order
+      setSortOrder("asc"); // Reset the sorting order
+    };
+    const filterMenCollection = () => {
+      // Filter products with a data collection called "men"
+      const menProducts = allProducts.filter(
+        (product) => product.category === "men"
+      );
+      setFilteredProducts(menProducts);
+    };
+    const filterWomenCollection = () => {
+      // Filter products with a data collection called "men"
+      const womenProducts = allProducts.filter(
+        (product) => product.category === "women"
+      );
+      setFilteredProducts(womenProducts);
+    };
+    const filterChildrenCollection = () => {
+      // Filter products with a data collection called "men"
+      const childrenProducts = allProducts.filter(
+        (product) => product.category === "children"
+      );
+      setFilteredProducts(childrenProducts);
+    };
   return (
     <div className="mt-40 sm:mt-28  w-full Quicksand  pt-2 sm:px-4">
       <div className="text-center sm:text-xl text-3xl text-black my-10 px-20 Aceh">
-        {categoryName.toUpperCase()} Category
+        Shoes
       </div>
       
         <div className="text-gray-100 bg-gray-800 sm:py-4 text-sm flex justify-end sm:justify-center w-full gap-10 sm:gap-5">
@@ -98,23 +75,14 @@ const Categories = () => {
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
             >
-              <li onClick={filterCasualCollection}>
-                <a>Casual</a>
+             <li onClick={filterMenCollection}>
+                <a>Men</a>
               </li>
-              <li onClick={filterCorporateCollection}>
-                <a>Corporate</a>
+              <li onClick={filterWomenCollection}>
+                <a>Women</a>
               </li>
-              <li onClick={filterAfroCollection}>
-                <a>Afrocentric</a>
-              </li>
-              <li onClick={filterHolidayCollection}>
-                <a>Holiday</a>
-              </li>
-              <li onClick={filterOccasionCollection}>
-                <a>Occasion</a>
-              </li>
-              <li onClick={filterAccessoriesCollection}>
-                <a>Accessories</a>
+              <li onClick={filterChildrenCollection}>
+                <a>Children</a>
               </li>
             </ul>
             
@@ -148,7 +116,7 @@ const Categories = () => {
           <div className="sm:hidden">
             <SideNav />
           </div>
-      <div className="grid grid-cols-4 sm:grid-cols-2 w-full gap-2 bg-gray-100  justify-center cursor ">
+      <div className="grid grid-cols-4 sm:grid-cols-2 gap-2 bg-gray-100  justify-center cursor ">
         {filteredProducts.map((product) => {
           return (
             <div
@@ -185,7 +153,7 @@ const Categories = () => {
       </div>
      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Categories;
+export default Shoes

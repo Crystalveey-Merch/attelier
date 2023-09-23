@@ -8,6 +8,10 @@ import {  Pagination, Navigation, } from "swiper";
 import { Link } from "react-router-dom";
 
 export const SectionTwo = () => {
+  const allProducts = datas.products.filter(
+    (product) => product.newarrival
+  );
+
   const breakpoints = {
     300: {
       slidesPerView: 2.9,
@@ -36,7 +40,7 @@ export const SectionTwo = () => {
     },
    
   };
-  const items = datas.newItems;
+  const items = allProducts;
 
 
   return (
@@ -68,9 +72,9 @@ export const SectionTwo = () => {
               >
               <div className="w-full flex justify-center  overflow overflow-hidden">
                 <img
-                  src={item.image}
+                  src={item.src}
                   alt={item.name}
-                  className="w-full   imghgt"
+                  className="w-full   imghgt2"
                   style={{ height: "330px", width: "200px" }}
                 />
               </div>
@@ -78,10 +82,10 @@ export const SectionTwo = () => {
               </div>
               <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
                 <h5 className=" text-gray-900 font-light text-x  font-sans sm:text-x">
-                  {item.title}
+                 {item.name}
                 </h5>
                 {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
-                <p className="text-black mb-4">{item.price}</p>
+                <p className="text-black mb-4"> <i className="fas fa-naira-sign"/>{item.price}</p>
               </div>
             </SwiperSlide>
           );

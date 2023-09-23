@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 const Productdes = () => {
     const products = datas.products ;
     const { productId } = useParams();
-    const product = products.find(p => p.id === parseInt(productId));
+    const product = products.find(p => p.id === parseInt(productId) , );
 
     if (!product) {
         return <div>Product not found.</div>;

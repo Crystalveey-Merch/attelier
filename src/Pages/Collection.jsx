@@ -29,46 +29,76 @@ const Collection = () => {
     setFilteredProducts(allProducts); // Reset the filteredProducts to original order
     setSortOrder("asc"); // Reset the sorting order
   };
+  const filterMenCollection = () => {
+    // Filter products with a data collection called "men"
+    const menProducts = allProducts.filter(
+      (product) => product.category === "men"
+    );
+    setFilteredProducts(menProducts);
+  };
+  const filterWomenCollection = () => {
+    // Filter products with a data collection called "men"
+    const womenProducts = allProducts.filter(
+      (product) => product.category === "women"
+    );
+    setFilteredProducts(womenProducts);
+  };
+  const filterChildrenCollection = () => {
+    // Filter products with a data collection called "men"
+    const childrenProducts = allProducts.filter(
+      (product) => product.category === "children"
+    );
+    setFilteredProducts(childrenProducts);
+  };
+  
 
   return (
-    <div className="mt-40 sm:mt-28  w-full Quicksand  pt-2 sm:px-4">
+    <div className="mt-40 sm:mt-28  w-full Quicksand  pt-2 ">
       <div>
         <div className="text-center sm:text-xl text-3xl text-black my-5 px-20 Aceh">
           {collectionName.toUpperCase()} Collection
         </div>
 
-        <div className="relative text-gray-600 text-sm flex gap-10 px-10">
-          <div className="dropdown absolute  z-20 mr-40 sm:right-1 px-2  sm:ml-50 sm:right-10 right-28 w-60  ">
-            <h1 className="px-2">{filteredProducts.length} Results</h1>
-
+        <div className=" text-gray-100 bg-gray-800 sm:py-4 text-sm flex justify-end sm:justify-center m-0 gap-10 sm:gap-5">
+          <div className="dropdown  ">
+            <label
+              tabIndex={0}
+              className=" flex justify-center lowercase m-2 sm:m-0  hover:border-b"
+            >
+              <span className="m-auto flex gap-2 ">
+                <i className="fas fa-filter " />
+                Filter
+                <i className="fas fa-sort-down" />
+              </span>
+              <h1 className="px-2 ">{filteredProducts.length} Results</h1>
+              <div></div>
+            </label>
             <ul
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
             >
-              <li>
-                <a>Casual</a>
+              <li onClick={filterMenCollection}>
+                <a>Men</a>
               </li>
-              <li>
-                <a>Corporate</a>
+              <li onClick={filterWomenCollection}>
+                <a>Women</a>
               </li>
-              <li>
-                <a>Afrocentric</a>
+              <li onClick={filterChildrenCollection}>
+                <a>Children</a>
               </li>
-              <li>
-                <a>Holiday</a>
-              </li>
-              <li>
-                <a>Occasion</a>
-              </li>
+             
             </ul>
           </div>
-          <div className="dropdown absolute dropdown-end z-20 right-0 top-0">
-            <label
-              tabIndex={0}
-              className=" mx-10 m-auto sm:mx-0 btn lowercase "
-            >
+          <div onClick={() => clearFilter()} className=" m-2 sm:m-0 ">
+            <i className="fas fa-x" />{" "}
+            <a className="text-red-500 hover:underline cursor-pointer ">
+              Clear filters
+            </a>
+          </div>
+          <div className="dropdown  dropdown-end m-2 sm:m-0 ">
+            <label tabIndex={0} className=" mx-10 m-auto sm:mx-0  lowercase ">
               <i className="fas fa-info pr-2" />
-              Recomenation <i className="fas fa-sort-down" />
+              Sort by: <i className="fas fa-sort-down" />
             </label>
             <ul
               tabIndex={0}
@@ -80,56 +110,50 @@ const Collection = () => {
               <li onClick={() => handleSort("desc")}>
                 <a>Highest to Lowest</a>
               </li>
-              <li onClick={() => clearFilter()}>
-                <a>Default</a>
-              </li>
             </ul>
           </div>
         </div>
 
-        <div className="flex mt-24 ">
+        <div className="flex mt-10 ">
           <div className="sm:hidden">
             <SideNav />
           </div>
-          
-          <div className="grid grid-cols-4 sm:grid-cols-2 gap-2 bg-gray-100  justify-center cursor ">
+
+          <div className="grid grid-cols-4 sm:grid-cols-2 gap-2 w-full bg-gray-100  justify-center cursor ">
             {filteredProducts.map((product) => {
               return (
-                
                 <div
                   key={product.id}
                   className="my-4 p-2 m-4 sm:m-0 sm:p-0 border rounded rounded-lg hvr-shrink cursur-pointer"
                   onMouseEnter={() => setIsHovered(product.id)}
                   onMouseLeave={() => setIsHovered(null)}
                 >
-                <Link to={`/productdes/${product.id}` }>
-                  <img
-                    src={product.src}
-                    alt={product.name}
-                    className="  sm:w-full m-auto imghgt"
-                    style={{ height: "360px", width: "306px" }}
-                  />
-                  {isHovered === product.id && (
-                    <button className="w-full sm:hidden h-full bg-gray-200 bg-opacity-25 text-white font-medium rounded rounded-lg text-x py-2 hover:bg-gray-600 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0">
-                      Shop
-                    </button>
-                  )}
-                  <div className="  m-auto w-full justify-center gap-1 sm:gap-2   ">
-                    <h5 className=" text-gray-900 font-light text-x text-center font-sans sm:text-sm">
-                      {product.name}
-                    </h5>
-                    {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
-                    <p className="text-black text-xl mb-4 text-center Aceh ">
-                      <i className="fas fa-naira-sign" /> {product.price}
-                    </p>
-                  </div>
+                  <Link to={`/productdes/${product.id}`}>
+                    <img
+                      src={product.src}
+                      alt={product.name}
+                      className="  sm:w-full m-auto imghgt"
+                      style={{ height: "360px", width: "306px" }}
+                    />
+                    {isHovered === product.id && (
+                      <button className="w-full sm:hidden h-full bg-gray-200 bg-opacity-25 text-white font-medium rounded rounded-lg text-x py-2 hover:bg-gray-600 transition duration-300 ease-in-out absolute z-10 bottom-0 hover:bg-opacity-70 left-0">
+                        Shop
+                      </button>
+                    )}
+                    <div className="  m-auto w-full justify-center gap-1 sm:gap-2   ">
+                      <h5 className=" text-gray-900 font-light text-x text-center font-sans sm:text-sm">
+                        {product.name}
+                      </h5>
+                      {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
+                      <p className="text-black text-xl mb-4 text-center Aceh ">
+                        <i className="fas fa-naira-sign" /> {product.price}
+                      </p>
+                    </div>
                   </Link>
                 </div>
-               
               );
             })}
           </div>
-          
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@ export const Header = () => {
 
  
   const tabs = ["Crystaveey", "Untag"];
-  const [activeTabIndex, setActiveTabIndex] = useState(1);
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   const preventScroll = () => {
     if (menuOpen) {
@@ -58,7 +58,7 @@ export const Header = () => {
         </button>
         <ul className=" flex gap-3 text-black lg:hidden">
           <li className="link-item">
-            <Link to="/" className="middle  text-sm   hover:text-gray-750">
+            <Link to="/aboutus" className="middle  text-sm   hover:text-gray-750">
               About
             </Link>
           </li>
@@ -264,7 +264,7 @@ export const Header = () => {
                   </li>
                   <li className="border-gray-200 pb-2" >
                   <a
-                      href="/"
+                      href="/aboutus"
                       className="middle  text-sm link-item  hover:text-gray-750"
                     >
                   About Us

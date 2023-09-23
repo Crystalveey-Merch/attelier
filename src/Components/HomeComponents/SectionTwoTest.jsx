@@ -22,7 +22,7 @@ export const SectionTwoTest = () => {
       spaceBetween: 10,
     },
     1024: {
-      slidesPerView: 4,
+      slidesPerView: 5,
       spaceBetween: 10,
       loop: true,
       centeredSlides: false,
@@ -41,7 +41,7 @@ export const SectionTwoTest = () => {
       </div>
 
       <Swiper
-  
+        navigation={true}
        slidesPerView={'auto'}
        watchSlidesProgress
        grabCursor={true}
@@ -51,7 +51,11 @@ export const SectionTwoTest = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination, Navigation]}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper w-full  px-4 sm:px-0 lg:px-10"
       >
         
@@ -68,7 +72,7 @@ export const SectionTwoTest = () => {
                   src= "/Images/sec2.2/girl.jpeg"
                   alt="children"
                   className="w-full m-auto imghgt "
-                  style={{ height: "360px", width: "400px" }}
+                  style={{ height: "260px", width: "400px" }}
                 />
                 </div>
                
@@ -93,7 +97,7 @@ export const SectionTwoTest = () => {
                   src= "/Images/sec2.2/woman.jpeg"
                   alt="children"
                   className="w-full m-auto imghgt "
-                  style={{ height: "360px", width: "400px" }}
+                  style={{ height: "260px", width: "400px" }}
                 />
                 </div>
                
@@ -118,7 +122,7 @@ export const SectionTwoTest = () => {
                   src= "/Images/sec2.2/men.jpeg"
                   alt="children"
                   className="w-full m-auto imghgt "
-                  style={{ height: "360px", width: "400px" }}
+                  style={{ height: "260px", width: "400px" }}
                 />
                 </div>
                
@@ -130,9 +134,9 @@ export const SectionTwoTest = () => {
                
               </div>
               </Link>
-            </SwiperSlide>
-            <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/accessories">
+              </SwiperSlide>
+              <SwiperSlide  className="  m-auto sm:mx-0">
+              <Link to="/accessories">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -143,7 +147,7 @@ export const SectionTwoTest = () => {
                   src= "/Images/sec2.2/watch.jpeg"
                   alt="children"
                   className="w-full m-auto imghgt "
-                  style={{ height: "360px", width: "400px" }}
+                  style={{ height: "260px", width: "400px" }}
                 />
                 </div>
                
@@ -155,11 +159,62 @@ export const SectionTwoTest = () => {
                
               </div>
               </Link>
-            </SwiperSlide>
+              </SwiperSlide>
+              <SwiperSlide  className="  m-auto sm:mx-0">
+              <Link to="/bags">
+              <div
+                className=" w-full h-full  rounded-full relative   cursor-pointer "
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(null)}
+              >
+              <div className="  overflow-hidden ">
+                <img
+                  src= "/Images/sec2.2/bag.jpeg"
+                  alt="children"
+                  className="w-full m-auto imghgt "
+                  style={{ height: "360px", width: "400px" }}
+                />
+                </div>
+               
+              </div>
+              <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
+                  Bags
+                </h5>
+               
+              </div>
+              </Link>
+              </SwiperSlide>
+           
+              <SwiperSlide  className="  m-auto sm:mx-0">
+              <Link to="/shoes">
+              <div
+                className=" w-full h-full  rounded-full relative   cursor-pointer "
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(null)}
+              >
+              <div className="  overflow-hidden ">
+                <img
+                  src= "/Images/sec2.2/shoes.jpeg"
+                  alt="children"
+                  className="w-full m-auto imghgt "
+                  style={{ height: "260px", width: "400px" }}
+                />
+                </div>
+               
+              </div>
+              <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
+                  Shoes
+                </h5>
+               
+              </div>
+              </Link>
+              </SwiperSlide>
           
         
-      </Swiper>
 
+</Swiper>
      
     </div>
   );
