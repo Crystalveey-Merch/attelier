@@ -66,6 +66,7 @@ export const SectionTwo = () => {
         {items.map((item) => {
           return (
             <SwiperSlide key={item.id} className="mx-2">
+            <Link to={`/productdes/${item.id}`}>
               <div
                 className=" w-full h-full border rounded-lg  relative hvr-float cursor-pointer "
                
@@ -87,6 +88,7 @@ export const SectionTwo = () => {
                 {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
                 <p className="text-black mb-4"> <i className="fas fa-naira-sign"/>{item.price}</p>
               </div>
+              </Link>
             </SwiperSlide>
           );
         })}

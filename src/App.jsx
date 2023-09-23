@@ -12,6 +12,7 @@ import Aboutus from "./Pages/Aboutus";
 import Shoes from "./Pages/Shoes"
 import Bags from "./Pages/Bags";
 import Accessories from "./Pages/Accessories";
+import Cart from "./Pages/Cart";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -63,6 +64,7 @@ function App() {
     <Route path="/accessories" element={<Accessories/>}/>
     <Route path="/bags" element={<Bags/>}/>
 
+    <Route path="/cart" element={<Cart/>}/>
     <Route path="/shoes" element={<Shoes/>}/>
         <Route path="/category/:categoryName" element={<Categories />} />
       </Routes>
