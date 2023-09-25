@@ -15,10 +15,12 @@ const Productdes = ( ) => {
   const [totalPrice, setTotalPrice] = useState(0)
   const { productId } = useParams();
 
+//   console.log('productId:', ProductId);
+
   useEffect(() => {
     // Find the product based on the productId
     const selectedProduct = products.find((p) => p.id === parseInt(productId));
-
+console.log(productId);
     if (selectedProduct) {
       setProduct(selectedProduct); // Set the product data
       setTotalPrice(selectedProduct.price * quantity); // Calculate the initial total price
@@ -27,15 +29,20 @@ const Productdes = ( ) => {
     }
   }, [productId, quantity, products]);
 
+
+
   const handleQuantityChange = (e) => {
     const newQuantity = parseInt(e.target.value);
     setQuantity(newQuantity);
+    // setQuantity(...products, quantity);
     
     if (product) {
-      setTotalPrice(newQuantity * product.price); // Calculate the new total price if the product exists
+      setTotalPrice(newQuantity * product.price)
+      
     } else {
       setTotalPrice(0);
     }
+
   };
 
   if (!product) {
@@ -43,8 +50,12 @@ const Productdes = ( ) => {
   }
 
   const addToCart = () => {
+    
     addItem(product)
+  
     toast(<div>Added to Cart! <button className="bg-black p-1 text-white">View Cart</button></div>);
+
+    
 
   }
 

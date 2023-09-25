@@ -6,7 +6,7 @@ export const datas = {
   products: [
     //children
     {
-      id: 1,
+      id: 100,
       category: "children",
       name: "children shoe",
       price: "2000",
@@ -21,7 +21,7 @@ export const datas = {
       ]
     },
     {
-      id: 1.1,
+      id: 101,
       name: "children shoe",
       category: "children",
       price: "5000",
@@ -36,7 +36,7 @@ export const datas = {
       src: "/Images/sec4/holiday.jpeg",
     },
     {
-      id: 1.2,
+      id: 102,
       name: "children shoe",
       category: "children",
       price: "3000",
@@ -51,7 +51,7 @@ export const datas = {
       ]
     },
     {
-      id: 1.3,
+      id: 103,
       name: "children shoe",
       category: "children",
       price: "1000",
@@ -66,7 +66,7 @@ export const datas = {
       ]
     },
     {
-      id: 1.4,
+      id: 104,
       name: "children shoe",
       category: "children",
       price: "10000",
@@ -81,7 +81,7 @@ export const datas = {
       ]
     },
     {
-      id: 1.5,
+      id: 105,
       name: "children shoe",
       category: "children",
       price: "3700",
@@ -96,7 +96,7 @@ export const datas = {
       ]
     },
     {
-      id: 1.6,
+      id: 106,
       name: "children shoe",
       category: "children",
       price: "15000",
@@ -111,7 +111,7 @@ export const datas = {
       ]
     },
     {
-      id: 1.7,
+      id: 107,
       name: "children shoe",
       category: "children",
       price: "55000",
@@ -127,7 +127,7 @@ export const datas = {
       ]
     },
     {
-      id: 1.8,
+      id: 108,
       name: "children shoe",
       category: "children",
       price: "1500",
