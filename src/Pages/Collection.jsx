@@ -53,9 +53,9 @@ const Collection = () => {
   
 
   return (
-    <div className="mt-40 sm:mt-28  w-full Quicksand  pt-2 ">
+    <div className="mt-36 sm:mt-28  w-full Quicksand  pt-2 ">
       <div>
-        <div className="text-center sm:text-xl text-3xl text-black my-5 px-20 Aceh">
+        <div className="text-center sm:text-xl text-3xl text-white py-4 bg-black px-20 Aceh">
           {collectionName.toUpperCase()} Collection
         </div>
 
@@ -115,7 +115,7 @@ const Collection = () => {
         </div>
 
         <div className="flex mt-10 ">
-          <div className="sm:hidden">
+          <div className="sm:hidden w-80">
             <SideNav />
           </div>
 

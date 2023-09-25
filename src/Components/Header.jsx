@@ -73,7 +73,7 @@ export const Header = () => {
             </Link>
           </li>
         </ul>
-        <h2 className="font-lifesavers text-xl font-extrabold text-black sm:text-xl">
+        <h2 className="font-lifesavers text-xl font-extrabold text-black sm:text-sm">
           <Link to="/">Crystalveey&apos;s Atelier</Link>
         </h2>
         <div className="flex gap-3 items-center text-black sm:gap-1">
@@ -125,11 +125,12 @@ export const Header = () => {
                 <li>
                   <Link to="/login">Login</Link>
                 </li>
-                <li>Signup</li>
+                
                 <li>Help Center</li>
               </ul>
             )}
           </button>
+          <Link to="/cart">
           <button className="  h-6 w-6">
             <svg
               width="24"
@@ -148,6 +149,7 @@ export const Header = () => {
               ></path>
             </svg>
           </button>
+          </Link>
         </div>
       </div>
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>
@@ -171,16 +173,22 @@ export const Header = () => {
             className="menu dropdown-content z-[1] p-2 shadow bg-black rounded-box w-52 mt-4"
           >
             <li>
-              <a>Women</a>
+              <a href="/category/women">Women</a>
             </li>
             <li>
-              <a>Men</a>
+              <a href="/category/men">Men</a>
             </li>
             <li>
-              <a>Kids</a>
+              <a href="category/children">Kids</a>
             </li>
             <li>
-              <a>Accessories</a>
+              <a href="/accessories">Accessories</a>
+            </li>
+            <li>
+              <a href="/shoes">Shoes</a>
+            </li>
+            <li>
+              <a href="/bags">Bags</a>
             </li>
           </ul>
         </div>
@@ -221,7 +229,7 @@ export const Header = () => {
                 <ul className="flex flex-col my-4 gap-5">
                   <li className=" border-gray-200 pb-2">
                     <a
-                      href="/"
+                      href="/category/women"
                       className="middle  text-sm link-item   hover:text-gray-750"
                     >
                       Women
@@ -229,7 +237,7 @@ export const Header = () => {
                   </li>
                   <li className=" border-gray-200 link-item pb-2">
                     <a
-                      href="/"
+                      href="/category/men"
                       className="middle  text-sm   hover:text-gray-750"
                     >
                       Men
@@ -237,7 +245,7 @@ export const Header = () => {
                   </li>
                   <li className="border-gray-200 link-item pb-2">
                     <a
-                      href="/"
+                      href="/category/children"
                       className="middle  text-sm   hover:text-gray-750"
                     >
                       Children
@@ -245,10 +253,26 @@ export const Header = () => {
                   </li>
                   <li className="border-gray-200 link-item pb-2">
                     <a
-                      href="/"
+                      href="/accessories"
                       className="middle  text-sm   hover:text-gray-750"
                     >
                       Accessories
+                    </a>
+                  </li>
+                  <li className="border-gray-200 link-item pb-2">
+                    <a
+                      href="/shoes"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                      Shoes
+                    </a>
+                  </li>
+                  <li className="border-gray-200 link-item pb-2">
+                    <a
+                      href="/bags"
+                      className="middle  text-sm   hover:text-gray-750"
+                    >
+                      Bags
                     </a>
                   </li>
                 </ul>

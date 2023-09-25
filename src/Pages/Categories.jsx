@@ -75,12 +75,12 @@ const Categories = () => {
   };
 
   return (
-    <div className="mt-40 sm:mt-28  w-full Quicksand  pt-2 sm:px-4">
-      <div className="text-center sm:text-xl text-3xl text-black my-10 px-20 Aceh">
+    <div className="mt-36 sm:mt-28  w-full Quicksand  pt-2 sm:px-4">
+      <div className="text-center sm:text-xl text-3xl bg-black text-white py-5 px-20 Aceh">
         {categoryName.toUpperCase()} Category
       </div>
       
-        <div className="text-gray-100 bg-gray-800 sm:py-4 text-sm flex justify-end sm:justify-center w-full gap-10 sm:gap-5">
+        <div className="text-gray-100 bg-gray-800 sm:py-4  text-sm flex justify-end sm:justify-center w-full gap-10 sm:gap-5">
           <div className="dropdown   ">
             <label tabIndex={0} className=" flex justify-center lowercase m-2 sm:m-0  hover:border-b">
             <span className="m-auto flex gap-2 ">
@@ -145,7 +145,7 @@ const Categories = () => {
           </div>
         </div>
         <div className="flex mt-10 sm:block">
-          <div className="sm:hidden">
+          <div className="sm:hidden w-80">
             <SideNav />
           </div>
       <div className="grid grid-cols-4 sm:grid-cols-2 w-full gap-2 bg-gray-100  justify-center cursor ">

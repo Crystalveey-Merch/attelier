@@ -1,6 +1,8 @@
 //import img from "../../public/Images";
+
+
 export const datas = {
- 
+  
   products: [
     //children
     {
@@ -530,4 +532,6 @@ export const datas = {
       ]
     },
   ],
+
+ 
 };

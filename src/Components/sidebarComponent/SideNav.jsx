@@ -1,6 +1,6 @@
 const SideNav = () => {
   return (
-    <div className="join join-vertical w-68 text-sm">
+    <div className="join join-vertical w-full text-sm">
       <div className="collapse collapse-arrow join-item  border-b border-gray-300">
         <input type="radio" name="my-accordion-4" />
         <div className="collapse-title  text-sm font-medium">Categories</div>

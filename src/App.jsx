@@ -59,12 +59,12 @@ function App() {
         <Route path="/custommade" element={<CustomMade/>} />
         <Route path="/newArrival" element={<NewArrival/>} />
         <Route path="/collection/:collectionName" element={<Collection />} />
-        <Route path="/productdes/:productId" element={<Productdes/>} />
-        <Route path="/aboutus" element={<Aboutus/>} />
+        <Route path="/productdes/:productId"  element={<Productdes/>} />
+        <Route path="/aboutus"   element={<Aboutus/>} />
     <Route path="/accessories" element={<Accessories/>}/>
     <Route path="/bags" element={<Bags/>}/>
 
-    <Route path="/cart" element={<Cart/>}/>
+    <Route path="/cart"  element={<Cart/>}/>
     <Route path="/shoes" element={<Shoes/>}/>
         <Route path="/category/:categoryName" element={<Categories />} />
       </Routes>
