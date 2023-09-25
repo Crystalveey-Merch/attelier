@@ -10,7 +10,7 @@ import {  Pagination, Navigation} from "swiper";
 export const SectionTwo2 = () => {
   const breakpoints = {
     300: {
-      slidesPerView: 2.7,
+      slidesPerView: 2,
       spaceBetween: 1,
       
     },
@@ -74,7 +74,7 @@ export const SectionTwo2 = () => {
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full m-auto imghgt "
+                  className="w-full m-auto imghgt2 "
                   style={{ height: "360px", width: "400px" }}
                 />
                 </div>

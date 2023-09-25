@@ -14,7 +14,7 @@ export const SectionTwo = () => {
 
   const breakpoints = {
     300: {
-      slidesPerView: 2.9,
+      slidesPerView: 2,
       spaceBetween: 1,
       
     },
@@ -75,7 +75,7 @@ export const SectionTwo = () => {
                 <img
                   src={item.src}
                   alt={item.name}
-                  className="w-full   imghgt2"
+                  className="w-full   imghgt"
                   style={{ height: "330px", width: "200px" }}
                 />
               </div>

@@ -73,10 +73,10 @@ export const Header = () => {
             </Link>
           </li>
         </ul>
-        <h2 className="font-lifesavers text-xl font-extrabold text-black sm:text-sm">
+        <h2 className="Quicksand text-2xl  text-black sm:text-sm">
           <Link to="/">Crystalveey&apos;s Atelier</Link>
         </h2>
-        <div className="flex gap-3 items-center text-black sm:gap-1">
+        <div className="flex gap-3  items-center text-black sm:gap-1">
           <select className="select w-full text-xl max-w-xs bg-white outline outline-0 ">
             <option>₦</option>
             <option>$</option>
@@ -130,8 +130,9 @@ export const Header = () => {
               </ul>
             )}
           </button>
-          <Link to="/cart">
+          
           <button className="  h-6 w-6">
+          <Link to="/cart">
             <svg
               width="24"
               height="24"
@@ -148,8 +149,9 @@ export const Header = () => {
                 d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
               ></path>
             </svg>
+            </Link>
           </button>
-          </Link>
+          
         </div>
       </div>
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>

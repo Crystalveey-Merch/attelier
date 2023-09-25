@@ -53,24 +53,24 @@ const NewArrival = () => {
   
 
   return (
-    <div className="mt-40 sm:mt-28  w-full Quicksand  pt-2 ">
+    <div className="mt-36 sm:mt-24  w-full Quicksand  pt-2 sm:px-0 ">
       <div>
-        <div className="text-center sm:text-xl text-3xl text-black my-5 px-20 Aceh">
+        <div className="text-center sm:text-xl bg-black text-3xl text-white py-5 px-20 Aceh">
          New Arrivals
         </div>
 
-        <div className=" text-gray-100 bg-gray-800 sm:py-4 text-sm flex justify-end sm:justify-center m-0 gap-10 sm:gap-5">
-          <div className="dropdown  ">
+        <div className=" text-gray-800 bg-gray-100 sm:py-4 text-sm flex justify-center sm:justify-center py-5 gap-5 sm:gap-2">
+          <div className="dropdown    ">
             <label
               tabIndex={0}
-              className=" flex justify-center lowercase m-2 sm:m-0  hover:border-b"
+              className=" flex justify-center lowercase  hover:border-b"
             >
-              <span className="m-auto flex gap-2 ">
+              <span className="m-auto flex gap-2 border p-2  border-black rounded ">
                 <i className="fas fa-filter " />
                 Filter
                 <i className="fas fa-sort-down" />
               </span>
-              <h1 className="px-2 ">{filteredProducts.length} Results</h1>
+              {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
               <div></div>
             </label>
             <ul
@@ -89,16 +89,11 @@ const NewArrival = () => {
              
             </ul>
           </div>
-          <div onClick={() => clearFilter()} className=" m-2 sm:m-0 ">
-            <i className="fas fa-x" />{" "}
-            <a className="text-red-500 hover:underline cursor-pointer ">
-              Clear filters
-            </a>
-          </div>
-          <div className="dropdown  dropdown-end m-2 sm:m-0 ">
-            <label tabIndex={0} className=" mx-10 m-auto sm:mx-0  lowercase ">
-              <i className="fas fa-info pr-2" />
-              Sort by: <i className="fas fa-sort-down" />
+         
+          <div className="dropdown  dropdown-end border border-black rounded p-2 ">
+            <label tabIndex={0} className="  ">
+              <i className="fas fa-arrow-down-short-wide px-2 m-auto" />
+              Sort by: 
             </label>
             <ul
               tabIndex={0}
@@ -112,10 +107,16 @@ const NewArrival = () => {
               </li>
             </ul>
           </div>
+          <div onClick={() => clearFilter()} className="  border rounded  p-2 border-black">
+            <i className="fas fa-x" />{" "}
+            <a className="text-red-500 hover:underline cursor-pointer ">
+              Clear filters
+            </a>
+          </div>
         </div>
 
-        <div className="flex mt-10 ">
-          <div className="sm:hidden">
+        <div className="flex mt-10  ">
+          <div className="sm:hidden w-80">
             <SideNav />
           </div>
 
@@ -124,7 +125,7 @@ const NewArrival = () => {
               return (
                 <div
                   key={product.id}
-                  className="my-4 p-2 m-4 sm:m-0 sm:p-0 border rounded rounded-lg hvr-shrink cursur-pointer"
+                  className="my-4 sm:my-0 p-2 sm:p-0 m-4 sm:m-0 sm:p-0  rounded rounded-lg hvr-shrink cursur-pointer"
                   onMouseEnter={() => setIsHovered(product.id)}
                   onMouseLeave={() => setIsHovered(null)}
                 >
@@ -132,7 +133,7 @@ const NewArrival = () => {
                     <img
                       src={product.src}
                       alt={product.name}
-                      className="  sm:w-full m-auto imghgt"
+                      className="  sm:w-full m-auto bg-white imghgt"
                       style={{ height: "360px", width: "306px" }}
                     />
                     {isHovered === product.id && (
@@ -140,12 +141,15 @@ const NewArrival = () => {
                         Shop
                       </button>
                     )}
-                    <div className="  m-auto w-full justify-center gap-1 sm:gap-2   ">
-                      <h5 className=" text-gray-900 font-light text-x text-center font-sans sm:text-sm">
-                        {product.name}
+                    <div className="  m-auto w-full ml-5  justify-center  text-left gap-1 sm:gap-2   ">
+                      <h5 className=" Aceh text-gray-900 font-light text-x  font-sans sm:text-sm">
+                        Category: {product.name}
+                      </h5>
+                      <h5 className=" text-gray-400 font-light text-sm  font-sans sm:text-sm">
+                      Category:   {product.category}
                       </h5>
                       {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
-                      <p className="text-black text-xl mb-4 text-center Aceh ">
+                      <p className="text-black text-xl mb-4 Aceh ">
                         <i className="fas fa-naira-sign" /> {product.price}
                       </p>
                     </div>

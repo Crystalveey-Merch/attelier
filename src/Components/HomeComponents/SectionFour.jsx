@@ -13,7 +13,7 @@ export const SectionFour = () => {
       spaceBetween: 1,
     },
     639: {
-      slidesPerView: 2,
+      slidesPerView: 3,
       spaceBetween: 10,
       pagination: {
         el: ".swiper-pagination",
