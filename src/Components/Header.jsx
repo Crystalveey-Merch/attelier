@@ -18,7 +18,6 @@ export const Header = () => {
     setMenuOpen((prev) => !prev);
   };
 
- 
   const tabs = ["Crystaveey", "Untag"];
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
@@ -41,63 +40,71 @@ export const Header = () => {
       className="fixed top-0 left-0 w-full z-30  bg-white flex flex-col gap-0  items-center xl:px-8 sm:px-0  "
       // style={{ backgroundColor: "#efd7ec" }}
     >
-
-
-      <div className=" flex Quicksand justify-between items-center w-full px-10 sm:px-3 py-2 ">
-      
-        <button
-          id="menu-btn"
-          onClick={handleMenu}
-          className={`hamburger  ${
-            menuOpen ? "open" : ""
-          } hidden lg:block focus:outline-none z-30 `}
-        >
-          <span className="harburger-top  bg-gray-900 transition duration-500 ease-in-out  "></span>
-          <span className="harburger-middle bg-gray-900 transition duration-500 ease-in-out  "></span>
-          <span className="harburger-bottom bg-gray-900 transition duration-500 ease-in-out  "></span>
-        </button>
-        <ul className=" flex gap-3 text-black lg:hidden">
-          <li className="link-item">
-            <Link to="/aboutus" className="middle  text-sm   hover:text-gray-750">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/" className="middle  text-sm   hover:text-gray-750">
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link to="/" className="middle  text-sm   hover:text-gray-750">
-              Blog
-            </Link>
-          </li>
-        </ul>
-        <h2 className="Quicksand text-2xl  text-black sm:text-sm">
-          <Link to="/">Crystalveey&apos;s Atelier</Link>
-        </h2>
+      <div className=" flex sm:block Quicksand justify-between items-center w-full px-10 sm:px-3 py-2 ">
+        <div className="flex  ">
+          <button
+            id="menu-btn"
+            onClick={handleMenu}
+            className={`hamburger  ${
+              menuOpen ? "open" : ""
+            } hidden lg:block focus:outline-none z-30 my-4`}
+          >
+            <span className="harburger-top  bg-gray-900 transition duration-500 ease-in-out  "></span>
+            <span className="harburger-middle bg-gray-900 transition duration-500 ease-in-out  "></span>
+            <span className="harburger-bottom bg-gray-900 transition duration-500 ease-in-out  "></span>
+          </button>
+          <ul className=" flex gap-3 justify-start text-black lg:hidden">
+            <li className="link-item">
+              <Link
+                to="/aboutus"
+                className="middle  text-sm   hover:text-gray-750"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="middle  text-sm   hover:text-gray-750">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="middle  text-sm   hover:text-gray-750">
+                Blog
+              </Link>
+            </li>
+          </ul>
+          <h2 className="Quicksand text-2xl text-center m-auto ml-96 sm:ml-16 text-black sm:text-xl">
+            <Link to="/">Crystalveey&apos;s Atelier</Link>
+          </h2>
+        </div>
         <div className="flex gap-3  items-center text-black sm:gap-1">
-          <select className="select w-full text-xl max-w-xs bg-white outline outline-0 ">
+          {/* <select className="select w-full text-xl max-w-xs bg-white outline outline-0 ">
             <option>₦</option>
             <option>$</option>
-          </select>
-          <button className=" lg:hidden">
-            <svg
-              aria-hidden="true"
-              className="w-6 h-6 "
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </button>
+          </select> */}
+          <div className="sm:m-2 flex">
+            <input
+              className="p-2 bg-white border border-black"
+              placeholder="Search"
+            ></input>
+            <button className=" bg-black px-4">
+              <svg
+                aria-hidden="true"
+                className="w-6 h-6 text-white "
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
           <button
-            className="relative h-max"
+            className="relative h-max mx-5"
             onMouseEnter={() => setToggleAccount(true)}
             onMouseLeave={() => setToggleAccount(false)}
           >
@@ -125,33 +132,32 @@ export const Header = () => {
                 <li>
                   <Link to="/login">Login</Link>
                 </li>
-                
+
                 <li>Help Center</li>
               </ul>
             )}
           </button>
-          
+
           <button className="  h-6 w-6">
-          <Link to="/cart">
-            <svg
-              width="24"
-              height="24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-              ></path>
-            </svg>
+            <Link to="/cart">
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                ></path>
+              </svg>
             </Link>
           </button>
-          
         </div>
       </div>
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>
@@ -162,7 +168,10 @@ export const Header = () => {
           </Link>
         </li>
         <li>
-          <Link to="/custommade" className="middle  text-sm   hover:text-gray-750">
+          <Link
+            to="/custommade"
+            className="middle  text-sm   hover:text-gray-750"
+          >
             Order Custom Made
           </Link>
         </li>
@@ -211,7 +220,6 @@ export const Header = () => {
       </ul>
       <div className=" header-links z-20 ">
         <div className="hidden bg-white text-black lg:flex flex-col gap-4 h-screen w-full p-4 pt-10  w-full  ">
-          
           <div className="tabs w-full   text-black">
             {tabs.map((tab, index) => (
               <a
@@ -224,126 +232,124 @@ export const Header = () => {
                 {tab}
               </a>
             ))}
-            </div>
+          </div>
 
-            {activeTabIndex === 0 && (
-              <div className="Quicksand">
-                <ul className="flex flex-col my-4 gap-5">
-                  <li className=" border-gray-200 pb-2">
-                    <a
-                      href="/category/women"
-                      className="middle  text-sm link-item   hover:text-gray-750"
-                    >
-                      Women
-                    </a>
-                  </li>
-                  <li className=" border-gray-200 link-item pb-2">
-                    <a
-                      href="/category/men"
-                      className="middle  text-sm   hover:text-gray-750"
-                    >
-                      Men
-                    </a>
-                  </li>
-                  <li className="border-gray-200 link-item pb-2">
-                    <a
-                      href="/category/children"
-                      className="middle  text-sm   hover:text-gray-750"
-                    >
-                      Children
-                    </a>
-                  </li>
-                  <li className="border-gray-200 link-item pb-2">
-                    <a
-                      href="/accessories"
-                      className="middle  text-sm   hover:text-gray-750"
-                    >
-                      Accessories
-                    </a>
-                  </li>
-                  <li className="border-gray-200 link-item pb-2">
-                    <a
-                      href="/shoes"
-                      className="middle  text-sm   hover:text-gray-750"
-                    >
-                      Shoes
-                    </a>
-                  </li>
-                  <li className="border-gray-200 link-item pb-2">
-                    <a
-                      href="/bags"
-                      className="middle  text-sm   hover:text-gray-750"
-                    >
-                      Bags
-                    </a>
-                  </li>
-                </ul>
-                <hr ></hr>
-                <ul className="flex flex-col my-4 gap-5">
-                  <li className="border-gray-200 pb-2">
+          {activeTabIndex === 0 && (
+            <div className="Quicksand">
+              <ul className="flex flex-col my-4 gap-5">
+                <li className=" border-gray-200 pb-2">
                   <a
-                      href="/custommade"
-                      className="middle  text-sm link-item  hover:text-gray-750"
-                    >
-                  Custom Order
+                    href="/category/women"
+                    className="middle  text-sm link-item   hover:text-gray-750"
+                  >
+                    Women
                   </a>
-                  </li>
-                  <li className="border-gray-200 pb-2" >
+                </li>
+                <li className=" border-gray-200 link-item pb-2">
                   <a
-                      href="/aboutus"
-                      className="middle  text-sm link-item  hover:text-gray-750"
-                    >
-                  About Us
+                    href="/category/men"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                    Men
                   </a>
-                  </li>
-                  <li className="border-gray-200 pb-2">
+                </li>
+                <li className="border-gray-200 link-item pb-2">
                   <a
-                      to="/"
-                      className="middle  text-sm link-item   hover:text-gray-750"
-                    >
-                  Gift Cards
+                    href="/category/children"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                    Children
                   </a>
-                  </li>
-                </ul>
-                <hr></hr>
-                <ul className="my-4">
+                </li>
+                <li className="border-gray-200 link-item pb-2">
+                  <a
+                    href="/accessories"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                    Accessories
+                  </a>
+                </li>
+                <li className="border-gray-200 link-item pb-2">
+                  <a
+                    href="/shoes"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                    Shoes
+                  </a>
+                </li>
+                <li className="border-gray-200 link-item pb-2">
+                  <a
+                    href="/bags"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                    Bags
+                  </a>
+                </li>
+              </ul>
+              <hr></hr>
+              <ul className="flex flex-col my-4 gap-5">
+                <li className="border-gray-200 pb-2">
+                  <a
+                    href="/custommade"
+                    className="middle  text-sm link-item  hover:text-gray-750"
+                  >
+                    Custom Order
+                  </a>
+                </li>
+                <li className="border-gray-200 pb-2">
+                  <a
+                    href="/aboutus"
+                    className="middle  text-sm link-item  hover:text-gray-750"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li className="border-gray-200 pb-2">
+                  <a
+                    to="/"
+                    className="middle  text-sm link-item   hover:text-gray-750"
+                  >
+                    Gift Cards
+                  </a>
+                </li>
+              </ul>
+              <hr></hr>
+              <ul className="my-4">
                 <li className="link-item">Contact Us</li>
-                </ul>
-              </div>
-            )}
+              </ul>
+            </div>
+          )}
 
-            {activeTabIndex === 1 && 
+          {activeTabIndex === 1 && (
             <div>
-            <ul className="flex flex-col gap-5">
-                  <li className="border-gray-200 pb-2">
+              <ul className="flex flex-col gap-5">
+                <li className="border-gray-200 pb-2">
                   <a
-                      href="/"
-                      className="middle  text-sm  link-item hover:text-gray-750"
-                    >
-                  Refurblish
+                    href="/"
+                    className="middle  text-sm  link-item hover:text-gray-750"
+                  >
+                    Refurblish
                   </a>
-                  </li>
-                  <li className="border-gray-200 pb-2" >
+                </li>
+                <li className="border-gray-200 pb-2">
                   <a
-                      href="/"
-                      className="middle  text-sm link-item  hover:text-gray-750"
-                    >
-                  Sell Order
+                    href="/"
+                    className="middle  text-sm link-item  hover:text-gray-750"
+                  >
+                    Sell 
                   </a>
-                  </li>
-                  <li className="border-gray-200 pb-2">
+                </li>
+                <li className="border-gray-200 pb-2">
                   <a
-                      href="/"
-                      className="middle  text-sm link-item  hover:text-gray-750"
-                    >
-                  Buy Order
+                    href="/"
+                    className="middle  text-sm link-item  hover:text-gray-750"
+                  >
+                    Buy 
                   </a>
-                  </li>
-                </ul>
-                </div>
-            
-            }
-          
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>

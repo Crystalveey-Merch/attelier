@@ -68,8 +68,11 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  --swiper-navigation-color: #030000;
-  --swiper-navigation-size: 50px;
+  --swiper-navigation-color: #f2efef;
+  --swiper-navigation-size: 20px;
+  background-color: #000000;
+  padding: 20px !important;
+  border-radius: 100%;
 }
 
 .font-lifesavers {

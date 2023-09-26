@@ -2,6 +2,7 @@ import image1 from "../../Images/sec3/Image1.png";
 import image2 from "../../Images/sec3/Image2.png";
 import image3 from "../../Images/sec3/Image3.png";
 import "swiper/css";
+import { Link } from "react-router-dom";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -96,13 +97,13 @@ export const SectionThree = () => {
       <dialog id="my_modal_2" className="modal ">
         <div className="modal-box flex gap-10 sm:gap-5 justify-center bg-black">
           <div className="block bg-gray-700 w-28 p-3 hvr-grow rounded rounded-lg text-white cursor-pointer">
-          <i className="fa-solid fa-scissors text-4xl "></i><h1 className="my-2">Refurblish </h1> 
+          <Link to="/refurblish"><i className="fa-solid fa-scissors text-4xl "></i><h1 className="my-2">Refurblish </h1> </Link>
           </div>
           <div className="block bg-gray-700 p-3 w-28 hvr-grow rounded rounded-lg text-white cursor-pointer">
-          <i className="fa-solid fa-money-bill-transfer  text-4xl"></i><h1 className="my-2">Sell </h1> 
+          <Link to="/sell"><i className="fa-solid fa-money-bill-transfer  text-4xl"></i><h1 className="my-2">Sell </h1> </Link>
           </div>
           <div className="block bg-gray-700 p-3 w-28 hvr-grow rounded rounded-lg cursor-pointer text-white">
-          <i className="fa-solid fa-money-bill-transfer text-4xl"></i><h1 className="my-2 ">Buy </h1> 
+          <Link to="/buy"> <i className="fa-solid fa-money-bill-transfer text-4xl"></i><h1 className="my-2 ">Buy </h1>  </Link>
           </div>
         </div>
         

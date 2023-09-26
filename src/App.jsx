@@ -13,6 +13,9 @@ import Shoes from "./Pages/Shoes"
 import Bags from "./Pages/Bags";
 import Accessories from "./Pages/Accessories";
 import Cart from "./Pages/Cart";
+import Refurblish from "./Pages/untagged/Refurblish";
+import Buy from "./Pages/untagged/Buy"
+import Sell from "./Pages/untagged/Sell"
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -48,7 +51,7 @@ function App() {
     >
       <Header />
       <div
-        className={`fixed top-0 left-0 w-full z-20 ${colors[animationIndex]} Aceh  p-3 mt-28 lg:mt-16 sm:pt-3 sm:pb-2 sm:text-sm`}
+        className={`fixed top-0 left-0 w-full z-20 ${colors[animationIndex]} Aceh  p-3 mt-28 lg:mt-26 sm:pt-3 sm:pb-2 sm:hidden`}
       >
         <p className="text-white text-center text-sm">{texts[animationIndex]}</p>
       </div>
@@ -67,6 +70,9 @@ function App() {
     <Route path="/cart"  element={<Cart/>}/>
     <Route path="/shoes" element={<Shoes/>}/>
         <Route path="/category/:categoryName" element={<Categories />} />
+        <Route path="/refurblish" element={<Refurblish/>}/>
+        <Route path="/sell" element={<Sell/>}/>
+        <Route path="/buy" element={<Buy/>}/>
       </Routes>
       <Footer />
     </div>

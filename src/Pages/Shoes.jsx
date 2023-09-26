@@ -5,7 +5,6 @@ import SideNav from "../Components/sidebarComponent/SideNav.jsx";
 
 const Shoes = () => {
   const { categoryName } = useParams();
-
   const allProducts = datas.products.filter((product) => product.shoes);
   const [filteredProducts, setFilteredProducts] = useState(allProducts);
 

@@ -73,9 +73,12 @@ const Categories = () => {
   };
 
   return (
-    <div className="mt-36 sm:mt-28  w-full Quicksand  pt-2 sm:px-4">
-      <div className="text-center sm:text-xl text-3xl bg-black text-white py-5 px-20 Aceh">
+    <div className="mt-36 sm:mt-28  w-full Quicksand  pt-2 sm:px-0">
+      <div className="text-center sm:text-xl text-3xl bg-black text-white py-5 px-20 sm:px-10 Aceh">
         {categoryName.toUpperCase()} Category
+        <h1 className="text-sm text-gray-400 Quicksand px-40 sm:px-5 w-full my-2">
+        Discover the latest trends and style for you and your loved ones with a wide range of clothing options
+        </h1>
       </div>
 
       <div className="text-gray-800 bg-gray-100 sm:py-4  text-sm flex justify-center sm:justify-center w-full   py-5 gap-5 w-full sm:gap-2">
@@ -115,12 +118,12 @@ const Categories = () => {
             </li>
           </ul>
         </div>
-       
+
         <div className="dropdown dropdown-end border border-black rounded p-2">
-        <label tabIndex={0} className="  ">
-              <i className="fas fa-arrow-down-short-wide px-2 m-auto" />
-              Sort by: 
-            </label>
+          <label tabIndex={0} className="  ">
+            <i className="fas fa-arrow-down-short-wide px-2 m-auto" />
+            Sort by:
+          </label>
           <ul
             tabIndex={0}
             className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
@@ -133,7 +136,10 @@ const Categories = () => {
             </li>
           </ul>
         </div>
-        <div onClick={() => clearFilter()} className=" border rounded  p-2 border-black ">
+        <div
+          onClick={() => clearFilter()}
+          className=" border rounded  p-2 border-black "
+        >
           <i className="fas fa-x" />{" "}
           <a className="text-red-500 hover:underline cursor-pointer ">
             Clear filters

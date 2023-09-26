@@ -53,7 +53,7 @@ const NewArrival = () => {
   
 
   return (
-    <div className="mt-36 sm:mt-24  w-full Quicksand  pt-2 sm:px-0 ">
+    <div className="mt-36 sm:mt-26  w-full Quicksand  pt-2 sm:px-0 ">
       <div>
         <div className="text-center sm:text-xl bg-black text-3xl text-white py-5 px-20 Aceh">
          New Arrivals

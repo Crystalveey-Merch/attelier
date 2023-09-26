@@ -4,15 +4,13 @@ import { useState } from "react";
 import SideNav from "../Components/sidebarComponent/SideNav.jsx";
 
 const Collection = () => {
-const [product, setProduct]= useState()
+  const [product, setProduct] = useState();
 
   const { collectionName } = useParams();
 
   const allProducts = datas.products.filter(
     (product) => product.collection === collectionName,
-    (description) => product.note === description,
-    
-
+    (description) => product.note === description
   );
   const [filteredProducts, setFilteredProducts] = useState(allProducts);
 
@@ -57,17 +55,14 @@ const [product, setProduct]= useState()
   };
 
   return (
-    <div className="mt-36 sm:mt-24  w-full Quicksand  pt-2 sm:px-0 ">
+    <div className="mt-36 sm:mt-26  w-full Quicksand  pt-2 sm:px-0 ">
       <div>
         <div className="text-center sm:text-xl text-3xl text-white py-4 bg-black  Aceh">
           {collectionName.toUpperCase()} Collection
-          <h1 className="text-sm Quicksand px-40 sm:px-5 w-full my-2">
-          
-            Shopping for corporate wear from our brand means investing in
-            quality, style, comfort, and professionalism. With a wide range of
-            options and a commitment to customer satisfaction, we are the ideal
-            choice for individuals and businesses seeking the best in corporate
-            attire
+          <h1 className="text-sm text-gray-400 Quicksand px-40 sm:px-5 w-full my-2">
+            Crystalveey’s Atelier collection is a mixture of our signature line
+            of diverse designs for afrocentric, resort, party, formal, and
+            comfort wears.
           </h1>
         </div>
 
