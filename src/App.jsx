@@ -16,6 +16,8 @@ import Cart from "./Pages/Cart";
 import Refurblish from "./Pages/untagged/Refurblish";
 import Buy from "./Pages/untagged/Buy"
 import Sell from "./Pages/untagged/Sell"
+import Blog from "./Pages/Blog";
+import Faq from "./Pages/Faq";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -73,6 +75,9 @@ function App() {
         <Route path="/refurblish" element={<Refurblish/>}/>
         <Route path="/sell" element={<Sell/>}/>
         <Route path="/buy" element={<Buy/>}/>
+        <Route path="/blog" element={<Blog/>}/>
+        <Route path="/faq" element={<Faq/>}/>
+
       </Routes>
       <Footer />
     </div>

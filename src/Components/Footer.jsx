@@ -1,13 +1,14 @@
 import "@fortawesome/fontawesome-free/css/all.css";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
     <div className="flex flex-col gap-10 px-20 pl-48 pt-16 pb-8 bg-black text-white 2xl:pl-20 xl:pl-7 sm:gap-6 sm:pl-4 sm:px-5 Quicksand">
       <div className="flex justify-between pr-40 2xl:pr-16 xl:pr-7  lg:flex lg:flex-wrap lg:gap-16 sm:gap-8 sm:pr-0">
         <div className="flex flex-col gap-4 w-60 lg:w-5/12 lg:order-1 sm:w-full">
-          <h2 className="font-lifesavers font-bold text-2xl text-white">
-            Crystalveey&apos;s Atelier
-          </h2>
+        <div className=" text-center m-auto ">
+          <img src="/Images/Avatar/logowhite.jpeg" className="w-48"/>
+        </div>
           <p className="  font-semibold text-base text-gray-600">
             Your Destination for Fashion and Elegance
           </p>
@@ -43,18 +44,21 @@ export const Footer = () => {
               </div>
             </dialog>
 
-            <li className="middle  font-medium text-sm cursor-pointer w-max">
+           <Link to="/faq"> <li className="middle  font-medium text-sm cursor-pointer w-max">
               FAQs
             </li>
+            </Link>
            
           </ul>
           <ul className="flex flex-col gap-6 w-max">
             <li className="middle  hover:text-gray-750 cursor-pointer">
               Resources
             </li>
+            <Link to="/blog"> 
             <li className="middle  font-medium text-sm cursor-pointer w-max">
               Blog
             </li>
+            </Link>
             <li className="middle  font-medium text-sm cursor-pointer w-max"
              onClick={() => document.getElementById("privacy").showModal()}>
               {" "}

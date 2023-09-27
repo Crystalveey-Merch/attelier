@@ -178,20 +178,7 @@ const Productdes = () => {
               ))}
             </ul>
           </div>
-          <div>
-            <h1 className="Aceh">Review</h1>
-            <hr></hr>
-            <div className="flex flex-col">
-              <textarea
-                className="my-5 bg-gray-100 w-80 h-24 p-4"
-                type=""
-              ></textarea>
-              <button className="bg-black px-4 py-3 text-white w-20">
-                {" "}
-                Send{" "}
-              </button>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

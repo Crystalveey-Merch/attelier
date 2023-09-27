@@ -179,7 +179,7 @@ export const SectionTwoTest = () => {
               </div>
               <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
                 <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
-                  Bags
+                  Clothing
                 </h5>
                
               </div>
@@ -206,6 +206,81 @@ export const SectionTwoTest = () => {
               <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
                 <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
                   Shoes
+                </h5>
+               
+              </div>
+              </Link>
+              </SwiperSlide>
+              <SwiperSlide  className="  m-auto sm:mx-0">
+              <Link to="/shoes">
+              <div
+                className=" w-full h-full  rounded-full relative   cursor-pointer "
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(null)}
+              >
+              <div className="  overflow-hidden ">
+                <img
+                  src= "/Images/sec2.2/shoes.jpeg"
+                  alt="children"
+                  className="w-full m-auto imghgt2 "
+                  style={{ height: "260px", width: "400px" }}
+                />
+                </div>
+               
+              </div>
+              <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
+                  Two Pieces
+                </h5>
+               
+              </div>
+              </Link>
+              </SwiperSlide>
+              <SwiperSlide  className="  m-auto sm:mx-0">
+              <Link to="/shoes">
+              <div
+                className=" w-full h-full  rounded-full relative   cursor-pointer "
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(null)}
+              >
+              <div className="  overflow-hidden ">
+                <img
+                  src= "/Images/sec2.2/shoes.jpeg"
+                  alt="children"
+                  className="w-full m-auto imghgt2 "
+                  style={{ height: "260px", width: "400px" }}
+                />
+                </div>
+               
+              </div>
+              <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
+                  Hoodies
+                </h5>
+               
+              </div>
+              </Link>
+              </SwiperSlide>
+              <SwiperSlide  className="  m-auto sm:mx-0">
+              <Link to="/shoes">
+              <div
+                className=" w-full h-full  rounded-full relative   cursor-pointer "
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(null)}
+              >
+              <div className="  overflow-hidden ">
+                <img
+                  src= "/Images/sec2.2/shoes.jpeg"
+                  alt="children"
+                  className="w-full m-auto imghgt2 "
+                  style={{ height: "260px", width: "400px" }}
+                />
+                </div>
+               
+              </div>
+              <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
+                <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
+                  Topshop
                 </h5>
                
               </div>

@@ -37,11 +37,11 @@ export const Header = () => {
   const [toggleAccount, setToggleAccount] = useState(false);
   return (
     <div
-      className="fixed top-0 left-0 w-full z-30  bg-white flex flex-col gap-0  items-center xl:px-8 sm:px-0  "
+      className="fixed top-0 left-0 w-full z-30  bg-white flex  flex-col gap-0 sm:m-0  w-full items-center xl:px-8 sm:px-0  "
       // style={{ backgroundColor: "#efd7ec" }}
     >
-      <div className=" flex sm:block Quicksand justify-between items-center w-full px-10 sm:px-3 py-2 ">
-        <div className="flex  ">
+      <div className=" flex sm:block Quicksand border border-b border justify-between items-center w-full px-10 sm:px-2 py-2 ">
+        <div className="flex sm:border-b   ">
           <button
             id="menu-btn"
             onClick={handleMenu}
@@ -68,29 +68,31 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/" className="middle  text-sm   hover:text-gray-750">
+              <Link to="/blog" className="middle  text-sm   hover:text-gray-750">
                 Blog
               </Link>
             </li>
           </ul>
-          <h2 className="Quicksand text-2xl text-center m-auto ml-96 sm:ml-16 text-black sm:text-xl">
-            <Link to="/">Crystalveey&apos;s Atelier</Link>
-          </h2>
+          <Link to="/" >
+          <div className=" m-auto ml-96">
+          <img src="/Images/Avatar/logo.jpeg" className="w-48"/>
+          </div>
+          </Link>
         </div>
-        <div className="flex gap-3  items-center text-black sm:gap-1">
+        <div className="flex gap-3  items-center   justify-center text-gray-600 sm:gap-1">
           {/* <select className="select w-full text-xl max-w-xs bg-white outline outline-0 ">
             <option>₦</option>
             <option>$</option>
           </select> */}
-          <div className="sm:m-2 flex">
+          <div className="my-2 flex  border-gray-600 ">
             <input
-              className="p-2 bg-white border border-black"
+              className="p-2 bg-white border w-50 "
               placeholder="Search"
             ></input>
             <button className=" bg-black px-4">
               <svg
                 aria-hidden="true"
-                className="w-6 h-6 text-white "
+                className="w-6 h-5 text-white "
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +106,7 @@ export const Header = () => {
             </button>
           </div>
           <button
-            className="relative h-max mx-5"
+            className="relative h-max mx-2"
             onMouseEnter={() => setToggleAccount(true)}
             onMouseLeave={() => setToggleAccount(false)}
           >
@@ -163,9 +165,34 @@ export const Header = () => {
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>
       <ul className="text-white text-sm flex justify-center gap-10 h-full p-4  xl:gap-6 Quicksand lg:hidden bg-black w-full">
         <li>
-          <Link to="/" className="middle  text-sm   hover:text-gray-750">
-            Shop Ready to Wear
-          </Link>
+        <div className="dropdown middle dropdown-end hover:text-gray-750">
+          <label  tabIndex={0} className="middle  text-sm   hover:text-gray-750">
+            Shop Ready to Wear  &#8964;
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu dropdown-content z-[1] p-2 shadow bg-black rounded-box w-52 mt-4"
+          >
+            <li>
+              <a href="/category/women">Afrocentric</a>
+            </li>
+            <li>
+              <a href="/category/men">Comfort Wears</a>
+            </li>
+            <li>
+              <a href="category/children">Formal Wears</a>
+            </li>
+            <li>
+              <a href="/accessories">Party Wears</a>
+            </li>
+            <li>
+              <a href="/shoes">Resort Wears</a>
+            </li>
+            <li>
+              <a href="/bags">Occassion Wears</a>
+            </li>
+          </ul>
+        </div>
         </li>
         <li>
           <Link

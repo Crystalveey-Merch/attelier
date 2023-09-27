@@ -8,9 +8,7 @@ const CustomMade = () => {
   return (
     <div className="mt-40 sm:mt-28 Quicksand">
       <div className="flex flex-row">
-        <img src={custom} className="w-2/4 sm:hidden" />
-
-        <div className="w-2/4 p-10 sm:w-full shadow-2xl ">
+        <div className="px-36 p-10 sm:w-full shadow-2xl ">
           <h1 className="text-black text-2xl Aceh text-center">
             Order Custom Made
           </h1>
@@ -35,7 +33,8 @@ const CustomMade = () => {
                 25,000 (prices may be higher for certain locations).
               </li>
               <span className="font-bold italic">
-                Adherence to Time Kindly note that session slots are to be
+                <h1>Adherence to Time:</h1>
+                 Kindly note that session slots are to be
                 strictly adhered to; we will be unable to guarantee allotted
                 slot if you come at a later time. Hence, it is imperative that
                 you contact us in advance if you won’t be able to make it at the

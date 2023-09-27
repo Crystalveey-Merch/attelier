@@ -46,7 +46,7 @@ const SideNav = () => {
       <div className="collapse collapse-arrow join-item border-b border-gray-300">
         <input type="radio" name="my-accordion-4" />
         <div className="collapse-title text-sm  font-medium">
-          Other Categories
+           Categories
         </div>
         <div className="collapse-content">
         <ul className="ml-10 flex flex-col gap-5">
