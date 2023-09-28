@@ -57,7 +57,7 @@ console.log(filteredProducts);
   
 
   return (
-    <div className="mt-36 sm:mt-26  w-full Quicksand  pt-2 sm:px-0">
+    <div className="mt-36 sm:mt-26  w-full AcehLight  pt-2 sm:px-0">
     <div className="text-center sm:text-xl text-2xl pt-10 text-black py-4 bg-white  Aceh">
       New Arrivals
       <h1 className="text-xl text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">

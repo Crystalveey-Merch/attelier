@@ -3,7 +3,7 @@ import modelTwo from "../Images/Models/woman-two.jpg";
 
 const Login = () => {
   return (
-    <div className="w-full h-auto mt-40 flex Quicksand">
+    <div className="w-full h-auto mt-40 flex AcehLight">
       <div className="w-4/5 h-98 sm:hidden">
         <img src={modelTwo} className=""/>
       </div>

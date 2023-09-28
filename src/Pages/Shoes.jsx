@@ -48,7 +48,7 @@ const Shoes = () => {
     setFilteredProducts(childrenProducts);
   };
   return (
-    <div className="mt-36 sm:mt-24  w-full Quicksand  pt-2 sm:px-0">
+    <div className="mt-36 sm:mt-24  w-full AcehLight  pt-2 sm:px-0">
       <div className="text-center sm:text-xl text-3xl text-white bg-black py-4 px-20 sm:w-full Aceh">
         Shoes
       </div>

@@ -26,6 +26,8 @@
   ;
  }
 
+ 
+
  .AcehLight{
   font-family: "AcehLight", Arial !important;
  }
@@ -260,4 +262,27 @@ body.is-side-menu-open {
   .secTDivH {
     height: 270px;
   }
+
+}
+
+
+::-webkit-scrollbar {
+  width: 2px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #edebeb !important;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cbcaca !important;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b1b0b0 !important;
 }

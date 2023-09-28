@@ -45,10 +45,10 @@ const CategoriesList = () => {
         </div>
         </Link>
     
-        <Link to="/category/topshop">
+        <Link to="/category/merch">
     
         <div className="flex bg-black w-62 justify-center  px-5 ">
-            <h1 className="text-xl Aceh m-auto text-left">Topshop</h1>
+            <h1 className="text-xl Aceh m-auto text-left">Merch</h1>
             <img src="/Images/Fashionista/three.jpg" className="w-40 h-42 m-2 sm:w-14 sm:h-16"/>
         </div>
         </Link>

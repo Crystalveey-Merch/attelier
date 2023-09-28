@@ -50,10 +50,10 @@ const Accessories = () => {
   };
 
   return (
-    <div className="mt-36 sm:mt-24  w-full Quicksand  pt-2 sm:px-0">
+    <div className="mt-36 sm:mt-24  w-full AcehLight  pt-2 sm:px-0">
       <div className="text-center sm:text-xl text-3xl text-white bg-black py-4 px-20 sm:w-full Aceh">
         Accessories
-        <h1 className="text-sm text-gray-400 Quicksand px-40 sm:px-5 w-full my-2">
+        <h1 className="text-sm text-gray-400 AcehLight px-40 sm:px-5 w-full my-2">
           Discover the latest trends and style for you and your loved ones with
           a wide range of Accessories options
         </h1>

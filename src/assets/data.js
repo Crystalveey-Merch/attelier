@@ -539,7 +539,7 @@ export const datas = {
       id: 100,
       category: "shoes",
       name: "Addidas shoe",
-      price: "2,000",
+      price: "2000",
       color: ["black"],
       collection: "formal",
       src: "/Images/sec4/holiday.jpeg",
@@ -554,7 +554,7 @@ export const datas = {
       id: 101,
       name: "White T-shirt",
       category: "clothing",
-      price: "5,000",
+      price: "5000",
       color: ["black"],
       collection: "comfort",
       description: [
@@ -569,7 +569,7 @@ export const datas = {
       id: 102,
       name: "Top and Shorts",
       category: "two pieces",
-      price: "3,000",
+      price: "3000",
       color:[ "black"],
       collection: "comfort",
       src: "/Images/sec4/holiday.jpeg",
@@ -584,7 +584,7 @@ export const datas = {
       id: 103,
       name: "children Bow Tie",
       category: "accessories",
-      price: "1,000",
+      price: "1000",
       color: ["black"],
       collection: "comfort",
       src: "/Images/sec4/holiday.jpeg",
@@ -599,7 +599,7 @@ export const datas = {
       id: 104,
       name: "Nike Hoodie",
       category: "hoodies",
-      price: "10,000",
+      price: "10000",
       color: ["Red"],
       collection: "afrocentric",
       src: "/Images/sec4/holiday.jpeg",
@@ -613,8 +613,8 @@ export const datas = {
     {
       id: 105,
       name: "Crystavee Customised Top",
-      category: "topshop",
-      price: "3,700",
+      category: "merch",
+      price: "3700",
       color: ["Red"],
       collection: "comfort",
       src: "/Images/sec4/holiday.jpeg",
@@ -629,7 +629,7 @@ export const datas = {
       id: 106,
       name: "Black Shorts",
       category: "clothing",
-      price: "15,000",
+      price: "15000",
       collection: "comfort",
 
       src: "/Images/sec4/holiday.jpeg",
@@ -644,7 +644,7 @@ export const datas = {
       id: 107,
       name: "Ankara Wear",
       category: "clothing",
-      price: "55,000",
+      price: "55000",
       color:[ "black"],
       collection: "afrocentric",
 
@@ -660,7 +660,7 @@ export const datas = {
       id: 108,
       name: "Timberland",
       category: "shoe",
-      price: "1,500",
+      price: "1500",
       color:[ "Red"],
       collection: "occasion",
       src: "/Images/sec4/holiday.jpeg",
@@ -680,7 +680,7 @@ export const datas = {
       id: 200,
       name: "Office shoe",
       category: "shoe",
-      price: "12,000",
+      price: "12000",
       collection: "comfort",
       color:[ "Blue"],
       src: "/Images/sec4/holiday.jpeg",
@@ -695,7 +695,7 @@ export const datas = {
       id: 201,
       name: "Red Blouse",
       category: "clothing",
-      price: "7,000",
+      price: "7000",
       collection: "holiday",
       color: ["Red"],
 
@@ -711,7 +711,7 @@ export const datas = {
       id: 203,
       name: "Denim",
       category: "two pieces",
-      price: "3,000",
+      price: "3000",
       src: "/Images/sec4/holiday.jpeg",
       description: [
         "It is comfy",
@@ -728,7 +728,7 @@ export const datas = {
       category: "two pieces",
       color: ["White", "Tan Brown", "Bright Yellow"],
       collection: "resort",
-      price: "16,000",
+      price: "16000",
       fabricType: ["shiffon"],
       description: [
         "It is comfy",
@@ -746,7 +746,7 @@ export const datas = {
       fabricType: ["crepe"],
       collection: "formal",
       newarrival: true,
-      price: "10,500",
+      price: "10500",
       color: ["Black"],
       description: [
         "It is comfy",
@@ -762,7 +762,7 @@ export const datas = {
       category: "one piece",
       newarrival: true,
       color: ["orange", "terracotta", "rasp berry", "purple", "black"],
-      price: "9,500",
+      price: "9500",
       fabricType:["crepe"],
       description:[
         "Add the unique Zendra dress to your wardrobe if you love to standout at events. It features a one shoulder statement sleeve with a shoulder tie detail. The midi length gives you permission to wear this piece and stand out at formal dinners and semi-formal events.",
@@ -776,7 +776,7 @@ export const datas = {
       newarrival: true,
       fabricType:["crepe"],
       color: ["brown", "red", "navy blue"],
-      price: "15,000",
+      price: "15000",
       description: [
         "It is comfy",
         "No Dirt",
@@ -791,7 +791,7 @@ export const datas = {
       newarrival: true,
       category: "one piece",
       collection:"occasion",
-      price: "14,000",
+      price: "14000",
       color: ["purple"],
       fabricType: ["crepe"],
       description:[ "Luxe wrap is a timeless piece for the classic fashionable woman whose style is also elegant. This wrap dress features statement slit sleeves and maxi length, making it a perfect & comfortable wardrobe essential for any occasion."]
@@ -804,7 +804,7 @@ export const datas = {
       collection:"occasion",
       newarrival: true,
       color: ["brown", "pink" , "green"],
-      price: "18,000",
+      price: "18000",
       fabricType:[ "crepe"],
       description:[ "Honora features a cropped twisted top with statement sleeves and lace up closure back details that create a perfect blend between romance and style. The skirt combines an asymmetrical yoke with maxi length, making it the perfect dress to make a lasting impression."]
     },
@@ -817,7 +817,7 @@ export const datas = {
       newarrival: true,
       fabricType: ["crepe"],
       collection:"occasion",
-      price: "16,000",
+      price: "16000",
       description: ["This two piece set is for the modern woman who wants to look effortlessly stunning & elegant. It features a modern silhouette with ruched skirt, pleated bustier, off-shoulder sleeve, clinched with a corset at the waist to flatter her feminine features."]
     },
     {
@@ -829,7 +829,7 @@ export const datas = {
       newarrival: true,
       fabricType:[ "crepe"],
       color: ["red", "black", "onion"],
-      price: "14,000",
+      price: "14000",
       description: [
         "This spectacular wrap style is designed for the lady who wants to look elegant and classy at the same time!"
       ],
@@ -842,7 +842,7 @@ export const datas = {
       category: "one piece",
       collection:"party",
       color: [ "red", "white", "green"],
-      price: "15,000",
+      price: "15000",
       fabricType:[ "scuba"],
       description: [
         "Modern elegance has arrived in this stunning new silhouette gown.",
@@ -859,7 +859,7 @@ export const datas = {
       category: "one piece",
       collection:"party",
       color: [ "burnt orange", "yellow", "white"],
-      price: "19,000",
+      price: "19000",
       fabricType:[ " veil net, organza"],
       description: [
         "Bold sensuality but luxuriously modern. This is what the fiesta dress is about! The ball gown combines Organza ruffles, a plunging neckline, pleated mesh bust to create an ultimate feminine fashion statement.",
@@ -874,7 +874,7 @@ export const datas = {
       category: "one piece",
       collection:"party",
       color: [ "purple", "silver", "black"],
-      price: "23,000",
+      price: "23000",
       fabricType:[ " sequins"],
       description: [
         "The Sizzler dress is how every lady stops the world and every occasion!. Maxi length gown, plunging neckline, statement sleeves, cut outs at the sides, and ruched hip details - all these features add adventure to the overall look.",

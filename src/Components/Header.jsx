@@ -1,7 +1,14 @@
+import { useCart } from "react-use-cart";
+
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
+
+  const {  cartTotal,totalUniqueItems  } =
+    useCart();
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenu = () => {
@@ -40,7 +47,7 @@ export const Header = () => {
       className="fixed top-0 left-0 w-full z-30  bg-white flex  flex-col gap-0 sm:m-0  w-full items-center xl:px-8 sm:px-0  "
       // style={{ backgroundColor: "#efd7ec" }}
     >
-      <div className=" flex sm:block Quicksand border border-b border justify-between items-center w-full px-10 sm:px-2 py-2 ">
+      <div className=" flex sm:block AcehLight border border-b border justify-between items-center w-full px-10 sm:px-2 py-2 ">
         <div className="flex sm:border-b   ">
       
           <ul className=" flex gap-3 justify-start m-auto text-black lg:hidden">
@@ -64,17 +71,18 @@ export const Header = () => {
             </li>
           </ul>
           <Link to="/" >
-          <div className="flex m-auto ml-96   sm:ml-24">
-          <img src="/Images/Avatar/logo.jpeg" alt="logo" className="w-48"/>
+          <div className="flex m-auto sm:pl-4 pl-10 ml-96   sm:ml-20">
+          <img src="/Images/Avatar/logo.jpeg" alt="logo" className="w-56"/>
           </div>
           </Link>
         </div>
-        <div className="flex gap-2  items-center   justify-between text-gray-600 sm:gap-1">
+        <div className="flex gap-2  items-center px-5  text-gray-600 sm:gap-10">
           {/* <select className="select w-full text-xl max-w-xs bg-white outline outline-0 ">
             <option>₦</option>
             <option>$</option>
           </select> */}
           <button
+
             id="menu-btn"
             onClick={handleMenu}
             className={`hamburger  ${
@@ -87,8 +95,9 @@ export const Header = () => {
           </button>
           <div className="my-1 flex border border-gray-600 ">
             <input
-              className="p-2 bg-white  w-64 sm:w-48 "
+              className="p-2 bg-white w-62 sm:w-42  "
               placeholder="Search"
+              
             ></input>
             <button className="  px-4">
               <svg
@@ -140,9 +149,9 @@ export const Header = () => {
               </ul>
             )}
           </button>
-
-          <button className="  h-6 w-6">
-            <Link to="/cart">
+          <Link to="/cart" className=" h-6 w-6 ">
+          <button className="flex  ">
+            
               <svg
                 width="24"
                 height="24"
@@ -159,12 +168,17 @@ export const Header = () => {
                   d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                 ></path>
               </svg>
-            </Link>
+              
+            
+            <h1 className="m-auto text-xl px-2">
+            ({totalUniqueItems})
+            </h1>
           </button>
+          </Link>
         </div>
       </div>
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>
-      <ul className="text-white text-sm flex justify-center gap-10 h-full p-4  xl:gap-6 Quicksand lg:hidden bg-black w-full">
+      <ul className="text-white text-sm flex justify-center gap-10 h-full p-4  xl:gap-6 AcehLight lg:hidden bg-black w-full">
         <li>
         <Link to="/readytowear">
           <label  className="middle  text-sm   hover:text-gray-750">
@@ -240,69 +254,47 @@ export const Header = () => {
           </div>
 
           {activeTabIndex === 0 && (
-            <div className="Quicksand">
+            <div className="AcehLight">
               <ul className="flex flex-col my-4 gap-5">
                
                 <li className="border-gray-200 link-item pb-2">
                   <a
-                    href="category/accessories"
+                    href="/readytowear"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                    Ready to Wear
+                  </a>
+                </li>
+                <li className="border-gray-200 link-item pb-2">
+                  <a
+                    href="/custommade"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                    Custom Order
+                  </a>
+                </li>
+                <li className="border-gray-200 link-item pb-2">
+                  <a
+                    href="/category/accessories"
                     className="middle  text-sm   hover:text-gray-750"
                   >
                     Accessories
                   </a>
                 </li>
-                <li className="border-gray-200 link-item pb-2">
-                  <a
-                    href="/category/clothing"
-                    className="middle  text-sm   hover:text-gray-750"
-                  >
-                    Clothing
-                  </a>
-                </li>
-                <li className="border-gray-200 link-item pb-2">
-                  <a
-                    href="/category/shoes"
-                    className="middle  text-sm   hover:text-gray-750"
-                  >
-                    Shoes
-                  </a>
-                </li>
 
                 <li className="border-gray-200 link-item pb-2">
                   <a
-                    href="/category/two pieces"
+                    href=""
                     className="middle  text-sm   hover:text-gray-750"
                   >
-                     Two Pieces
+                     Consultation
                   </a>
                 </li>
-                <li className="border-gray-200 link-item pb-2">
-                  <a
-                    href="/category/hoodie"
-                    className="middle  text-sm   hover:text-gray-750"
-                  >
-                    Hoodies
-                  </a>
-                </li>
-                <li className="border-gray-200 link-item pb-2">
-                  <a
-                    href="/category/topshop"
-                    className="middle  text-sm   hover:text-gray-750"
-                  >
-                     Topshop
-                  </a>
-                </li>
+               
               </ul>
               <hr></hr>
               <ul className="flex flex-col my-4 gap-5">
-                <li className="border-gray-200 pb-2">
-                  <a
-                    href="/category/two pieces"
-                    className="middle  text-sm link-item  hover:text-gray-750"
-                  >
-                    Custom Order
-                  </a>
-                </li>
+                
                 <li className="border-gray-200 pb-2">
                   <a
                     href="/aboutus"
@@ -322,7 +314,7 @@ export const Header = () => {
               </ul>
               <hr></hr>
               <ul className="my-4">
-                <li className="link-item">Contact Us</li>
+                <li className="link-item text-sm">Contact Us</li>
               </ul>
             </div>
           )}

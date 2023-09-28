@@ -262,7 +262,7 @@ export const SectionTwoTest = () => {
               </Link>
               </SwiperSlide>
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/topshop">
+              <Link to="/category/merch">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -280,7 +280,7 @@ export const SectionTwoTest = () => {
               </div>
               <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
                 <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
-                  Topshop
+                  Merch
                 </h5>
                
               </div>

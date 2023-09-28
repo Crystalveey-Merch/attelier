@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const Ready2Wear = () => {
   return (
-    <div className="mt-36 sm:mt-26 mb-10 w-full Quicksand  pt-2 sm:px-0" >
+    <div className="mt-36 sm:mt-26 mb-10 w-full AcehLight  pt-2 sm:px-0" >
     
      <h1 className="text-center sm:text-xl text-2xl pt-10 text-black py-4 bg-white  Aceh">
 Shop Ready to Wear       

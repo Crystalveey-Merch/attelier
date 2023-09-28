@@ -47,7 +47,7 @@ const CustomMade = () => {
 
           <div className="my-10 text-black">
             <h1 className="my-10 Aceh text-xl">Book a Session</h1>
-            <form className="Quicksand">
+            <form className="AcehLight">
               <label>First Name:</label>
               <div className="flex flex-row gap-4 w-full m-auto  ">
                 <input

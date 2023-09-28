@@ -41,7 +41,7 @@ export const SectionThree = () => {
         <p className="text-gray-700 Aceh text-3xl sm:text-2xl">
           Crystalveey's Untagged
         </p>
-        <h3 className=" text-black Quicksand text-2xl md:text-xl sm:text-sm">
+        <h3 className=" text-black AcehLight text-2xl md:text-xl sm:text-sm">
           Explore a careful selecion of stylish refurblished preowned fashion
           items.
         </h3>

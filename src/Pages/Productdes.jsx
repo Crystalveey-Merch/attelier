@@ -53,10 +53,10 @@ const Productdes = () => {
     const addToCart = () => {
         addItem(product);
 
-        toast(
-            <div>
+        toast.success(
+            <div className="text-black text-xl Aceh">
                 Added to Cart!{" "}
-                <button className="bg-black p-1 text-white">View Cart</button>
+                <button className="p-1 text-white">View Cart</button>
             </div>
         );
     };
@@ -74,13 +74,14 @@ const Productdes = () => {
             className="mt-40 Quicksand text-black sm:mt-28 px-20 sm:px-0 flex sm:block justify-center"
             key={product.id}
         >
-            <div className="border m-20 sm:m-5 sm:w-full w-1/2">
+            <div className="border m-20  sm:m-0 sm:w-full w-1/2">
                 <img
                     src={product.src}
+                    className="sm:w-full"
                     style={{ height: "500px", width: "400px" }}
                 ></img>
             </div>
-            <div className="m-20 sm:mx-5 w-1/2 sm:w-full ">
+            <div className="m-20 sm:mx-5 w-1/2  ">
                 <div className="text-black Aceh text-2xl ">{product.name}</div>
                 <div className="text-2xl my-4 ">
                     <i className="fas fa-naira-sign" />
@@ -99,13 +100,9 @@ const Productdes = () => {
                         </ul>
                     </h1>
                     <h1 className="text-black flex m-auto Aceh ">
-                        Fabric:
+                        Category:
                         <ul className="flex gap-2 px-1">
-                            {product.fabricType.map((item, id) => (
-                                <li key={id} className="text-sm capitalize Quicksand ">
-                                    {item}
-                                </li>
-                            ))}
+                           {product.category}
                         </ul>
                     </h1>
                     <div className="flex  my-5 flex-col space-x-6">
@@ -164,15 +161,15 @@ const Productdes = () => {
                 </div>
                
 
-                <div className="flex gap-5 my-10 sm:flex-col  sm:gap-5  justify-center">
+                <div className="flex gap-5 my-10 sm:flex-col  sm:gap-4 text-white m-auto sm:w-full justify-center">
                     <div className="btn w-40 sm:w-full">Order Now </div>
-                    <div onClick={addToCart} className="btn w-32 sm:w-full">
+                    <div onClick={addToCart} className="btn w-40 sm:w-full">
                         <i className="fas fa-plus" />
                         Cart{" "}
                     </div>
                     <ToastContainer />
                 </div>
-                <div>
+                <div className="sm:w-full">
                     <div>
                         <h1 className="Aceh">Product Description</h1>
                         <hr></hr>

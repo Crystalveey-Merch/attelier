@@ -12,7 +12,7 @@ export const SectionFive = () => {
           Ready to step into a world of personalised fashion?
         </h1>
         <hr className="border-black border-2x" />
-        <h3 className="text-xl sm:text-sm text-black Quicksand text-center  ">
+        <h3 className="text-xl sm:text-sm text-black AcehLight text-center  ">
           Order your CUSTOM MADE wares now!!
         </h3>
         <Link to="/custommade">
