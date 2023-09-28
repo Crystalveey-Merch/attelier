@@ -64,7 +64,7 @@ export const Header = () => {
             </li>
           </ul>
           <Link to="/" >
-          <div className="flex m-auto ml-96 pl-14  sm:ml-8">
+          <div className="flex m-auto ml-96   sm:ml-24">
           <img src="/Images/Avatar/logo.jpeg" alt="logo" className="w-48"/>
           </div>
           </Link>
