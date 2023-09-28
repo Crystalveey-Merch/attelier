@@ -19,6 +19,7 @@ import Sell from "./Pages/untagged/Sell"
 import Blog from "./Pages/Blog";
 import Faq from "./Pages/Faq";
 import Ready2Wear from "./Pages/Ready2Wear";
+import CategoriesList from "./Pages/CategoriesList";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -79,6 +80,7 @@ function App() {
         <Route path="/blog" element={<Blog/>}/>
         <Route path="/faq" element={<Faq/>}/>
         <Route path="/readytowear" element={<Ready2Wear/>}/>
+        <Route path="/categorylist" element={<CategoriesList/>}/>
 
       </Routes>
       <Footer />

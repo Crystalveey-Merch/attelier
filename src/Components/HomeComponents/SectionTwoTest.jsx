@@ -290,7 +290,11 @@ export const SectionTwoTest = () => {
         
 
 </Swiper>
-     
+     <Link to="/categorylist">
+      <button className=" px-9 py-2 bg-gray-950 hover:bg-white border border-gray-950  hover:text-black text-white font-medium text-base hover:bg-gray-900 transition duration-300 ease-in-out">
+        See More
+      </button>
+      </Link>
     </div>
   );
 };
