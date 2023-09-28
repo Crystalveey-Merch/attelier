@@ -2,15 +2,15 @@ import React from "react";
 
 const Faq = () => {
   return (
-    <div className="my-40 sm:my-28 sm:mt-28 Quicksand">
+    <div className="my-40 sm:my-28 sm:mt-28 AcehLight">
       <div>
-        <h1 className="text-black text-2xl Aceh text-center py-10">FAQ</h1>
+        <h1 className="text-black text-2xl Aceh  text-center pt-10">FAQ</h1>
 
-<div className="mx-40 my-20  flex flex-col gap-10 ">
-        <div className="collapse collapse-arrow bg-gray-100 ">
+<div className="mx-40 sm:mx-5 my-10 sm:my-5  flex flex-col gap-10 sm:gap-5 text-black ">
+        <div className="collapse collapse-arrow bg-gray-100 text-black ">
           <input type="radio" name="my-accordion-2" checked="checked" />
-          <div className="collapse-title text-sm font-medium">
-            How to do i place an order?
+          <div className="collapse-title Aceh  text-xl font-medium">
+            How  do i place an order?
           </div>
           <div className="collapse-content">
             <p className="text-sm">
@@ -24,7 +24,7 @@ const Faq = () => {
         </div>
         <div className="collapse collapse-arrow bg-gray-200">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title text-smfont-medium">
+          <div className="collapse-title Aceh text-xl font-medium">
             What payment methods do you accept?
           </div>
           <div className="collapse-content text-sm">
@@ -37,7 +37,7 @@ const Faq = () => {
         </div>
         <div className="collapse collapse-arrow bg-gray-200">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title text-smfont-medium">
+          <div className="collapse-title Aceh text-xl font-medium">
             How long will delivery take?
           </div>
           <div className="collapse-content text-sm">
@@ -50,7 +50,7 @@ const Faq = () => {
         </div>
         <div className="collapse collapse-arrow bg-gray-200">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title text-smfont-medium">
+          <div className="collapse-title Aceh text-xl font-medium">
             What is untagg?
           </div> 
           <div className="collapse-content text-sm">
@@ -64,7 +64,7 @@ const Faq = () => {
         </div>
         <div className="collapse collapse-arrow bg-gray-200">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title text-smfont-medium">
+          <div className="collapse-title Aceh text-xl font-medium">
             Why should you shop on untagg?
           </div>
           <div className="collapse-content text-sm">
@@ -83,7 +83,7 @@ const Faq = () => {
         </div>
         <div className="collapse collapse-arrow bg-gray-200">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title text-smfont-medium">
+          <div className="collapse-title Aceh text-xl font-medium">
             How do i sell my fashion items on untagg?
           </div>
           <div className="collapse-content">

@@ -6,23 +6,24 @@ import "react-international-phone/style.css";
 const CustomMade = () => {
   const [phone, setPhone] = useState("");
   return (
-    <div className="mt-40 sm:mt-28 Quicksand">
+    <div className="mt-40 sm:mt-28 AcehLight">
       <div className="flex flex-row">
-        <div className="px-36 p-10 sm:w-full shadow-2xl ">
+        <div className="px-36 sm:px-5 p-10 sm:w-full shadow-2xl ">
           <h1 className="text-black text-2xl Aceh text-center">
             Order Custom Made
           </h1>
-          <div className="Quicksand">
-            <h1 className="text-xl my-2">Sessions</h1>
-            <p className="my-2">
+          <div className="">
+            <h1 className="text-xl Aceh my-2 text-black">Sessions</h1>
+            <p className="my-2 leading-8 text-black">
               Sessions at crystalveey’s atelier are categorized in 3 types for
               our customers convenience;
-              <li>
+              <ul className="list-decimal">
+              <li className="text-justify">
                 VIRTUAL SESSION: The client will connect with our representative
                 through a video call to discuss style, measurement arrangements
                 and pricing. This session will attract a fee of ₦5000.
               </li>
-              <li>
+              <li className="text-justify ">
                 ON-SITE SESSION: Requires no payment. The client will be meeting
                 our representative at the company’s address to take
                 measurements, discuss style and also discuss pricing.
@@ -32,8 +33,9 @@ const CustomMade = () => {
                 at their home/office address. This session will attract a fee of
                 25,000 (prices may be higher for certain locations).
               </li>
-              <span className="font-bold italic">
-                <h1>Adherence to Time:</h1>
+              </ul>
+              <span className=" leading-8 text-black">
+                <h1 className="Aceh text-xl my-2 text-black">Adherence to Time:</h1>
                  Kindly note that session slots are to be
                 strictly adhered to; we will be unable to guarantee allotted
                 slot if you come at a later time. Hence, it is imperative that

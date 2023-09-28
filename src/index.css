@@ -13,6 +13,12 @@
    url("./fonts/aceh-1/AcehSoft-Medium.ttf") format("truetype");
   font-weight: bold;
  }
+ @font-face {
+  font-family: "AcehLight";
+  src: local("AcehLight"),
+   url("./fonts/aceh-1/AcehSoft-Light.ttf") format("truetype");
+  font-weight: bold;
+ }
 @font-face {
   font-family: "Quicksand";
   src: local("Quicksand"),
@@ -20,6 +26,9 @@
   ;
  }
 
+ .AcehLight{
+  font-family: "AcehLight", Arial !important;
+ }
  .Quicksand{
   font-family: "Quicksand", Arial !important;
 }
@@ -51,12 +60,13 @@
 /* Stylesheet or inline styles */
 /* Override the Swiper CSS variables */
 .swiper-pagination-bullet {
-  --swiper-pagination-bullet-width: 10px !important;
-  --swiper-pagination-bullet-height: 10px !important;
+  --swiper-pagination-bullet-width: 5px !important;
+  --swiper-pagination-bullet-height: 5px !important;
   --swiper-pagination-bullet-border-radius: 50% !important;
-  --swiper-pagination-bullet-inactive-color: #000000 !important;
+  --swiper-pagination-bullet-inactive-color: #0000003e !important;
   --swiper-pagination-bullet-inactive-opacity: 0.5 !important;
-  --swiper-pagination-color: #000000 !important;
+  --swiper-pagination-color: #8f8d8d !important;
+ margin: 0px;
   /* Add your additional styling */
   /* ... */
 }

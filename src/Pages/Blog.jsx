@@ -2,19 +2,19 @@ const Blog = () => {
   return (
     <div className="my-40 sm:my-28">
       <div className="px-40 sm:px-5 Quicksand  ">
-        <h1 className="py-10  text-black Aceh text-2xl text-center">Blog</h1>
+        <h1 className="pt-10  text-black Aceh text-4xl text-center">Blog</h1>
         <div className="px-30">
           {" "}
           <p className="italic text-sm text-sky-500 py-4  justify-center">
             Created on 26th-September-2023
           </p>
         </div>
-        <h1 className="font-bold Aceh text-3xl sm:text-xl text-gray-700">
+        <h1 className="font-bold Aceh text-3xl  indent-px  sm:text-2xl text-justify text-black">
           Elegance Redefined: Introducing Crystalveey - Your One-Stop Fashion
           Destination for the Whole Family
         </h1>
-        <p className="Quicksand leading-10 text-left ">
-        <h1 className="Aceh text-xl py-2"> Introduction:</h1>
+        <p className="  AcehLight text-left leading-7 text-justify text-black">
+        <h1 className="AcehLight text-2xl py-2 text-black"> Introduction:</h1>
         
            In the world of fashion, there's always room for
           innovation and creativity. And when it comes to dressing up not just
@@ -48,7 +48,7 @@ const Blog = () => {
           ensure that you're always dressed to impress.
           </li>
 
-          <h1 className="Aceh text-xl py-2">The Crystalveey Experience </h1> 
+          <h1 className="AcehLight text-black text-2xl py-2">The Crystalveey Experience </h1> 
            
            <li>Quality Craftsmanship: We take
           pride in our attention to detail and commitment to craftsmanship. Each
@@ -71,7 +71,7 @@ const Blog = () => {
           breeze. </li>
        
           <br></br>
-          <h1 className="Aceh text-xl py-2">Conclusion </h1>
+          <h1 className="AcehLight text-black text-2xl py-2">Conclusion </h1>
           
           Crystalveey is not just a fashion brand; it's a
           destination where fashion meets individuality, convenience, and

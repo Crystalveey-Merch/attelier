@@ -9,8 +9,9 @@ import { Link } from "react-router-dom";
 export const SectionFour = () => {
   const breakpoints = {
     300: {
-      slidesPerView: 2.3,
+      slidesPerView: 2.7,
       spaceBetween: 1,
+      
     },
     639: {
       slidesPerView: 3,
@@ -28,6 +29,7 @@ export const SectionFour = () => {
     1024: {
       slidesPerView: 5,
       spaceBetween: 10,
+      navigation:true
     },
    
 
@@ -36,14 +38,14 @@ export const SectionFour = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className=" flex flex-col gap-10 bg-gray-200  items-center  2xl:px-10 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
+    <div className=" flex flex-col gap-10   items-center  2xl:px-10 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
       <div className="flex flex-col  ">
-        <h3 className=" text-black Quicksand text-xl sm:my-5 my-10 md:text-xl">
+        <h3 className=" text-black Aceh text-xl sm:my-5 my-10 md:text-xl">
           Shop Collections
         </h3>
       </div>
       <Swiper
-        navigation={true}
+        
         slidesPerView={3}
         modules={[Pagination, Navigation, Autoplay]}
         breakpoints={breakpoints}
@@ -87,7 +89,7 @@ export const SectionFour = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide >
-            <Link to="/collection/casual">
+            <Link to="/collection/comfort">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
                 
@@ -112,7 +114,7 @@ export const SectionFour = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide >
-            <Link to="/collection/corporate">
+            <Link to="/collection/formal">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
                 
@@ -137,7 +139,7 @@ export const SectionFour = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide >
-            <Link to="/collection/occasion">
+            <Link to="/collection/party">
 
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
@@ -163,7 +165,7 @@ export const SectionFour = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide >
-            <Link to="/collection/corporate">
+            <Link to="/collection/resort">
 
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
@@ -190,7 +192,7 @@ export const SectionFour = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide >
-            <Link to="/collection/occassion">
+            <Link to="/collection/occasion">
 
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "

@@ -36,12 +36,12 @@ export const SectionTwoTest = () => {
   return (
     <div className=" Aceh flex flex-col gap-10 items-center p-10 xl:px-5 sm:px-0 sm:gap-5">
       <div className="flex flex-col gap-4">
-        <h3 className=" text-black Quicksand text-xl"> Shop Categories
+        <h3 className=" text-black Aceh text-xl"> Shop Categories
         </h3>
       </div>
 
       <Swiper
-        navigation={true}
+        // navigation={true}
        slidesPerView={'auto'}
        watchSlidesProgress
        grabCursor={true}
@@ -59,7 +59,7 @@ export const SectionTwoTest = () => {
         className="mySwiper w-full  px-4 sm:px-0 lg:px-10"
       >
         
-         
+{/*          
             <SwiperSlide  className="  m-auto sm:mx-0">
               <Link to="/category/children">
               <div
@@ -134,9 +134,9 @@ export const SectionTwoTest = () => {
                
               </div>
               </Link>
-              </SwiperSlide>
+              </SwiperSlide> */}
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/accessories">
+              <Link to="/category/accessories">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -161,7 +161,7 @@ export const SectionTwoTest = () => {
               </Link>
               </SwiperSlide>
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/bags">
+              <Link to="/category/clothing">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -187,7 +187,7 @@ export const SectionTwoTest = () => {
               </SwiperSlide>
            
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/shoes">
+              <Link to="/category/shoes">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -212,7 +212,7 @@ export const SectionTwoTest = () => {
               </Link>
               </SwiperSlide>
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/shoes">
+              <Link to="/category/two pieces">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -237,7 +237,7 @@ export const SectionTwoTest = () => {
               </Link>
               </SwiperSlide>
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/shoes">
+              <Link to="/category/hoodies">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -262,7 +262,7 @@ export const SectionTwoTest = () => {
               </Link>
               </SwiperSlide>
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/shoes">
+              <Link to="/category/topshop">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}

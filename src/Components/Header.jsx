@@ -42,18 +42,8 @@ export const Header = () => {
     >
       <div className=" flex sm:block Quicksand border border-b border justify-between items-center w-full px-10 sm:px-2 py-2 ">
         <div className="flex sm:border-b   ">
-          <button
-            id="menu-btn"
-            onClick={handleMenu}
-            className={`hamburger  ${
-              menuOpen ? "open" : ""
-            } hidden lg:block focus:outline-none z-30 my-4`}
-          >
-            <span className="harburger-top  bg-gray-900 transition duration-500 ease-in-out  "></span>
-            <span className="harburger-middle bg-gray-900 transition duration-500 ease-in-out  "></span>
-            <span className="harburger-bottom bg-gray-900 transition duration-500 ease-in-out  "></span>
-          </button>
-          <ul className=" flex gap-3 justify-start text-black lg:hidden">
+      
+          <ul className=" flex gap-3 justify-start m-auto text-black lg:hidden">
             <li className="link-item">
               <Link
                 to="/aboutus"
@@ -74,25 +64,36 @@ export const Header = () => {
             </li>
           </ul>
           <Link to="/" >
-          <div className=" m-auto ml-96">
-          <img src="/Images/Avatar/logo.jpeg" className="w-48"/>
+          <div className="flex m-auto ml-96 pl-14  sm:ml-8">
+          <img src="/Images/Avatar/logo.jpeg" alt="logo" className="w-48"/>
           </div>
           </Link>
         </div>
-        <div className="flex gap-3  items-center   justify-center text-gray-600 sm:gap-1">
+        <div className="flex gap-2  items-center   justify-between text-gray-600 sm:gap-1">
           {/* <select className="select w-full text-xl max-w-xs bg-white outline outline-0 ">
             <option>₦</option>
             <option>$</option>
           </select> */}
-          <div className="my-2 flex  border-gray-600 ">
+          <button
+            id="menu-btn"
+            onClick={handleMenu}
+            className={`hamburger  ${
+              menuOpen ? "open" : ""
+            } hidden lg:block focus:outline-none z-30 my-4`}
+          >
+            <span className="harburger-top  bg-gray-900 transition duration-500 ease-in-out  "></span>
+            <span className="harburger-middle bg-gray-900 transition duration-500 ease-in-out  "></span>
+            <span className="harburger-bottom bg-gray-900 transition duration-500 ease-in-out  "></span>
+          </button>
+          <div className="my-1 flex border border-gray-600 ">
             <input
-              className="p-2 bg-white border w-50 "
+              className="p-2 bg-white  w-64 sm:w-48 "
               placeholder="Search"
             ></input>
-            <button className=" bg-black px-4">
+            <button className="  px-4">
               <svg
                 aria-hidden="true"
-                className="w-6 h-5 text-white "
+                className="w-6 h-5 text-gray-800 "
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +107,7 @@ export const Header = () => {
             </button>
           </div>
           <button
-            className="relative h-max mx-2"
+            className="relative sm:hidden h-max mx-2"
             onMouseEnter={() => setToggleAccount(true)}
             onMouseLeave={() => setToggleAccount(false)}
           >
@@ -165,34 +166,11 @@ export const Header = () => {
       <p className="bg-gray-200 h-px w-full lg:hidden"></p>
       <ul className="text-white text-sm flex justify-center gap-10 h-full p-4  xl:gap-6 Quicksand lg:hidden bg-black w-full">
         <li>
-        <div className="dropdown middle dropdown-end hover:text-gray-750">
-          <label  tabIndex={0} className="middle  text-sm   hover:text-gray-750">
-            Shop Ready to Wear  &#8964;
+        <Link to="/readytowear">
+          <label  className="middle  text-sm   hover:text-gray-750">
+            Shop Ready to Wear 
           </label>
-          <ul
-            tabIndex={0}
-            className="menu dropdown-content z-[1] p-2 shadow bg-black rounded-box w-52 mt-4"
-          >
-            <li>
-              <a href="/category/women">Afrocentric</a>
-            </li>
-            <li>
-              <a href="/category/men">Comfort Wears</a>
-            </li>
-            <li>
-              <a href="category/children">Formal Wears</a>
-            </li>
-            <li>
-              <a href="/accessories">Party Wears</a>
-            </li>
-            <li>
-              <a href="/shoes">Resort Wears</a>
-            </li>
-            <li>
-              <a href="/bags">Occassion Wears</a>
-            </li>
-          </ul>
-        </div>
+          </Link>
         </li>
         <li>
           <Link
@@ -264,33 +242,10 @@ export const Header = () => {
           {activeTabIndex === 0 && (
             <div className="Quicksand">
               <ul className="flex flex-col my-4 gap-5">
-                <li className=" border-gray-200 pb-2">
-                  <a
-                    href="/category/women"
-                    className="middle  text-sm link-item   hover:text-gray-750"
-                  >
-                    Women
-                  </a>
-                </li>
-                <li className=" border-gray-200 link-item pb-2">
-                  <a
-                    href="/category/men"
-                    className="middle  text-sm   hover:text-gray-750"
-                  >
-                    Men
-                  </a>
-                </li>
+               
                 <li className="border-gray-200 link-item pb-2">
                   <a
-                    href="/category/children"
-                    className="middle  text-sm   hover:text-gray-750"
-                  >
-                    Children
-                  </a>
-                </li>
-                <li className="border-gray-200 link-item pb-2">
-                  <a
-                    href="/accessories"
+                    href="category/accessories"
                     className="middle  text-sm   hover:text-gray-750"
                   >
                     Accessories
@@ -298,18 +253,43 @@ export const Header = () => {
                 </li>
                 <li className="border-gray-200 link-item pb-2">
                   <a
-                    href="/shoes"
+                    href="/category/clothing"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                    Clothing
+                  </a>
+                </li>
+                <li className="border-gray-200 link-item pb-2">
+                  <a
+                    href="/category/shoes"
                     className="middle  text-sm   hover:text-gray-750"
                   >
                     Shoes
                   </a>
                 </li>
+
                 <li className="border-gray-200 link-item pb-2">
                   <a
-                    href="/bags"
+                    href="/category/two pieces"
                     className="middle  text-sm   hover:text-gray-750"
                   >
-                    Bags
+                     Two Pieces
+                  </a>
+                </li>
+                <li className="border-gray-200 link-item pb-2">
+                  <a
+                    href="/category/hoodie"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                    Hoodies
+                  </a>
+                </li>
+                <li className="border-gray-200 link-item pb-2">
+                  <a
+                    href="/category/topshop"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                     Topshop
                   </a>
                 </li>
               </ul>
@@ -317,7 +297,7 @@ export const Header = () => {
               <ul className="flex flex-col my-4 gap-5">
                 <li className="border-gray-200 pb-2">
                   <a
-                    href="/custommade"
+                    href="/category/two pieces"
                     className="middle  text-sm link-item  hover:text-gray-750"
                   >
                     Custom Order

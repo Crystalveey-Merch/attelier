@@ -6,14 +6,24 @@ const SideNav = () => {
         <div className="collapse-title  text-sm font-medium">Categories</div>
         <div className="collapse-content">
           <ul className="ml-10 flex flex-col gap-5">
-            <a href="/category/men">
-              <li className="cursor-pointer hover:text-black">Men</li>
+            <a href="/category/accessories">
+              <li className="cursor-pointer hover:text-black"> Accessories</li>
             </a>
-            <a href="/category/women">
-              <li className="cursor-pointer hover:text-black">Women</li>
+            <a href="/category/clothing">
+              <li className="cursor-pointer hover:text-black"> Clothing
+</li>
             </a>
-            <a href="/category/children">
-              <li className="cursor-pointer hover:text-black">Children</li>
+            <a href="/category/shoes">
+              <li className="cursor-pointer hover:text-black">Shoes</li>
+            </a>
+            <a href="/category/two pieces">
+              <li className="cursor-pointer hover:text-black">Two Pieces</li>
+            </a>
+            <a href="/category/hoodies">
+              <li className="cursor-pointer hover:text-black">Hoodies</li>
+            </a>
+            <a href="/category/topshop">
+              <li className="cursor-pointer hover:text-black">Topshop</li>
             </a>
 
           </ul>

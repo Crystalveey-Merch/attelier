@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <div className="flex flex-col gap-10 px-20 pl-48 pt-16 pb-8 bg-black text-white 2xl:pl-20 xl:pl-7 sm:gap-6 sm:pl-4 sm:px-5 Quicksand">
+    <div className="flex flex-col gap-10 px-20 pl-48 pt-16 sm:pt-8 pb-8 bg-black text-white 2xl:pl-20 xl:pl-7 sm:gap-6 sm:pl-4 sm:px-5 Quicksand">
       <div className="flex justify-between pr-40 2xl:pr-16 xl:pr-7  lg:flex lg:flex-wrap lg:gap-16 sm:gap-8 sm:pr-0">
-        <div className="flex flex-col gap-4 w-60 lg:w-5/12 lg:order-1 sm:w-full">
-        <div className=" text-center m-auto ">
+        <div className="flex flex-col justify-left gap-4 sm:gap-0 w-60 lg:w-5/12 lg:order-1 sm:w-full">
+        <div className=" flex justify-left m-auto ">
           <img src="/Images/Avatar/logowhite.jpeg" className="w-48"/>
         </div>
-          <p className="  font-semibold text-base text-gray-600">
+          <p className=" sm:text-sm Quicksand   text-base text-gray-300 sm:text-center">
             Your Destination for Fashion and Elegance
           </p>
         </div>
-        <div className="flex gap-40  2xl:gap-20 xl:gap-12 lg:w-full lg:order-3 lg:justify-between lg:pr-10 sm:flex-wrap">
-          <ul className="flex flex-col gap-6 ">
+        <div className="flex gap-40 sm:text-sm  justify-center 2xl:gap-20 xl:gap-5 lg:w-full lg:order-3 lg:justify-between lg:pr-10 sm:flex-wrap">
+          <ul className="flex flex-col gap-6 sm:gap-2 ">
             <li className="middle hover:text-gray-750 cursor-pointer w-max">
               Company
             </li>
@@ -50,7 +50,7 @@ export const Footer = () => {
             </Link>
            
           </ul>
-          <ul className="flex flex-col gap-6 w-max">
+          <ul className="flex flex-col gap-6 sm:text-sm sm:gap-2  w-max">
             <li className="middle  hover:text-gray-750 cursor-pointer">
               Resources
             </li>
@@ -65,7 +65,7 @@ export const Footer = () => {
               Privacy Policy
             </li>
           </ul>
-          <ul className="flex flex-col gap-6 w-max text-sky-600">
+          <ul className="flex flex-col gap-6  sm:gap-2  w-max text-sky-600">
             <li className="middle  hover:text-gray-750 cursor-pointer text-white">
               Contact
             </li>
@@ -83,11 +83,11 @@ export const Footer = () => {
                 <i className="fa-solid fa-phone"></i> +254 812 609 1411
               </a>
             </li>
+            
           </ul>
-        </div>
-        <div className="lg:w-5/12 lg:order-2 sm:w-full">
-          <h4 className="  text-base font-semibold ">Follow Us</h4>
-          <div className="flex gap-4 text-xl mt-5">
+          <div className="lg:w-5/12 lg:order-2 sm:w-full">
+          <h4 className="  text-base sm:text-sm font-semibold ">Follow Us</h4>
+          <div className="flex gap-4 text-xl mt-5 sm:mt-2 sm:gap-2">
             <a href="https://www.instagram.com/explorecrystalveey/">
               <i className="fa-brands fa-instagram"></i>
             </a>
@@ -104,8 +104,10 @@ export const Footer = () => {
 
           <p></p>
         </div>
+        </div>
+
       </div>
-      <div className=" border-gray-100 pt-6 text-center">
+      <div className=" border-gray-100 pt-6 sm:text-sm  text-center">
         <p className="font-semibold base">
           &copy; {new Date().getFullYear()} Crystalveey&apos;s Atelier
           <span className="text-gray-400 pl-2"> All Rights Reserved</span>
