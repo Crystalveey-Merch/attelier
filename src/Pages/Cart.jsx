@@ -18,7 +18,7 @@ const Cart = () => {
         ""
       )}
       <div className="flex  ">
-        <div className="flex flex-col gap-3 overflow-y-auto sm:overflow-none w-1/2 sm:w-full " style={{height:" 40rem"}}>
+        <div className="flex flex-col gap-3 overflow-y-auto sm:overflow-none w-1/2 sm:w-full " style={{height:" 36rem"}}>
           {items.map((item, id) => (
             <div
               key={id}
@@ -139,7 +139,7 @@ const Cart = () => {
 
           <button className="bg-black btn m-auto text-xl flex capitalize justify-center text-white">
             {" "}
-            Proceed to Checkout
+             Checkout
           </button>
         </div>
       </div>

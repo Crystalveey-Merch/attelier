@@ -8,6 +8,9 @@ const Categories = () => {
 
 
   const allProducts = [...datas.children, ...datas.women, ...datas.men];
+  const menProducts = datas.men;
+  const womenProducts = datas.women;
+  const childrenProducts = datas.children;
 
 const categoryProduct = () => {
   return allProducts.filter((product) => product.category === categoryName);
@@ -36,47 +39,27 @@ console.log(categoryName)
     setFilteredProducts(categoryProduct); // Reset the filteredProducts to original order
     setSortOrder("asc"); // Reset the sorting order
   };
-  const filterAfroCollection = () => {
+const filterMenCollection = () => {
+
     // Filter products with a data collection called "men"
-    const menProducts = categoryProduct.filter(
-      (product) => product.collection === "afrocentric"
+    const menFilter = menProducts.filter(
+      (product) => product.category === categoryName
     );
-    setFilteredProducts(menProducts);
+    setFilteredProducts(menFilter);
   };
-  const filterCasualCollection = () => {
+  const filterWomenCollection = () => {
     // Filter products with a data collection called "men"
-    const menProducts = categoryProduct.filter(
-      (product) => product.collection === "casual"
+    const womenFilter = womenProducts.filter(
+      (product) => product.category === categoryName
     );
-    setFilteredProducts(menProducts);
+    setFilteredProducts(womenFilter);
   };
-  const filterCorporateCollection = () => {
+  const filterChildrenCollection = () => {
     // Filter products with a data collection called "men"
-    const menProducts = categoryProduct.filter(
-      (product) => product.collection === "corporate"
+    const childrenFilter = childrenProducts.filter(
+      (product) => product.category === categoryName
     );
-    setFilteredProducts(menProducts);
-  };
-  const filterOccasionCollection = () => {
-    // Filter products with a data collection called "men"
-    const menProducts = categoryProduct.filter(
-      (product) => product.collection === "occasion"
-    );
-    setFilteredProducts(menProducts);
-  };
-  const filterHolidayCollection = () => {
-    // Filter products with a data collection called "men"
-    const menProducts = categoryProduct.filter(
-      (product) => product.collection === "holiday"
-    );
-    setFilteredProducts(menProducts);
-  };
-  const filterAccessoriesCollection = () => {
-    // Filter products with a data collection called "men"
-    const menProducts = categoryProduct.filter(
-      (product) => product.collection === "accessories"
-    );
-    setFilteredProducts(menProducts);
+    setFilteredProducts(childrenFilter);
   };
 
   return (
@@ -102,20 +85,23 @@ console.log(categoryName)
               {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
               
             </label>
-            {/* <ul
-              tabIndex={}
+            <ul
+              tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
             >
-              <li onClick={}>
+            <li onClick={clearFilter}>
+                <a>All</a>
+              </li>
+              <li onClick={filterMenCollection}>
                 <a>Men</a>
               </li>
-              <li onClick={}>
+              <li onClick={filterWomenCollection}>
                 <a>Women</a>
               </li>
-              <li onClick={}>
+              <li onClick={filterChildrenCollection}>
                 <a>Children</a>
               </li>
-            </ul> */}
+            </ul>
         </div>
 
         <div className="dropdown  dropdown-end  rounded p-2">

@@ -2,84 +2,72 @@ const Blog = () => {
   return (
     <div className="my-40 sm:my-28">
       <div className="px-40 sm:px-5 Quicksand  ">
-        <h1 className="pt-10  text-black Aceh text-4xl text-center">Blog</h1>
+        <h1 className="pt-10  text-black Aceh text-2xl text-center">Blog</h1>
         <div className="px-30">
           {" "}
-          <p className="italic text-sm text-sky-500 py-4  justify-center">
-            Created on 26th-September-2023
+          <p className="italic text-sm  py-2  justify-center">
+            Fashion/ 5 min Read
           </p>
         </div>
         <h1 className="font-bold Aceh text-3xl  indent-px  sm:text-2xl text-justify text-black">
-          Elegance Redefined: Introducing Crystalveey - Your One-Stop Fashion
-          Destination for the Whole Family
+          Elegance redefined
         </h1>
-        <p className="  AcehLight text-left leading-7 text-justify text-black">
-        <h1 className="AcehLight text-2xl py-2 text-black"> Introduction:</h1>
-        
-           In the world of fashion, there's always room for
-          innovation and creativity. And when it comes to dressing up not just
-          yourself but your entire family, finding the perfect outfits that
-          combine style, comfort, and individuality can be quite a challenge.
-          That's where Crystalveey comes in - a fashion brand that caters to
-          women, men, and children alike, offering custom-made, ready-to-wear,
-          and recommence services that redefine the way we approach fashion.
+        <p className="italic text-sm text-black py-2  justify-center">
+          Crystalveey’s Atelier- your one stop destination for the whole family!
+        </p>
+        <p className="  AcehLight text-left leading-10 text-justify text-black">
+          <p className="italic text-sm text-sky-500 py-2  justify-center">
+            By Victoria / September 27, 2023
+          </p>
+          In the world of fashion, there ́s always room for innovation and
+          creativity. However, when it comes to dressing up not just yourself
+          but also your entire family, finding the perfect outfit that combines
+          style, comfort and individuality can be quite challenging. This is
+          where Crystalveey’s Atelier comes in. A fashion brand that caters to
+          women, men and childeren alike. The brand retails ready to wear
+          clothings and offers custom made and recommerce services that
+          redefines the way we approach fashion
           
-          <li>Discover the Magic of Crystalveey At Crystalveey, we believe that
-          fashion is an expression of your personality. It's not just about
-          clothes; it's about showcasing your unique style and making a
-          statement. Our brand is committed to providing an exceptional shopping
-          experience for the entire family, with a range of services and
-          collections that cater to every taste and occasion.</li>
-          
-          <li>Custom-Made
-          Creations We understand that no two individuals are the same, which is
-          why we offer custom-made fashion solutions. Our skilled artisans and
-          designers work closely with you to bring your fashion dreams to life.
-          Whether it's a bespoke wedding gown, a tailored suit, or adorable
-          outfits for your little ones, our custom-made creations are a
-          testament to our commitment to individuality and quality.
+            <h1 className="Aceh">Discover the Magic of Crystalveey Atelier</h1>
+            <li>
+            At Crystalveey’s Atelier, we believe fashion is more of an
+            expression of your individual personality and not just about
+            clothes; it’s about showcasing your unique style and making a
+            statement with it.
           </li>
+          <h1 className="Aceh"> Custom-Made Creations </h1>
           <li>
-          Ready-to-Wear Collections For those who appreciate convenience
-          without compromising on style, our ready-to-wear collections are
-          designed just for you. We curate a wide range of fashion pieces that
-          are not only on-trend but also comfortable and versatile. From
-          everyday essentials to statement pieces, our ready-to-wear collections
-          ensure that you're always dressed to impress.
+           We understand that no two individuals are the
+            same, which is why we offer custom-made fashion solutions. Our
+            skilled artisans and designers work closely with you to bring your
+            fashion dreams to life. Whether it's a bespoke wedding gown, a
+            tailored suit, or adorable outfits for your little ones, our
+            custom-made creations are a testament to our commitment to
+            individuality and quality.
           </li>
-
-          <h1 className="AcehLight text-black text-2xl py-2">The Crystalveey Experience </h1> 
-           
-           <li>Quality Craftsmanship: We take
-          pride in our attention to detail and commitment to craftsmanship. Each
-          piece is made with precision and care, ensuring that you receive the
-          best in quality.</li>
-          
-          <li>Versatile Styles: Whether you're looking for
-          classic elegance, contemporary chic, or playful designs for your kids,
-          we have a diverse range of styles that cater to all tastes and
-          preferences.</li>
-
-          <li>Exceptional Service: Our team is dedicated to
-          providing you with a seamless shopping experience. From personalized
-          fittings to style consultations, we're here to make your fashion
-          journey enjoyable. </li>
-          
-          <li>Family-Centric Approach: We understand the
-          importance of dressing up your whole family. Our collections are
-          designed to complement each other, making coordinated family looks a
-          breeze. </li>
-       
+          <h1 className="Aceh"> Ready-to-Wear Collections </h1>
+          <li>
+          For those who appreciate convenience without compromising on style, our 
+ready to wear collection is designed just for you. This collection comprises of 
+versatile pieces ranging from everyday essentials to statement pieces.
+          </li>
+          <h1 className="Aceh">Recommerce service </h1>
+          <li>
+          Fashion is ever evolving and sometimes our closets need to be refreshed. 
+Dont let your once loved clothing items gathher dust in your wardrobe. Bring 
+them to us and we will revamp, alter, or repurpose them. Sustainability 
+meets style at Crystalveey’s Atelier.
+          </li>
+          <h1 className="Aceh">
+            The Crystalveey Experience{" "}
+          </h1>
+          <li>
+          Shopping with Crystalveey’s Atelier means you get quality craftsmanship, 
+versatile styles, exceptional service and a family centric approach.
+          </li>
+         
           <br></br>
-          <h1 className="AcehLight text-black text-2xl py-2">Conclusion </h1>
-          
-          Crystalveey is not just a fashion brand; it's a
-          destination where fashion meets individuality, convenience, and
-          sustainability. With custom-made, ready-to-wear, and recommence
-          services, we offer a comprehensive solution for your entire family's
-          wardrobe needs. It's time to elevate your style game and redefine
-          elegance with Crystalveey. Explore our collections today and embark
-          on a fashion journey that's uniquely yours!
+         
         </p>
       </div>
     </div>

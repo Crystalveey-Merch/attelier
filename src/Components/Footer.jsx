@@ -104,8 +104,13 @@ export const Footer = () => {
           </div>
         </div>
         <div className=" flex flex-col sm:py-5 justify-center m-auto ">
-        <img src="/Images/Avatar/logowhite.jpeg" className="w-48 m-auto" />
-        <p className=" sm:text-sm AcehLight   sm:text-center text-gray-300 sm:text-center">
+        <div className="flex justify-center m-auto sm:w-full ml-24 sm:ml-2 w-full   ">
+              <h1 className="text-2xl m-auto  sm:text-xl text-white Pragmatica tracking-wider">
+                CRYSTALVEEY <span className="Tabac spacing px-2">ATELIER</span>
+              </h1>
+              {/* <img src="/Images/Avatar/logo.jpeg" alt="logo" className="w-56"/> */}
+            </div>
+        <p className=" sm:text-sm AcehLight m-auto pl-40 sm:pl-0 text-center text-gray-300 ">
           Your Destination for Fashion and Elegance
         </p>
       </div>

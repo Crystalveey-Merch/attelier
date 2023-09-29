@@ -1,0 +1,192 @@
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSans.eot');
+    src: local('Tabac Sans'), local('TabacSans'),
+        url('TabacSans.eot?#iefix') format('embedded-opentype'),
+        url('TabacSans.woff2') format('woff2'),
+        url('TabacSans.woff') format('woff'),
+        url('TabacSans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSansLight.eot');
+    src: local('Tabac Sans Light'), local('TabacSansLight'),
+        url('TabacSansLight.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansLight.woff2') format('woff2'),
+        url('TabacSansLight.woff') format('woff'),
+        url('TabacSansLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSans-Bold.eot');
+    src: local('Tabac Sans Bold'), local('TabacSans-Bold'),
+        url('TabacSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('TabacSans-Bold.woff2') format('woff2'),
+        url('TabacSans-Bold.woff') format('woff'),
+        url('TabacSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSansBlack.eot');
+    src: local('Tabac Sans Black'), local('TabacSansBlack'),
+        url('TabacSansBlack.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansBlack.woff2') format('woff2'),
+        url('TabacSansBlack.woff') format('woff'),
+        url('TabacSansBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tabac Sans Hair';
+    src: url('TabacSansHair.eot');
+    src: local('Tabac Sans Hair'), local('TabacSansHair'),
+        url('TabacSansHair.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansHair.woff2') format('woff2'),
+        url('TabacSansHair.woff') format('woff'),
+        url('TabacSansHair.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSansMedium-Italic.eot');
+    src: local('Tabac Sans Medium Italic'), local('TabacSansMedium-Italic'),
+        url('TabacSansMedium-Italic.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansMedium-Italic.woff2') format('woff2'),
+        url('TabacSansMedium-Italic.woff') format('woff'),
+        url('TabacSansMedium-Italic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSansThin-Italic.eot');
+    src: local('Tabac Sans Thin Italic'), local('TabacSansThin-Italic'),
+        url('TabacSansThin-Italic.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansThin-Italic.woff2') format('woff2'),
+        url('TabacSansThin-Italic.woff') format('woff'),
+        url('TabacSansThin-Italic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSans-Italic.eot');
+    src: local('Tabac Sans Italic'), local('TabacSans-Italic'),
+        url('TabacSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('TabacSans-Italic.woff2') format('woff2'),
+        url('TabacSans-Italic.woff') format('woff'),
+        url('TabacSans-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Tabac Sans Hair';
+    src: url('TabacSansHair-Italic.eot');
+    src: local('Tabac Sans Hair Italic'), local('TabacSansHair-Italic'),
+        url('TabacSansHair-Italic.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansHair-Italic.woff2') format('woff2'),
+        url('TabacSansHair-Italic.woff') format('woff'),
+        url('TabacSansHair-Italic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSansThin.eot');
+    src: local('Tabac Sans Thin'), local('TabacSansThin'),
+        url('TabacSansThin.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansThin.woff2') format('woff2'),
+        url('TabacSansThin.woff') format('woff'),
+        url('TabacSansThin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSansSemiBold-Italic.eot');
+    src: local('Tabac Sans SemiBold Italic'), local('TabacSansSemiBold-Italic'),
+        url('TabacSansSemiBold-Italic.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansSemiBold-Italic.woff2') format('woff2'),
+        url('TabacSansSemiBold-Italic.woff') format('woff'),
+        url('TabacSansSemiBold-Italic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSansMedium.eot');
+    src: local('Tabac Sans Medium'), local('TabacSansMedium'),
+        url('TabacSansMedium.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansMedium.woff2') format('woff2'),
+        url('TabacSansMedium.woff') format('woff'),
+        url('TabacSansMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSansSemiBold.eot');
+    src: local('Tabac Sans SemiBold'), local('TabacSansSemiBold'),
+        url('TabacSansSemiBold.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansSemiBold.woff2') format('woff2'),
+        url('TabacSansSemiBold.woff') format('woff'),
+        url('TabacSansSemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSansBlack-Italic.eot');
+    src: local('Tabac Sans Black Italic'), local('TabacSansBlack-Italic'),
+        url('TabacSansBlack-Italic.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansBlack-Italic.woff2') format('woff2'),
+        url('TabacSansBlack-Italic.woff') format('woff'),
+        url('TabacSansBlack-Italic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSansLight-Italic.eot');
+    src: local('Tabac Sans Light Italic'), local('TabacSansLight-Italic'),
+        url('TabacSansLight-Italic.eot?#iefix') format('embedded-opentype'),
+        url('TabacSansLight-Italic.woff2') format('woff2'),
+        url('TabacSansLight-Italic.woff') format('woff'),
+        url('TabacSansLight-Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Tabac Sans';
+    src: url('TabacSans-BoldItalic.eot');
+    src: local('Tabac Sans Bold Italic'), local('TabacSans-BoldItalic'),
+        url('TabacSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('TabacSans-BoldItalic.woff2') format('woff2'),
+        url('TabacSans-BoldItalic.woff') format('woff'),
+        url('TabacSans-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+

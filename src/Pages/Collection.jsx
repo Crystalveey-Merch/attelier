@@ -9,7 +9,9 @@ const Collection = () => {
   const { collectionName } = useParams();
 
   const allProducts = [...datas.children, ...datas.women, ...datas.men];
-  
+  const menProducts = datas.men;
+  const womenProducts = datas.women;
+  const childrenProducts = datas.children;
   const collectionProduct = () => {
     return allProducts.filter((product) => product.collection === collectionName);
   };
@@ -30,29 +32,30 @@ const Collection = () => {
     setFilteredProducts(sorted); // Update filteredProducts with the sorted array
   };
   const clearFilter = () => {
-    setFilteredProducts(allProducts); // Reset the filteredProducts to original order
+    setFilteredProducts(collectionProduct); // Reset the filteredProducts to original order
     setSortOrder("asc"); // Reset the sorting order
   };
   const filterMenCollection = () => {
+
     // Filter products with a data collection called "men"
-    const menProducts = allProducts.filter(
-      (product) => product.category === "men"
+    const menFilter = menProducts.filter(
+      (product) => product.collection === collectionName
     );
-    setFilteredProducts(menProducts);
+    setFilteredProducts(menFilter);
   };
   const filterWomenCollection = () => {
     // Filter products with a data collection called "men"
-    const womenProducts = allProducts.filter(
-      (product) => product.category === "women"
+    const womenFilter = womenProducts.filter(
+      (product) => product.collection === collectionName
     );
-    setFilteredProducts(womenProducts);
+    setFilteredProducts(womenFilter);
   };
   const filterChildrenCollection = () => {
     // Filter products with a data collection called "men"
-    const childrenProducts = allProducts.filter(
-      (product) => product.category === "children"
+    const childrenFilter = childrenProducts.filter(
+      (product) => product.collection === collectionName
     );
-    setFilteredProducts(childrenProducts);
+    setFilteredProducts(childrenFilter);
   };
 
   return (
@@ -68,7 +71,7 @@ const Collection = () => {
         </div>
 
         <div className=" text-gray-800 AcehLight text-l  sm:py-1  flex sm:justify-between px-5  sm:justify-left py-2 sm:gap-5  w-full gap-10 sm:gap-2">
-          <div className="dropdown  ">
+          <div className="dropdown">
             <label
               tabIndex={0}
               className=" flex justify-center    hover:border-b"
@@ -85,6 +88,9 @@ const Collection = () => {
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
             >
+             <li onClick={clearFilter}>
+                <a>All</a>
+              </li>
               <li onClick={filterMenCollection}>
                 <a>Men</a>
               </li>

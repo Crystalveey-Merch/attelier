@@ -26,8 +26,25 @@
   ;
  }
 
- 
+ @font-face {
+  font-family: "Pragmatica";
+  src: local("Pragmatica"),
+   url("./fonts/font/PragmaticaExtended-Medium.ttf") format("truetype");
+  ;
+ }
 
+ @font-face {
+  font-family: "Tabac";
+  src: local("Tabac"),
+   url("./fonts/font-1/TabacSansLight.ttf") format("truetype");
+  ;
+ }
+.Tabac{
+  font-family: "Tabac", Arial !important;
+} 
+.Pragmatica{
+  font-family: "Pragmatica", Arial !important;
+}
  .AcehLight{
   font-family: "AcehLight", Arial !important;
  }
@@ -148,7 +165,9 @@
 .secOHig {
   height: 800px;
 }
-
+.spacing{
+  letter-spacing: 15px;
+}
 /* section two div height */
 .secTDivH {
   height: auto;
