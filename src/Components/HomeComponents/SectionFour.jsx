@@ -16,11 +16,7 @@ export const SectionFour = () => {
     639: {
       slidesPerView: 3,
       spaceBetween: 10,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        hideOnClick: true,
-      },
+     
     },
     768: {
       slidesPerView: 2,
@@ -40,14 +36,15 @@ export const SectionFour = () => {
   return (
     <div className=" flex flex-col gap-10   items-center  2xl:px-10 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
       <div className="flex flex-col  ">
-        <h3 className=" text-black Aceh text-xl sm:my-5 my-10 md:text-xl">
+        <h3 className=" text-black Aceh text-xl uppercase sm:my-5 my-10 md:text-xl">
           Shop Collections
         </h3>
       </div>
       <Swiper
         
         slidesPerView={3}
-        modules={[Pagination, Navigation, Autoplay]}
+        watchSlidesProgress
+        modules={[ Autoplay]}
         breakpoints={breakpoints}
         loop={true}
         // direction={"vertical"}
@@ -55,7 +52,7 @@ export const SectionFour = () => {
           clickable: true,
         }}
         autoplay={{
-          delay: 4000,
+          delay: 2000,
           disableOnInteraction: false,
         }}
         // navigation={true}

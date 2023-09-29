@@ -50,7 +50,7 @@ export const SectionTwo = () => {
   return (
     <div className=" Aceh flex flex-col gap-10 items-center p-10 xl:px-5 sm:px-0 sm:gap-5">
       <div className="flex flex-col gap-4">
-        <h3 className=" text-black Aceh text-xl"> Shop New Arrivals</h3>
+        <h3 className=" text-black Aceh text-xl uppercase"> Shop New Arrivals</h3>
       </div>
 
       <Swiper
@@ -58,13 +58,16 @@ export const SectionTwo = () => {
        slidesPerView={'auto'}
        watchSlidesProgress
        grabCursor={true}
-      
+       autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         loop= {true}
         breakpoints={breakpoints}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination, Navigation, Autoplay]}
+        modules={[ Autoplay]}
         className="mySwiper w-full "
       >
         {newArrival().map((item) => {
@@ -77,7 +80,7 @@ export const SectionTwo = () => {
               >
               <div className="w-full flex justify-center  overflow overflow-hidden">
                 <img
-                  src={item.src}
+                  src={item.src[0]}
                   alt={item.name}
                   className="w-full   imghgt2"
                   style={{ height: "330px", width: "200px" }}

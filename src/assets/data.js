@@ -542,7 +542,8 @@ export const datas = {
       price: "2000",
       color: ["black"],
       collection: "formal",
-      src: "/Images/sec4/holiday.jpeg",
+      size:["1-2yr","3-4yr", "5-6yr", "7-8yr"],
+      src:[ "/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -563,7 +564,7 @@ export const datas = {
         "10 years Warranty",
         "Lasting Long",
       ],
-      src: "/Images/sec4/holiday.jpeg",
+      src:[ "/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
     },
     {
       id: 102,
@@ -572,7 +573,7 @@ export const datas = {
       price: "3000",
       color:[ "black"],
       collection: "comfort",
-      src: "/Images/sec4/holiday.jpeg",
+      src:[ "/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -587,7 +588,7 @@ export const datas = {
       price: "1000",
       color: ["black"],
       collection: "comfort",
-      src: "/Images/sec4/holiday.jpeg",
+      src: ["/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -602,7 +603,7 @@ export const datas = {
       price: "10000",
       color: ["Red"],
       collection: "afrocentric",
-      src: "/Images/sec4/holiday.jpeg",
+      src: ["/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -617,7 +618,7 @@ export const datas = {
       price: "3700",
       color: ["Red"],
       collection: "comfort",
-      src: "/Images/sec4/holiday.jpeg",
+      src: ["/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -632,7 +633,7 @@ export const datas = {
       price: "15000",
       collection: "comfort",
 
-      src: "/Images/sec4/holiday.jpeg",
+      src:[ "/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -648,7 +649,7 @@ export const datas = {
       color:[ "black"],
       collection: "afrocentric",
 
-      src: "/Images/sec4/holiday.jpeg",
+      src: ["/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -663,7 +664,7 @@ export const datas = {
       price: "1500",
       color:[ "Red"],
       collection: "occasion",
-      src: "/Images/sec4/holiday.jpeg",
+      src: ["/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -683,7 +684,8 @@ export const datas = {
       price: "12000",
       collection: "comfort",
       color:[ "Blue"],
-      src: "/Images/sec4/holiday.jpeg",
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+      src: ["/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -698,8 +700,9 @@ export const datas = {
       price: "7000",
       collection: "holiday",
       color: ["Red"],
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
-      src: "/Images/sec4/holiday.jpeg",
+      src: ["/Images/sec4/holiday.jpeg","/Images/newArrivals/image3.jpeg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -712,7 +715,9 @@ export const datas = {
       name: "Denim",
       category: "two pieces",
       price: "3000",
-      src: "/Images/sec4/holiday.jpeg",
+      src:[ "/Images/sec4/holiday.jpeg", "/Images/sec4/holiday.jpeg", "/Images/sec4/holiday.jpeg"],
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+      color:[""],
       description: [
         "It is comfy",
         "No Dirt",
@@ -722,12 +727,14 @@ export const datas = {
     },
     {
       id: 204,
-      src: "/Images/newArrivals/image3.jpeg",
+      src:[ "/Images/newArrivals/image3.jpeg","/Images/newArrivals/image3.jpeg"],
       name: "Viva",
       newarrival: true,
       category: "two pieces",
       color: ["White", "Tan Brown", "Bright Yellow"],
       collection: "resort",
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       price: "16000",
       fabricType: ["shiffon"],
       description: [
@@ -740,10 +747,12 @@ export const datas = {
 
     {
       id: 206,
-      src: "/Images/newArrivals/image14.jpeg",
+      src: ["/Images/newArrivals/image14.jpeg","/Images/newArrivals/image14.jpeg"],
       name: "Tia",
       category: "clothing",
       fabricType: ["crepe"],
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       collection: "formal",
       newarrival: true,
       price: "10500",
@@ -757,9 +766,11 @@ export const datas = {
     },
     {
       id: 207,
-      src: "/Images/newArrivals/image13.jpeg",
+      src: ["/Images/newArrivals/image13.jpeg","/Images/newArrivals/image13.jpeg"],
       name: "Zendra",
       category: "one piece",
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       newarrival: true,
       color: ["orange", "terracotta", "rasp berry", "purple", "black"],
       price: "9500",
@@ -769,11 +780,13 @@ export const datas = {
     ]},
     {
       id: 208,
-      src: "/Images/newArrivals/image11.jpeg",
+      src:[ "/Images/newArrivals/image11.jpeg","/Images/newArrivals/image11.jpeg"],
       name: "Bloom",
       category: "one piece",
       collection: "formal",
       newarrival: true,
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       fabricType:["crepe"],
       color: ["brown", "red", "navy blue"],
       price: "15000",
@@ -786,11 +799,13 @@ export const datas = {
     },
     {
       id: 209,
-      src: "/Images/newArrivals/image12.jpeg",
+      src: ["/Images/newArrivals/image12.jpeg","/Images/newArrivals/image12.jpeg"],
       name: "Luxe Wrap Maxi",
       newarrival: true,
       category: "one piece",
       collection:"occasion",
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       price: "14000",
       color: ["purple"],
       fabricType: ["crepe"],
@@ -798,11 +813,13 @@ export const datas = {
     },
     {
       id: 210,
-      src: "/Images/newArrivals/image5.jpeg",
+      src: ["/Images/newArrivals/image5.jpeg","/Images/newArrivals/image5.jpeg"],
       name: "Honora",
       category: "two pieces",
       collection:"occasion",
       newarrival: true,
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       color: ["brown", "pink" , "green"],
       price: "18000",
       fabricType:[ "crepe"],
@@ -810,11 +827,13 @@ export const datas = {
     },
     {
       id: 211,
-      src: "/Images/newArrivals/image8.jpeg",
+      src: ["/Images/newArrivals/image8.jpeg","/Images/newArrivals/image8.jpeg"],
       name: "Audrey",
       category: "two pieces",
       color: ["blue", "orange", "black"],
       newarrival: true,
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       fabricType: ["crepe"],
       collection:"occasion",
       price: "16000",
@@ -822,11 +841,13 @@ export const datas = {
     },
     {
       id: 212,
-      src: "/Images/newArrivals/image15.jpeg",
+      src: ["/Images/newArrivals/image15.jpeg","/Images/newArrivals/image15.jpeg"],
       name: "Luxe Midi",
       category: "one piece",
       collection:"formal",
       newarrival: true,
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       fabricType:[ "crepe"],
       color: ["red", "black", "onion"],
       price: "14000",
@@ -836,11 +857,13 @@ export const datas = {
     },
     {
       id: 213,
-      src: "/Images/newArrivals/image7.jpeg",
+      src: ["/Images/newArrivals/image7.jpeg","/Images/newArrivals/image7.jpeg"],
       name: "Pomp",
       newarrival: true,
       category: "one piece",
       collection:"party",
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       color: [ "red", "white", "green"],
       price: "15000",
       fabricType:[ "scuba"],
@@ -853,11 +876,13 @@ export const datas = {
     },
     {
       id: 214,
-      src: "/Images/newArrivals/image2.jpeg",
+      src: ["/Images/newArrivals/image2.jpeg","/Images/newArrivals/image2.jpeg"],
       name: "Fiesta",
       newarrival: true,
       category: "one piece",
       collection:"party",
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       color: [ "burnt orange", "yellow", "white"],
       price: "19000",
       fabricType:[ " veil net, organza"],
@@ -868,10 +893,12 @@ export const datas = {
     },
     {
       id: 215,
-      src: "/Images/newArrivals/image6.jpeg",
+      src: ["/Images/newArrivals/image6.jpeg","/Images/newArrivals/image6.jpeg"],
       name: "Sizzler",
       newarrival: true,
       category: "one piece",
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+
       collection:"party",
       color: [ "purple", "silver", "black"],
       price: "23000",
@@ -893,9 +920,10 @@ export const datas = {
       category: "clothings",
       price: "9000",
       collection: "holiday",
+      size: ["S", "M", "L", "XL", "XXL"],
       color:[ "Yellow"],
 
-      src: "/Images/sec4/holiday.jpeg",
+      src: ["/Images/Fashionista/male-model-4.jpg","/Images/Fashionista/male-model-4.jpg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -910,7 +938,8 @@ export const datas = {
       collection: "holiday",
       color: ["Yellow"],
       price: "10000",
-      src: "/Images/sec4/holiday.jpeg",
+      size: ["S", "M", "L", "XL", "XXL"],
+      src: ["/Images/Fashionista/male-model-2.jpg","/Images/Fashionista/male-model-2.jpg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -924,9 +953,9 @@ export const datas = {
       category: "clothing",
       color: ["Red"],
       collection: "afrocentric",
-
+      size: ["S", "M", "L", "XL", "XXL"],
       price: "2000",
-      src: "/Images/sec4/holiday.jpeg",
+      src: ["/Images/Fashionista/male-model-2.jpg","/Images/Fashionista/male-model-2.jpg"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -940,8 +969,9 @@ export const datas = {
       category: "hoodies",
       price: "10000",
       collection: "holiday",
+      size: ["S", "M", "L", "XL", "XXL"],
       color: ["Yellow"],
-      src: "/Images/sec4/holiday.jpeg",
+      src: ["/Images/Fashionista/male-model-2.jpg","/Images/Fashionista/male-model-2.jpg"],
       description: [
         "It is comfy",
         "No Dirt",

@@ -36,7 +36,7 @@ export const SectionTwoTest = () => {
   return (
     <div className=" Aceh flex flex-col gap-10 items-center p-10 xl:px-5 sm:px-0 sm:gap-5">
       <div className="flex flex-col gap-4">
-        <h3 className=" text-black Aceh text-xl"> Shop Categories
+        <h3 className=" text-black Aceh uppercase text-xl"> Shop Categories
         </h3>
       </div>
 
@@ -52,10 +52,10 @@ export const SectionTwoTest = () => {
           clickable: true,
         }}
         autoplay={{
-          delay: 4000,
+          delay: 2000,
           disableOnInteraction: false,
         }}
-        modules={[Pagination, Navigation, Autoplay]}
+        modules={[ Autoplay]}
         className="mySwiper w-full  px-4 sm:px-0 lg:px-10"
       >
         

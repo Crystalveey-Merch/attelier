@@ -34,6 +34,8 @@ const Cart = () => {
               <div className="flex flex-col m-auto  gap-2">
                 <h1 className="Aceh text-lg capitalize">{item.name}</h1>
                 <h1 className="text-xl text-sky-500 Aceh">N{item.price}</h1>
+                <h1 className="text-xl  ">Size: {item.size}</h1>
+
                 <div className="flex ">
                   <button
                     onClick={() => removeItem(item.id)}

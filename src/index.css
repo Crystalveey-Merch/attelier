@@ -155,7 +155,9 @@
 .open .harburger-bottom {
   transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
-
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
 /* section four width */
 .secFWid {
   width: 500px;

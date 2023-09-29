@@ -38,7 +38,7 @@ export const SectionThree = () => {
   return (
     <div className=" flex flex-col gap-10  mx-10 sm:mx-0 py-5 border  border-4xl rounded items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
       <div className="flex flex-col gap-2 py-2">
-        <p className="text-gray-700 Aceh text-3xl sm:text-2xl">
+        <p className="text-gray-700 Aceh  text-3xl sm:text-2xl">
           Crystalveey's Untagged
         </p>
         <h3 className=" text-black AcehLight text-2xl md:text-xl sm:text-sm">

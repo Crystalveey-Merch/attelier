@@ -69,16 +69,17 @@ export const Header = () => {
               </Link>
             </li>
           </ul>
-          <Link to="/">
-            <div className="flex justify-center m-auto sm:w-full ml-24 sm:ml-2 w-full   ">
+          <Link to="/" className="m-auto">
+            <div className="flex sm:flex-col sm:ml-0 ml-20 justify-center m-auto sm:w-full   w-full   ">
               <h1 className="text-2xl m-auto  sm:text-xl text-black Pragmatica tracking-wider">
-                CRYSTALVEEY <span className="Tabac spacing px-5">ATELIER</span>
+                CRYSTALVEEY  
               </h1>
+              <span className="Tabac spacing flex   m-auto text-black text-2xl">ATELIER</span>
               {/* <img src="/Images/Avatar/logo.jpeg" alt="logo" className="w-56"/> */}
             </div>
           </Link>
 
-          <div className="flex gap-2  items-center px-5  text-gray-600 sm:gap-10">
+          <div className="flex gap-2 justify-between  items-center px-5  text-gray-600 sm:gap-10">
             {/* <select className="select w-full text-xl max-w-xs bg-white outline outline-0 ">
             <option>₦</option>
             <option>$</option>
@@ -94,15 +95,15 @@ export const Header = () => {
               <span className="harburger-middle bg-gray-900 transition duration-500 ease-in-out  "></span>
               <span className="harburger-bottom bg-gray-900 transition duration-500 ease-in-out  "></span>
             </button>
-            <div className="my-1 flex border border-gray-600 ">
+            <div className="my-1 flex border-b  ">
               <input
-                className="p-2 bg-white w-62 sm:w-42  "
+                className=" bg-white p-1 w-40 sm:w-42  "
                 placeholder="Search"
               ></input>
-              <button className="  px-4">
+              <button className=" ">
                 <svg
                   aria-hidden="true"
-                  className="w-6 h-5 text-gray-800 "
+                  className="w-6 h-6 text-gray-600 "
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +150,7 @@ export const Header = () => {
                 </ul>
               )}
             </button>
-            <Link to="/cart" className=" h-6 w-6 ">
+            <Link to="/cart" className=" h-6 w-8 relative ">
               <button className="flex  ">
                 <svg
                   width="24"
@@ -167,9 +168,11 @@ export const Header = () => {
                     d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                   ></path>
                 </svg>
-
-                <h1 className="m-auto text-xl px-2">({totalUniqueItems})</h1>
+                <div className=" top-0 right-0  absolute bg-black h-4 w-4 text-white rounded rounded-full">
+                <h1 className="text-xs m-auto flex justify-center  ">{totalUniqueItems}</h1>
+                </div>
               </button>
+              
             </Link>
           </div>
         </div>
@@ -189,6 +192,14 @@ export const Header = () => {
             className="middle  text-sm   hover:text-gray-750"
           >
             Order Custom Made
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/"
+            className="middle  text-sm   hover:text-gray-750"
+          >
+            Consultation
           </Link>
         </li>
         {/* <div className="dropdown middle dropdown-end hover:text-gray-750">

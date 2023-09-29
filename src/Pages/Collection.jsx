@@ -148,7 +148,7 @@ const Collection = () => {
                 >
                   <Link to={`/productdes/${product.id}`}>
                     <img
-                      src={product.src}
+                      src={product.src[0]}
                       alt={product.name}
                       className="  sm:w-full m-auto imghgt bg-white"
                       style={{ height: "360px", width: "306px" }}

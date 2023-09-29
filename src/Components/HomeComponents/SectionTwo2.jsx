@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {  Pagination, Navigation} from "swiper";
+import { Autoplay, Pagination, Navigation} from "swiper";
 
 export const SectionTwo2 = () => {
   const breakpoints = {
@@ -17,11 +17,7 @@ export const SectionTwo2 = () => {
     639: {
       slidesPerView: 3,
       spaceBetween: 10,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        hideOnClick: true,
-      },
+     
     },
     768: {
       slidesPerView: 3,
@@ -43,7 +39,7 @@ export const SectionTwo2 = () => {
   return (
     <div className=" Aceh flex flex-col gap-10 items-center p-10 xl:px-5 sm:px-0 sm:gap-5">
       <div className="flex flex-col gap-4">
-        <h3 className=" text-black Quicksand text-xl"> Shop Categories
+        <h3 className=" text-black Quicksand uppercase text-xl"> Shop Categories
         </h3>
       </div>
 
@@ -52,13 +48,16 @@ export const SectionTwo2 = () => {
        slidesPerView={'auto'}
        watchSlidesProgress
        grabCursor={true}
-      
+       autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         loop= {true}
         breakpoints={breakpoints}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination, Navigation]}
+        modules={[Autoplay]}
         className="mySwiper w-full  px-4 sm:px-0 lg:px-10"
       >
         {items.map((item) => {

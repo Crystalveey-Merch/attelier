@@ -5,14 +5,14 @@ const Blog = () => {
         <h1 className="pt-10  text-black Aceh text-2xl text-center">Blog</h1>
         <div className="px-30">
           {" "}
-          <p className="italic text-sm  py-2  justify-center">
+          <p className=" text-sm  py-2  justify-center">
             Fashion/ 5 min Read
           </p>
         </div>
         <h1 className="font-bold Aceh text-3xl  indent-px  sm:text-2xl text-justify text-black">
           Elegance redefined
         </h1>
-        <p className="italic text-sm text-black py-2  justify-center">
+        <p className=" text-sm text-black py-2  justify-center">
           Crystalveey’s Atelier- your one stop destination for the whole family!
         </p>
         <p className="  AcehLight text-left leading-10 text-justify text-black">

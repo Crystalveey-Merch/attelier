@@ -55,7 +55,7 @@ function App() {
     >
       <Header />
       <div
-        className={`fixed top-0 left-0 w-full z-20 ${colors[animationIndex]} Aceh  p-3 mt-32 lg:mt-26 sm:pt-3 sm:pb-2 sm:hidden`}
+        className={`fixed top-0 left-0 w-full z-20 ${colors[animationIndex]} Aceh  p-3 mt-28 lg:mt-26 sm:pt-3 sm:pb-2 sm:hidden`}
       >
         <p className="text-white text-center text-sm">{texts[animationIndex]}</p>
       </div>
