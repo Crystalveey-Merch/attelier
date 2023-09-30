@@ -8,8 +8,8 @@ import 'swiper/css/effect-fade';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+// import {  } from "swiper/types/modules";
 import { Autoplay, EffectFade } from "swiper";
-
 
 export const SectionOne = () => {
   const breakpoints = {
