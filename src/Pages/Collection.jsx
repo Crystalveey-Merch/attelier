@@ -63,7 +63,7 @@ const Collection = () => {
       <div>
         <div className="text-center sm:text-xl text-2xl pt-10 text-black py-4 bg-white  Aceh">
           {collectionName.toUpperCase()} Collection
-          <h1 className="text-xl text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
+          <h1 className="text-md  text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
             Crystalveey’s Atelier collection is a mixture of our signature line
             of diverse designs for afrocentric, resort, party, formal, and
             comfort wears.

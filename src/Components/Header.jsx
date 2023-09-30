@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
-  const { cartTotal, totalUniqueItems } = useCart();
+  const { totalUniqueItems } = useCart();
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -45,7 +45,7 @@ export const Header = () => {
       // style={{ backgroundColor: "#efd7ec" }}
     >
       <div className=" flex sm:block AcehLight border border-b border justify-between items-center w-full px-10 sm:px-2 py-2 ">
-        <div className="flex sm:flex-col justify-center m-auto gap-48 sm:gap-4    sm:border-b   ">
+        <div className="flex sm:flex-col justify-center m-auto gap-48 sm:gap-0    sm:border-b   ">
           <ul className=" flex gap-3 justify-start m-auto text-black lg:hidden">
             <li className="link-item">
               <Link
@@ -246,7 +246,7 @@ export const Header = () => {
         </li> */}
       </ul>
       <div className=" header-links z-20 ">
-        <div className="hidden bg-white text-black lg:flex flex-col gap-4 h-screen w-full p-4 pt-10  w-full  ">
+        <div className="hidden bg-white text-black lg:flex flex-col gap-4 sm:gap-0  h-screen w-full p-4 pt-10  w-full  ">
           <div className="tabs w-full   text-black">
             {tabs.map((tab, index) => (
               <a
@@ -350,7 +350,7 @@ export const Header = () => {
                 </li>
                 <li className="border-gray-200 pb-2">
                   <a
-                    href="/"
+                    href="/untagbuy"
                     className="middle  text-sm link-item  hover:text-gray-750"
                   >
                     Buy

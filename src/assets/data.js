@@ -980,4 +980,55 @@ export const datas = {
       ],
     },
   ],
+
+  untagged:[
+    {
+      id: 6,
+      name: "Office shoe",
+      category: "shoe",
+      price: "12000",
+      collection: "comfort",
+      color:[ "Blue"],
+      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+      src: ["/Images/sec4/holiday.jpeg","/Images/sec4/holiday.jpeg"],
+      description: [
+        "It is comfy",
+        "No Dirt",
+        "10 years Warranty",
+        "Lasting Long",
+      ],
+    },
+    {
+      id: 1,
+      name: "Gucci Hoodie",
+      category: "hoodies",
+      price: "10000",
+      collection: "holiday",
+      size: ["S", "M", "L", "XL", "XXL"],
+      color: ["Yellow"],
+      src: ["/Images/Fashionista/male-model-2.jpg","/Images/Fashionista/male-model-2.jpg"],
+      description: [
+        "It is comfy",
+        "No Dirt",
+        "10 years Warranty",
+        "Lasting Long",
+      ],
+    },
+    {
+      id: 2,
+      name: "Gucci Hoodie",
+      category: "hoodies",
+      price: "10000",
+      collection: "holiday",
+      size: ["S", "M", "L", "XL", "XXL"],
+      color: ["Yellow"],
+      src: ["/Images/Fashionista/male-model-2.jpg","/Images/Fashionista/male-model-2.jpg"],
+      description: [
+        "It is comfy",
+        "No Dirt",
+        "10 years Warranty",
+        "Lasting Long",
+      ],
+    },
+  ]
 };

@@ -20,6 +20,7 @@ import Blog from "./Pages/Blog";
 import Faq from "./Pages/Faq";
 import Ready2Wear from "./Pages/Ready2Wear";
 import CategoriesList from "./Pages/CategoriesList";
+import UntagBuy from "./Pages/untagged/Buy";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -76,7 +77,7 @@ function App() {
         <Route path="/category/:categoryName" element={<Categories />} />
         <Route path="/refurblish" element={<Refurblish/>}/>
         <Route path="/sell" element={<Sell/>}/>
-        <Route path="/buy" element={<Buy/>}/>
+        <Route path="/untagbuy" element={<UntagBuy/>}/>
         <Route path="/blog" element={<Blog/>}/>
         <Route path="/faq" element={<Faq/>}/>
         <Route path="/readytowear" element={<Ready2Wear/>}/>

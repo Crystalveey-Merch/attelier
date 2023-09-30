@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="flex sm:flex-col">
         <div className="flex gap-40 sm:text-sm  justify-center 2xl:gap-20 xl:gap-5 lg:w-full  lg:justify-between lg:pr-10 sm:flex-wrap">
           <ul className="flex flex-col gap-6 sm:gap-2 ">
-            <li className="middle hover:text-gray-750 cursor-pointer w-max">
+            <li className="middle hover:text-gray-750  border-b  cursor-pointer w-max">
               Company
             </li>
             <li
@@ -44,7 +44,7 @@ export const Footer = () => {
             </Link>
           </ul>
           <ul className="flex flex-col gap-6 sm:text-sm sm:gap-2  w-max">
-            <li className="middle  hover:text-gray-750 cursor-pointer">
+            <li className="middle border-b  hover:text-gray-750 cursor-pointer">
               Resources
             </li>
             <Link to="/blog">
@@ -52,6 +52,9 @@ export const Footer = () => {
                 Blog
               </li>
             </Link>
+            <li className="middle  text-sm hover:text-gray-750 cursor-pointer">
+              Gift Cards
+            </li>
             <li
               className="middle  font-medium text-sm cursor-pointer w-max"
               onClick={() => document.getElementById("privacy").showModal()}
@@ -60,9 +63,9 @@ export const Footer = () => {
               Privacy Policy
             </li>
           </ul>
-          <div className=" sm:gap-16 gap-10  flex ">
+          <div className=" sm:gap-4 gap-10  flex ">
             <ul className="flex flex-col gap-6  sm:gap-2  w-max text-sky-600">
-              <li className="middle  hover:text-gray-750 cursor-pointer text-white">
+              <li className="middle  hover:text-gray-750  border-b  cursor-pointer text-white">
                 Contact
               </li>
               <li className=" flex gap-1 items-center  font-medium text-sm cursor-pointer w-max">
@@ -81,7 +84,7 @@ export const Footer = () => {
               </li>
             </ul>
             <div className="sm:w-full">
-              <h4 className="  text-base sm:text-sm font-semibold ">
+              <h4 className="  text-base sm:text-s  border-b m font-semibold ">
                 Follow Us
               </h4>
               <div className="flex gap-4 text-xl mt-5 sm:mt-2 sm:gap-2">
@@ -104,18 +107,17 @@ export const Footer = () => {
           </div>
         </div>
         <div className=" flex flex-col sm:py-5 justify-center m-auto ">
-        <div className="flex justify-center m-auto sm:w-full ml-24 sm:ml-2 w-full   ">
-              <h1 className="text-2xl m-auto  sm:text-xl text-white Pragmatica tracking-wider">
-                CRYSTALVEEY <span className="Tabac spacing px-2">ATELIER</span>
-              </h1>
-              {/* <img src="/Images/Avatar/logo.jpeg" alt="logo" className="w-56"/> */}
-            </div>
-        <p className=" sm:text-sm AcehLight m-auto pl-40 sm:pl-0 text-center text-gray-300 ">
-          Your Destination for Fashion and Elegance
-        </p>
+          <div className="flex justify-center m-auto sm:w-full ml-24 sm:ml-0 w-full   ">
+            <h1 className="text-2xl m-auto text-center  sm:text-xl text-white Pragmatica tracking-wider">
+              CRYSTALVEEY <span className="Tabac spacing px-2">ATELIER</span>
+            </h1>
+            {/* <img src="/Images/Avatar/logo.jpeg" alt="logo" className="w-56"/> */}
+          </div>
+          <p className=" sm:text-sm AcehLight m-auto pl-40 sm:pl-0 text-center text-gray-300 ">
+            Your Destination for Fashion and Elegance
+          </p>
+        </div>
       </div>
-      </div>
-      
 
       <div className=" border-gray-100 pt-2 sm:text-sm  text-center">
         <p className="font-semibold base">

@@ -8,7 +8,7 @@ import 'swiper/css/effect-fade';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation, EffectFade, } from "swiper";
+import { Autoplay, EffectFade } from "swiper";
 
 
 export const SectionOne = () => {
@@ -24,7 +24,7 @@ export const SectionOne = () => {
   return (
    
     // reduce the height and make image full at mobile screen size
-    <div className=" flex justify-center items-center px-28 gap-0 relative lg:px-4 sm:px-0">
+    <div className=" flex justify-center items-center px-28 gap-0 relative lg:px-4 sm:px-0 sm:pt-8">
     <div className="flex  w-screen m-auto h-srceen justify-center">
      <Swiper
     modules={[ EffectFade, Autoplay]}
