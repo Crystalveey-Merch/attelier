@@ -8,7 +8,7 @@ import 'swiper/css/effect-fade';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, EffectFade } from "swiper";
+import { Autoplay,  } from "swiper";
 
 
 export const SectionOne = () => {
@@ -27,7 +27,7 @@ export const SectionOne = () => {
     <div className=" flex justify-center items-center px-28 gap-0 relative lg:px-4 sm:px-0 sm:pt-8">
     <div className="flex  w-screen m-auto h-srceen justify-center">
      <Swiper
-    modules={[ EffectFade, Autoplay]}
+    modules={[ Autoplay]}
     breakpoints={breakpoints}
     loop={true}
     effect="fade"
@@ -59,7 +59,7 @@ export const SectionOne = () => {
     </SwiperSlide>
   </Swiper>
   <Swiper
-    modules={[ EffectFade, Autoplay]}
+    modules={[  Autoplay]}
     breakpoints={breakpoints}
     loop={true}
     effect="fade"
