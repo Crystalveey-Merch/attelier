@@ -19,6 +19,7 @@
     "react-image-upload-s3": "^1.1.3",
     "react-international-phone": "^3.1.2",
     "react-router-dom": "^6.11.2",
+    "react-search-autocomplete": "^8.5.2",
     "react-toastify": "^9.1.3",
     "react-use-cart": "^1.13.0",
     "swiper": "^9.3.2"

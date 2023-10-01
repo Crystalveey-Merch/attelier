@@ -20,6 +20,11 @@ const Collection = () => {
   const [sortOrder, setSortOrder] = useState("asc");
   const [isHovered, setIsHovered] = useState(false);
 
+  
+
+    const goBack = () => {
+    window.history.back();
+    }
   const handleSort = (order) => {
     const sorted = [...filteredProducts];
     if (order === "asc") {
@@ -59,11 +64,14 @@ const Collection = () => {
   };
 
   return (
-    <div className="mt-36 sm:mt-26  w-full AcehLight  pt-2 sm:px-0 ">
+    <div className="mt-24 sm:mt-16  w-full AcehLight  pt-2 sm:px-0 ">
       <div>
-        <div className="text-center sm:text-xl text-2xl pt-10 text-black py-4 bg-white  Aceh">
-          {collectionName.toUpperCase()} Collection
-          <h1 className="text-md  text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
+      <div className="hidden sm:block pt-5 pl-5" onClick={goBack}>
+        <i className="fas fa-arrow-left text-black"/>
+      </div>
+        <div className="text-center capitalize sm:text-xl text-2xl  text-black py-2 border-b border-black bg-white  Aceh">
+          {collectionName} Collection
+          <h1 className="text-base  text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
             Crystalveey’s Atelier collection is a mixture of our signature line
             of diverse designs for afrocentric, resort, party, formal, and
             comfort wears.
@@ -76,10 +84,10 @@ const Collection = () => {
               tabIndex={0}
               className=" flex justify-center    hover:border-b"
             >
-              <span className="m-auto flex gap-2 p-2 ">
-                <i className="fas fa-filter px-2 m-auto" />
+              <span className="m-auto flex gap-2 p-2 uppercase ">
+                
                 Filter
-                <i className="fas fa-sort-down" />
+               
               </span>
               {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
               
@@ -111,11 +119,11 @@ const Collection = () => {
               Clear filters
             </a>
           </div> */}
-          <div className="dropdown  dropdown-end  rounded p-2 ">
-            <label tabIndex={0} className=" m-auto flex gap-2 ">
-              <i className="fas fa-arrow-down-short-wide px-2 m-auto" />
-              Sort by:
-              <i className="fas fa-sort-down" />
+          <div className="dropdown   dropdown-end  rounded p-2 ">
+            <label tabIndex={0} className=" m-auto flex gap-2 uppercase ">
+              
+              Sort by
+            
             </label>
             <ul
               tabIndex={0}

@@ -1,9 +1,72 @@
 import { useCart } from "react-use-cart";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { datas } from "../assets/data.js";
+
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
+  const { productId } = useParams();
+
+  const allProducts = [
+    ...datas.children,
+    ...datas.women,
+    ...datas.men,
+    ...datas.untagged,
+  ];
+  const selectedProduct = allProducts.find((p) => p.id === parseInt(productId));
+  const handleOnSearch = (string, results) => {
+    // onSearch will have as the first callback parameter
+    // the string searched and for the second the results.
+    console.log(string, results);
+  };
+
+  const handleOnHover = (result) => {
+    // the item hovered
+    console.log(result);
+  };
+  const navigate = useNavigate();
+
+  const handleOnSelect = (item) => {
+    // Construct the target URL
+    const targetUrl = `/productdes/${item.id}`;
+    
+
+    // Use history.push() to navigate to the target URL
+    navigate(targetUrl);
+  };
+
+  const handleOnFocus = () => {
+    console.log("Focused");
+  };
+
+  const formatResult = (item) => {
+    return (
+      <>
+        <div className="flex  gap-1" id={item.id}>
+          <img src={item.src[0]} className="w-10" />
+          <div className="flex-col m-auto">
+          <span
+            className="Aceh"
+            style={{ display: "block", textAlign: "left" }}
+          >
+            {item.name}
+          </span>
+          <span
+            className="Aceh text-sky-500"
+            style={{ display: "block", textAlign: "left" }}
+          >
+            N{item.price}
+          </span>
+          </div>
+        </div>
+      </>
+    );
+  };
   const { totalUniqueItems } = useCart();
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,12 +104,12 @@ export const Header = () => {
   const [toggleAccount, setToggleAccount] = useState(false);
   return (
     <div
-      className="fixed top-0 left-0 w-full z-30  bg-white flex  flex-col gap-0 sm:m-0  w-full items-center xl:px-8 sm:px-0  "
+      className="fixed  w-full z-30 top-6 bg-white flex  flex-col gap-0 sm:m-0  w-full items-center xl:px-8 sm:px-0  "
       // style={{ backgroundColor: "#efd7ec" }}
     >
-      <div className=" flex sm:block AcehLight border border-b border justify-between items-center w-full px-10 sm:px-2 py-2 ">
-        <div className="flex sm:flex-col justify-center m-auto gap-48 sm:gap-0    sm:border-b   ">
-          <ul className=" flex gap-3 justify-start m-auto text-black lg:hidden">
+      <div className=" flex sm:block AcehLight   m-auto border sm:border-b border justify-between  items-center w-full    py-1 ">
+        <div className="flex   gap-96 sm:gap-4  sm:gap-0 sm:px-4 m-auto justify-center  sm:border-b   ">
+          <ul className=" flex gap-3 m-auto  text-black lg:hidden">
             <li className="link-item">
               <Link
                 to="/aboutus"
@@ -69,61 +132,95 @@ export const Header = () => {
               </Link>
             </li>
           </ul>
-          <Link to="/" className="m-auto">
-            <div className="flex sm:flex-col sm:ml-0 ml-20 justify-center m-auto sm:w-full   w-full   ">
-              <h1 className="text-2xl m-auto  sm:text-xl text-black Pragmatica tracking-wider">
-                CRYSTALVEEY  
-              </h1>
-              <span className="Tabac spacing flex   m-auto text-black text-2xl">ATELIER</span>
-              {/* <img src="/Images/Avatar/logo.jpeg" alt="logo" className="w-56"/> */}
-            </div>
+          <button
+            id="menu-btn"
+            onClick={handleMenu}
+            className={`hamburger  ${
+              menuOpen ? "open" : ""
+            } hidden lg:block focus:outline-none z-30 flex flex-col gap-2    my-auto`}
+          >
+            <span className="harburger-top   bg-gray-900 transition duration-500 ease-in-out "></span>
+            <span className="harburger-middle    bg-gray-900 transition duration-500 ease-in-out  "></span>
+            <span className="harburger-bottom   bg-gray-900 transition duration-500 ease-in-out  "></span>
+          </button>
+          <Link to="/" className="m-auto flex   sm:flex-col justify-center">
+            <h1
+              className="text-2xl pr-6 sm:px-8	m-auto   text-center  sm:text-base text-black Pragmatica "
+              style={{ lineHeight: "1rem" }}
+            >
+              CRYSTALVEEY
+            </h1>
+            <h1 className="Tabac spacing  text-2xl sm:text-base text-center text-black">
+              ATELIER
+            </h1>
           </Link>
 
-          <div className="flex gap-2 justify-between  items-center px-5  text-gray-600 sm:gap-10">
+          <div className="flex gap-2  justify-center   text-gray-600 ">
             {/* <select className="select w-full text-xl max-w-xs bg-white outline outline-0 ">
             <option>₦</option>
             <option>$</option>
           </select> */}
+
+            
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+
             <button
-              id="menu-btn"
-              onClick={handleMenu}
-              className={`hamburger  ${
-                menuOpen ? "open" : ""
-              } hidden lg:block focus:outline-none z-30 my-4`}
+              className=" m-auto  text-center "
+              onClick={() => document.getElementById("my_modal_2").showModal()}
             >
-              <span className="harburger-top  bg-gray-900 transition duration-500 ease-in-out  "></span>
-              <span className="harburger-middle bg-gray-900 transition duration-500 ease-in-out  "></span>
-              <span className="harburger-bottom bg-gray-900 transition duration-500 ease-in-out  "></span>
-            </button>
-            <div className="my-1 flex border-b  ">
-              <input
-                className=" bg-white p-1 w-40 sm:w-42  "
-                placeholder="Search"
-              ></input>
-              <button className=" ">
-                <svg
-                  aria-hidden="true"
-                  className="w-6 h-6 text-gray-600 "
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gray-600 "
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clipRule="evenodd"
                   fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-            </div>
+                ></path>
+              </svg>
+            </button>
+            <dialog id="my_modal_2" className="modal ">
+              <div className="modal-box bg-white h-96">
+              
+                <div className="my-1 w-full Quicksand  ">
+            <ReactSearchAutocomplete
+            items={allProducts}
+            onSearch={handleOnSearch}
+            onHover={handleOnHover}
+            onSelect={handleOnSelect}
+            onFocus={handleOnFocus}
+            styling={{
+              borderRadius: "none",
+              boxShadow: "none",
+              border:"none",
+              fontSize:"13px",
+              fontFamily: "Quicksand",
+              padding:"2px",
+
+            }}
+            placeholder="Input search"
+            autoFocus
+            className="w-full sm:w-full search border-b text-sm"
+            formatResult={formatResult}
+           />
+           </div>
+              </div>
+              <form method="dialog" className="modal-backdrop">
+                <button>close</button>
+              </form>
+            </dialog>
+
             <button
-              className="relative sm:hidden h-max mx-2"
+              className="flex m-auto sm:hidden h-max mx-2"
               onMouseEnter={() => setToggleAccount(true)}
               onMouseLeave={() => setToggleAccount(false)}
             >
               <svg
-                width="24"
-                height="24"
+                className="w-5 h-5 m-auto"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +233,7 @@ export const Header = () => {
                 />
               </svg>
               {toggleAccount && (
-                <ul className="px-5 w-48 py-5 text-white bg-black shadow-2xl absolute top-5 -right-7 text-left flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
+                <ul className="px-5 w-48 py-5 text-black bg-white shadow-2xl absolute top-5 -right-7 text-left flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
                   <li>
                     <Link to="/" className="  text-sm   hover:text-gray-750">
                       Welcome
@@ -150,15 +247,14 @@ export const Header = () => {
                 </ul>
               )}
             </button>
-            <Link to="/cart" className=" h-6 w-8 relative ">
-              <button className="flex  ">
+            <Link to="/cart" className="  m-auto  w-7     relative ">
+              <button className="flex    ">
                 <svg
-                  width="24"
-                  height="24"
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5 m-auto"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
-                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
                 >
@@ -169,20 +265,21 @@ export const Header = () => {
                   ></path>
                 </svg>
                 <div className=" top-0 right-0  absolute bg-black h-4 w-4 text-white rounded rounded-full">
-                <h1 className="text-xs m-auto flex justify-center  ">{totalUniqueItems}</h1>
+                  <h1 className="text-xs m-auto flex justify-center  ">
+                    {totalUniqueItems}
+                  </h1>
                 </div>
               </button>
-              
             </Link>
           </div>
         </div>
       </div>
-      <p className="bg-gray-200 h-px w-full lg:hidden"></p>
-      <ul className="text-white text-sm flex justify-center gap-10 h-full p-4  xl:gap-6 AcehLight lg:hidden bg-black w-full">
+
+      <ul className="text-black text-sm flex justify-center gap-10 p-3  xl:gap-6 AcehLight lg:hidden bg-white border-b w-full">
         <li>
           <Link to="/readytowear">
             <label className="middle  text-sm   hover:text-gray-750">
-              Shop Ready to Wear
+              Ready to Wear
             </label>
           </Link>
         </li>
@@ -191,14 +288,11 @@ export const Header = () => {
             to="/custommade"
             className="middle  text-sm   hover:text-gray-750"
           >
-            Order Custom Made
+            Custom Made
           </Link>
         </li>
         <li>
-          <Link
-            to="/"
-            className="middle  text-sm   hover:text-gray-750"
-          >
+          <Link to="/" className="middle  text-sm   hover:text-gray-750">
             Consultation
           </Link>
         </li>
@@ -233,7 +327,7 @@ export const Header = () => {
 
         <li>
           <Link to="/" className="middle  text-sm  hover:text-gray-750">
-            Shop Untag
+            Untag
           </Link>
         </li>
         {/* <li>
@@ -245,7 +339,7 @@ export const Header = () => {
           </Link>
         </li> */}
       </ul>
-      <div className=" header-links z-20 ">
+      <div className=" header-links z-20  ">
         <div className="hidden bg-white text-black lg:flex flex-col gap-4 sm:gap-0  h-screen w-full p-4 pt-10  w-full  ">
           <div className="tabs w-full   text-black">
             {tabs.map((tab, index) => (

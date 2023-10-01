@@ -9,13 +9,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Thumbs, FreeMode } from "swiper/core";
-SwiperCore.use([Navigation, Thumbs, FreeMode]);
+import { Navigation, Thumbs, FreeMode } from "swiper";
+// SwiperCore.use([Navigation, Thumbs, FreeMode]);
 
 // import {  Navigation  } from "swiper";
 
 const Productdes = () => {
-  const [thumbsSwiper, setThumbsSwiper] = useState();
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
 
   //   const products = datas.products;
   const { addItem } = useCart();
@@ -27,7 +27,9 @@ const Productdes = () => {
   const [isActive, setIsActive] = useState(null);
   const [isActive2, setIsActive2] = useState(null);
  
-
+  const goBack = () => {
+    window.history.back();
+    }
 
   //   const [currentImage, setCurrentImage] = useState(product.src); // Initial image source
 
@@ -101,10 +103,15 @@ const Productdes = () => {
 
   return (
     <div
-      className="mt-40 Quicksand flex text-black sm:mt-28 px-10 sm:px-0 flex sm:block justify-center"
+      className="mt-24 sm:mt-16  Quicksand flex text-black sm:mt-28 px-10 sm:px-0 flex sm:block justify-center"
       key={product.id}
     >
-      <div className="border m-5 h-full flex m-auto sm:m-0 sm:w-full w-1/2">
+     
+      <div className="border  m-5 h-full  m-auto sm:m-0 sm:w-full w-1/2">
+      <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+      <i className="fas fa-arrow-left text-black"/>
+
+      </div>
         <Swiper
           style={{
             "--swiper-navigation-color": "#fff",
@@ -113,7 +120,8 @@ const Productdes = () => {
           spaceBetween={10}
           navigation={true}
           thumbs={{ swiper: thumbsSwiper }}
-          modules={[Navigation]}
+          
+          modules={[FreeMode, Navigation, Thumbs]}
           className="mySwiper2"
           key={product.id}
         >
@@ -129,13 +137,14 @@ const Productdes = () => {
           ))}
         </Swiper>
         {/* <Swiper
-        onSwiper={setThumbsSwiper}
+       onSwiper={setThumbsSwiper}
         spaceBetween={10}
         slidesPerView={4}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
+        // key={id}
       >
           {product.src.map((src, id) => (
             <SwiperSlide key={id} className="py-10 w-auto h-auto">
@@ -143,7 +152,7 @@ const Productdes = () => {
                 src={src}
                 alt={product.name}
                 className="m-auto m-2 w-full"
-                style={{ height: "400px", width: "300px" }}
+                style={{ height: "100px", width: "50px" }}
               />
             </SwiperSlide>
           ))}
@@ -157,14 +166,14 @@ const Productdes = () => {
         </div>
 <div>
         <div className=" flex flex-col">
-          <h1 className="text-black capitalize Aceh ">
-            Color:{color}</h1>
+          <h1 className="text-black capitalize AcehLight ">
+            Color:{""} {color}</h1>
             <div className="flex gap-2 m-auto  px-1">
               {product.color.map((color, id) => (
                 <button key={id}  className={
                           isActive2 === id
-                            ? "border border-4 rounded rounded-full border-gray-300 rounded w-5 h-5 py-1  "
-                            : "border rounded rounded-full border-gray-300 rounded w-5 h-5 py-1 "
+                            ? "border border-2 rounded rounded-full border-black rounded w-6 h-6 py-1  "
+                            : "border rounded rounded-full border-gray-300 rounded w-6 h-6 py-1 "
                         } style={{backgroundColor: color}}
                  onClick={() => updateColor([color], id)}
                 >
@@ -176,13 +185,13 @@ const Productdes = () => {
             </div>
             </div>
           
-          <h1 className="text-black flex m-auto Aceh ">
+          <h1 className="text-black flex m-auto AcehLight ">
             Category:
             <ul className="flex gap-2 px-1">{product.category}</ul>
           </h1>
           <div className="flex  my-5 flex-col space-x-6">
             <div className="flex justify-between w-full">
-              <h1 className="Aceh">Size: {text}</h1>
+              <h1 className="AcehLight">Size: {text}</h1>
               <h1
                 onClick={() =>
                   document.getElementById("my_modal_2").showModal()

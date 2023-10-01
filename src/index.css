@@ -130,8 +130,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 24px;
-  height: 2px;
+  width: 16px;
+  height: 1px;
   transform: translate(0px);
   transition: all 0.5s;
 }
@@ -143,6 +143,7 @@
 }
 
 .open {
+  margin-top: -10px;
   transform: rotate(90deg);
   transform: translateY(0px);
 }
@@ -168,7 +169,7 @@ input:focus, textarea:focus, select:focus{
   height: 800px;
 }
 .spacing{
-  letter-spacing: 15px;
+  letter-spacing: 5px;
 }
 /* section two div height */
 .secTDivH {

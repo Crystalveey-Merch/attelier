@@ -63,7 +63,7 @@ export const Footer = () => {
               Privacy Policy
             </li>
           </ul>
-          <div className=" sm:gap-4 gap-10  flex ">
+          <div className=" sm:gap-10 gap-10  flex ">
             <ul className="flex flex-col gap-6  sm:gap-2  w-max text-sky-600">
               <li className="middle  hover:text-gray-750  border-b  cursor-pointer text-white">
                 Contact

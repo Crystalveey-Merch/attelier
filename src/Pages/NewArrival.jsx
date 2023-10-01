@@ -57,7 +57,7 @@ console.log(filteredProducts);
   
 
   return (
-    <div className="mt-36 sm:mt-26  w-full AcehLight  pt-2 sm:px-0">
+    <div className="mt-24 sm:mt-16  w-full AcehLight  pt-2 sm:px-0">
     <div className="text-center sm:text-xl text-2xl pt-10 text-black py-4 bg-white  Aceh">
       New Arrivals
       <h1 className="text-xl text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
@@ -71,9 +71,7 @@ console.log(filteredProducts);
             className=" flex justify-center    hover:border-b"
           >
             <span className="m-auto flex gap-2 p-2 ">
-              <i className="fas fa-filter px-2 m-auto" />
               Filter
-              <i className="fas fa-sort-down" />
             </span>
             {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
             
@@ -96,9 +94,8 @@ console.log(filteredProducts);
 
       <div className="dropdown  dropdown-end  rounded p-2">
         <label tabIndex={0} className="m-auto flex gap-2  ">
-          <i className="fas fa-arrow-down-short-wide px-2 m-auto" />
-          Sort by:
-          <i className="fas fa-sort-down" />
+          Sort by
+         
         </label>
         <ul
           tabIndex={0}
@@ -138,7 +135,7 @@ console.log(filteredProducts);
             >
               <Link to={`/productdes/${product.id}`}>
                 <img
-                  src={product.src}
+                  src={product.src[0]}
                   alt={product.name}
                   className="  sm:w-full m-auto imghgt bg-white"
                   style={{ height: "360px", width: "306px" }}

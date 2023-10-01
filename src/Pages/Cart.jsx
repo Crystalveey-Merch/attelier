@@ -1,11 +1,17 @@
 import { useCart } from "react-use-cart";
-
+const goBack = () => {
+  window.history.back();
+  }
 const Cart = () => {
   const { isEmpty, items, cartTotal, updateItemQuantity, removeItem, } =
     useCart();
 
   return (
-    <div className="mt-40 sm:mt-32 text-black px-5  mb-20 AcehLight">
+    <div className="mt-24 sm:mt-16 text-black px-5 sm:p-2 mb-20 AcehLight">
+    <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+      <i className="fas fa-arrow-left text-black"/>
+
+      </div>
       <div className="text-center sm:text-xl text-xl text-black py-5 px-20 Aceh">
         <h1> My Cart ({items.length}) </h1>
       </div>
@@ -22,16 +28,16 @@ const Cart = () => {
           {items.map((item, id) => (
             <div
               key={id}
-              className="flex sm:w-full sm:gap-5 sm:m-auto m-auto gap-10   AcehLight  hover cursor-pointer"
+              className="flex sm:w-full sm:gap-8 sm:m-auto m-auto gap-10 w-full  AcehLight  hover cursor-pointer"
             >
-              <div className="">
+              <div className="w-full">
                 <img
                   src={item.src}
                   alt={item.title}
                   className="w-48 sm:w-84 border  "
                 />
               </div>
-              <div className="flex flex-col m-auto  gap-2">
+              <div className="flex flex-col m-auto  gap-2 w-full">
                 <h1 className="Aceh text-lg capitalize">Product: {item.name}</h1>
                 <h1 className="text-xl text-sky-500 Aceh">Price: N{item.price}</h1>
                 <h1 className=" text-xl capitalize" >Color: {item.color}</h1>

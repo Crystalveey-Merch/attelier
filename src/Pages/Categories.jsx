@@ -5,7 +5,9 @@ import SideNav from "../Components/sidebarComponent/SideNav.jsx";
 
 const Categories = () => {
   const { categoryName } = useParams();
-
+  const goBack = () => {
+    window.history.back();
+    }
 
   const allProducts = [...datas.children, ...datas.women, ...datas.men];
   const menProducts = datas.men;
@@ -63,10 +65,13 @@ const filterMenCollection = () => {
   };
 
   return (
-    <div className="mt-36 sm:mt-26  w-full AcehLight  pt-2 sm:px-0">
-      <div className="text-center sm:text-xl text-2xl pt-10 text-black py-4 bg-white  Aceh">
-        {categoryName.toUpperCase()} Category
-        <h1 className="text-xl text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
+    <div className="mt-24 sm:mt-16 w-full AcehLight  pt-2 sm:px-0">
+     <div className="hidden sm:block pt-5 pl-5" onClick={goBack}>
+        <i className="fas fa-arrow-left text-black"/>
+      </div>
+      <div className="text-center capitalize sm:text-xl text-2xl  text-black py-2 border-b border-black  bg-white  Aceh">
+        {categoryName} Category
+        <h1 className="text-base text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
         Discover the latest trends and style for you and your loved ones with a wide range of clothing options
         </h1>
       </div>
@@ -78,9 +83,9 @@ const filterMenCollection = () => {
               className=" flex justify-center    hover:border-b"
             >
               <span className="m-auto flex gap-2 p-2 ">
-                <i className="fas fa-filter px-2 m-auto" />
+                
                 Filter
-                <i className="fas fa-sort-down" />
+                
               </span>
               {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
               
@@ -106,9 +111,8 @@ const filterMenCollection = () => {
 
         <div className="dropdown  dropdown-end  rounded p-2">
           <label tabIndex={0} className="m-auto flex gap-2  ">
-            <i className="fas fa-arrow-down-short-wide px-2 m-auto" />
-            Sort by:
-            <i className="fas fa-sort-down" />
+            Sort by
+         
           </label>
           <ul
             tabIndex={0}

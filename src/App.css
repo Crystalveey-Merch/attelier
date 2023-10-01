@@ -24,7 +24,10 @@
   font-family: "Quicksand", Arial !important;
 }
 
-
+.search .wrapper:first-child {
+  border: 4px !important ;
+  box-shadow: 0 !important;
+}
 
 @keyframes logo-spin {
   from {
