@@ -143,9 +143,9 @@ export const Header = () => {
             <span className="harburger-middle    bg-gray-900 transition duration-500 ease-in-out  "></span>
             <span className="harburger-bottom   bg-gray-900 transition duration-500 ease-in-out  "></span>
           </button>
-          <Link to="/" className="m-auto flex   sm:flex-col justify-center">
+          <Link to="/" className="m-auto flex  sm:ml-12 sm:flex-col justify-center">
             <h1
-              className="text-2xl pr-6 sm:px-8	m-auto   text-center  sm:text-base text-black Pragmatica "
+              className="text-2xl px-2  sm:px-8	m-auto   text-center  sm:text-base text-black Pragmatica "
               style={{ lineHeight: "1rem" }}
             >
               CRYSTALVEEY
@@ -155,7 +155,7 @@ export const Header = () => {
             </h1>
           </Link>
 
-          <div className="flex gap-2  justify-center   text-gray-600 ">
+          <div className="flex gap-6 sm:gap-4 justify-center   text-gray-600 ">
             {/* <select className="select w-full text-xl max-w-xs bg-white outline outline-0 ">
             <option>₦</option>
             <option>$</option>
