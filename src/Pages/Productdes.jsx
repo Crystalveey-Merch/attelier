@@ -106,7 +106,7 @@ const Productdes = () => {
 
   return (
     <div
-      className="mt-24 sm:mt-16  Quicksand flex text-black sm:mt-28 px-10  sm:px-0 flex sm:block justify-center"
+      className="mt-24 sm:mt-16  Quicksand flex text-black  px-10  sm:px-0 flex sm:block justify-center"
       key={product.id}
     >
       <div className="border  m-5 h-full  m-auto sm:m-0 sm:w-full w-1/2">
