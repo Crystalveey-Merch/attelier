@@ -47,7 +47,7 @@ export const Footer = () => {
             <li className="middle border-b  hover:text-gray-750 cursor-pointer">
               Resources
             </li>
-            <Link to="/blog">
+            <Link to="/bloglist">
               <li className="middle  font-medium text-sm cursor-pointer w-max">
                 Blog
               </li>

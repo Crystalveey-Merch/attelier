@@ -1,7 +1,13 @@
 const Blog = () => {
+  const goBack = () => {
+    window.history.back();
+  };
   return (
-    <div className="my-40 sm:my-28">
+    <div className="mt-24 sm:mt-16">
       <div className="px-40 sm:px-5 Quicksand  ">
+      <div className="hidden sm:block pt-5 pl-5" onClick={goBack}>
+        <i className="fas fa-arrow-left text-black"/>
+      </div>
         <h1 className="pt-10  text-black Aceh text-2xl text-center">Blog</h1>
         <div className="px-30">
           {" "}

@@ -56,8 +56,14 @@ console.log(filteredProducts);
   };
   
 
+  const goBack = () => {
+    window.history.back();
+  };
   return (
     <div className="mt-24 sm:mt-16  w-full AcehLight  pt-2 sm:px-0">
+    <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+          <i className="fas fa-arrow-left text-black" />
+        </div>
     <div className="text-center sm:text-xl text-2xl pt-10 text-black py-4 bg-white  Aceh">
       New Arrivals
       <h1 className="text-xl text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
@@ -70,7 +76,7 @@ console.log(filteredProducts);
             tabIndex={0}
             className=" flex justify-center    hover:border-b"
           >
-            <span className="m-auto flex gap-2 p-2 ">
+            <span className="m-auto flex gap-2 p-2 uppercase ">
               Filter
             </span>
             {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
@@ -93,7 +99,7 @@ console.log(filteredProducts);
       </div>
 
       <div className="dropdown  dropdown-end  rounded p-2">
-        <label tabIndex={0} className="m-auto flex gap-2  ">
+        <label tabIndex={0} className="m-auto uppercase flex gap-2  ">
           Sort by
          
         </label>

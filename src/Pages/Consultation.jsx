@@ -7,11 +7,12 @@ const Consultation = () => {
         }
   return (
     <div className="mt-24 sm:mt-16 AcehLight mb-10">
-      <div className=" pt-10 m-auto text-center text-black sm:px-10 w-1/2 sm:w-full">
-      <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+       <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
       <i className="fas fa-arrow-left text-black"/>
 
       </div>
+      <div className=" pt-10 m-auto text-center text-black sm:px-10 w-1/2 sm:w-full">
+   
         <h1 className="text-4xl text-center Aceh text-black">
           Schedule your <span className="text-sky-500  underline">FREE</span>{" "}
           consultation
@@ -42,8 +43,10 @@ const Consultation = () => {
         <div className="text-left  px-10">
 
           <h1 className="Aceh  text-center py-4">Select Day</h1>
-         
-        
+          <form className="flex"> 
+          <input type="datetime-local" className="p-2 bg-gray-200 text-black border "></input>
+          <button className="m-auto bg-black border text-white p-2 border-black" >Schedule</button>
+          </form>
         </div>
       </div>
     </div>

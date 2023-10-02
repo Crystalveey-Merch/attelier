@@ -5,9 +5,14 @@ import "react-international-phone/style.css";
 
 const Refurblish = () => {
   const [phone, setPhone] = useState("");
-
+  const goBack = () => {
+    window.history.back();
+  };
   return (
-    <div className="mt-24 sm:mt-16text-black Quicksand sm:px-5 px-40 py-10">
+    <div className="mt-15 sm:mt-16 text-black Quicksand sm:px-5 px-40 py-5">
+     <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+          <i className="fas fa-arrow-left text-black" />
+        </div>
       <div>
         <p className="text-center Aceh">How to sell on untagg</p>
         <div className="flex sm:flex-col gap-12 my-10 justify-center m-auto">

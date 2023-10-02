@@ -1,7 +1,7 @@
 
 const Aboutus = () => {
   return (
-    <div className="mt-24 sm:mt-16 pb-10">
+    <div className="mt-24 sm:mt-16  py-40">
         <div className="px-40 sm:px-5 ">
             <h1 className="py-10  text-black Aceh text-2xl text-center">About Us</h1>
             <p  className="AcehLight leading-10 text-black text-center ">Founded in Lagos, Nigeria, in 2015, Crystalveey’s Atelier is one of the leading

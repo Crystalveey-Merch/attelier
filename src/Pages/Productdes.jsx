@@ -238,7 +238,7 @@ const Productdes = () => {
         </div>
 
         <div className="flex gap-5 my-10 sm:flex-col  sm:gap-4 text-white m-auto sm:w-full justify-center">
-          <button className="bg-black py-4  w-40 sm:w-full uppercase">Order Now </button>
+          <Link to="/"><button className="bg-black py-4  w-40 sm:w-full uppercase">Order Now </button></Link>
           <button onClick={addToCart} className="uppercase border-2 border-black   py-4  text-black bg-white w-40 sm:w-full">
            ADD TO CART
           </button>

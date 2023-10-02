@@ -125,7 +125,7 @@ export const Header = () => {
             </li>
             <li>
               <Link
-                to="/blog"
+                to="/bloglist"
                 className="middle  text-sm   hover:text-gray-750"
               >
                 Blog
@@ -170,7 +170,7 @@ export const Header = () => {
             >
               <svg
                 aria-hidden="true"
-                className="w-5 h-5 text-gray-600 "
+                className="w-6 h-6 text-gray-600 "
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -220,7 +220,7 @@ export const Header = () => {
               onMouseLeave={() => setToggleAccount(false)}
             >
               <svg
-                className="w-5 h-5 m-auto"
+                className="w-6 h-6 m-auto"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -251,7 +251,7 @@ export const Header = () => {
               <button className="flex    ">
                 <svg
                   viewBox="0 0 24 24"
-                  className="w-5 h-5 m-auto"
+                  className="w-6 h-6 m-auto"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
@@ -426,7 +426,7 @@ export const Header = () => {
           )}
 
           {activeTabIndex === 1 && (
-            <div>
+            <div className="AcehLight py-5">
               <ul className="flex flex-col gap-5">
                 <li className="border-gray-200 pb-2">
                   <a

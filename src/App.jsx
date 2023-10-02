@@ -25,6 +25,8 @@ import Checkout from "./Pages/Checkout";
 import Contact from "./Pages/Contact";
 import Consultation from "./Pages/Consultation";
 import { PaymentDetails } from "./Pages/Payment/PaymentDetails";
+import { OrderNow } from "./Pages/Payment/OrderNow";
+import BlogList from "./Pages/BlogList";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -84,6 +86,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/payment" element={<PaymentDetails />} />
+          <Route path="/ordernow/:productID" element={<OrderNow />} />
+          <Route path="/bloglist" element={<BlogList />} />
+
         </Routes>
         <Footer />
       </div>
