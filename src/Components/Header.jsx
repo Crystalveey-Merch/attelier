@@ -119,7 +119,7 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/" className="middle  text-sm   hover:text-gray-750">
+              <Link to="/contact" className="middle  text-sm   hover:text-gray-750">
                 Contact
               </Link>
             </li>
@@ -166,7 +166,7 @@ export const Header = () => {
 
             <button
               className=" m-auto  text-center "
-              onClick={() => document.getElementById("my_modal_2").showModal()}
+              onClick={() => document.getElementById("my_modal_4").showModal()}
             >
               <svg
                 aria-hidden="true"
@@ -183,7 +183,7 @@ export const Header = () => {
                 ></path>
               </svg>
             </button>
-            <dialog id="my_modal_2" className="modal ">
+            <dialog id="my_modal_4" className="modal ">
               <div className="modal-box bg-white h-96">
               
                 <div className="my-1 w-full Quicksand  ">
@@ -292,7 +292,7 @@ export const Header = () => {
           </Link>
         </li>
         <li>
-          <Link to="/" className="middle  text-sm   hover:text-gray-750">
+          <Link to="/consultation" className="middle  text-sm   hover:text-gray-750">
             Consultation
           </Link>
         </li>
@@ -392,7 +392,7 @@ export const Header = () => {
                 </li>
 
                 <li className="border-gray-200 link-item pb-2">
-                  <a href="" className="middle  text-sm   hover:text-gray-750">
+                  <a href="/consultation" className="middle  text-sm   hover:text-gray-750">
                     Consultation
                   </a>
                 </li>
@@ -417,9 +417,11 @@ export const Header = () => {
                 </li>
               </ul>
               <hr></hr>
+              <a href="/contact">
               <ul className="my-4">
                 <li className="link-item text-sm">Contact Us</li>
               </ul>
+              </a>
             </div>
           )}
 

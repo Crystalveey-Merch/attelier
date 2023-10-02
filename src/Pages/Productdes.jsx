@@ -9,13 +9,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Thumbs, FreeMode } from "swiper";
+import { Navigation, Thumbs, FreeMode, Pagination } from "swiper";
 // SwiperCore.use([Navigation, Thumbs, FreeMode]);
 
 // import {  Navigation  } from "swiper";
 
 const Productdes = () => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   //   const products = datas.products;
   const { addItem } = useCart();
@@ -26,15 +26,20 @@ const Productdes = () => {
   const { productId } = useParams();
   const [isActive, setIsActive] = useState(null);
   const [isActive2, setIsActive2] = useState(null);
- 
+
   const goBack = () => {
     window.history.back();
-    }
+  };
 
   //   const [currentImage, setCurrentImage] = useState(product.src); // Initial image source
 
   useEffect(() => {
-    const allProducts = [...datas.children, ...datas.women, ...datas.men, ...datas.untagged];
+    const allProducts = [
+      ...datas.children,
+      ...datas.women,
+      ...datas.men,
+      ...datas.untagged,
+    ];
     const selectedProduct = allProducts.find(
       (p) => p.id === parseInt(productId)
     );
@@ -53,8 +58,6 @@ const Productdes = () => {
   if (!product) {
     return <div>Product not found.</div>;
   }
-
- 
 
   const addToCart = () => {
     // const itemId = productId
@@ -80,10 +83,10 @@ const Productdes = () => {
     addItem(cartDetails);
 
     toast.success(
-        <Link to="/cart">
-      <div className="text-black text-sm ">
-        Added to Cart! <button className="p-1 text-white">View Cart</button>
-      </div>
+      <Link to="/cart">
+        <div className="text-black text-sm ">
+          Added to Cart! <button className="p-1 text-white">View Cart</button>
+        </div>
       </Link>
     );
   };
@@ -103,15 +106,13 @@ const Productdes = () => {
 
   return (
     <div
-      className="mt-24 sm:mt-16  Quicksand flex text-black sm:mt-28 px-10 sm:px-0 flex sm:block justify-center"
+      className="mt-24 sm:mt-16  Quicksand flex text-black sm:mt-28 px-10  sm:px-0 flex sm:block justify-center"
       key={product.id}
     >
-     
       <div className="border  m-5 h-full  m-auto sm:m-0 sm:w-full w-1/2">
-      <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
-      <i className="fas fa-arrow-left text-black"/>
-
-      </div>
+        <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+          <i className="fas fa-arrow-left text-black" />
+        </div>
         <Swiper
           style={{
             "--swiper-navigation-color": "#fff",
@@ -119,18 +120,20 @@ const Productdes = () => {
           }}
           spaceBetween={10}
           navigation={true}
+          pagination={{
+          type: 'fraction',
+        }}
           thumbs={{ swiper: thumbsSwiper }}
-          
-          modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper2"
+          modules={[FreeMode, Navigation, Thumbs, Pagination]}
+          className="mySwiper2 my-10 text-white"
           key={product.id}
         >
           {product.src.map((src, id) => (
-            <SwiperSlide key={id} className="py-10 w-auto h-auto">
+            <SwiperSlide key={id} className="sm:wfull h-auto ">
               <img
                 src={src}
                 alt={product.name}
-                className="m-auto m-2 w-full"
+                className="m-auto m-2 w-full  "
                 style={{ height: "400px", width: "300px" }}
               />
             </SwiperSlide>
@@ -158,38 +161,36 @@ const Productdes = () => {
           ))}
       </Swiper> */}
       </div>
-      <div className="m-20 sm:p-5 sm:m-2 w-1/2 sm:w-full  ">
-        <div className="text-black Aceh text-2xl ">{product.name}</div>
-        <div className="text-2xl my-4 ">
-          <i className="fas fa-naira-sign" />
-          {product.price}
-        </div>
-<div>
-        <div className=" flex flex-col">
-          <h1 className="text-black capitalize AcehLight ">
-            Color:{""} {color}</h1>
-            <div className="flex gap-2 m-auto  px-1">
-              {product.color.map((color, id) => (
-                <button key={id}  className={
-                          isActive2 === id
-                            ? "border border-2 rounded rounded-full border-black rounded w-6 h-6 py-1  "
-                            : "border rounded rounded-full border-gray-300 rounded w-6 h-6 py-1 "
-                        } style={{backgroundColor: color}}
-                 onClick={() => updateColor([color], id)}
-                >
-               
-               
-                </button>
-              ))}
-
-            </div>
-            </div>
+      <div className="m-20 sm:p-5 sm:m-2 w-1/2 sm:w-full sm:px-5  ">
+      <p className="text-sm text-gray-500">Category/{product.category}</p>
+        <div className="text-2xl my-2 flex justify-between">
+        
+          <h1 className="text-black Aceh text-2xl ">{product.name}</h1>
           
-          <h1 className="text-black flex m-auto AcehLight ">
-            Category:
-            <ul className="flex gap-2 px-1">{product.category}</ul>
-          </h1>
-          <div className="flex  my-5 flex-col space-x-6">
+         <h1 className="text-sky-500"> N {product.price}</h1>
+        </div>
+        <div>
+          <div className=" flex flex-col">
+            <h1 className="text-black capitalize AcehLight ">
+              Color:{""} {color}
+            </h1>
+            <div className="flex gap-2  py-5  px-1">
+              {product.color.map((color, id) => (
+                <button
+                  key={id}
+                  className={
+                    isActive2 === id
+                      ? "border border-2 rounded rounded-full border-black rounded w-8 h-8 py-1  "
+                      : "border rounded rounded-full border-gray-300 rounded w-8 h-8 py-1 "
+                  }
+                  style={{ backgroundColor: color }}
+                  onClick={() => updateColor([color], id)}
+                ></button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex  my-1 flex-col space-x-6">
             <div className="flex justify-between w-full">
               <h1 className="AcehLight">Size: {text}</h1>
               <h1
@@ -204,7 +205,7 @@ const Productdes = () => {
             <div className="flex gap-5">
               <dialog id="my_modal_2" className="modal">
                 <div className="modal-box">
-                  <h3 className="font-bold text-center text-white text-lg">
+                  <h3 className="font-bold text-center text-white text-base">
                     Size Guide
                   </h3>
                   <img className="py-4" src="/Images/Avatar/IMG_4684.jpg" />
@@ -237,11 +238,10 @@ const Productdes = () => {
         </div>
 
         <div className="flex gap-5 my-10 sm:flex-col  sm:gap-4 text-white m-auto sm:w-full justify-center">
-          <div className="btn w-40 sm:w-full">Order Now </div>
-          <div onClick={addToCart} className="btn w-40 sm:w-full">
-            <i className="fas fa-plus" />
-            Cart{" "}
-          </div>
+          <button className="bg-black py-4  w-40 sm:w-full uppercase">Order Now </button>
+          <button onClick={addToCart} className="uppercase border-2 border-black   py-4  text-black bg-white w-40 sm:w-full">
+           ADD TO CART
+          </button>
           <ToastContainer />
         </div>
         <div className="sm:w-full">

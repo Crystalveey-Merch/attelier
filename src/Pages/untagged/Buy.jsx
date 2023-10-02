@@ -9,7 +9,9 @@ const UntagBuy = () => {
   const [product, setProduct] = useState();
 
   // const { collectionName } = useParams();
-
+  const goBack = () => {
+    window.history.back();
+  };
   const allProducts = [...datas.untagged];
   // const menProducts = datas.men;
   // const womenProducts = datas.women;
@@ -61,11 +63,13 @@ const UntagBuy = () => {
   // };
 
   return (
-    <div className="mt-36 sm:mt-26  w-full AcehLight  pt-2 sm:px-0 ">
+    <div className="mt-24 sm:mt-16  w-full AcehLight  pt-2 sm:px-0 ">
+      <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+        <i className="fas fa-arrow-left text-black" />
+      </div>
       <div>
-        <div className="text-center sm:text-xl text-2xl pt-10 text-black py-4 bg-white capitalize Aceh">
-        Buy at crystalveey’s  untagged section
-          
+        <div className="text-center sm:text-xl text-2xl pt-5 text-black py-4 bg-white capitalize Aceh">
+          Buy at crystalveey’s untagged section
         </div>
 
         {/* <div className=" text-gray-800 AcehLight text-l  sm:py-1  flex sm:justify-between px-5  sm:justify-left py-2 sm:gap-5  w-full gap-10 sm:gap-2">
@@ -80,8 +84,8 @@ const UntagBuy = () => {
                 <i className="fas fa-sort-down" />
               </span>
               {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
-              
-            {/* </label>
+
+        {/* </label>
             <ul
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
@@ -100,7 +104,7 @@ const UntagBuy = () => {
               </li>
             </ul>
           </div> */}
-          {/* <div
+        {/* <div
             onClick={() => clearFilter()}
             className="  p-2 text-sm "
           >
@@ -109,7 +113,7 @@ const UntagBuy = () => {
               Clear filters
             </a>
           </div> */}
-          {/* <div className="dropdown  dropdown-end  rounded p-2 ">
+        {/* <div className="dropdown  dropdown-end  rounded p-2 ">
             <label tabIndex={0} className=" m-auto flex gap-2 ">
               <i className="fas fa-arrow-down-short-wide px-2 m-auto" />
               Sort by:
@@ -128,8 +132,8 @@ const UntagBuy = () => {
             </ul>
           </div>
          
-        </div> */} 
-<hr></hr>
+        </div> */}
+        <hr></hr>
         <div className="flex mt-1  justify-center ">
           {/* <div className="sm:hidden w-80">
             <SideNav />
@@ -165,7 +169,8 @@ const UntagBuy = () => {
                       </h5>
                       {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
                       <p className="text-black text-xl mb-4  mt-5 Aceh capitalize">
-                        <i className="fas fa-naira-sign" />{product.price}
+                        <i className="fas fa-naira-sign" />
+                        {product.price}
                       </p>
                     </div>
                   </Link>

@@ -4,11 +4,19 @@ import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 
 const CustomMade = () => {
+  const goBack = () => {
+    window.history.back();
+    }
   const [phone, setPhone] = useState("");
   return (
-    <div className="mt-40 sm:mt-28 AcehLight">
+    <div className="mt-24 sm:mt-16 AcehLight">
       <div className="flex flex-row">
+     
         <div className="px-36 sm:px-5 p-10 sm:w-full shadow-2xl ">
+        <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+      <i className="fas fa-arrow-left text-black"/>
+
+      </div>
           <h1 className="text-black text-2xl Aceh text-center">
             Order Custom Made
           </h1>

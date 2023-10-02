@@ -21,6 +21,10 @@ import Faq from "./Pages/Faq";
 import Ready2Wear from "./Pages/Ready2Wear";
 import CategoriesList from "./Pages/CategoriesList";
 import UntagBuy from "./Pages/untagged/Buy";
+import Checkout from "./Pages/Checkout";
+import Contact from "./Pages/Contact";
+import Consultation from "./Pages/Consultation";
+import { PaymentDetails } from "./Pages/Payment/paymentDetails";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -76,6 +80,10 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/readytowear" element={<Ready2Wear />} />
           <Route path="/categorylist" element={<CategoriesList />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/consultation" element={<Consultation />} />
+          <Route path="/payment" element={<PaymentDetails />} />
         </Routes>
         <Footer />
       </div>

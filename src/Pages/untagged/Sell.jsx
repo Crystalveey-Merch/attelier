@@ -7,7 +7,7 @@ const Refurblish = () => {
   const [phone, setPhone] = useState("");
 
   return (
-    <div className="mt-40 text-black Quicksand sm:mt-26 sm:px-5 px-40 py-10">
+    <div className="mt-24 sm:mt-16text-black Quicksand sm:px-5 px-40 py-10">
       <div>
         <p className="text-center Aceh">How to sell on untagg</p>
         <div className="flex sm:flex-col gap-12 my-10 justify-center m-auto">

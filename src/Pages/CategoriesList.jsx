@@ -2,11 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const CategoriesList = () => {
-  
+    const goBack = () => {
+        window.history.back();
+      };
     return (
         <div className="mt-24 sm:mt-16 mb-10 w-full Quicksand  pt-2 sm:px-0" >
-        
-         <h1 className="text-center sm:text-xl text-2xl pt-10 text-black py-4 bg-white  Aceh">
+        <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+        <i className="fas fa-arrow-left text-black" />
+      </div>
+         <h1 className="text-center sm:text-xl text-2xl pt-5 text-black py-4 bg-white  Aceh">
     Shop Categories     
      </h1>
     

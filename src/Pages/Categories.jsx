@@ -82,7 +82,7 @@ const filterMenCollection = () => {
               tabIndex={0}
               className=" flex justify-center    hover:border-b"
             >
-              <span className="m-auto flex gap-2 p-2 ">
+              <span className="m-auto flex gap-2 p-2 uppercase ">
                 
                 Filter
                 
@@ -110,7 +110,7 @@ const filterMenCollection = () => {
         </div>
 
         <div className="dropdown  dropdown-end  rounded p-2">
-          <label tabIndex={0} className="m-auto flex gap-2  ">
+          <label tabIndex={0} className="m-auto uppercase flex gap-2  ">
             Sort by
          
           </label>
