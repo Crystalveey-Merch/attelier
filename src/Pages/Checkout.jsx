@@ -14,7 +14,7 @@ const Checkout = () => {
         <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
           <i className="fas fa-arrow-left text-black" />
         </div>
-        <div className="w-full px-40 m-auto ">
+        <div className="w-full px-40 sm:px-0 m-auto ">
           <div className=" m-auto justify-center sm:w-full ">
             <div className="overflow-x-auto mx-10  m-auto">
               <table className="table ">
@@ -51,7 +51,7 @@ const Checkout = () => {
           
         </div>
       </div>
-      <div className="  sm:block w-full static mb-10 ">
+      <div className="  sm:block w-full static mb-10  px-40 sm:px-5">
         <div>
           <h1 className="text-xl Aceh py-2">Subtotal: N{cartTotal} </h1>
             <Link to="/payment">

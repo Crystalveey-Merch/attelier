@@ -24,7 +24,7 @@ import UntagBuy from "./Pages/untagged/Buy";
 import Checkout from "./Pages/Checkout";
 import Contact from "./Pages/Contact";
 import Consultation from "./Pages/Consultation";
-import { PaymentDetails } from "./Pages/Payment/paymentDetails";
+import { PaymentDetails } from "./Pages/Payment/PaymentDetails";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
