@@ -341,6 +341,11 @@ export const Header = () => {
       </ul>
       <div className=" header-links z-20  ">
         <div className="hidden bg-white text-black lg:flex flex-col gap-4 sm:gap-0  h-screen w-full p-4 pt-10  w-full  ">
+        <div className="flex p-3 justify-center  mb-5 w-full bg-gray-300">
+              <i className="fas fa-user  "> <span className=" AcehLight"> Sign in</span> </i>
+             
+              
+        </div>
           <div className="tabs w-full   text-black">
             {tabs.map((tab, index) => (
               <a
@@ -357,6 +362,7 @@ export const Header = () => {
 
           {activeTabIndex === 0 && (
             <div className="AcehLight">
+            
               <ul className="flex flex-col my-4 gap-5">
                 <li className="border-gray-200 link-item pb-2">
                   <a
