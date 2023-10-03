@@ -30,27 +30,25 @@ console.log(filteredProducts);
     setFilteredProducts(sorted); // Update filteredProducts with the sorted array
   };
   const clearFilter = () => {
-    setFilteredProducts(allProducts); // Reset the filteredProducts to original order
+    setFilteredProducts(newArrival); // Reset the filteredProducts to original order
     setSortOrder("asc"); // Reset the sorting order
   };
   const filterMenCollection = () => {
-    // Filter products with a data collection called "men"
-    const menProducts = allProducts.filter(
-      (product) => product.category === "men"
-    );
+    const menProducts = datas.men.filter((product) => product.newarrival === true);
     setFilteredProducts(menProducts);
   };
+
   const filterWomenCollection = () => {
     // Filter products with a data collection called "men"
-    const womenProducts = allProducts.filter(
-      (product) => product.category === "women"
+    const womenProducts = datas.women.filter(
+      (product) => product.newarrival === true
     );
     setFilteredProducts(womenProducts);
   };
   const filterChildrenCollection = () => {
     // Filter products with a data collection called "men"
-    const childrenProducts = allProducts.filter(
-      (product) => product.category === "children"
+    const childrenProducts = datas.children.filter(
+      (product) => product.newarrival === true
     );
     setFilteredProducts(childrenProducts);
   };
@@ -82,20 +80,23 @@ console.log(filteredProducts);
             {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
             
           </label>
-          {/* <ul
-            tabIndex={}
+          <ul
+            tabIndex={0}
             className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
           >
-            <li onClick={}>
+           <li onClick={clearFilter}>
+                <a>All</a>
+              </li>
+            <li onClick={filterMenCollection}>
               <a>Men</a>
             </li>
-            <li onClick={}>
+            <li onClick={filterWomenCollection}>
               <a>Women</a>
             </li>
-            <li onClick={}>
+            <li onClick={filterChildrenCollection}>
               <a>Children</a>
             </li>
-          </ul> */}
+          </ul>
       </div>
 
       <div className="dropdown  dropdown-end  rounded p-2">
@@ -135,15 +136,15 @@ console.log(filteredProducts);
           return (
             <div
               key={product.id}
-              className="my-4 p-2 m-4 sm:m-0 sm:p-0 border hvr-shrink cursur-pointer"
+              className="my-4 p-2 m-4 sm:m-0 sm:p-0  hvr-shrink cursur-pointer"
               onMouseEnter={() => setIsHovered(product.id)}
               onMouseLeave={() => setIsHovered(null)}
             >
-              <Link to={`/productdes/${product.id}`}>
+              <Link to={`/productdes/${product.id}`} className="bg-gray-300">
                 <img
                   src={product.src[0]}
                   alt={product.name}
-                  className="  sm:w-full m-auto imghgt bg-white"
+                  className="  sm:w-full m-auto imghgt bg-stone-200"
                   style={{ height: "360px", width: "306px" }}
                 />
                 {isHovered === product.id && (
@@ -151,7 +152,7 @@ console.log(filteredProducts);
                     Shop
                   </button>
                 )}
-                <div className="  m-auto w-full justify-center ml-5 gap-1 sm:gap-2   ">
+                <div className="  m-auto w-full justify-center border p-3 gap-1  sm:gap-2   ">
                   <h5 className=" text-gray-900 font-light  mt-5 text-x Aceh font-sans sm:text-x capitalize">
                     {product.name}
                   </h5>
@@ -159,8 +160,8 @@ console.log(filteredProducts);
                     {product.category}
                   </h5>
                   {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
-                  <p className="text-black text-xl mb-4 mt-5  Aceh capitalize ">
-                    <i className="fas fa-naira-sign" /> {product.price}
+                  <p className="text-black text-xl mb-4 mt-5  font-bolder Aceh capitalize ">
+                    N{product.price}
                   </p>
                 </div>
               </Link>

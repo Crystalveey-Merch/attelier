@@ -146,7 +146,7 @@ const filterMenCollection = () => {
             return (
               <div
                 key={product.id}
-                className="my-4 p-2 m-4 sm:m-0 sm:p-0 border hvr-shrink cursur-pointer"
+                className="my-4 p-2 m-4 sm:m-0 sm:p-0  hvr-shrink cursur-pointer"
                 onMouseEnter={() => setIsHovered(product.id)}
                 onMouseLeave={() => setIsHovered(null)}
               >
@@ -154,7 +154,7 @@ const filterMenCollection = () => {
                   <img
                     src={product.src[0]}
                     alt={product.name}
-                    className="  sm:w-full m-auto imghgt bg-white"
+                    className="  sm:w-full m-auto imghgt bg-stone-200"
                     style={{ height: "360px", width: "306px" }}
                   />
                   {isHovered === product.id && (
@@ -162,7 +162,7 @@ const filterMenCollection = () => {
                       Shop
                     </button>
                   )}
-                  <div className="  m-auto w-full justify-center ml-5 gap-1 sm:gap-2   ">
+                  <div className="  m-auto border w-full justify-center px-5 gap-1 sm:gap-2   ">
                     <h5 className=" text-gray-900 font-light  mt-5 text-x Aceh font-sans sm:text-x capitalize">
                       {product.name}
                     </h5>

@@ -67,11 +67,11 @@ export const SectionFour = () => {
                
               
               >
-                <div className="hvr-bounce-in">
+                <div className="hvr-bounce-in bg-stone-200">
                   <img
                     src="/Images/sec4/afro.jpeg"
                     alt="Afrocentric"
-                    className="  sm:w-full m-auto imghgt2"
+                    className="  sm:w-full m-auto imghgt2 bg-stone-200"
                     style={{ height: "360px", width: "306px" }}
                   />
                   
@@ -96,7 +96,7 @@ export const SectionFour = () => {
                   <img
                     src="/Images/sec4/casual.jpeg"
                     alt="Afrocentric"
-                    className="  sm:w-full m-auto imghgt2"
+                    className="  sm:w-full m-auto imghgt2 bg-stone-200"
                     style={{ height: "360px", width: "306px" }}
                   />
                   
@@ -121,7 +121,7 @@ export const SectionFour = () => {
                   <img
                     src="/Images/sec4/corporate.jpeg"
                     alt="Corporate"
-                    className="  sm:w-full m-auto imghgt2"
+                    className="  sm:w-full m-auto imghgt2 bg-stone-200"
                     style={{ height: "360px", width: "306px" }}
                   />
                  
@@ -148,7 +148,7 @@ export const SectionFour = () => {
                   <img
                     src="/Images/sec4/occassion.jpeg"
                     alt="Occassion"
-                    className="  sm:w-full m-auto imghgt2"
+                    className="  sm:w-full m-auto imghgt2 bg-stone-200"
                     style={{ height: "360px", width: "306px" }}
                   />
                  
@@ -174,7 +174,7 @@ export const SectionFour = () => {
                   <img
                     src="/Images/sec4/holiday.jpeg"
                     alt="Holiday Wears"
-                    className="  sm:w-full m-auto imghgt2"
+                    className="  sm:w-full m-auto imghgt2 bg-stone-200"
                     style={{ height: "360px", width: "306px" }}
                   />
                  
@@ -201,7 +201,7 @@ export const SectionFour = () => {
                   <img
                     src="/Images/sec4/holiday.jpeg"
                     alt="Holiday Wears"
-                    className="  sm:w-full m-auto imghgt2"
+                    className="  sm:w-full m-auto imghgt2 bg-stone-200"
                     style={{ height: "360px", width: "306px" }}
                   />
                  

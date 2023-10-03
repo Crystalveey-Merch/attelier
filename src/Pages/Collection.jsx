@@ -150,7 +150,7 @@ const Collection = () => {
               return (
                 <div
                   key={product.id}
-                  className="my-4 p-2 m-4 sm:m-0 sm:p-0 border  hvr-shrink cursur-pointer justify-center"
+                  className="my-4 p-2 m-4 sm:m-0 sm:p-0   hvr-shrink cursur-pointer justify-center"
                   onMouseEnter={() => setIsHovered(product.id)}
                   onMouseLeave={() => setIsHovered(null)}
                 >
@@ -158,7 +158,7 @@ const Collection = () => {
                     <img
                       src={product.src[0]}
                       alt={product.name}
-                      className="  sm:w-full m-auto imghgt bg-white"
+                      className="  sm:w-full m-auto imghgt bg-stone-200"
                       style={{ height: "360px", width: "306px" }}
                     />
                     {isHovered === product.id && (
@@ -166,7 +166,7 @@ const Collection = () => {
                         Shop
                       </button>
                     )}
-                    <div className="  m-auto w-full justify-center ml-5 gap-1 sm:gap-2   ">
+                    <div className=" border m-auto w-full justify-center px-5 gap-1 sm:gap-2   ">
                       <h5 className=" text-gray-900 font-light text-x Aceh mt-5 font-sans sm:text-x capitalize">
                         {product.name}
                       </h5>

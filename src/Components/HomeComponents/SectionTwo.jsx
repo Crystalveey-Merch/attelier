@@ -75,10 +75,10 @@ export const SectionTwo = () => {
             <SwiperSlide key={item.id} className="mx-2">
             <Link to={`/productdes/${item.id}`}>
               <div
-                className=" w-full h-full border   relative hvr-float cursor-pointer "
+                className=" w-full h-full    relative hvr-float cursor-pointer "
                
               >
-              <div className="w-full flex justify-center  overflow overflow-hidden">
+              <div className="w-full flex justify-center bg-stone-200 overflow overflow-hidden">
                 <img
                   src={item.src[0]}
                   alt={item.name}

@@ -11,42 +11,21 @@ const Consultation = () => {
       <i className="fas fa-arrow-left text-black"/>
 
       </div>
-      <div className=" pt-10 m-auto text-center text-black sm:px-10 w-1/2 sm:w-full">
+      <div className=" pt-10 m-auto flex flex-col justify-center text-center text-black sm:px-10 w-1/2 sm:w-full">
    
         <h1 className="text-4xl text-center Aceh text-black">
           Schedule your <span className="text-sky-500  underline">FREE</span>{" "}
           consultation
         </h1>
-        <p className="text-black mb-8 py-5">
-          {" "}
-          Fill out the following information and set up a time talk. Once you
-          are done setting up a time, please check your email for your email for
-          your confirmation.
-        </p>
-        <p className="pb-10 "> Crystalveey’s Consultants</p>
-        
-        <p className="pb-10 Aceh text-2xl ">15 Minutes Initial consultation</p>
-        <p className="text-black mb-4 text-left">
-          {" "}
-         <i className="fas fa-stopwatch "/> 15 min
-        </p>
-        <p className="text-black mb-4 text-left">
-          {" "}
-         <i className="fas fa-video"/> Web conferencing details provided upon confirmation.
-        </p>
-        <p className="text-black mb-8 text-left">
-          {" "}
-          For our initial cosultation we will discuss what style you have in mind, what material you would like to use, your measurement & lastly Our price.
-
-        </p>
-        <hr></hr>
+       
+        <div className="m-auto w-full">
+       <img src="/Images/icons/consult.png" className="m-auto py-14"></img>
+       </div>
+       
         <div className="text-left  px-10">
 
-          <h1 className="Aceh  text-center py-4">Select Day</h1>
-          <form className="flex"> 
-          <input type="datetime-local" className="p-2 bg-gray-200 text-black border "></input>
-          <button className="m-auto bg-black border text-white p-2 border-black" >Schedule</button>
-          </form>
+          <h1 className="AcehLight  text-center py-4 text-2xl">To book a Consultation date Click <span className="uppercase text-sky-500"> Here</span></h1>
+         
         </div>
       </div>
     </div>

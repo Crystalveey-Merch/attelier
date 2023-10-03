@@ -125,15 +125,15 @@ const Productdes = () => {
         }}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs, Pagination]}
-          className="mySwiper2 my-10 text-white"
+          className="mySwiper2 my-10 bg-stone-200 text-white"
           key={product.id}
         >
           {product.src.map((src, id) => (
-            <SwiperSlide key={id} className="sm:wfull h-auto ">
+            <SwiperSlide key={id} className="sm:wfull h-auto  bg-stone-200">
               <img
                 src={src}
                 alt={product.name}
-                className="m-auto m-2 w-full  "
+                className="m-auto m-2 w-full bg-stone-200  "
                 style={{ height: "400px", width: "300px" }}
               />
             </SwiperSlide>

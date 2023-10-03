@@ -146,7 +146,7 @@ export const SectionTwoTest = () => {
                 <img
                   src= "/Images/sec2.2/watch.jpeg"
                   alt="children"
-                  className="w-full m-auto imghgt2 "
+                  className="w-full m-auto imghgt2 bg-stone-200 "
                   style={{ height: "260px", width: "400px" }}
                 />
                 </div>
@@ -171,7 +171,7 @@ export const SectionTwoTest = () => {
                 <img
                   src= "/Images/sec2.2/bag.jpeg"
                   alt="children"
-                  className="w-full m-auto imghgt2 "
+                  className="w-full m-auto imghgt2  bg-stone-200 "
                   style={{ height: "360px", width: "400px" }}
                 />
                 </div>
@@ -197,7 +197,7 @@ export const SectionTwoTest = () => {
                 <img
                   src= "/Images/sec2.2/shoes.jpeg"
                   alt="children"
-                  className="w-full m-auto imghgt2 "
+                  className="w-full m-auto imghgt2 bg-stone-200 "
                   style={{ height: "260px", width: "400px" }}
                 />
                 </div>
@@ -222,7 +222,7 @@ export const SectionTwoTest = () => {
                 <img
                   src= "/Images/sec2.2/shoes.jpeg"
                   alt="children"
-                  className="w-full m-auto imghgt2 "
+                  className="w-full m-auto imghgt2 bg-stone-200 "
                   style={{ height: "260px", width: "400px" }}
                 />
                 </div>
@@ -247,7 +247,7 @@ export const SectionTwoTest = () => {
                 <img
                   src= "/Images/sec2.2/shoes.jpeg"
                   alt="children"
-                  className="w-full m-auto imghgt2 "
+                  className="w-full m-auto imghgt2 bg-stone-200 "
                   style={{ height: "260px", width: "400px" }}
                 />
                 </div>
@@ -272,7 +272,7 @@ export const SectionTwoTest = () => {
                 <img
                   src= "/Images/sec2.2/shoes.jpeg"
                   alt="children"
-                  className="w-full m-auto imghgt2 "
+                  className="w-full m-auto imghgt2 bg-stone-200 "
                   style={{ height: "260px", width: "400px" }}
                 />
                 </div>

@@ -1,21 +1,49 @@
-
 const Aboutus = () => {
   return (
-    <div className="mt-24 sm:mt-16  py-40">
-        <div className="px-40 sm:px-5 ">
-            <h1 className="py-10  text-black Aceh text-2xl text-center">About Us</h1>
-            <p  className="AcehLight leading-10 text-black text-center ">Founded in Lagos, Nigeria, in 2015, Crystalveey’s Atelier is one of the leading
-fashion merchandise and recommerce brand in Nigeria. It has become a go-
-to   destination   for   fashion   enthusiasts’   looking   for   unique   and   high   quality
-clothing and accessories with a focus on style and sustainability.
-Crystalveey’s   Atelier   offers   a   curated   selection   of   pre   loved   and   vintage
-pieces alongside its own line of meticulously crafted garments.
-The   brand   prides   itself   on   embodying   the   spirit   of   recommerce,   providing
-fashion   forward   individuals   with   an   opportunity   to   shop   consciously   while
-induldging in their love for fashion.</p>
-        </div>
-    </div>
-  )
-}
+    <div className="mt-24 sm:mt-16  h-full ">
+      <div className="px-40 sm:px-5 text-black AcehLight ">
+        <h1 className="py-6  text-black Aceh text-2xl text-center">
+          About Us
+        </h1>
 
-export default Aboutus
+        <p className="py-5 leading-8  text-black Aceh  text-md ">VISION </p>
+        <p className="AcehLight leading-8">
+          Our vision is to promote a holistic approach to a joyful life, with a
+          focus on well-being, personal developement and meaningfull
+          relationships while providing resources and products that enable
+          people to cultivate a balanced and fulfilling lifestyle.
+        </p>
+
+        <p className="py-5 leading-8 text-black Aceh text-md ">MISSION STATEMENT</p>
+        <p className="AcehLight leading-8">
+          At Crystalveey Atelier, we are on a passionate journey to inspire and
+          empower individuals to embrace the essence of happiness. Our mission
+          is to curate and create a fusion of travel, fashion, and lifestyle
+          experiences that celebrate the beauty of diversity, the joy of
+          discovery and the magic of living life to the fullest.
+        </p>
+
+        <p className="py-5  text-black Aceh  text-md ">OUR VALUES</p>
+        <p></p>
+        <p className="AcehLight leading-8  pb-24">
+          <li>Integrity: we uphold honesty and transparency in all our interactions.
+          Accountability: we take ownership of our actions and deliver on our
+          promises. </li>
+          <li>Possibility mentality: we like to think beyond boundaries
+          and explore new ideas.</li> 
+          <li>Diversity & Inclusion: we actively seek and
+          celeberate diversity in all its forms. </li>
+          <li>Happiness at core: we are
+          dedicated to delivering exceptional experiences that create lasting
+          happiness.</li> 
+          <li>Collaboration: we recognize that great achievements are
+          often the result of collective effort.</li>
+           <li>Respect: we uphold a culture of
+          mutual respect.</li>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Aboutus;

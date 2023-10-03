@@ -19,48 +19,49 @@ const UntagBuy = () => {
   // const collectionProduct = () => {
   //   return allProducts.filter((product) => product.collection === collectionName);
   // };
-  // const [filteredProducts, setFilteredProducts] = useState(collectionProduct);
+  const [filteredProducts, setFilteredProducts] = useState(allProducts);
+  const [sortOrder, setSortOrder] = useState("asc");
 
   // const [sortOrder, setSortOrder] = useState("asc");
   const [isHovered, setIsHovered] = useState(false);
 
-  // const handleSort = (order) => {
-  //   const sorted = [...filteredProducts];
-  //   if (order === "asc") {
-  //     sorted.sort((a, b) => a.price - b.price);
-  //     setSortOrder("asc");
-  //   } else {
-  //     sorted.sort((a, b) => b.price - a.price);
-  //     setSortOrder("desc");
-  //   }
-  //   setFilteredProducts(sorted); // Update filteredProducts with the sorted array
-  // };
-  // const clearFilter = () => {
-  //   setFilteredProducts(collectionProduct); // Reset the filteredProducts to original order
-  //   setSortOrder("asc"); // Reset the sorting order
-  // };
-  // const filterMenCollection = () => {
+  const handleSort = (order) => {
+    const sorted = [...filteredProducts];
+    if (order === "asc") {
+      sorted.sort((a, b) => a.price - b.price);
+      setSortOrder("asc");
+    } else {
+      sorted.sort((a, b) => b.price - a.price);
+      setSortOrder("desc");
+    }
+    setFilteredProducts(sorted); // Update filteredProducts with the sorted array
+  };
+  const clearFilter = () => {
+    setFilteredProducts(allProducts); // Reset the filteredProducts to original order
+    setSortOrder("asc"); // Reset the sorting order
+  };
+  const filterMenCollection = () => {
 
-  //   // Filter products with a data collection called "men"
-  //   const menFilter = menProducts.filter(
-  //     (product) => product.collection === collectionName
-  //   );
-  //   setFilteredProducts(menFilter);
-  // };
-  // const filterWomenCollection = () => {
-  //   // Filter products with a data collection called "men"
-  //   const womenFilter = womenProducts.filter(
-  //     (product) => product.collection === collectionName
-  //   );
-  //   setFilteredProducts(womenFilter);
-  // };
-  // const filterChildrenCollection = () => {
-  //   // Filter products with a data collection called "men"
-  //   const childrenFilter = childrenProducts.filter(
-  //     (product) => product.collection === collectionName
-  //   );
-  //   setFilteredProducts(childrenFilter);
-  // };
+    // Filter products with a data collection called "men"
+    const menFilter = filteredProducts.filter(
+      (product) => product.section === "men"
+    );
+    setFilteredProducts(menFilter);
+  };
+  const filterWomenCollection = () => {
+    // Filter products with a data collection called "men"
+    const womenFilter = filteredProducts.filter(
+      (product) => product.section ===" women"
+    );
+    setFilteredProducts(womenFilter);
+  };
+  const filterChildrenCollection = () => {
+    // Filter products with a data collection called "men"
+    const childrenFilter = filteredProducts.filter(
+      (product) => product.section === "children"
+    );
+    setFilteredProducts(childrenFilter);
+  };
 
   return (
     <div className="mt-24 sm:mt-16  w-full AcehLight  pt-2 sm:px-0 ">
@@ -71,21 +72,20 @@ const UntagBuy = () => {
         <div className="text-center sm:text-xl text-2xl pt-5 text-black py-4 bg-white capitalize Aceh">
           Buy at crystalveey’s untagged section
         </div>
-
-        {/* <div className=" text-gray-800 AcehLight text-l  sm:py-1  flex sm:justify-between px-5  sm:justify-left py-2 sm:gap-5  w-full gap-10 sm:gap-2">
+        <div className=" text-gray-800 AcehLight text-l  sm:py-1  flex sm:justify-between px-5  sm:justify-left py-2 sm:gap-5  w-full gap-10 sm:gap-2">
           <div className="dropdown">
             <label
               tabIndex={0}
               className=" flex justify-center    hover:border-b"
             >
-              <span className="m-auto flex gap-2 p-2 ">
-                <i className="fas fa-filter px-2 m-auto" />
+              <span className="m-auto flex gap-2 p-2 uppercase ">
+                
                 Filter
-                <i className="fas fa-sort-down" />
+               
               </span>
               {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
-
-        {/* </label>
+              
+            </label>
             <ul
               tabIndex={0}
               className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
@@ -103,8 +103,8 @@ const UntagBuy = () => {
                 <a>Children</a>
               </li>
             </ul>
-          </div> */}
-        {/* <div
+          </div>
+          {/* <div
             onClick={() => clearFilter()}
             className="  p-2 text-sm "
           >
@@ -113,11 +113,11 @@ const UntagBuy = () => {
               Clear filters
             </a>
           </div> */}
-        {/* <div className="dropdown  dropdown-end  rounded p-2 ">
-            <label tabIndex={0} className=" m-auto flex gap-2 ">
-              <i className="fas fa-arrow-down-short-wide px-2 m-auto" />
-              Sort by:
-              <i className="fas fa-sort-down" />
+          <div className="dropdown   dropdown-end  rounded p-2 ">
+            <label tabIndex={0} className=" m-auto flex gap-2 uppercase ">
+              
+              Sort by
+            
             </label>
             <ul
               tabIndex={0}
@@ -132,7 +132,8 @@ const UntagBuy = () => {
             </ul>
           </div>
          
-        </div> */}
+        </div>
+       
         <hr></hr>
         <div className="flex mt-1  justify-center ">
           {/* <div className="sm:hidden w-80">
@@ -140,7 +141,7 @@ const UntagBuy = () => {
           </div> */}
 
           <div className="grid grid-cols-4 sm:grid-cols-2 gap-2 w-full px-20   sm:px-5 justify-center cursor ">
-            {allProducts.map((product) => {
+            {filteredProducts.map((product) => {
               return (
                 <div
                   key={product.id}

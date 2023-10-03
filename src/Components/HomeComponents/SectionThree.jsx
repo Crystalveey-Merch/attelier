@@ -63,28 +63,28 @@ export const SectionThree = () => {
         className="mySwiper z-0 swiper-v effect-fade h-full w-4/5 "
       >
         <SwiperSlide className="hvr-bob mb-10">
-          <img src={image1} alt="imgSeven" className="h-full w-screen z-0 " />
+          <img src={image1} alt="imgSeven" className="h-full w-screen z-0 bg-stone-200 " />
         </SwiperSlide>
         <SwiperSlide
           className="
         hvr-bob"
         >
-          <img src={image2} alt="imgSeven" className="h-full w-screen z-0" />
+          <img src={image2} alt="imgSeven" className="h-full w-screen z-0 bg-stone-200" />
         </SwiperSlide>
         <SwiperSlide className="hvr-bob">
-          <img src={image3} alt="imgSeven" className="h-full w-screen z-0  " />
+          <img src={image3} alt="imgSeven" className="h-full w-screen z-0 bg-stone-200 " />
         </SwiperSlide>
         <SwiperSlide className="hvr-bob">
-          <img src={image1} alt="imgSeven" className="h-full w-screen z-0 " />
+          <img src={image1} alt="imgSeven" className="h-full w-screen z-0 bg-stone-200 " />
         </SwiperSlide>
         <SwiperSlide
           className="
         hvr-bob"
         >
-          <img src={image2} alt="imgSeven" className="h-full w-screen z-0" />
+          <img src={image2} alt="imgSeven" className="h-full w-screen z-0 bg-stone-200" />
         </SwiperSlide>
         <SwiperSlide className="hvr-bob">
-          <img src={image3} alt="imgSeven" className="h-full w-screen z-0  " />
+          <img src={image3} alt="imgSeven" className="h-full w-screen z-0 bg-stone-200  " />
         </SwiperSlide>
       </Swiper>
 

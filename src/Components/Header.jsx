@@ -137,7 +137,7 @@ export const Header = () => {
             onClick={handleMenu}
             className={`hamburger  ${
               menuOpen ? "open" : ""
-            } hidden lg:block focus:outline-none z-30 flex flex-col gap-2    my-auto`}
+            } hidden lg:block focus:outline-none z-30 flex flex-col gap-2     my-auto`}
           >
             <span className="harburger-top   bg-gray-900 transition duration-500 ease-in-out "></span>
             <span className="harburger-middle    bg-gray-900 transition duration-500 ease-in-out  "></span>
@@ -165,10 +165,11 @@ export const Header = () => {
             {/* Open the modal using document.getElementById('ID').showModal() method */}
 
             <button
-              className=" m-auto  text-center "
+              className=" flex text-center "
               onClick={() => document.getElementById("my_modal_4").showModal()}
             >
-              <svg
+            <i className="fa-solid fa-magnifying-glass m-auto text-black"></i>
+              {/* <svg
                 aria-hidden="true"
                 className="w-6 h-6 text-gray-600 "
                 viewBox="0 0 24 24"
@@ -181,7 +182,7 @@ export const Header = () => {
                   clipRule="evenodd"
                   fill="currentColor"
                 ></path>
-              </svg>
+              </svg> */}
             </button>
             <dialog id="my_modal_4" className="modal ">
               <div className="modal-box bg-white h-96">
@@ -219,7 +220,8 @@ export const Header = () => {
               onMouseEnter={() => setToggleAccount(true)}
               onMouseLeave={() => setToggleAccount(false)}
             >
-              <svg
+            <i className="fa-regular fa-user m-auto text-black"></i>
+              {/* <svg
                 className="w-6 h-6 m-auto"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -231,7 +233,7 @@ export const Header = () => {
                   d="M12 2.5C8.96251 2.5 6.50012 4.96245 6.50012 8C6.50012 9.88946 7.45289 11.5564 8.90419 12.5466C5.53963 13.7791 3.11605 16.9629 3.004 20.7277C2.99168 21.1417 3.31733 21.4873 3.73136 21.4997C4.14539 21.512 4.49101 21.1863 4.50334 20.7723C4.62347 16.7357 7.93397 13.5 12 13.5C16.0659 13.5 19.3764 16.7357 19.4966 20.7723C19.5089 21.1863 19.8545 21.512 20.2685 21.4997C20.6826 21.4873 21.0082 21.1417 20.9959 20.7277C20.8839 16.963 18.4603 13.7791 15.0958 12.5466C16.5472 11.5564 17.5 9.88949 17.5 8C17.5 4.96245 15.0376 2.5 12 2.5ZM8.00012 8C8.00012 5.79085 9.79096 4 12 4C14.2091 4 16 5.79085 16 8C16 10.2092 14.2091 12 12 12C9.79096 12 8.00012 10.2092 8.00012 8Z"
                   fill="currentColor"
                 />
-              </svg>
+              </svg> */}
               {toggleAccount && (
                 <ul className="px-5 w-48 py-5 text-black bg-white shadow-2xl absolute top-5 -right-7 text-left flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
                   <li>
@@ -247,9 +249,12 @@ export const Header = () => {
                 </ul>
               )}
             </button>
-            <Link to="/cart" className="  m-auto  w-7     relative ">
+            <Link to="/cart" className="  m-auto  w-10     relative ">
               <button className="flex    ">
-                <svg
+              {/* <i className="fa-regular fa-user"></i> */}
+              <i className="fa-solid fa-cart-shopping m-auto text-black"></i>
+              
+                {/* <svg
                   viewBox="0 0 24 24"
                   className="w-6 h-6 m-auto"
                   fill="none"
@@ -263,7 +268,7 @@ export const Header = () => {
                     strokeLinejoin="round"
                     d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                   ></path>
-                </svg>
+                </svg> */}
                 <div className=" top-0 right-0  absolute bg-black h-4 w-4 text-white rounded rounded-full">
                   <h1 className="text-xs m-auto flex justify-center  ">
                     {totalUniqueItems}
@@ -326,7 +331,7 @@ export const Header = () => {
         </div> */}
 
         <li>
-          <Link to="/" className="middle  text-sm  hover:text-gray-750">
+          <Link to="/untagbuy" className="middle  text-sm  hover:text-gray-750">
             Untag
           </Link>
         </li>
