@@ -249,10 +249,10 @@ export const Header = () => {
                 </ul>
               )}
             </button>
-            <Link to="/cart" className="  m-auto  w-10     relative ">
+            <Link to="/cart" className="  m-auto  w-9  h-4   relative ">
               <button className="flex    ">
               {/* <i className="fa-regular fa-user"></i> */}
-              <i className="fa-solid fa-cart-shopping m-auto text-black"></i>
+              <i className="fa-solid fa-cart-shopping m-auto text-black "></i>
               
                 {/* <svg
                   viewBox="0 0 24 24"
@@ -262,14 +262,14 @@ export const Header = () => {
                   strokeWidth="1.5"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
-                >
+                >co
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                   ></path>
                 </svg> */}
-                <div className=" top-0 right-0  absolute bg-black h-4 w-4 text-white rounded rounded-full">
+                <div className=" top-0 right-0  absolute bg-black h-4 w-4 md-3 text-white rounded rounded-full">
                   <h1 className="text-xs m-auto flex justify-center  ">
                     {totalUniqueItems}
                   </h1>
@@ -290,7 +290,7 @@ export const Header = () => {
         </li>
         <li>
           <Link
-            to="/custommade"
+            to="/custompage1"
             className="middle  text-sm   hover:text-gray-750"
           >
             Custom Made
@@ -379,7 +379,7 @@ export const Header = () => {
                 </li>
                 <li className="border-gray-200 link-item pb-2">
                   <a
-                    href="/custommade"
+                    href="/custompage1"
                     className="middle  text-sm   hover:text-gray-750"
                   >
                     Custom Order

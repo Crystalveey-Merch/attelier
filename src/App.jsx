@@ -3,7 +3,7 @@ import { Home } from "./Pages/Home";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Login from "./Pages/Login";
-import CustomMade from "./Pages/CustomMade";
+import CustomMade from "./Pages/CustomMAde/CustomMade";
 import NewArrival from "./Pages/NewArrival";
 import Categories from "./Pages/Categories";
 import Collection from "./Pages/Collection";
@@ -13,7 +13,7 @@ import Shoes from "./Pages/Shoes";
 import Bags from "./Pages/Bags";
 import Accessories from "./Pages/Accessories";
 import Cart from "./Pages/Cart";
-import Refurblish from "./Pages/untagged/Refurblish";
+import Refurblish from "./Pages/untagged/Refurblish/Refurblish";
 import Buy from "./Pages/untagged/Buy";
 import Sell from "./Pages/untagged/Sell";
 import Blog from "./Pages/Blog";
@@ -27,6 +27,9 @@ import Consultation from "./Pages/Consultation";
 import { PaymentDetails } from "./Pages/Payment/PaymentDetails";
 import { OrderNow } from "./Pages/Payment/OrderNow";
 import BlogList from "./Pages/BlogList";
+import Custompage1 from "./Pages/CustomMade/Custompage1";
+import Sellpage1 from "./Pages/untagged/Sellpage1";
+import RefurblishP1 from "./Pages/untagged/Refurblish/RefurblishP1";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -88,6 +91,9 @@ function App() {
           <Route path="/payment" element={<PaymentDetails />} />
           <Route path="/ordernow/:productID" element={<OrderNow />} />
           <Route path="/bloglist" element={<BlogList />} />
+          <Route path="/custompage1" element={<Custompage1/>}/>
+          <Route path="/sellpage1" element={<Sellpage1 />} />
+          <Route path="/refurblishpage1" element={<RefurblishP1 />} />
 
         </Routes>
         <Footer />

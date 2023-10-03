@@ -14,7 +14,7 @@ const Consultation = () => {
       <div className=" pt-10 m-auto flex flex-col justify-center text-center text-black sm:px-10 w-1/2 sm:w-full">
    
         <h1 className="text-4xl text-center Aceh text-black">
-          Schedule your <span className="text-sky-500  underline">FREE</span>{" "}
+          Schedule your <a href="http://calendly.com/victoria-crystalveey"><span className="text-sky-500  underline">FREE</span></a>{" "}
           consultation
         </h1>
        
@@ -24,7 +24,7 @@ const Consultation = () => {
        
         <div className="text-left  px-10">
 
-          <h1 className="AcehLight  text-center py-4 text-2xl">To book a Consultation date Click <span className="uppercase text-sky-500"> Here</span></h1>
+          <h1 className="AcehLight  text-center py-4 text-2xl">To book a Consultation date Click <a href="http://calendly.com/victoria-crystalveey"><span className="uppercase text-sky-500"> Here</span></a></h1>
          
         </div>
       </div>

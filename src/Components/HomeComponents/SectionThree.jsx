@@ -97,13 +97,13 @@ export const SectionThree = () => {
       <dialog id="my_modal_2" className="modal ">
         <div className="modal-box flex gap-10 sm:gap-5 justify-center bg-black">
           <div className="block bg-gray-700 w-28 p-3 hvr-grow rounded rounded-lg text-white cursor-pointer">
-          <Link to="/refurblish"><i className="fa-solid fa-scissors text-4xl "></i><h1 className="my-2">Refurblish </h1> </Link>
+          <Link to="/refurblishpage1"><i className="fa-solid fa-scissors text-4xl "></i><h1 className="my-2">Refurblish </h1> </Link>
           </div>
           <div className="block bg-gray-700 p-3 w-28 hvr-grow rounded rounded-lg text-white cursor-pointer">
-          <Link to="/sell"><i className="fa-solid fa-money-bill-transfer  text-4xl"></i><h1 className="my-2">Sell </h1> </Link>
+          <Link to="/sellpage1"><i className="fa-solid fa-money-bill-transfer  text-4xl"></i><h1 className="my-2">Sell </h1> </Link>
           </div>
           <div className="block bg-gray-700 p-3 w-28 hvr-grow rounded rounded-lg cursor-pointer text-white">
-          <Link to="/buy"> <i className="fa-solid fa-money-bill-transfer text-4xl"></i><h1 className="my-2 ">Buy </h1>  </Link>
+          <Link to="/untagbuy"> <i className="fa-solid fa-money-bill-transfer text-4xl"></i><h1 className="my-2 ">Buy </h1>  </Link>
           </div>
         </div>
         

@@ -142,7 +142,7 @@ export const SectionTwoTest = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(null)}
               >
-              <div className="  overflow-hidden ">
+              <div className="  overflow-hidden " >
                 <img
                   src= "/Images/sec2.2/watch.jpeg"
                   alt="children"
@@ -167,12 +167,12 @@ export const SectionTwoTest = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(null)}
               >
-              <div className="  overflow-hidden ">
+              <div className="  overflow-hidden " style={{ height: "260px" }}>
                 <img
-                  src= "/Images/sec2.2/bag.jpeg"
+                  src= "/Images/sec2.2/shoes.jpeg"
                   alt="children"
                   className="w-full m-auto imghgt2  bg-stone-200 "
-                  style={{ height: "360px", width: "400px" }}
+                  style={{ height: "260px", width: "400px" }}
                 />
                 </div>
                
@@ -193,7 +193,7 @@ export const SectionTwoTest = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(null)}
               >
-              <div className="  overflow-hidden ">
+              <div className="  overflow-hidden "  >
                 <img
                   src= "/Images/sec2.2/shoes.jpeg"
                   alt="children"

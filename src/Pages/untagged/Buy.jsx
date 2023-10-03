@@ -153,7 +153,7 @@ const UntagBuy = () => {
                     <img
                       src={product.src[0]}
                       alt={product.name}
-                      className="  sm:w-full m-auto imghgt bg-white"
+                      className="  sm:w-full m-auto imghgt bg-stone-200"
                       style={{ height: "360px", width: "306px" }}
                     />
                     {isHovered === product.id && (

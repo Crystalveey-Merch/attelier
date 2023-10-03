@@ -1,61 +1,47 @@
-import custom from "/Images/Fashionista/custom.jpeg";
 import { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 
-const CustomMade = () => {
-  const goBack = () => {
-    window.history.back();
-    }
-  const [phone, setPhone] = useState("");
+const Refurblish = () => {
+    const [phone, setPhone] = useState("");
+
   return (
-    <div className="mt-24 sm:mt-16 AcehLight">
-      <div className="flex flex-row">
-     
-        <div className="px-36 sm:px-5 p-10 sm:w-full shadow-2xl ">
-        <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
-      <i className="fas fa-arrow-left text-black"/>
+    <div className="mt-24 sm:mt-16  Quicksand  sm:px-5 px-40  py-10">
+      <div>
+        <hi className="Aceh text-black">
+          Refurbishing at crystalveey’s atelier is categorized into 3 types
+          (available in Lagos only)
+        </hi>
+        <ol className="my-5">
+          <li>
+             Standard refurbishing: The client will drop off his or her
+            clothing item(s) at the company’s address for amendments and pick up
+            when item is ready. No charges required.
+          </li>
+          <li>
+        Premium refurbishing: The company will send its dispatch agent to
+            pick up clothing item(s) for refurbishing from the client’s address
+            and to deliver newly refurbished clothing item(s) to clients
+            address. Pickup/delivery charges will apply.
+          </li>
+          <li>
+         Refurbish and sell : This category is available to untagg sellers
+            only. The seller will deliver clothing item(s) to the company’s
+            address for amendment either by drop off or through the company’s
+            dispatch agent. The company will upload and sell clothing item(s) on
+            the website after necessary amendments on behalf of the seller. This
+            category will require a standard fee of 2000. Company pickup will
+            attract further charges. 
+          </li>
 
+        </ol>
+        <p className="italic">Note: Pricing for refurbishing in all 3
+            categories will be determined and communicated to you via E-mail
+            after our professional has examined the clothing item(s).</p>
       </div>
-          <h1 className="text-black text-2xl Aceh text-center">
-            Order Custom Made
-          </h1>
-          <div className="">
-            <h1 className="text-xl Aceh my-2 text-black">Sessions</h1>
-            <p className="my-2 leading-8 text-black">
-              Sessions at crystalveey’s atelier are categorized in 3 types for
-              our customers convenience;
-              <ul className="list-decimal">
-              <li className="text-justify">
-                VIRTUAL SESSION: The client will connect with our representative
-                through a video call to discuss style, measurement arrangements
-                and pricing. This session will attract a fee of ₦5000.
-              </li>
-              <li className="text-justify ">
-                ON-SITE SESSION: Requires no payment. The client will be meeting
-                our representative at the company’s address to take
-                measurements, discuss style and also discuss pricing.
-              </li>
-              <li>
-                IN PERSON SESSION: Our representative will be meeting the client
-                at their home/office address. This session will attract a fee of
-                25,000 (prices may be higher for certain locations).
-              </li>
-              </ul>
-              <span className=" leading-8 text-black">
-                <h1 className="Aceh text-xl my-2 text-black">Adherence to Time:</h1>
-                 Kindly note that session slots are to be
-                strictly adhered to; we will be unable to guarantee allotted
-                slot if you come at a later time. Hence, it is imperative that
-                you contact us in advance if you won’t be able to make it at the
-                scheduled time
-              </span>
-            </p>
-          </div>
-
-          <div className="my-10 text-black">
-            <h1 className="my-10 Aceh text-xl">Book a Session</h1>
-            <form className="AcehLight">
+      <div className="my-10 text-black">
+            {/* <h1 className="my-10 Aceh text-xl">Book a Session</h1> */}
+            <form className="Quicksand">
               <label>First Name:</label>
               <div className="flex flex-row gap-4 w-full m-auto  ">
                 <input
@@ -114,10 +100,8 @@ const CustomMade = () => {
                     <button className="p-4 text-center bg-black px-10 my-10 text-white rounded">Next</button>
             </form>
           </div>
-        </div>
-      </div>
     </div>
   );
 };
 
-export default CustomMade;
+export default Refurblish;
