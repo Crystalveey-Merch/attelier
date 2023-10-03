@@ -3,7 +3,7 @@ import { Home } from "./Pages/Home";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Login from "./Pages/Login";
-import CustomMade from "./Pages/CustomMAde/CustomMade";
+import CustomMade from "./Pages/CustomMade/CustomMade";
 import NewArrival from "./Pages/NewArrival";
 import Categories from "./Pages/Categories";
 import Collection from "./Pages/Collection";
