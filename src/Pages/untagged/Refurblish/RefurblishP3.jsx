@@ -2,7 +2,7 @@ import custom from "/Images/Fashionista/custom.jpeg";
 import { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
-import UploadBox from "../../CustomMAde/UpdoadBox";
+import UploadBox from "../../CustomMade/UpdoadBox";
 import "../../CustomMade/upload.css";
 
 const RefurblishP3 = () => {
