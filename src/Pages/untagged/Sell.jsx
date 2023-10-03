@@ -2,8 +2,8 @@ import { useState } from "react";
 import React, { useRef, useEffect } from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
-import UploadBox from "./../CustomMAde/UpdoadBox";
-import "./../CustomMade/upload.css";
+import UploadBox from "../CustomMAde/UpdoadBox";
+import "../CustomMade/upload.css";
 
 const Refurblish = () => {
   const [phone, setPhone] = useState("");
