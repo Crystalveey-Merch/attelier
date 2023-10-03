@@ -69,7 +69,7 @@ const filterMenCollection = () => {
      <div className="hidden sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black"/>
       </div>
-      <div className="text-center capitalize sm:text-xl text-2xl  text-black py-2 border-b border-black  bg-white  Aceh">
+      <div className="text-center capitalize sm:text-xl text-2xl  text-black py-6 border-b border-black  bg-white  Aceh">
         {categoryName} Category
         <h1 className="text-base text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
         Discover the latest trends and style for you and your loved ones with a wide range of clothing options
@@ -171,7 +171,7 @@ const filterMenCollection = () => {
                     </h5>
                     {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
                     <p className="text-black text-xl mb-4 mt-5  Aceh capitalize ">
-                      <i className="fas fa-naira-sign" /> {product.price}
+                    ₦{product.price}
                     </p>
                   </div>
                 </Link>

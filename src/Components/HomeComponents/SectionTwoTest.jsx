@@ -167,7 +167,7 @@ export const SectionTwoTest = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(null)}
               >
-              <div className="  overflow-hidden " style={{ height: "260px" }}>
+              <div className="  overflow-hidden " >
                 <img
                   src= "/Images/sec2.2/shoes.jpeg"
                   alt="children"

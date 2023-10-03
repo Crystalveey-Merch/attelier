@@ -93,7 +93,7 @@ export const SectionTwo = () => {
                  {item.name}
                 </h5>
                 {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
-                <p className="text-black mb-4"> <i className="fas fa-naira-sign"/>{item.price}</p>
+                <p className="text-black mb-4"> ₦{item.price}</p>
               </div>
               </Link>
             </SwiperSlide>

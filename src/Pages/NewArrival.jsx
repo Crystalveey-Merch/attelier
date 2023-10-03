@@ -161,7 +161,7 @@ console.log(filteredProducts);
                   </h5>
                   {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
                   <p className="text-black text-xl mb-4 mt-5  font-bolder Aceh capitalize ">
-                    N{product.price}
+                  ₦{product.price}
                   </p>
                 </div>
               </Link>

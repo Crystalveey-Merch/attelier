@@ -2,11 +2,18 @@ import { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 
+
+const goBack = () => {
+  window.history.back();
+};
 const Refurblish = () => {
     const [phone, setPhone] = useState("");
 
   return (
     <div className="mt-24 sm:mt-16  Quicksand  sm:px-5 px-40  py-10">
+       <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+        <i className="fas fa-arrow-left text-black" />
+      </div>
       <div>
         <hi className="Aceh text-black">
           Refurbishing at crystalveey’s atelier is categorized into 3 types

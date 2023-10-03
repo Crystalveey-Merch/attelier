@@ -70,8 +70,10 @@ const UntagBuy = () => {
       </div>
       <div>
         <div className="text-center sm:text-xl text-2xl pt-5 text-black py-4 bg-white capitalize Aceh">
-          Buy at crystalveey’s untagged section
+          Buy at untagged section
         </div>
+        <p className="text-center text-md px-5">Welcome to our recommerce site! Here you will find a wide range of pre owned goods that are in good condition and ready for a new home.
+</p>
         <div className=" text-gray-800 AcehLight text-l  sm:py-1  flex sm:justify-between px-5  sm:justify-left py-2 sm:gap-5  w-full gap-10 sm:gap-2">
           <div className="dropdown">
             <label
@@ -145,7 +147,7 @@ const UntagBuy = () => {
               return (
                 <div
                   key={product.id}
-                  className="my-4 p-2 m-4 sm:m-0 sm:p-0 border  hvr-shrink cursur-pointer justify-center"
+                  className="my-4 p-2 m-4 sm:m-0 sm:p-0   hvr-shrink cursur-pointer justify-center"
                   onMouseEnter={() => setIsHovered(product.id)}
                   onMouseLeave={() => setIsHovered(null)}
                 >
@@ -161,7 +163,7 @@ const UntagBuy = () => {
                         Shop
                       </button>
                     )}
-                    <div className="  m-auto w-full justify-center ml-5 gap-1 sm:gap-2   ">
+                    <div className="  m-auto w-full border justify-center px-5 gap-1 sm:gap-2   ">
                       <h5 className=" text-gray-900 font-light text-x Aceh mt-5 font-sans sm:text-x capitalize">
                         {product.name}
                       </h5>
@@ -170,7 +172,7 @@ const UntagBuy = () => {
                       </h5>
                       {/* <h6 className="uppercase sm:text-sm">{item.title}</h6> */}
                       <p className="text-black text-xl mb-4  mt-5 Aceh capitalize">
-                        <i className="fas fa-naira-sign" />
+                      ₦
                         {product.price}
                       </p>
                     </div>

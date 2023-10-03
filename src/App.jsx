@@ -30,6 +30,9 @@ import BlogList from "./Pages/BlogList";
 import Custompage1 from "./Pages/CustomMade/Custompage1";
 import Sellpage1 from "./Pages/untagged/Sellpage1";
 import RefurblishP1 from "./Pages/untagged/Refurblish/RefurblishP1";
+import RefurbishP2 from "./Pages/untagged/Refurblish/RefurblishP2";
+import RefurbishP3 from "./Pages/untagged/Refurblish/RefurblishP3";
+import RefurblishandSell from "./Pages/untagged/Refurblish/RefurblishandSell";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -94,7 +97,11 @@ function App() {
           <Route path="/custompage1" element={<Custompage1/>}/>
           <Route path="/sellpage1" element={<Sellpage1 />} />
           <Route path="/refurblishpage1" element={<RefurblishP1 />} />
+          <Route path="/refurblishpage2" element={<RefurbishP2 />} />
+          <Route path="/refurblishpage3" element={<RefurbishP3 />} />
+          <Route path="/refurblishandsell" element={<RefurblishandSell />} />
 
+          
         </Routes>
         <Footer />
       </div>

@@ -133,7 +133,7 @@ const Productdes = () => {
               <img
                 src={src}
                 alt={product.name}
-                className="m-auto m-2 w-full bg-stone-200  "
+                className="m-auto m-2 w-full bg-stone-200  p-5 "
                 style={{ height: "400px", width: "300px" }}
               />
             </SwiperSlide>
@@ -167,7 +167,7 @@ const Productdes = () => {
         
           <h1 className="text-black Aceh text-2xl ">{product.name}</h1>
           
-         <h1 className="text-sky-500"> N {product.price}</h1>
+         <h1 className="text-sky-500 AcehLight"> ₦{product.price}</h1>
         </div>
         <div>
           <div className=" flex flex-col">
@@ -180,8 +180,8 @@ const Productdes = () => {
                   key={id}
                   className={
                     isActive2 === id
-                      ? "border border-2 rounded rounded-full border-black rounded w-8 h-8 py-1  "
-                      : "border rounded rounded-full border-gray-300 rounded w-8 h-8 py-1 "
+                      ? "border border-2 rounded rounded-full border-black rounded w-10 h-10 py-1  "
+                      : "border rounded rounded-full border-gray-300 rounded w-10 h-10 py-1 "
                   }
                   style={{ backgroundColor: color }}
                   onClick={() => updateColor([color], id)}

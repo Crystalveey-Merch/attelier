@@ -45,9 +45,10 @@ const Sellpage1 = () => {
             </ol>
           </div>
 
-         <Link to="/sell"> <button type="Submit" className="bg-black flex w-40 px-5 py-4 justify-center text-white m-auto">Start selling</button></Link>
 
         </div>
+        <Link to="/sell"> <button type="Submit" className="bg-black flex w-40 px-5 py-4 justify-center text-white m-auto">Start selling</button></Link>
+
       </div>
     </div>
   )

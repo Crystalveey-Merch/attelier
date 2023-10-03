@@ -455,7 +455,7 @@ export const datas = {
 
   untagged:[
     {
-      id: 6,
+      id: 0,
       name: "Office shoe",
       category: "shoe",
       price: "12000",
@@ -553,7 +553,7 @@ export const datas = {
       ],
     },
     {
-      id: 5,
+      id: 6,
       name: "Gucci Hoodie",
       category: "hoodies",
       price: "10000",
@@ -569,7 +569,7 @@ export const datas = {
       ],
     },
     {
-      id: 6,
+      id: 7,
       name: "Gucci Hoodie",
       category: "hoodies",
       price: "10000",

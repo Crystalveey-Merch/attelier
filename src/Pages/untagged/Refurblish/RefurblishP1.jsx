@@ -13,8 +13,9 @@ const goBack = () => {
         <i className="fas fa-arrow-left text-black" />
       </div>
       <p className="text-center Aceh">Refurblish on untagg in 3 steps</p>
-        <div className="flex sm:flex-col gap-12 my-10 justify-center m-auto">
-          <div className="card w-60 h-60 m-auto ">
+        <div className=" sm:flex-col gap-12 my-10 justify-center m-auto">
+         <div className='flex sm:flex-col'>
+          <div className="card w-60  h-60 m-auto ">
             <ol className="my-5 text-center">
               <h1 className="">STEP 1</h1>
               <p className="Aceh ">Choose a Category</p>
@@ -42,7 +43,8 @@ const goBack = () => {
               </p>
             </ol>
           </div>
-         <Link to="/refurblish"> <button type="Submit" className="bg-black flex w-40 px-5 py-4 justify-center text-white m-auto">Get Started</button></Link>
+          </div>
+         <Link to="/refurblishpage2"> <button type="Submit" className="bg-black flex w-40 px-3 my-10 py-4 justify-center text-white m-auto">Get Started</button></Link>
 
         </div>
       </div>
