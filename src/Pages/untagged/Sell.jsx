@@ -76,9 +76,7 @@ const Refurblish = () => {
             <label>Add Photos</label>
               <div className="upload-boxes flex gap-4 my-2">
               <UploadBox />
-              <UploadBox />
-              <UploadBox />
-              <UploadBox />
+             
             </div>
             <p className="my-2 text-gray-500">supported formats are .jpg .gif and .png.10MB max</p>
 

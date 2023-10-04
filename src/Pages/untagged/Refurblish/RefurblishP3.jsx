@@ -13,12 +13,19 @@ const RefurblishP3 = () => {
   return (
     <div className="mt-24 sm:mt-16 AcehLight w-full">
       <div className="flex flex-row w-full">
-        <div className="px-36 sm:px-5 p-10 w-full ">
+        <div className="px-36 sm:px-1 p-10 w-full ">
           <div className="hidden   sm:block pt-5 " onClick={goBack}>
             <i className="fas fa-arrow-left text-black" />
           </div>
-
-          <div className="">
+          <div className="relative m-auto justify-center flex">
+          <img src="/Images/icons/stand.jpeg" className="hidden sm:block"></img>
+          <div className=" absolute top-20 left-5 text-white">
+          <p className="text-sm">Wear it. Love it. Refurbish it.</p>
+          <p className="text-4xl Aceh">Get the Price For Refurbishing</p>
+          </div>
+          </div>
+          <div className="sm:px-5">
+          
             <h1 className="sm:text-base text-xl AcehLight text-center my-2 leading-10 text-black">
               Fill all the required information and our refurbish team will get
               back to you within 3 buisness days with the pricing. To send more
@@ -37,7 +44,7 @@ const RefurblishP3 = () => {
             
           </div>
 
-          <div className="my-10 text-black">
+          <div className="my-10 sm:px-5 text-black">
             <form className="AcehLight">
               <label>First Name:</label>
               <div className="flex flex-row gap-4 w-full m-auto  ">
@@ -106,9 +113,7 @@ const RefurblishP3 = () => {
               <label>Upload clear images of each item, specifically the problem area that needs refurbishing</label>
               <div className="upload-boxes flex gap-4 my-5">
               <UploadBox />
-              <UploadBox />
-              <UploadBox />
-              <UploadBox />
+             
             </div>
             <p className="my-2">Max File size: 3mb, Max file: 4</p>
               <button className="p-4 flex m-auto text-center bg-black px-10 my-10 text-white rounded">

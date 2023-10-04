@@ -23,11 +23,9 @@ const CustomMade = () => {
               Upload clear images of your desired design and color
             </h1>
 
-            <div className="upload-boxes flex gap-4">
+            <div className="upload-boxes flex  gap-4">
               <UploadBox />
-              <UploadBox />
-              <UploadBox />
-              <UploadBox />
+            
 
               
             </div>

@@ -17,6 +17,13 @@ const RefurblishP3 = () => {
           <div className="hidden   sm:block pt-5 " onClick={goBack}>
             <i className="fas fa-arrow-left text-black" />
           </div>
+          <div className="relative m-auto justify-center text-black flex">
+          <img src="/Images/icons/ref.jpeg" className="hidden sm:block"></img>
+          <div className=" absolute top-20 left-5 text-black">
+          <p className="text-sm AcehLight">Wear it. Love it. Refurbish it.</p>
+          <p className="text-4xl Aceh">Get the Price For Refurbishing</p>
+          </div>
+          </div>
 
           <div className="">
             <h1 className="sm:text-base text-xl AcehLight text-center my-2 leading-10 text-black">
@@ -83,9 +90,7 @@ const RefurblishP3 = () => {
               <label>Upload clear images of each item, specifically the problem area that needs refurbishing</label>
               <div className="upload-boxes flex gap-4 my-5">
               <UploadBox />
-              <UploadBox />
-              <UploadBox />
-              <UploadBox />
+              
             </div>
             <p className="my-2">Max File size: 3mb, Max file: 4</p>
               <button className="p-4 flex m-auto text-center bg-black px-10 my-10 text-white rounded">
