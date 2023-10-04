@@ -8,8 +8,8 @@ const Cart = () => {
     useCart();
 
   return (
-    <div className="mt-24 sm:mt-16 text-black  pt-5 px-5 sm:p-2 mb-20 AcehLight">
-      <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+    <div className="mt-24 sm:mt-16 text-black relative pt-5 px-5 sm:p-2 mb-20 AcehLight">
+      <div className="hidden   sm:block pt-5 fixed" onClick={goBack}>
         <i className="fas fa-arrow-left text-black" />
       </div>
       <div className="text-center sm:text-xl text-xl text-black py-5 px-20 Aceh uppercase">

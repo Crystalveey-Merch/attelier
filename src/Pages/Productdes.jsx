@@ -109,8 +109,8 @@ const Productdes = () => {
       className="mt-24 sm:mt-16  Quicksand flex text-black  px-10  sm:px-0 flex sm:block justify-center"
       key={product.id}
     >
-      <div className="border  m-5 h-full  m-auto sm:m-0 sm:w-full w-1/2">
-        <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
+      <div className="border  m-5 h-full relative  m-auto sm:m-0 sm:w-full w-1/2">
+        <div className="hidden fixed z-40  sm:block pt-5 pl-5" onClick={goBack}>
           <i className="fas fa-arrow-left text-black" />
         </div>
         <Swiper
@@ -125,7 +125,7 @@ const Productdes = () => {
         }}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs, Pagination]}
-          className="mySwiper2 my-10 bg-stone-200 text-white"
+          className="mySwiper2 my-10 sm:my-0 bg-stone-200 text-white"
           key={product.id}
         >
           {product.src.map((src, id) => (
@@ -133,7 +133,7 @@ const Productdes = () => {
               <img
                 src={src}
                 alt={product.name}
-                className="m-auto m-2 w-full bg-stone-200  p-5 "
+                className="m-auto m-2  w-full bg-stone-200  p-5 "
                 style={{ height: "400px", width: "300px" }}
               />
             </SwiperSlide>
@@ -161,7 +161,7 @@ const Productdes = () => {
           ))}
       </Swiper> */}
       </div>
-      <div className="m-20 sm:p-5 sm:m-2 w-1/2 sm:w-full sm:px-5  ">
+      <div className="m-20 sm:p-5 sm:m-2 w-1/2 sm:w-full rela sm:px-5  ">
       <p className="text-sm text-gray-500">Category/{product.category}</p>
         <div className="text-2xl my-2 flex justify-between">
         
@@ -180,7 +180,7 @@ const Productdes = () => {
                   key={id}
                   className={
                     isActive2 === id
-                      ? "border border-2 rounded rounded-full border-black rounded w-10 h-10 py-1  "
+                      ? "border border-2 rounded outline rounded-full border-black rounded w-10 h-10 py-1  "
                       : "border rounded rounded-full border-gray-300 rounded w-10 h-10 py-1 "
                   }
                   style={{ backgroundColor: color }}

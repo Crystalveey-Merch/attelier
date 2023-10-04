@@ -65,6 +65,8 @@ console.log(filteredProducts);
     <div className="text-center sm:text-xl text-2xl pt-10 text-black py-4 bg-white  Aceh">
       New Arrivals
       <h1 className="text-xl text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
+      Discover our new arrivals to elevate your style and keep you ahead of the fashion curve
+
       </h1>
     </div>
 
