@@ -8,12 +8,17 @@ import {
   StateSelect,
 } from "react-country-state-city";
 import "react-country-state-city/dist/react-country-state-city.css";
+import { PaystackButton } from "react-paystack";
+// import { useState } from "react";
+import { PAYSTACK_PUBLIC_KEY } from "/src/Pages/Payment/payment.js";
 
 const goBack = () => {
   window.history.back();
 };
 
 const Checkout = () => {
+  const [isPaymentButtonVisible, setIsPaymentButtonVisible] = useState(true);
+  const publicKey = PAYSTACK_PUBLIC_KEY;
   const [countryid, setCountryid] = useState(0);
   const [stateid, setstateid] = useState(0);
   const { isEmpty, items, cartTotal, updateItemQuantity, removeItem } =
@@ -52,6 +57,7 @@ const Checkout = () => {
                     type="radio"
                     name="radio-7"
                     id="option1"
+                    required
                     className="radio  radio-info radio-sm shadow-white "
                     value="option1"
                     checked={selectedDelivery === "option1"}
@@ -84,6 +90,7 @@ const Checkout = () => {
                   <input
                     type="radio"
                     id="option2"
+                    required
                     className="radio  radio-info radio-sm box-shadow"
                     value="option2"
                     checked={selectedDelivery === "option2"}
@@ -106,6 +113,7 @@ const Checkout = () => {
                       onChange={(e) => {
                         setCountryid(e.id);
                       }}
+                      required={true}
                       placeHolder="Select Country"
                       className="bg-white"
                       inputClassName="bg-white border-none"
@@ -113,14 +121,17 @@ const Checkout = () => {
                     />
                     <input
                       placeholder="First Name"
+                      required
                       className="p-3 w-full border bg-white"
                     ></input>
                     <input
                       placeholder="Last Name"
+                      required
                       className="p-3 w-full border bg-white"
                     ></input>
                     <textarea
                       placeholder="Address"
+                      required
                       className="p-3 w-full border bg-white"
                     ></textarea>
 
@@ -129,6 +140,7 @@ const Checkout = () => {
                       onChange={(e) => {
                         setstateid(e.id);
                       }}
+                      required
                       placeHolder="Select State"
                       inputClassName="bg-white border-none"
                       containerClassName="bg-white border-none"
@@ -136,6 +148,7 @@ const Checkout = () => {
                     <CitySelect
                       countryid={countryid}
                       stateid={stateid}
+                      required
                       onChange={(e) => {
                         console.log(e);
                       }}
@@ -145,10 +158,12 @@ const Checkout = () => {
                     />
                     <input
                       placeholder="Postal Code"
+                      required
                       className="p-3 w-full border bg-white"
                     ></input>
                     <input
                       placeholder="Phone number "
+                      required
                       className="p-3 w-full border bg-white"
                     ></input>
                   </div>
@@ -236,11 +251,15 @@ const Checkout = () => {
                 {selectePayment === "option4" && (
                   <div>
                     <div className="bg-gray-200 p-10 sm:p-5 flex flex-col gap-4">
-                      <p>
-                        <li>Beneficiary Name:</li>
-                        <li>  Bank Name: xxxxxxxxxxx </li>
-                        <li>Account Number: 00196.........</li>
-                        <li>Depositor/Reference: Your Name</li>
+                      <p className="flex flex-col">
+                      <span className="Aceh">Naira </span>
+                        <span>Account name: CRYSTALVEEY MERCH </span>
+                        <span>Account number: 0741537772</span>
+                        <span>Bank: GTBank</span>
+                      </p>
+                      <p className="flex flex-col">
+                      <span className="Aceh">Dollar</span>
+                      <span>0803567624</span>
                       </p>
                     </div>
                   </div>
@@ -250,12 +269,76 @@ const Checkout = () => {
               <div className=" Aceh text-2xl my-4 border-t border-t-8 pt-6">
                 Billing Address
               </div>
+              {selectedDelivery === "option1" && (
+                <div>
+                    <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
+                      <CountrySelect
+                        onChange={(e) => {
+                          setCountryid(e.id);
+                        }}
+                        required={true}
+                        placeHolder="Select Country"
+                        className="bg-white"
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white "
+                      />
+                      <input
+                        placeholder="First Name"
+                        required
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                      <input
+                        placeholder="Last Name"
+                        required
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                      <textarea
+                        placeholder="Address"
+                        required
+                        className="p-3 w-full border bg-white"
+                      ></textarea>
 
+                      <StateSelect
+                        countryid={countryid}
+                        onChange={(e) => {
+                          setstateid(e.id);
+                        }}
+                        required
+                        placeHolder="Select State"
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white border-none"
+                      />
+                      <CitySelect
+                        countryid={countryid}
+                        stateid={stateid}
+                        required
+                        onChange={(e) => {
+                          console.log(e);
+                        }}
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white border-none"
+                        placeHolder="Select City"
+                      />
+                      <input
+                        required
+                        placeholder="Postal Code"
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                      <input
+                        required
+                        placeholder="Phone number "
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                    </div>
+                  </div>
+              )}
+              {selectedDelivery === "option2" && (      
               <div className=" flex-col flex ">
                 <div className="flex gap-3  border p-3 cursor-pointer	flex rounded">
                   <input
                     type="radio"
                     id="option5"
+                    required
                     className="radio m-auto radio-info radio-sm box-shadow"
                     value="option5"
                     checked={selecteBilling === "option5"}
@@ -273,6 +356,7 @@ const Checkout = () => {
                 <div className="flex gap-3 border p-3 cursor-pointer	 rounded">
                   <input
                     type="radio"
+                    required
                     id="option6"
                     className="radio m-auto radio-info radio-sm box-shadow"
                     value="option6"
@@ -294,6 +378,7 @@ const Checkout = () => {
                         onChange={(e) => {
                           setCountryid(e.id);
                         }}
+                        required={true}
                         placeHolder="Select Country"
                         className="bg-white"
                         inputClassName="bg-white border-none"
@@ -301,14 +386,17 @@ const Checkout = () => {
                       />
                       <input
                         placeholder="First Name"
+                        required
                         className="p-3 w-full border bg-white"
                       ></input>
                       <input
                         placeholder="Last Name"
+                        required
                         className="p-3 w-full border bg-white"
                       ></input>
                       <textarea
                         placeholder="Address"
+                        required
                         className="p-3 w-full border bg-white"
                       ></textarea>
 
@@ -317,6 +405,7 @@ const Checkout = () => {
                         onChange={(e) => {
                           setstateid(e.id);
                         }}
+                        required
                         placeHolder="Select State"
                         inputClassName="bg-white border-none"
                         containerClassName="bg-white border-none"
@@ -324,6 +413,7 @@ const Checkout = () => {
                       <CitySelect
                         countryid={countryid}
                         stateid={stateid}
+                        required
                         onChange={(e) => {
                           console.log(e);
                         }}
@@ -332,44 +422,60 @@ const Checkout = () => {
                         placeHolder="Select City"
                       />
                       <input
+                        required
                         placeholder="Postal Code"
                         className="p-3 w-full border bg-white"
                       ></input>
                       <input
+                        required
                         placeholder="Phone number "
                         className="p-3 w-full border bg-white"
                       ></input>
                     </div>
                   </div>
                 )}
-              </div>
+               </div>
+               )}
             </div>
+              
           </div>
         </div>
         <div className="  sm:block  flex flex-col static mb-10 py-10 m-auto sm:px-5  w-1/2">
-        <div className="text-black AcehLight flex justify-between">
-          Subtotal:<span> ₦{cartTotal} </span>
-        </div>
-
-        {selectedDelivery === "option2" && (
-          <div className="flex justify-between AcehLight text-black">
-            <span>Delivery Fee:</span>
-            <span> ₦{shippingFee}</span>
+          <div className="text-black AcehLight flex justify-between">
+            Subtotal:<span> ₦{cartTotal} </span>
           </div>
-        )}
-        <div className="text-black Aceh flex text-xl justify-between">
-          Total:<span> ₦{cartTotal} </span>
-        </div>
 
-        <Link to="/payment">
-          <button className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white">
-            {" "}
-            ORDER NOW
-          </button>
-        </Link>
+          {selectedDelivery === "option1" && (
+            <div className="flex justify-between AcehLight text-black">
+              <span>Pick up</span>
+              <span> Free</span>
+            </div>
+          )}
+          {selectedDelivery === "option2" && (
+            <div className="flex justify-between AcehLight text-black">
+              <span>Delivery Fee:</span>
+              <span> ₦{shippingFee}</span>
+            </div>
+          )}
+          <div className="text-black Aceh flex text-xl justify-between">
+            Total:
+            <span>
+              {" "}
+              ₦
+              {selectedDelivery === "option2"
+                ? cartTotal + parseInt(shippingFee)
+                : cartTotal}
+            </span>
+          </div>
+
+          <Link to="/payment">
+            <button className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white">
+              {" "}
+              ORDER NOW
+            </button>
+          </Link>
+        </div>
       </div>
-      </div>
-      
     </>
   );
 };
