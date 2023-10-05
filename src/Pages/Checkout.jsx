@@ -19,9 +19,9 @@ const Checkout = () => {
   const { isEmpty, items, cartTotal, updateItemQuantity, removeItem } =
     useCart();
 
-  const [selectedDelivery, setSelectedDelivery] = useState("option1");
-  const [selectePayment, setSelectedPayment] = useState("option3");
-  const [selecteBilling, setSelectedBilling] = useState("option5");
+  const [selectedDelivery, setSelectedDelivery] = useState("");
+  const [selectePayment, setSelectedPayment] = useState("");
+  const [selecteBilling, setSelectedBilling] = useState("");
 
   const handleDelivery = (e) => {
     setSelectedDelivery(e.target.value);
@@ -149,14 +149,14 @@ const Checkout = () => {
                 </div>
               )}
               <div className="Aceh text-2xl my-6">Payment</div>
-              <p>All transaction are secured and encrypted</p>
+              <p className="text-gray-300">All transaction are secured and encrypted</p>
 
               <div className=" flex-col flex ">
                 <div className="flex gap-3  border p-3 cursor-pointer	flex rounded">
                   <input
                     type="radio"
                     id="option3"
-                    className="radio border-black"
+                    className="radio border-black m-auto"
                     value="option3"
                     checked={selectePayment === "option3"}
                     onChange={handlePayment}
@@ -166,8 +166,8 @@ const Checkout = () => {
                     className="text-lg w-full cursor-pointer  m-auto flex	Aceh"
                   >
                     {" "}
-                    <p>Paystack </p>
-                    <span className="flex gap-3 m-auto">
+                    <p className="my-auto">Paystack </p>
+                    <span className="flex gap-1 m-auto">
                       <img
                         src="/Images/icons/visa.png"
                         className="m-auto"
@@ -177,7 +177,7 @@ const Checkout = () => {
                         className="m-auto"
                       ></img>
                       <img
-                        src="/Images/icons/maestl.png"
+                        src="/Images/icons/maestrl.png"
                         className="m-auto"
                       ></img>
                       <img
@@ -204,14 +204,15 @@ const Checkout = () => {
                   <input
                     type="radio"
                     id="option4"
-                    className="radio border-black"
+                    className="radio border-black m-auto"
                     value="option4"
                     checked={selectePayment === "option4"}
                     onChange={handlePayment}
+
                   />
                   <label
                     htmlFor="option4"
-                    className="text-lg w-full cursor-pointer	"
+                    className="text-lg w-full cursor-pointer m-auto	"
                   >
                     {" "}
                     Bank deposit
