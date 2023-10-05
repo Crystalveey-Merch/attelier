@@ -72,7 +72,7 @@ const filterMenCollection = () => {
       <div className="text-center capitalize sm:text-xl text-2xl  text-black py-6 border-b border-black  bg-white  Aceh">
         {categoryName} Category
         <h1 className="text-base text-gray-600 AcehLight px-40 sm:px-5 w-full my-2">
-        Discover the latest trends and style for you and your loved ones with a wide range of clothing options
+        Discover the latest trends and style for you and your loved ones with a wide range of clothing options.
         </h1>
       </div>
 
