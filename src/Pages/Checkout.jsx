@@ -17,6 +17,31 @@ const goBack = () => {
 };
 
 const Checkout = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [country, setCountry] = useState("");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    lastname: "",
+    amount: "",
+    email: "",
+    address: "",
+    postalCode: "",
+    country: "",
+    phoneNumber: "",
+    // Add more fields as needed
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   const [isPaymentButtonVisible, setIsPaymentButtonVisible] = useState(true);
   const publicKey = PAYSTACK_PUBLIC_KEY;
   const [countryid, setCountryid] = useState(0);
@@ -28,6 +53,9 @@ const Checkout = () => {
   const [selectePayment, setSelectedPayment] = useState("");
   const [selecteBilling, setSelectedBilling] = useState("");
 
+  // const isPaymentButtonVisible = Object.values(formData).every((value) => value !== "");
+
+
   const handleDelivery = (e) => {
     setSelectedDelivery(e.target.value);
   };
@@ -38,6 +66,28 @@ const Checkout = () => {
     setSelectedBilling(e.target.value);
   };
   const shippingFee = "5000";
+
+  const totalCost = cartTotal + parseInt(shippingFee);
+
+  const paymentData = {
+    email: formData.email,
+    amount: totalCost * 100, // Amount in kobo (multiply by 100 to convert to Naira)
+    publicKey,
+    text: "Pay Now",
+    channels: ["card"],
+    onSuccess: (reference) => {
+      console.log("Payment successful. Reference:", reference);
+      // Handle successful payment (e.g., update order status, redirect)
+    },
+    onClose: () => {
+      console.log("Payment closed");
+      // Handle payment closure (e.g., show a message to the user)
+    },
+    onError: (error) => {
+      console.error("Payment error:", error);
+      // Handle payment error (e.g., show an error message to the user)
+    },
+  };
 
   return (
     <>
@@ -252,14 +302,14 @@ const Checkout = () => {
                   <div>
                     <div className="bg-gray-200 p-10 sm:p-5 flex flex-col gap-4">
                       <p className="flex flex-col">
-                      <span className="Aceh">Naira </span>
+                        <span className="Aceh">Naira </span>
                         <span>Account name: CRYSTALVEEY MERCH </span>
                         <span>Account number: 0741537772</span>
                         <span>Bank: GTBank</span>
                       </p>
                       <p className="flex flex-col">
-                      <span className="Aceh">Dollar</span>
-                      <span>0803567624</span>
+                        <span className="Aceh">Dollar</span>
+                        <span>0803567624</span>
                       </p>
                     </div>
                   </div>
@@ -270,134 +320,54 @@ const Checkout = () => {
                 Billing Address
               </div>
               {selectedDelivery === "option1" && (
-                <div>
-                    <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
-                      <CountrySelect
-                        onChange={(e) => {
-                          setCountryid(e.id);
-                        }}
-                        required={true}
-                        placeHolder="Select Country"
-                        className="bg-white"
-                        inputClassName="bg-white border-none"
-                        containerClassName="bg-white "
-                      />
-                      <input
-                        placeholder="First Name"
-                        required
-                        className="p-3 w-full border bg-white"
-                      ></input>
-                      <input
-                        placeholder="Last Name"
-                        required
-                        className="p-3 w-full border bg-white"
-                      ></input>
-                      <textarea
-                        placeholder="Address"
-                        required
-                        className="p-3 w-full border bg-white"
-                      ></textarea>
-
-                      <StateSelect
-                        countryid={countryid}
-                        onChange={(e) => {
-                          setstateid(e.id);
-                        }}
-                        required
-                        placeHolder="Select State"
-                        inputClassName="bg-white border-none"
-                        containerClassName="bg-white border-none"
-                      />
-                      <CitySelect
-                        countryid={countryid}
-                        stateid={stateid}
-                        required
-                        onChange={(e) => {
-                          console.log(e);
-                        }}
-                        inputClassName="bg-white border-none"
-                        containerClassName="bg-white border-none"
-                        placeHolder="Select City"
-                      />
-                      <input
-                        required
-                        placeholder="Postal Code"
-                        className="p-3 w-full border bg-white"
-                      ></input>
-                      <input
-                        required
-                        placeholder="Phone number "
-                        className="p-3 w-full border bg-white"
-                      ></input>
-                    </div>
-                  </div>
-              )}
-              {selectedDelivery === "option2" && (      
-              <div className=" flex-col flex ">
-                <div className="flex gap-3  border p-3 cursor-pointer	flex rounded">
-                  <input
-                    type="radio"
-                    id="option5"
-                    required
-                    className="radio m-auto radio-info radio-sm box-shadow"
-                    value="option5"
-                    checked={selecteBilling === "option5"}
-                    onChange={handleBilling}
-                  />
-                  <label
-                    htmlFor="option5"
-                    className="text-md w-full cursor-pointer  m-auto flex	"
-                  >
-                    {" "}
-                    <p>Same as Billing Address </p>
-                  </label>
-                </div>
-
-                <div className="flex gap-3 border p-3 cursor-pointer	 rounded">
-                  <input
-                    type="radio"
-                    required
-                    id="option6"
-                    className="radio m-auto radio-info radio-sm box-shadow"
-                    value="option6"
-                    checked={selecteBilling === "option6"}
-                    onChange={handleBilling}
-                  />
-                  <label
-                    htmlFor="option6"
-                    className="text-md w-full  cursor-pointer	"
-                  >
-                    {" "}
-                    Use a different Billing Address
-                  </label>
-                </div>
-                {selecteBilling === "option6" && (
+                <form onSubmit={handleChange} id="billing-form">
                   <div>
                     <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
                       <CountrySelect
                         onChange={(e) => {
                           setCountryid(e.id);
+                          setCountry({ handleChange });
                         }}
                         required={true}
                         placeHolder="Select Country"
                         className="bg-white"
                         inputClassName="bg-white border-none"
                         containerClassName="bg-white "
+                        name="firstName"
+                        value={formData.country}
                       />
                       <input
                         placeholder="First Name"
                         required
+                        name="firstName"
+                        value={FormData.firstName}
+                        onChange={handleChange}
                         className="p-3 w-full border bg-white"
                       ></input>
                       <input
                         placeholder="Last Name"
                         required
                         className="p-3 w-full border bg-white"
+                        name="lastName"
+                        value={FormData.lastName}
+                        onChange={handleChange}
                       ></input>
+                      <input
+                        placeholder="Email"
+                        required
+                        className="p-3 w-full border bg-white"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                      ></input>
+
                       <textarea
                         placeholder="Address"
                         required
                         className="p-3 w-full border bg-white"
+                        name="address"
+                        value={formData.address}
+                        onChange={handleChange}
                       ></textarea>
 
                       <StateSelect
@@ -429,15 +399,124 @@ const Checkout = () => {
                       <input
                         required
                         placeholder="Phone number "
+                        name="phone"
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
                         className="p-3 w-full border bg-white"
                       ></input>
                     </div>
+                    <button id="submit1" className=" hidden">
+                      submit
+                    </button>
                   </div>
-                )}
-               </div>
-               )}
+                </form>
+              )}
+
+              {selectedDelivery === "option2" && (
+                <div className=" flex-col flex ">
+                  <div className="flex gap-3  border p-3 cursor-pointer	flex rounded">
+                    <input
+                      type="radio"
+                      id="option5"
+                      required
+                      className="radio m-auto radio-info radio-sm box-shadow"
+                      value="option5"
+                      checked={selecteBilling === "option5"}
+                      onChange={handleBilling}
+                    />
+                    <label
+                      htmlFor="option5"
+                      className="text-md w-full cursor-pointer  m-auto flex	"
+                    >
+                      {" "}
+                      <p>Same as Billing Address </p>
+                    </label>
+                  </div>
+
+                  <div className="flex gap-3 border p-3 cursor-pointer	 rounded">
+                    <input
+                      type="radio"
+                      required
+                      id="option6"
+                      className="radio m-auto radio-info radio-sm box-shadow"
+                      value="option6"
+                      checked={selecteBilling === "option6"}
+                      onChange={handleBilling}
+                    />
+                    <label
+                      htmlFor="option6"
+                      className="text-md w-full  cursor-pointer	"
+                    >
+                      {" "}
+                      Use a different Billing Address
+                    </label>
+                  </div>
+                  {selecteBilling === "option6" && (
+                    <div>
+                      <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
+                        <CountrySelect
+                          onChange={(e) => {
+                            setCountryid(e.id);
+                          }}
+                          required={true}
+                          placeHolder="Select Country"
+                          className="bg-white"
+                          inputClassName="bg-white border-none"
+                          containerClassName="bg-white "
+                        />
+                        <input
+                          placeholder="First Name"
+                          required
+                          className="p-3 w-full border bg-white"
+                        ></input>
+                        <input
+                          placeholder="Last Name"
+                          required
+                          className="p-3 w-full border bg-white"
+                        ></input>
+                        <textarea
+                          placeholder="Address"
+                          required
+                          className="p-3 w-full border bg-white"
+                        ></textarea>
+
+                        <StateSelect
+                          countryid={countryid}
+                          onChange={(e) => {
+                            setstateid(e.id);
+                          }}
+                          required
+                          placeHolder="Select State"
+                          inputClassName="bg-white border-none"
+                          containerClassName="bg-white border-none"
+                        />
+                        <CitySelect
+                          countryid={countryid}
+                          stateid={stateid}
+                          required
+                          onChange={(e) => {
+                            console.log(e);
+                          }}
+                          inputClassName="bg-white border-none"
+                          containerClassName="bg-white border-none"
+                          placeHolder="Select City"
+                        />
+                        <input
+                          required
+                          placeholder="Postal Code"
+                          className="p-3 w-full border bg-white"
+                        ></input>
+                        <input
+                          required
+                          placeholder="Phone number "
+                          className="p-3 w-full border bg-white"
+                        ></input>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
-              
           </div>
         </div>
         <div className="  sm:block  flex flex-col static mb-10 py-10 m-auto sm:px-5  w-1/2">
@@ -461,19 +540,23 @@ const Checkout = () => {
             Total:
             <span>
               {" "}
-              ₦
-              {selectedDelivery === "option2"
-                ? cartTotal + parseInt(shippingFee)
-                : cartTotal}
+              ₦{selectedDelivery === "option2" ? totalCost : cartTotal}
             </span>
           </div>
-
-          <Link to="/payment">
-            <button className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white">
-              {" "}
-              ORDER NOW
-            </button>
-          </Link>
+          {selectePayment === "option3" && isPaymentButtonVisible && (
+            <PaystackButton
+              className="bg-black px-10 py-3 mt-5 m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
+              {...paymentData}
+            />
+          )}
+          {selectePayment === "option4" && (
+          <button
+            form="billing-form"
+            className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
+          >
+            {" "}
+            PAY NOW
+          </button>)}
         </div>
       </div>
     </>
