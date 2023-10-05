@@ -171,7 +171,7 @@ export const datas = {
       category: "clothing",
       price: "7000",
       collection: "holiday",
-      color: ["Red"],
+      color: ["Red","Blue"],
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
       src: ["/Images/sec4/holiday.jpeg","/Images/newArrivals/image3.jpeg"],
@@ -199,11 +199,11 @@ export const datas = {
     },
     {
       id: 204,
-      src:[ "/Images/newArrivals/image3.jpeg","/Images/newArrivals/image3.jpeg"],
+      src:[ "/Images/newArrivals/image3.jpeg","/Images/newArrivals/image3_red.png"],
       name: "Viva",
       newarrival: true,
       category: "two pieces",
-      color: ["White", "Tan Brown", "Bright Yellow"],
+      color: ["Brown", "Red"],
       collection: "resort",
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
@@ -219,7 +219,7 @@ export const datas = {
 
     {
       id: 206,
-      src: ["/Images/newArrivals/image14.jpeg","/Images/newArrivals/image14.jpeg"],
+      src: ["/Images/newArrivals/image14.jpeg","/Images/newArrivals/image14_brown.png","/Images/newArrivals/navy.png"],
       name: "Tia",
       category: "clothing",
       fabricType: ["crepe"],
@@ -228,7 +228,7 @@ export const datas = {
       collection: "formal",
       newarrival: true,
       price: "10500",
-      color: ["Black"],
+      color: ["Black", "Brown", "#1974D2"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -252,7 +252,7 @@ export const datas = {
     ]},
     {
       id: 208,
-      src:[ "/Images/newArrivals/image11.jpeg","/Images/newArrivals/image11.jpeg"],
+      src:[ "/Images/newArrivals/image11.jpeg","/Images/newArrivals/image11_1.png","/Images/newArrivals/image11_blue.png"],
       name: "Bloom",
       category: "one piece",
       collection: "formal",
@@ -260,7 +260,7 @@ export const datas = {
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
       fabricType:["crepe"],
-      color: ["brown", "red", "navy blue"],
+      color: ["brown", "green", "blue"],
       price: "15000",
       description: [
         "It is comfy",
@@ -299,10 +299,10 @@ export const datas = {
     },
     {
       id: 211,
-      src: ["/Images/newArrivals/image8.jpeg","/Images/newArrivals/image8.jpeg"],
+      src: ["/Images/newArrivals/image8.jpeg","/Images/newArrivals/image8_blue.png","/Images/newArrivals/image8_purple.png","/Images/newArrivals/image8_red.png"],
       name: "Audrey",
       category: "two pieces",
-      color: ["blue", "orange", "black"],
+      color: ["#87CEEB", "blue", "purple","red"],
       newarrival: true,
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
@@ -348,14 +348,14 @@ export const datas = {
     },
     {
       id: 214,
-      src: ["/Images/newArrivals/image2.jpeg","/Images/newArrivals/image2.jpeg"],
+      src: ["/Images/newArrivals/image2.jpeg","/Images/newArrivals/image2_blue.png","/Images/newArrivals/image2_red.png"],
       name: "Fiesta",
       newarrival: true,
       category: "one piece",
       collection:"party",
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
-      color: [ "burnt orange", "yellow", "white"],
+      color: [ "orange", "blue", "red"],
       price: "19000",
       fabricType:[ " veil net, organza"],
       description: [
@@ -365,7 +365,7 @@ export const datas = {
     },
     {
       id: 215,
-      src: ["/Images/newArrivals/image6.jpeg","/Images/newArrivals/image6.jpeg"],
+      src: ["/Images/newArrivals/image6.jpeg","/Images/newArrivals/image6.jpeg","/Images/newArrivals/image6.jpeg"],
       name: "Sizzler",
       newarrival: true,
       category: "one piece",

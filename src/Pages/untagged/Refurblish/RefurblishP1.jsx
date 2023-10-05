@@ -12,33 +12,36 @@ const goBack = () => {
           <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black" />
       </div>
-      <p className="text-center Aceh">Refurblish on untagg in 3 steps</p>
+      <p className="text-center text-3xl capitalize Aceh">Refurblish on untagg in 3 steps</p>
         <div className=" sm:flex-col gap-12 my-10 justify-center m-auto">
          <div className='flex sm:flex-col'>
           <div className="card w-60  h-60 m-auto ">
             <ol className="my-5 text-center">
-              <h1 className="">STEP 1</h1>
-              <p className="Aceh ">Choose a Category</p>
+              <h1 className="text-xl">STEP 1</h1>
               <img src="/Images/icons/ref1.png" className="m-auto"></img>
-              <p>
+
+              <p className="Aceh text-sky-500 text-xl ">Choose a Category</p>
+              <p  className='Aceh'>
               Follow our easy steps and choose your preferred category
               </p>
             </ol>
           </div>
           <div className="card w-60 h-60 m-auto ">
             <ol className="my-5  text-center">
-              <h1 className="">STEP 2</h1>
-              <p className="Aceh">Fill The Form</p>
+              <h1 className="text-xl">STEP 2</h1>
               <img src="/Images/icons/ref2.png" className="m-auto"></img>
-              <p>Input all necessary information amd select shipping mode</p>
+
+              <p className="Aceh text-sky-500 text-xl">Fill The Form</p>
+              <p className='Aceh'>Input all necessary information amd select shipping mode</p>
             </ol>
           </div>
           <div className="card w-60 h-60 m-auto ">
             <ol className="my-5 text-center">
-              <h1>STEP 3</h1>
-              <p className="Aceh">Make Payment</p>
+              <h1 className='text-xl'>STEP 3</h1>
               <img src="/Images/icons/ref3.png" className="m-auto"></img>
-              <p>
+
+              <p className="Aceh Aceh text-sky-500 text-xl">Make Payment</p>
+              <p className='Aceh'>
                 Check email for invoice and follow link for payment
               </p>
             </ol>

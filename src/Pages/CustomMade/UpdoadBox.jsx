@@ -44,8 +44,8 @@ const UploadBox = () => {
           htmlFor="image-upload"
           className="upload-icon text-sm z-20 h-full w-full  flex m-auto ipointer "
         >
-          <i className="fas fa-upload m-auto"></i>
-          <span className="m-auto">Upload Image(s)</span>
+        <span className="m-auto text-xl">+</span> 
+          
         </label>
         <input
           type="file"

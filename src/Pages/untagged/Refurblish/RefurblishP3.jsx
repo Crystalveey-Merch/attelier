@@ -18,10 +18,11 @@ const RefurblishP3 = () => {
             <i className="fas fa-arrow-left text-black" />
           </div>
           <div className="relative m-auto justify-center flex">
-          <img src="/Images/icons/stand.jpeg" className="hidden sm:block"></img>
-          <div className=" absolute top-20 left-5 text-white">
-          <p className="text-sm">Wear it. Love it. Refurbish it.</p>
-          <p className="text-4xl Aceh">Get the Price For Refurbishing</p>
+          <img src="/Images/icons/stand1.jpeg" className="sm:hidden "/>
+          <img src="/Images/icons/stand.jpeg" className="hidden sm:block "></img>
+          <div className=" absolute top-48 left-5 text-white">
+          <p className="text-xl ">Wear it. Love it. Refurbish it.</p>
+          <p className="sm:text-4xl text-6xl Aceh w-64">Get the Price For Refurbishing</p>
           </div>
           </div>
           <div className="sm:px-5">
@@ -46,29 +47,29 @@ const RefurblishP3 = () => {
 
           <div className="my-10 sm:px-5 text-black">
             <form className="AcehLight">
-              <label>First Name:</label>
+              <label className="Aceh"> Name:</label>
               <div className="flex flex-row gap-4 w-full m-auto  ">
                 <input
                   type="text"
                   placeholder="first name"
-                  className="p-3 my-4 bg-white border border-black  w-1/2 "
+                  className="p-3 my-4 bg-white border   w-1/2 "
                 />
                 <input
                   type="text"
                   placeholder="Last name"
-                  className="p-3 my-4 bg-white border border-black  w-1/2  "
+                  className="p-3 my-4 bg-white border   w-1/2  "
                 />
               </div>
-
-              <label>Email:</label>
+<div></div>
+              <label className="Aceh">Email:</label>
               <br />
               <input
                 type="email"
                 placeholder="email"
-                className="p-3 my-4 bg-white border border-black w-full"
+                className="p-3 my-4 bg-white border  w-full"
               />
               <br />
-              <label>Phone number:</label>
+              <label className="Aceh">Phone number:</label>
               <br />
               <PhoneInput
                 defaultCountry="ng"
@@ -77,40 +78,42 @@ const RefurblishP3 = () => {
                 className="w-full my-4 text-xl  "
                 style={{ width: "100%", height: "60px"}}
               />
-              <label>Type of Item</label>
+              
+            <div>
+              <label className="Aceh">Type of Item</label>
               <br />
-              <input type="text" className="p-3 my-4 bg-white border border-black w-full"></input>
-
+              <input type="text" className="p-3 my-4 bg-white border  w-full"></input>
+</div>
               <br />
-              <label>How will you send Item? </label>
+              <label className="Aceh">How will you send Item? </label>
                 <div className="flex flex-col gap-3 mb-5">
                 <span className=" flex gap-3">
-                <input type="radio" name="radio-1" className="radio" />
+                <input type="radio" name="radio-1" className="radio border-gray-600" />
                 <p>Drop off</p>
                 </span>
                 <span className=" flex gap-3">
-                <input type="radio" name="radio-1" className="radio" />
+                <input type="radio" name="radio-1" className="radio border-gray-600" />
                 <p>Pick up from my address</p>
                 </span>
                 </div>
 
 
-                <label>How will you receive Item? </label>
+                <label className="Aceh">How will you receive Item? </label>
                 <div className="flex flex-col gap-3 mb-5">
                 <span className=" flex gap-3">
-                <input type="radio" name="radio-1" className="radio" />
+                <input type="radio" name="radio-1" className="radio border-gray-600" />
                 <p>Pick up</p>
                 </span>
                 <span className=" flex gap-3">
-                <input type="radio" name="radio-1" className="radio" />
+                <input type="radio" name="radio-1" className="radio border-gray-600" />
                 <p>Deliver to my address</p>
                 </span>
                 </div>
 
-              <label >Please describe issues with your item in details</label>
-              <textarea className="w-full h-40  bg-white border border-black p-5"></textarea>
+              <label className="Aceh" >Please describe issues with your item in details</label>
+              <textarea className="w-full h-40  bg-white border  p-5"></textarea>
               
-              <label>Upload clear images of each item, specifically the problem area that needs refurbishing</label>
+              <label className="Aceh">Upload clear images of each item, specifically the problem area that needs refurbishing</label>
               <div className="upload-boxes flex gap-4 my-5">
               <UploadBox />
              

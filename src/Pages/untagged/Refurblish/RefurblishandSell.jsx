@@ -18,10 +18,14 @@ const RefurblishP3 = () => {
             <i className="fas fa-arrow-left text-black" />
           </div>
           <div className="relative m-auto justify-center text-black flex">
-          <img src="/Images/icons/ref.jpeg" className="hidden sm:block"></img>
-          <div className=" absolute top-20 left-5 text-black">
-          <p className="text-sm AcehLight">Wear it. Love it. Refurbish it.</p>
-          <p className="text-4xl Aceh">Get the Price For Refurbishing</p>
+          <img src="/Images/icons/ref1.jpeg" className="sm:hidden "/>
+          <div className="h-96 overflow-hidden ">
+          <img src="/Images/icons/ref.jpeg" className="hidden sm:block "></img>
+          </div>
+          <div className=" absolute top-48 left-5 text-black">
+          
+          <p className="text-xl AcehLight">Wear it. Love it. Refurbish it.</p>
+          <p className="sm:text-4xl text-6xl Aceh w-68">Get the Price For Refurbishing</p>
           </div>
           </div>
 
@@ -51,12 +55,12 @@ const RefurblishP3 = () => {
                 <input
                   type="text"
                   placeholder="first name"
-                  className="p-3 my-4 bg-white border border-black  w-1/2 "
+                  className="p-3 my-4 bg-white border   w-1/2 "
                 />
                 <input
                   type="text"
                   placeholder="Last name"
-                  className="p-3 my-4 bg-white border border-black  w-1/2  "
+                  className="p-3 my-4 bg-white border  w-1/2  "
                 />
               </div>
 
@@ -65,7 +69,7 @@ const RefurblishP3 = () => {
               <input
                 type="email"
                 placeholder="email"
-                className="p-3 my-4 bg-white border border-black w-full"
+                className="p-3 my-4 bg-white border  w-full"
               />
               <br />
               <label>Phone number:</label>
@@ -79,13 +83,13 @@ const RefurblishP3 = () => {
               />
               <label>Type of Item</label>
               <br />
-              <input type="text" className="p-3 my-4 bg-white border border-black w-full"></input>
+              <input type="text" className="p-3 my-4 bg-white border  w-full"></input>
 
               <br />
               
 
               <label >Please describe issues with your item in details</label>
-              <textarea className="w-full h-40  bg-white border border-black p-5"></textarea>
+              <textarea className="w-full h-40  bg-white border  p-5"></textarea>
               
               <label>Upload clear images of each item, specifically the problem area that needs refurbishing</label>
               <div className="upload-boxes flex gap-4 my-5">

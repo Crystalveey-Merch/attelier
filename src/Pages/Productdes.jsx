@@ -9,8 +9,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Thumbs, FreeMode, Pagination } from "swiper";
-// SwiperCore.use([Navigation, Thumbs, FreeMode]);
+import SwiperCore, { Navigation, Pagination, Thumbs } from "swiper/core";
+SwiperCore.use([Navigation, Thumbs]);
 
 // import {  Navigation  } from "swiper";
 
@@ -26,6 +26,9 @@ const Productdes = () => {
   const { productId } = useParams();
   const [isActive, setIsActive] = useState(null);
   const [isActive2, setIsActive2] = useState(null);
+  const [activeColorIndex, setActiveColorIndex] = useState(0);
+  const swiperRef = useRef(null);
+
 
   const goBack = () => {
     window.history.back();
@@ -59,6 +62,17 @@ const Productdes = () => {
     return <div>Product not found.</div>;
   }
 
+  
+
+  const updateColor = (colorIndex) => {
+    setActiveColorIndex(colorIndex);
+
+    // Update the active slide in the Swiper component
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(colorIndex);
+    }
+  };
+
   const addToCart = () => {
     // const itemId = productId
 
@@ -73,9 +87,9 @@ const Productdes = () => {
       id: id,
       name: product.name,
       price: product.price,
-      color: color,
+      color: product.color[activeColorIndex], // Pass the active color here
       collection: product.collection,
-      src: product.src[0],
+      src: product.src[activeColorIndex], // Pass the corresponding image URL
       // description: string[];
       size: text,
     };
@@ -95,10 +109,10 @@ const Productdes = () => {
     setIsActive(item);
   };
 
-  const updateColor = (color, item) => {
-    setColor(`${color}`);
-    setIsActive2(item);
-  };
+  // const updateColor = (color, item) => {
+  //   setColor(`${color}`);
+  //   setIsActive2(item);
+  // };
 
   //   const updateImage = (newImage) => {
   //     setCurrentImage(newImage);
@@ -119,12 +133,16 @@ const Productdes = () => {
             "--swiper-pagination-color": "#fff",
           }}
           spaceBetween={10}
-          navigation={true}
+          // navigation={true}
+          initialSlide={activeColorIndex}
+          onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
           pagination={{
           type: 'fraction',
         }}
-          thumbs={{ swiper: thumbsSwiper }}
-          modules={[FreeMode, Navigation, Thumbs, Pagination]}
+          // thumbs={{ swiper: thumbsSwiper }}
+          modules={[  Pagination]}
           className="mySwiper2 my-10 sm:my-0 bg-stone-200 text-white"
           key={product.id}
         >
@@ -172,7 +190,7 @@ const Productdes = () => {
         <div>
           <div className=" flex flex-col">
             <h1 className="text-black capitalize AcehLight ">
-              Color:{""} {color}
+              Color: {product.color[activeColorIndex]}
             </h1>
             <div className="flex gap-2  py-5  px-1">
               {product.color.map((color, id) => (
@@ -184,7 +202,7 @@ const Productdes = () => {
                       : "border rounded rounded-full border-gray-300 rounded w-10 h-10 py-1 "
                   }
                   style={{ backgroundColor: color }}
-                  onClick={() => updateColor([color], id)}
+                  onClick={() => updateColor( id)}
                 ></button>
               ))}
             </div>
