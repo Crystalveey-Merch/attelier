@@ -42,20 +42,21 @@ const Checkout = () => {
         <div className="w-full px-72 sm:px-0 m-auto ">
           <div className=" m-auto justify-center sm:w-full ">
             <div className="  mx-5  m-auto">
-              <div className="Aceh text-2xl my-5">Delivery</div>
+              <div className="Aceh text-xl my-5">Delivery</div>
               <div className=" flex-col flex gap-3">
-                <div className="flex gap-3  border p-3 cursor-pointer	 my-2rounded">
+                <div className="flex gap-3  border p-3 cursor-pointer	 my-2 rounded">
                   <input
                     type="radio"
+                    name="radio-7"
                     id="option1"
-                    className="radio border-black"
+                    className="radio  radio-info radio-sm box-shadow "
                     value="option1"
                     checked={selectedDelivery === "option1"}
                     onChange={handleDelivery}
                   />
                   <label
                     htmlFor="option1"
-                    className="text-lg w-full cursor-pointer	"
+                    className="text-md w-full cursor-pointer	"
                   >
                     {" "}
                     Pick up
@@ -65,29 +66,29 @@ const Checkout = () => {
                   <input
                     type="radio"
                     id="option2"
-                    className="radio border-black"
+                    className="radio  radio-info"
                     value="option2"
                     checked={selectedDelivery === "option2"}
                     onChange={handleDelivery}
                   />
                   <label
                     htmlFor="option2"
-                    className="text-lg w-full cursor-pointer	"
+                    className="text-md w-full cursor-pointer	"
                   >
                     {" "}
-                    Deliver
+                    Delivery
                   </label>
                 </div>
               </div>
               {selectedDelivery === "option1" && (
                 <div>
-                  <div className="my-5 ">
-                    <h1 className="text-lg Aceh">Pick up Location</h1>
-                    <div className="border p-2 border-black rounded  bg-gray-200">
-                      <h1 className=" text-lg">
+                  <div className="my-2 ">
+                    <h1 className="text-md Aceh">Pick up Location</h1>
+                    <div className="border p-2 border rounded  bg-gray-200">
+                      <h1 className=" text-md">
                         1/5 Pastor Olu-olusakin Avenue Alaguntan
                       </h1>
-                      <p className="text-gray-500 text-lg">
+                      <p className="text-gray-500 text-md">
                         1 /5 Pastor Olu-olusakin Avenue Alaguntan ajah, Lagos
                       </p>
                     </div>
@@ -148,22 +149,22 @@ const Checkout = () => {
                   </div>
                 </div>
               )}
-              <div className="Aceh text-2xl my-6">Payment</div>
+              <div className="Aceh text-xl my-6">Payment</div>
               <p className="text-gray-300">All transaction are secured and encrypted</p>
 
               <div className=" flex-col flex ">
-                <div className="flex gap-3  border p-3 cursor-pointer	flex rounded">
+                <div className="flex gap-3 text-gray-600  border p-3 cursor-pointer	flex rounded">
                   <input
                     type="radio"
                     id="option3"
-                    className="radio border-black m-auto"
+                    className="radio border m-auto"
                     value="option3"
                     checked={selectePayment === "option3"}
                     onChange={handlePayment}
                   />
                   <label
                     htmlFor="option3"
-                    className="text-lg w-full cursor-pointer  m-auto flex	Aceh"
+                    className="text-md w-full cursor-pointer  m-auto flex	"
                   >
                     {" "}
                     <p className="my-auto">Paystack </p>
@@ -190,9 +191,9 @@ const Checkout = () => {
                 {selectePayment === "option3" && (
                   <div>
                     <div className=" ">
-                      <div className="border p-2  rounded flex flex-col py-8 bg-gray-100">
+                      <div className="border p- text-gray-600  rounded flex flex-col py-8 bg-gray-100">
                         <i className="fa-solid fa-credit-card m-auto text-5xl" />
-                        <h1 className=" text-lg text-center ">
+                        <h1 className=" text-md text-center my-2 ">
                           After clicking on Order now, you will be Redirected to
                           Paystack to complete your purchase securely
                         </h1>
@@ -204,7 +205,7 @@ const Checkout = () => {
                   <input
                     type="radio"
                     id="option4"
-                    className="radio border-black m-auto"
+                    className="radio border m-auto"
                     value="option4"
                     checked={selectePayment === "option4"}
                     onChange={handlePayment}
@@ -212,7 +213,7 @@ const Checkout = () => {
                   />
                   <label
                     htmlFor="option4"
-                    className="text-lg w-full cursor-pointer m-auto	"
+                    className="text-md w-full  cursor-pointer m-auto	"
                   >
                     {" "}
                     Bank deposit
@@ -232,21 +233,21 @@ const Checkout = () => {
                 )}
               </div>
 
-              <div className="Aceh text-2xl my-6">Billing Address</div>
+              <div className=" text-xl Aceh my-6">Billing Address</div>
 
               <div className=" flex-col flex ">
                 <div className="flex gap-3  border p-3 cursor-pointer	flex rounded">
                   <input
                     type="radio"
                     id="option5"
-                    className="radio border-black"
+                    className="radio border"
                     value="option5"
                     checked={selecteBilling === "option5"}
                     onChange={handleBilling}
                   />
                   <label
                     htmlFor="option5"
-                    className="text-lg w-full cursor-pointer  m-auto flex	Aceh"
+                    className="text-md w-full cursor-pointer  m-auto flex	"
                   >
                     {" "}
                     <p>Same as Billing Address </p>
@@ -258,14 +259,14 @@ const Checkout = () => {
                   <input
                     type="radio"
                     id="option6"
-                    className="radio border-black"
+                    className="radio border"
                     value="option6"
                     checked={selecteBilling === "option6"}
                     onChange={handleBilling}
                   />
                   <label
                     htmlFor="option6"
-                    className="text-lg w-full Aceh cursor-pointer	"
+                    className="text-md w-full  cursor-pointer	"
                   >
                     {" "}
                    
