@@ -32,24 +32,27 @@ const Checkout = () => {
   const handleBilling = (e) => {
     setSelectedBilling(e.target.value);
   };
+  const shippingFee = "5000";
+
   return (
     <>
-      <div className="mt-24 text-black pt-5 sm:mt-16 w-full AcehLight py-48 ">
+      <div className="mt-24 text-black pt-5 sm:mt-16 w-full AcehLight   ">
         <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
           <i className="fas fa-arrow-left text-black" />
         </div>
+        <div className="Aceh text-2xl my-5 text-center">Billing Details</div>
 
         <div className="w-full px-72 sm:px-0 m-auto ">
           <div className=" m-auto justify-center sm:w-full ">
-            <div className="  mx-5  m-auto">
-              <div className="Aceh text-xl my-5">Delivery</div>
-              <div className=" flex-col flex gap-3">
-                <div className="flex gap-3  border p-3 cursor-pointer	 my-2 rounded">
+            <div className="  sm:mx-0 mx-5 px-5 m-auto bg-white ">
+              <div className="Aceh text-2xl my-1 ">Delivery</div>
+              <div className=" flex-col flex gap-3  ">
+                <div className="flex gap-3  border p-3 cursor-pointer	 mt-2 rounded">
                   <input
                     type="radio"
                     name="radio-7"
                     id="option1"
-                    className="radio  radio-info radio-sm box-shadow "
+                    className="radio  radio-info radio-sm shadow-white "
                     value="option1"
                     checked={selectedDelivery === "option1"}
                     onChange={handleDelivery}
@@ -62,11 +65,26 @@ const Checkout = () => {
                     Pick up
                   </label>
                 </div>
+                {selectedDelivery === "option1" && (
+                  <div>
+                    <div className="mb-2 ">
+                      <h1 className="text-sm ">Pick up Location</h1>
+                      <div className="border p-2 border rounded  bg-gray-100">
+                        <h1 className=" text-md ">
+                          1/5 Pastor Olu-olusakin Avenue Alaguntan
+                        </h1>
+                        <p className="text-gray-500 text-md">
+                          1 /5 Pastor Olu-olusakin Avenue Alaguntan ajah, Lagos
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
                 <div className="flex gap-3 border p-3 cursor-pointer	 rounded">
                   <input
                     type="radio"
                     id="option2"
-                    className="radio  radio-info"
+                    className="radio  radio-info radio-sm box-shadow"
                     value="option2"
                     checked={selectedDelivery === "option2"}
                     onChange={handleDelivery}
@@ -80,24 +98,10 @@ const Checkout = () => {
                   </label>
                 </div>
               </div>
-              {selectedDelivery === "option1" && (
-                <div>
-                  <div className="my-2 ">
-                    <h1 className="text-md Aceh">Pick up Location</h1>
-                    <div className="border p-2 border rounded  bg-gray-200">
-                      <h1 className=" text-md">
-                        1/5 Pastor Olu-olusakin Avenue Alaguntan
-                      </h1>
-                      <p className="text-gray-500 text-md">
-                        1 /5 Pastor Olu-olusakin Avenue Alaguntan ajah, Lagos
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
+
               {selectedDelivery === "option2" && (
                 <div>
-                  <div className="bg-gray-200 p-10 flex flex-col gap-8">
+                  <div className=" p-10  p-0 mt-5 flex flex-col gap-8">
                     <CountrySelect
                       onChange={(e) => {
                         setCountryid(e.id);
@@ -105,20 +109,30 @@ const Checkout = () => {
                       placeHolder="Select Country"
                       className="bg-white"
                       inputClassName="bg-white border-none"
-                      containerClassName="bg-white border-none"
+                      containerClassName="bg-white "
                     />
                     <input
                       placeholder="First Name"
-                      className="p-4 w-full border bg-white"
+                      className="p-3 w-full border bg-white"
                     ></input>
                     <input
                       placeholder="Last Name"
-                      className="p-4 w-full border bg-white"
+                      className="p-3 w-full border bg-white"
                     ></input>
-                    <input
+                    <textarea
                       placeholder="Address"
-                      className="p-4 w-full border bg-white"
-                    ></input>
+                      className="p-3 w-full border bg-white"
+                    ></textarea>
+
+                    <StateSelect
+                      countryid={countryid}
+                      onChange={(e) => {
+                        setstateid(e.id);
+                      }}
+                      placeHolder="Select State"
+                      inputClassName="bg-white border-none"
+                      containerClassName="bg-white border-none"
+                    />
                     <CitySelect
                       countryid={countryid}
                       stateid={stateid}
@@ -129,35 +143,36 @@ const Checkout = () => {
                       containerClassName="bg-white border-none"
                       placeHolder="Select City"
                     />
-                    <StateSelect
-                      countryid={countryid}
-                      onChange={(e) => {
-                        setstateid(e.id);
-                      }}
-                      placeHolder="Select State"
-                      inputClassName="bg-white border-none"
-                      containerClassName="bg-white border-none"
-                    />
                     <input
                       placeholder="Postal Code"
-                      className="p-4 w-full border bg-white"
+                      className="p-3 w-full border bg-white"
                     ></input>
                     <input
-                      placeholder="Phone (Optional)"
-                      className="p-4 w-full border bg-white"
+                      placeholder="Phone number "
+                      className="p-3 w-full border bg-white"
                     ></input>
+                  </div>
+                  <h1 className="Aceh text-md mt-6 mb-3">Shipping Method</h1>
+                  <div className="p-2 bg-sky-100 mb-3">
+                    <h1>
+                      Standard Delivery Fee(2-3 Working days) N{shippingFee}{" "}
+                    </h1>
                   </div>
                 </div>
               )}
-              <div className="Aceh text-xl my-6">Payment</div>
-              <p className="text-gray-300">All transaction are secured and encrypted</p>
+              <div className="Aceh text-2xl my-1 border-t border-t-8 pt-6">
+                Payment
+              </div>
+              <p className="text-gray-300">
+                All transaction are secured and encrypted
+              </p>
 
               <div className=" flex-col flex ">
-                <div className="flex gap-3 text-gray-600  border p-3 cursor-pointer	flex rounded">
+                <div className="flex gap-3 text-gray-600  border p-3 sm:py-0 cursor-pointer	flex rounded">
                   <input
                     type="radio"
                     id="option3"
-                    className="radio border m-auto"
+                    className="radio m-auto radio-info radio-sm "
                     value="option3"
                     checked={selectePayment === "option3"}
                     onChange={handlePayment}
@@ -205,11 +220,10 @@ const Checkout = () => {
                   <input
                     type="radio"
                     id="option4"
-                    className="radio border m-auto"
+                    className="radio m-auto radio-info radio-sm box-shadow"
                     value="option4"
                     checked={selectePayment === "option4"}
                     onChange={handlePayment}
-
                   />
                   <label
                     htmlFor="option4"
@@ -221,26 +235,28 @@ const Checkout = () => {
                 </div>
                 {selectePayment === "option4" && (
                   <div>
-                    <div className="bg-gray-200 p-10 flex flex-col gap-8">
-                    <p>
-                      <li>Beneficiary Name:</li>
-                      <li> Crystalveey Bank: xxxxxxxxxxx </li>
-                      <li>Account Number: 00196.........</li>
-                      <li>Depositor/Reference: Your Name</li> 
-                    </p>
+                    <div className="bg-gray-200 p-10 sm:p-5 flex flex-col gap-4">
+                      <p>
+                        <li>Beneficiary Name:</li>
+                        <li>  Bank Name: xxxxxxxxxxx </li>
+                        <li>Account Number: 00196.........</li>
+                        <li>Depositor/Reference: Your Name</li>
+                      </p>
                     </div>
                   </div>
                 )}
               </div>
 
-              <div className=" text-xl Aceh my-6">Billing Address</div>
+              <div className=" Aceh text-2xl my-4 border-t border-t-8 pt-6">
+                Billing Address
+              </div>
 
               <div className=" flex-col flex ">
                 <div className="flex gap-3  border p-3 cursor-pointer	flex rounded">
                   <input
                     type="radio"
                     id="option5"
-                    className="radio border"
+                    className="radio m-auto radio-info radio-sm box-shadow"
                     value="option5"
                     checked={selecteBilling === "option5"}
                     onChange={handleBilling}
@@ -251,15 +267,14 @@ const Checkout = () => {
                   >
                     {" "}
                     <p>Same as Billing Address </p>
-                    
                   </label>
                 </div>
-                
+
                 <div className="flex gap-3 border p-3 cursor-pointer	 rounded">
                   <input
                     type="radio"
                     id="option6"
-                    className="radio border"
+                    className="radio m-auto radio-info radio-sm box-shadow"
                     value="option6"
                     checked={selecteBilling === "option6"}
                     onChange={handleBilling}
@@ -269,83 +284,92 @@ const Checkout = () => {
                     className="text-md w-full  cursor-pointer	"
                   >
                     {" "}
-                   
-                   Use a different Billing Address
+                    Use a different Billing Address
                   </label>
                 </div>
                 {selecteBilling === "option6" && (
                   <div>
-                  <div className="bg-gray-200 p-10 flex flex-col gap-8">
-                    <CountrySelect
-                      onChange={(e) => {
-                        setCountryid(e.id);
-                      }}
-                      placeHolder="Select Country"
-                      className="bg-white"
-                      inputClassName="bg-white border-none"
-                      containerClassName="bg-white border-none"
-                    />
-                    <input
-                      placeholder="First Name"
-                      className="p-4 w-full border bg-white"
-                    ></input>
-                    <input
-                      placeholder="Last Name"
-                      className="p-4 w-full border bg-white"
-                    ></input>
-                    <input
-                      placeholder="Address"
-                      className="p-4 w-full border bg-white"
-                    ></input>
-                    <CitySelect
-                      countryid={countryid}
-                      stateid={stateid}
-                      onChange={(e) => {
-                        console.log(e);
-                      }}
-                      inputClassName="bg-white border-none"
-                      containerClassName="bg-white border-none"
-                      placeHolder="Select City"
-                    />
-                    <StateSelect
-                      countryid={countryid}
-                      onChange={(e) => {
-                        setstateid(e.id);
-                      }}
-                      placeHolder="Select State"
-                      inputClassName="bg-white border-none"
-                      containerClassName="bg-white border-none"
-                    />
-                    <input
-                      placeholder="Postal Code"
-                      className="p-4 w-full border bg-white"
-                    ></input>
-                    <input
-                      placeholder="Phone (Optional)"
-                      className="p-4 w-full border bg-white"
-                    ></input>
+                    <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
+                      <CountrySelect
+                        onChange={(e) => {
+                          setCountryid(e.id);
+                        }}
+                        placeHolder="Select Country"
+                        className="bg-white"
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white "
+                      />
+                      <input
+                        placeholder="First Name"
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                      <input
+                        placeholder="Last Name"
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                      <textarea
+                        placeholder="Address"
+                        className="p-3 w-full border bg-white"
+                      ></textarea>
+
+                      <StateSelect
+                        countryid={countryid}
+                        onChange={(e) => {
+                          setstateid(e.id);
+                        }}
+                        placeHolder="Select State"
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white border-none"
+                      />
+                      <CitySelect
+                        countryid={countryid}
+                        stateid={stateid}
+                        onChange={(e) => {
+                          console.log(e);
+                        }}
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white border-none"
+                        placeHolder="Select City"
+                      />
+                      <input
+                        placeholder="Postal Code"
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                      <input
+                        placeholder="Phone number "
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                    </div>
                   </div>
-                </div>
                 )}
               </div>
-
             </div>
           </div>
         </div>
-      </div>
-      <div className="  sm:block w-full static mb-10  px-40 sm:px-5">
-        <div>
-          <h1 className="text-lg text-black Aceh py-2">
-            Subtotal: N{cartTotal}{" "}
-          </h1>
-          <Link to="/payment">
-            <button className="bg-black px-10 py-3  m-auto text-xl sm:text-sm flex capitalize justify-center text-white">
-              {" "}
-              ORDER NOW
-            </button>
-          </Link>
+        <div className="  sm:block  flex flex-col static mb-10 py-10 m-auto sm:px-5  w-1/2">
+        <div className="text-black AcehLight flex justify-between">
+          Subtotal:<span> ₦{cartTotal} </span>
         </div>
+
+        {selectedDelivery === "option2" && (
+          <div className="flex justify-between AcehLight text-black">
+            <span>Delivery Fee:</span>
+            <span> ₦{shippingFee}</span>
+          </div>
+        )}
+        <div className="text-black Aceh flex text-xl justify-between">
+          Total:<span> ₦{cartTotal} </span>
+        </div>
+
+        <Link to="/payment">
+          <button className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white">
+            {" "}
+            ORDER NOW
+          </button>
+        </Link>
       </div>
+      </div>
+      
     </>
   );
 };
