@@ -24,7 +24,7 @@ const RefurbishP2 = () => {
                 {" "}
                 <button
                   type="Submit" className="border border-black flex w-52 px-5 text-sm py-2 justify-center text-black m-auto"                >
-                  Standard Refurblishing 
+                  Refurblish Only
                 </button>
               </Link>
               </div>

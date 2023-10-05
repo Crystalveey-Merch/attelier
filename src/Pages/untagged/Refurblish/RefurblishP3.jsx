@@ -80,16 +80,16 @@ const RefurblishP3 = () => {
               />
               
             <div>
-              <label className="Aceh">Type of Item</label>
+              <label className="Aceh">Type of item (shirt, top, trouser, gown, etc  )</label>
               <br />
               <input type="text" className="p-3 my-4 bg-white border  w-full"></input>
 </div>
               <br />
-              <label className="Aceh">How will you send Item? </label>
+              <label className="Aceh">How will you like to send the item to us ?</label>
                 <div className="flex flex-col gap-3 mb-5">
                 <span className=" flex gap-3">
                 <input type="radio" name="radio-1" className="radio border-gray-600" />
-                <p>Drop off</p>
+                <p>Drop off at the Refurblish  centre</p>
                 </span>
                 <span className=" flex gap-3">
                 <input type="radio" name="radio-1" className="radio border-gray-600" />
@@ -98,11 +98,11 @@ const RefurblishP3 = () => {
                 </div>
 
 
-                <label className="Aceh">How will you receive Item? </label>
+                <label className="Aceh">How will receive your refurbish item? </label>
                 <div className="flex flex-col gap-3 mb-5">
                 <span className=" flex gap-3">
                 <input type="radio" name="radio-1" className="radio border-gray-600" />
-                <p>Pick up</p>
+                <p>- Pick up from the Refurbish centre</p>
                 </span>
                 <span className=" flex gap-3">
                 <input type="radio" name="radio-1" className="radio border-gray-600" />

@@ -74,12 +74,13 @@ export const Footer = () => {
                   className="hover:text-gray-750"
                 >
                   <i className="fa-solid fa-envelope"></i> {"    "}
-                  office.crystalveey@gmail.com
+                  {/* office.crystalveey@gmail.com */}
                 </a>
               </li>
               <li className=" flex gap-1 items-center  font-medium text-sm cursor-pointer w-max">
                 <a href="tel:+2548126091411" className="hover:text-gray-750">
-                  <i className="fa-solid fa-phone"></i> +254 812 609 1411
+                  <i className="fa-solid fa-phone"></i> 
+                  {/* +254 812 609 1411 */}
                 </a>
               </li>
             </ul>

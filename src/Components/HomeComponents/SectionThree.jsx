@@ -92,7 +92,7 @@ export const SectionThree = () => {
         onClick={() => document.getElementById("my_modal_2").showModal()}
         className="px-5 py-2 bg-gray-950 hover:bg-white border border-gray-950  hover:text-black text-white font-medium text-base hover:bg-gray-900 transition duration-300 ease-in-out"
       >
-        Shop Now
+        Get Started
       </button>
       <dialog id="my_modal_2" className="modal ">
         <div className="modal-box flex gap-10 sm:gap-5 justify-center bg-black">

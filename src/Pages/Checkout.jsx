@@ -34,13 +34,38 @@ const Checkout = () => {
     address: "",
     postalCode: "",
     country: "",
+    city: "",
+    state: "",
     phoneNumber: "",
     // Add more fields as needed
   });
+
+  const [deliveryForm, setDeliveryForm] = useState({
+    name: "",
+    lastname: "",
+    city: "",
+    state: "",
+    amount: "",
+    email: "",
+    address: "",
+    postalCode: "",
+    country: "",
+    phoneNumber: "",
+    // Add more fields as needed
+  });
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  const handleDeliveryForm =(e) => {
+    const { name, value } = e.target;
+    setDeliveryForm({ ...deliveryForm, [name]: value });
+
+    
+  }
 
   const [isPaymentButtonVisible, setIsPaymentButtonVisible] = useState(true);
   const publicKey = PAYSTACK_PUBLIC_KEY;
@@ -52,6 +77,8 @@ const Checkout = () => {
   const [selectedDelivery, setSelectedDelivery] = useState("");
   const [selectePayment, setSelectedPayment] = useState("");
   const [selecteBilling, setSelectedBilling] = useState("");
+  const [emailForPayment, setEmailForPayment] = useState(""); // State to store email for payment
+
 
   // const isPaymentButtonVisible = Object.values(formData).every((value) => value !== "");
 
@@ -64,13 +91,20 @@ const Checkout = () => {
   };
   const handleBilling = (e) => {
     setSelectedBilling(e.target.value);
+    if (e.target.value === "option5") {
+      setEmailForPayment(deliveryForm.email);
+    } else {
+      setEmailForPayment(""); // Reset emailForPayment if "Use a different Billing Address" is selected
+    }
+
+    
   };
   const shippingFee = "5000";
 
   const totalCost = cartTotal + parseInt(shippingFee);
 
   const paymentData = {
-    email: formData.email,
+    email: emailForPayment || formData.email,
     amount: totalCost * 100, // Amount in kobo (multiply by 100 to convert to Naira)
     publicKey,
     text: "Pay Now",
@@ -157,73 +191,111 @@ const Checkout = () => {
               </div>
 
               {selectedDelivery === "option2" && (
-                <div>
-                  <div className=" p-10  p-0 mt-5 flex flex-col gap-8">
-                    <CountrySelect
-                      onChange={(e) => {
-                        setCountryid(e.id);
-                      }}
-                      required={true}
-                      placeHolder="Select Country"
-                      className="bg-white"
-                      inputClassName="bg-white border-none"
-                      containerClassName="bg-white "
-                    />
-                    <input
-                      placeholder="First Name"
-                      required
-                      className="p-3 w-full border bg-white"
-                    ></input>
-                    <input
-                      placeholder="Last Name"
-                      required
-                      className="p-3 w-full border bg-white"
-                    ></input>
-                    <textarea
-                      placeholder="Address"
-                      required
-                      className="p-3 w-full border bg-white"
-                    ></textarea>
+                <form onSubmit={handleDeliveryForm} id="billing-form">
+                  <div>
+                    <div className=" p-10  sm:p-4 flex flex-col gap-8">
+                      <CountrySelect
+                        onChange={(e) => {
+                          setCountryid(e.id);
+                          setDeliveryForm({ ...deliveryForm, country: e.name })
+                          console.log(e.name)
+                        }}
+                        required={true}
+                        placeHolder="Select Country"
+                        className="bg-white"
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white "
+                        name="country"
+                        value={deliveryForm.country}
+                      />
+                      <input
+                        placeholder="First Name"
+                        required
+                        name="firstName"
+                        value={deliveryForm.firstName}
+                        onChange={(e) => setDeliveryForm({ ...deliveryForm, firstName: e.target.value })}
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                      <input
+                        placeholder="Last Name"
+                        required
+                        className="p-3 w-full border bg-white"
+                        name="lastname"
+                        value={deliveryForm.lastname}
+                        onChange={(e) => setDeliveryForm({ ...deliveryForm, lastname: e.target.value })}
 
-                    <StateSelect
-                      countryid={countryid}
-                      onChange={(e) => {
-                        setstateid(e.id);
-                      }}
-                      required
-                      placeHolder="Select State"
-                      inputClassName="bg-white border-none"
-                      containerClassName="bg-white border-none"
-                    />
-                    <CitySelect
-                      countryid={countryid}
-                      stateid={stateid}
-                      required
-                      onChange={(e) => {
-                        console.log(e);
-                      }}
-                      inputClassName="bg-white border-none"
-                      containerClassName="bg-white border-none"
-                      placeHolder="Select City"
-                    />
-                    <input
-                      placeholder="Postal Code"
-                      required
-                      className="p-3 w-full border bg-white"
-                    ></input>
-                    <input
-                      placeholder="Phone number "
-                      required
-                      className="p-3 w-full border bg-white"
-                    ></input>
+                      ></input>
+                      <input
+                        placeholder="Email"
+                        required
+                        className="p-3 w-full border bg-white"
+                        name="email"
+                        value={deliveryForm.email}
+                        onChange={(e) => setDeliveryForm({ ...deliveryForm, email: e.target.value })}
+
+                      ></input>
+
+                      <textarea
+                        placeholder="Street Address"
+                        required
+                        className="p-3 w-full border bg-white"
+                        name="address"
+                        value={deliveryForm.address}
+                        onChange={(e) => setDeliveryForm({ ...deliveryForm, address: e.target.value })}
+
+                      ></textarea>
+
+                      <StateSelect
+                        countryid={countryid}
+                        onChange={(e) => {
+                          setstateid(e.id);
+                          setDeliveryForm({ ...deliveryForm, state: e.name })
+                        }}
+                        required
+                        name="state"
+                        placeHolder="Select State"
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white border-none"
+                      />
+                      <CitySelect
+                        countryid={countryid}
+                        stateid={stateid}
+                        required
+                        onChange={(e) => {
+                          console.log(e);
+                          setDeliveryForm({ ...deliveryForm, city: e.name })
+
+                        }}
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white border-none"
+                        placeHolder="Select City"
+
+                      />
+                      <input
+                        required
+                        placeholder="Postal Code"
+                        className="p-3 w-full border bg-white"
+                        name="postalCode"
+                        value={deliveryForm.postalCode}
+                        onChange={(e) => setDeliveryForm({ ...deliveryForm, postalCode: e.target.value })}
+
+                      ></input>
+                      <input
+                        required
+                        placeholder="Phone number "
+                        name="phoneNumber"
+                        value={deliveryForm.phoneNumber}
+                        // onChange={handleChange}
+                        className="p-3 w-full border bg-white"
+                        onChange={(e) => setDeliveryForm({ ...deliveryForm, phoneNumber: e.target.value })}
+
+                      ></input>
+                    </div>
+                    <button id="submit1" className=" hidden">
+                      submit
+                    </button>
                   </div>
-                  <h1 className="Aceh text-md mt-6 mb-3">Shipping Method</h1>
-                  <div className="p-2 bg-sky-100 mb-3">
-                    <h1>
-                      Standard Delivery Fee(2-3 Working days) N{shippingFee}{" "}
-                    </h1>
-                  </div>
-                </div>
+                </form>
               )}
               <div className="Aceh text-2xl my-1 border-t border-t-8 pt-6">
                 Payment
@@ -326,7 +398,137 @@ const Checkout = () => {
                       <CountrySelect
                         onChange={(e) => {
                           setCountryid(e.id);
-                          setCountry({ handleChange });
+                        }}
+                        required={true}
+                        placeHolder="Select Country"
+                        className="bg-white"
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white "
+                        name="firstName"
+                        value={formData.country}
+                      />
+                      <input
+                        placeholder="First Name"
+                        required
+                        name="firstName"
+                        value={FormData.firstName}
+                        onChange={handleChange}
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                      <input
+                        placeholder="Last Name"
+                        required
+                        className="p-3 w-full border bg-white"
+                        name="lastName"
+                        value={FormData.lastName}
+                        onChange={handleChange}
+                      ></input>
+                      <input
+                        placeholder="Email"
+                        required
+                        className="p-3 w-full border bg-white"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                      ></input>
+
+                      <textarea
+                        placeholder="Address"
+                        required
+                        className="p-3 w-full border bg-white"
+                        name="address"
+                        value={formData.address}
+                        onChange={handleChange}
+                      ></textarea>
+
+                      <StateSelect
+                        countryid={countryid}
+                        onChange={(e) => {
+                          setstateid(e.id);
+                        }}
+                        required
+                        placeHolder="Select State"
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white border-none"
+                      />
+                      <CitySelect
+                        countryid={countryid}
+                        stateid={stateid}
+                        required
+                        onChange={(e) => {
+                          console.log(e);
+                        }}
+                        inputClassName="bg-white border-none"
+                        containerClassName="bg-white border-none"
+                        placeHolder="Select City"
+                      />
+                      <input
+                        required
+                        placeholder="Postal Code"
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                      <input
+                        required
+                        placeholder="Phone number "
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                        className="p-3 w-full border bg-white"
+                      ></input>
+                    </div>
+                    <button id="submit1" className=" hidden">
+                      submit
+                    </button>
+                  </div>
+                </form>
+              )}
+
+              {selectedDelivery === "option2" && (
+                <div className=" flex-col flex ">
+                  <div className="flex gap-3  border p-3 cursor-pointer	flex rounded">
+                    <input
+                      type="radio"
+                      id="option5"
+                      required
+                      className="radio m-auto radio-info radio-sm box-shadow"
+                      value="option5"
+                      checked={selecteBilling === "option5"}
+                      onChange={handleBilling}
+                    />
+                    <label
+                      htmlFor="option5"
+                      className="text-md w-full cursor-pointer  m-auto flex	"
+                    >
+                      {" "}
+                      <p>Same as Delivery Address </p>
+                    </label>
+                  </div>
+
+                  <div  className="flex gap-3 border p-3 cursor-pointer	 rounded">
+                    <input
+                      type="radio"
+                      required
+                      id="option6"
+                      className="radio m-auto radio-info radio-sm box-shadow"
+                      value="option6"
+                      checked={selecteBilling === "option6"}
+                      onChange={handleBilling}
+                    />
+                    <label
+                      htmlFor="option6"
+                      className="text-md w-full  cursor-pointer	"
+                    >
+                      {" "}
+                      Use a different Billing Address
+                    </label>
+                  </div>
+                  {selecteBilling === "option6" && (
+                    <form onSubmit={handleChange} id="billing-form">
+                  <div>
+                    <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
+                      <CountrySelect
+                        onChange={(e) => {
+                          setCountryid(e.id);
                         }}
                         required={true}
                         placeHolder="Select Country"
@@ -410,116 +612,13 @@ const Checkout = () => {
                     </button>
                   </div>
                 </form>
-              )}
-
-              {selectedDelivery === "option2" && (
-                <div className=" flex-col flex ">
-                  <div className="flex gap-3  border p-3 cursor-pointer	flex rounded">
-                    <input
-                      type="radio"
-                      id="option5"
-                      required
-                      className="radio m-auto radio-info radio-sm box-shadow"
-                      value="option5"
-                      checked={selecteBilling === "option5"}
-                      onChange={handleBilling}
-                    />
-                    <label
-                      htmlFor="option5"
-                      className="text-md w-full cursor-pointer  m-auto flex	"
-                    >
-                      {" "}
-                      <p>Same as Billing Address </p>
-                    </label>
-                  </div>
-
-                  <div className="flex gap-3 border p-3 cursor-pointer	 rounded">
-                    <input
-                      type="radio"
-                      required
-                      id="option6"
-                      className="radio m-auto radio-info radio-sm box-shadow"
-                      value="option6"
-                      checked={selecteBilling === "option6"}
-                      onChange={handleBilling}
-                    />
-                    <label
-                      htmlFor="option6"
-                      className="text-md w-full  cursor-pointer	"
-                    >
-                      {" "}
-                      Use a different Billing Address
-                    </label>
-                  </div>
-                  {selecteBilling === "option6" && (
-                    <div>
-                      <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
-                        <CountrySelect
-                          onChange={(e) => {
-                            setCountryid(e.id);
-                          }}
-                          required={true}
-                          placeHolder="Select Country"
-                          className="bg-white"
-                          inputClassName="bg-white border-none"
-                          containerClassName="bg-white "
-                        />
-                        <input
-                          placeholder="First Name"
-                          required
-                          className="p-3 w-full border bg-white"
-                        ></input>
-                        <input
-                          placeholder="Last Name"
-                          required
-                          className="p-3 w-full border bg-white"
-                        ></input>
-                        <textarea
-                          placeholder="Address"
-                          required
-                          className="p-3 w-full border bg-white"
-                        ></textarea>
-
-                        <StateSelect
-                          countryid={countryid}
-                          onChange={(e) => {
-                            setstateid(e.id);
-                          }}
-                          required
-                          placeHolder="Select State"
-                          inputClassName="bg-white border-none"
-                          containerClassName="bg-white border-none"
-                        />
-                        <CitySelect
-                          countryid={countryid}
-                          stateid={stateid}
-                          required
-                          onChange={(e) => {
-                            console.log(e);
-                          }}
-                          inputClassName="bg-white border-none"
-                          containerClassName="bg-white border-none"
-                          placeHolder="Select City"
-                        />
-                        <input
-                          required
-                          placeholder="Postal Code"
-                          className="p-3 w-full border bg-white"
-                        ></input>
-                        <input
-                          required
-                          placeholder="Phone number "
-                          className="p-3 w-full border bg-white"
-                        ></input>
-                      </div>
-                    </div>
                   )}
                 </div>
               )}
             </div>
           </div>
         </div>
-        <div className="  sm:block  flex flex-col static mb-10 py-10 m-auto sm:px-5  w-1/2">
+        <div className="  sm:block  flex flex-col static mb-10 py-10 m-auto   w-1/2">
           <div className="text-black AcehLight flex justify-between">
             Subtotal:<span> ₦{cartTotal} </span>
           </div>
@@ -551,12 +650,23 @@ const Checkout = () => {
           )}
           {selectePayment === "option4" && (
           <button
+          onClick={()=>document.getElementById('my_modal_3').showModal()}
             form="billing-form"
             className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
           >
             {" "}
             PAY NOW
           </button>)}
+          <dialog id="my_modal_3" className="modal">
+  <div className="modal-box">
+    <form method="dialog">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click on ✕ button to close</p>
+  </div>
+</dialog>
         </div>
       </div>
     </>

@@ -12,7 +12,7 @@ const goBack = () => {
           <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black" />
       </div>
-      <p className="text-center text-3xl capitalize Aceh">Refurblish on untagg in 3 steps</p>
+      <p className="text-center text-3xl capitalize Aceh">Refurblish your Clothes in 3 steps</p>
         <div className=" sm:flex-col gap-12 my-10 justify-center m-auto">
          <div className='flex sm:flex-col'>
           <div className="card w-60  h-60 m-auto ">
@@ -32,7 +32,7 @@ const goBack = () => {
               <img src="/Images/icons/ref2.png" className="m-auto"></img>
 
               <p className="Aceh text-sky-500 text-xl">Fill The Form</p>
-              <p className='Aceh'>Input all necessary information amd select shipping mode</p>
+              <p className='Aceh'>Input all necessary information and select shipping mode</p>
             </ol>
           </div>
           <div className="card w-60 h-60 m-auto ">

@@ -1,12 +1,18 @@
 import React from "react";
 
+const goBack = () => {
+  window.history.back();
+};
 const Faq = () => {
   return (
-    <div className="my-40 sm:my-28 sm:mt-28 AcehLight">
+    <div className="mt-24 sm:mt-16  AcehLight">
       <div>
-        <h1 className="text-black text-2xl Aceh  text-center pt-10">FAQ</h1>
-
+      
 <div className="mx-40 sm:mx-5 my-10 sm:my-5  flex flex-col gap-10 sm:gap-5 text-black ">
+<div className="hidden   sm:block pt-5 " onClick={goBack}>
+            <i className="fas fa-arrow-left text-black" />
+          </div>
+<h1 className="text-black text-2xl Aceh  text-center ">FAQ</h1>
         <div className="collapse collapse-arrow bg-gray-100 text-black ">
           <input type="radio" name="my-accordion-2" checked="checked" />
           <div className="collapse-title Aceh  text-xl font-medium">
