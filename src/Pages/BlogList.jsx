@@ -28,7 +28,7 @@ const BlogList = () => {
                 </h1>
                 <p className=" text-sm text-black py-2  justify-center font-bold">
                   Crystalveey’s Atelier- your one stop destination for the whole
-                  family!
+                  family! 
                 </p>
                 <p className=" text-sm text-sky-500 py-2  justify-center">
                   By Victoria / September 27, 2023
