@@ -3,10 +3,13 @@ import image2 from "../../Images/sec6/image2.jpeg";
 
 export const SectionFive = () => {
   return (
+    <div>
+    <h1 className="text-2xl text-black Aceh mt-8">CUSTOM MADE</h1>
     <div
       className=" Aceh flex  items-left  m-auto my-14 sm:m-0 w-4/5 sm:w-full rounded-md"
       style={{ backgroundImage: `url(${image2})`, backgroundRepeat: 'no-repeat', backgroundPosition:'center', backgroundSize:'cover', }}
     >
+    
       <div className="w-96  sm:w-40 sm:ml-5 ml-20 sm:m-auto   ">
         <h1 className="text-3xl sm:text-sm my-10 text-black text-center  ">
           Ready to step into a world of personalised fashion?
@@ -21,6 +24,7 @@ export const SectionFive = () => {
         </button>
         </Link>
       </div>
+    </div>
     </div>
   );
 };

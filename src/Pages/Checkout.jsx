@@ -53,11 +53,13 @@ const Checkout = () => {
     phoneNumber: "",
     // Add more fields as needed
   });
-
+  const myModal = document.getElementById('my_modal_3')
 
   const handleChange = (e) => {
+    e.preventDefault(); // Prevent form submission
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setIsModalOpen(true); // Open the modal
   };
 
   const handleDeliveryForm =(e) => {
@@ -79,6 +81,7 @@ const Checkout = () => {
   const [selecteBilling, setSelectedBilling] = useState("");
   const [emailForPayment, setEmailForPayment] = useState(""); // State to store email for payment
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const isPaymentButtonVisible = Object.values(formData).every((value) => value !== "");
 
@@ -650,14 +653,15 @@ const Checkout = () => {
           )}
           {selectePayment === "option4" && (
           <button
-          onClick={()=>document.getElementById('my_modal_3').showModal()}
+          type="button"
+          // onClick={() => myModal.close()}
             form="billing-form"
             className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
           >
             {" "}
             PAY NOW
           </button>)}
-          <dialog id="my_modal_3" className="modal">
+          <dialog id="my_modal_3" className="modal" open={isModalOpen}>
   <div className="modal-box">
     <form method="dialog">
       {/* if there is a button in form, it will close the modal */}
