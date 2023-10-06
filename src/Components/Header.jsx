@@ -1,5 +1,5 @@
 import { useCart } from "react-use-cart";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { datas } from "../assets/data.js";
@@ -370,69 +370,69 @@ export const Header = () => {
             
               <ul className="flex flex-col my-4 gap-5">
                 <li className="border-gray-200 link-item pb-2">
-                  <a
-                    href="/readytowear"
+                  <NavLink
+                    to="/readytowear"
                     className="middle  text-sm   hover:text-gray-750"
                   >
                     Ready to Wear
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="border-gray-200 link-item pb-2">
-                  <a
-                    href="/custompage1"
+                  <NavLink
+                    to="/custompage1"
                     className="middle  text-sm   hover:text-gray-750"
                   >
                     Custom Order
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="border-gray-200 link-item pb-2">
-                  <a
-                    href="/categorylist"
+                  <NavLink
+                    to="/categorylist"
                     className="middle  text-sm   hover:text-gray-750"
                   >
                     Shop Category
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="border-gray-200 link-item pb-2">
-                  <a
-                    href="/category/accessories"
+                  <NavLink
+                    to="/category/accessories"
                     className="middle  text-sm   hover:text-gray-750"
                   >
                     Accessories
-                  </a>
+                  </NavLink>
                 </li>
 
                 <li className="border-gray-200 link-item pb-2">
-                  <a href="/consultation" className="middle  text-sm   hover:text-gray-750">
+                  <NavLink to="/consultation" className="middle  text-sm   hover:text-gray-750">
                     Consultation
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
               <hr></hr>
               <ul className="flex flex-col my-4 gap-5">
                 <li className="border-gray-200 pb-2">
-                  <a
-                    href="/aboutus"
+                  <NavLink
+                    to="/aboutus"
                     className="middle  text-sm link-item  hover:text-gray-750"
                   >
                     About Us
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="border-gray-200 pb-2">
-                  <a
+                  <NavLink
                     to="/"
                     className="middle  text-sm link-item   hover:text-gray-750"
                   >
                     Gift Cards
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
               <hr></hr>
-              <a href="/contact">
+              <NavLink to="/contact">
               <ul className="my-4">
                 <li className="link-item text-sm">Contact Us</li>
               </ul>
-              </a>
+              </NavLink>
             </div>
           )}
 
@@ -440,28 +440,28 @@ export const Header = () => {
             <div className="AcehLight py-5">
               <ul className="flex flex-col gap-5">
                 <li className="border-gray-200 pb-2">
-                  <a
-                    href="/"
+                  <NavLink
+                    to="/"
                     className="middle  text-sm  link-item hover:text-gray-750"
                   >
                     Refurblish
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="border-gray-200 pb-2">
-                  <a
-                    href="/"
+                  <NavLink
+                    to="/"
                     className="middle  text-sm link-item  hover:text-gray-750"
                   >
                     Sell
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="border-gray-200 pb-2">
-                  <a
-                    href="/untagbuy"
+                  <NavLink
+                    to="/untagbuy"
                     className="middle  text-sm link-item  hover:text-gray-750"
                   >
                     Buy
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </div>
