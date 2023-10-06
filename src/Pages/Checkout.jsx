@@ -381,6 +381,7 @@ const Checkout = () => {
                         <span>Account name: CRYSTALVEEY MERCH </span>
                         <span>Account number: 0741537772</span>
                         <span>Bank: GTBank</span>
+                        <span>Narration: "YOUR NAME"</span>
                       </p>
                       <p className="flex flex-col">
                         <span className="Aceh">Dollar</span>

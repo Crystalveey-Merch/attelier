@@ -37,6 +37,7 @@ export const SectionTwo = () => {
     },
     1024: {
       slidesPerView: 4,
+      
       spaceBetween: 10,
       loop: true,
       centeredSlides: false,
@@ -62,6 +63,7 @@ export const SectionTwo = () => {
           delay: 2000,
           disableOnInteraction: false,
         }}
+        
         loop= {true}
         breakpoints={breakpoints}
         pagination={{

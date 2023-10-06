@@ -199,7 +199,7 @@ export const SectionFour = () => {
               >
                 <div className="hvr-bounce-in">
                   <img
-                    src="/Images/sec4/holiday.jpeg"
+                    src="/Images/newArrivals/image8.jpeg"
                     alt="Holiday Wears"
                     className="  sm:w-full m-auto imghgt2 bg-stone-200"
                     style={{ height: "360px", width: "306px" }}

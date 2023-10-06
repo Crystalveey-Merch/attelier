@@ -18,7 +18,7 @@ export const SectionFive = () => {
         <h3 className="text-xl sm:text-sm text-black AcehLight text-center  ">
           Order your CUSTOM MADE wares now!!
         </h3>
-        <Link to="/custommade">
+        <Link to="/custompage1">
         <button className="p-4 sm:p-2 text-left rounded-full bg-black text-white text-xl sm:text-sm m-10 sm:m-5">
           Order Now
         </button>

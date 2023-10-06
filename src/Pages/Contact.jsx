@@ -5,7 +5,8 @@ const Contact = () => {
     <div className="mt-24 sm:mt-16 AcehLight mb-10">
       <div className=" pt-10 m-auto text-center text-black w-1/2 sm:w-full">
         <h1 className="text-2xl text-center Aceh text-black">Studio Visit</h1>
-        <p className="text-black mb-10"> Bu Appointment Only</p>
+        <p className="text-black"> Monday - Friday</p>
+        <p className="text-black "> 9am - 5pm</p>
         <p className="pb-10 border-b"> Lagos</p>
         <div className="border-t text-left  px-10">
           <h1 className="Aceh  text-left py-4">Phone</h1>

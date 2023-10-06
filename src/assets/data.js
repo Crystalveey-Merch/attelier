@@ -203,7 +203,7 @@ export const datas = {
       name: "Viva",
       newarrival: true,
       category: "two pieces",
-      color: ["Brown", "Red"],
+      color: ["#DB4F3A", "#BF0034"],
       collection: "resort",
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
@@ -219,7 +219,7 @@ export const datas = {
 
     {
       id: 206,
-      src: ["/Images/newArrivals/image14.jpeg","/Images/newArrivals/image14_brown.png","/Images/newArrivals/navy.png"],
+      src: ["/Images/newArrivals/image14.jpeg","/Images/newArrivals/image14_brown.png","/Images/newArrivals/image14_navy.png"],
       name: "Tia",
       category: "clothing",
       fabricType: ["crepe"],
@@ -228,7 +228,7 @@ export const datas = {
       collection: "formal",
       newarrival: true,
       price: "10500",
-      color: ["Black", "Brown", "#1974D2"],
+      color: ["Black", "#7d4828", "#275C7C"],
       description: [
         "It is comfy",
         "No Dirt",
@@ -240,11 +240,11 @@ export const datas = {
       id: 207,
       src: ["/Images/newArrivals/image13.jpeg","/Images/newArrivals/image13.jpeg"],
       name: "Zendra",
-      category: "one piece",
+      category: "clothing",
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
       newarrival: true,
-      color: ["orange", "terracotta", "rasp berry", "purple", "black"],
+      color: ["#EF773A", "terracotta", "rasp berry", "purple", "black","#FF2040","#008B73"],
       price: "9500",
       fabricType:["crepe"],
       description:[
@@ -254,13 +254,13 @@ export const datas = {
       id: 208,
       src:[ "/Images/newArrivals/image11.jpeg","/Images/newArrivals/image11_1.png","/Images/newArrivals/image11_blue.png"],
       name: "Bloom",
-      category: "one piece",
+      category: "clothing",
       collection: "formal",
       newarrival: true,
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
       fabricType:["crepe"],
-      color: ["brown", "green", "blue"],
+      color: ["#9F4E39", "#00360C", "#3D19B7"],
       price: "15000",
       description: [
         "It is comfy",
@@ -271,15 +271,15 @@ export const datas = {
     },
     {
       id: 209,
-      src: ["/Images/newArrivals/image12.jpeg","/Images/newArrivals/image12.jpeg"],
+      src: ["/Images/newArrivals/image4_3.png","/Images/newArrivals/image4_2.png","/Images/newArrivals/image4_1.png"],
       name: "Luxe Wrap Maxi",
       newarrival: true,
-      category: "one piece",
+      category: "clothing",
       collection:"occasion",
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
       price: "14000",
-      color: ["purple"],
+      color: ["purple","#007C70","#00426F"],
       fabricType: ["crepe"],
       description:[ "Luxe wrap is a timeless piece for the classic fashionable woman whose style is also elegant. This wrap dress features statement slit sleeves and maxi length, making it a perfect & comfortable wardrobe essential for any occasion."]
     },
@@ -302,7 +302,7 @@ export const datas = {
       src: ["/Images/newArrivals/image8.jpeg","/Images/newArrivals/image8_blue.png","/Images/newArrivals/image8_purple.png","/Images/newArrivals/image8_red.png"],
       name: "Audrey",
       category: "two pieces",
-      color: ["#87CEEB", "blue", "purple","red"],
+      color: ["#87CEEB", "#0526A0", "#B40A84","#D12449"],
       newarrival: true,
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
@@ -313,15 +313,15 @@ export const datas = {
     },
     {
       id: 212,
-      src: ["/Images/newArrivals/image15.jpeg","/Images/newArrivals/image15.jpeg"],
+      src: ["/Images/newArrivals/image15.jpeg","/Images/newArrivals/image15_1.png","/Images/newArrivals/image15_2.png"],
       name: "Luxe Midi",
-      category: "one piece",
+      category: "clothing",
       collection:"formal",
       newarrival: true,
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
       fabricType:[ "crepe"],
-      color: ["red", "black", "onion"],
+      color: ["#F71B03", "#005464", "#801E09"],
       price: "14000",
       description: [
         "This spectacular wrap style is designed for the lady who wants to look elegant and classy at the same time!"
@@ -329,14 +329,14 @@ export const datas = {
     },
     {
       id: 213,
-      src: ["/Images/newArrivals/image7.jpeg","/Images/newArrivals/image7.jpeg"],
+      src: ["/Images/newArrivals/image7.jpeg","/Images/newArrivals/image7_3.png","/Images/newArrivals/image7_2.png"],
       name: "Pomp",
       newarrival: true,
-      category: "one piece",
+      category: "clothing",
       collection:"party",
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
-      color: [ "red", "white", "green"],
+      color: [ "#C3011E", "#D60058", "#C200B1"],
       price: "15000",
       fabricType:[ "scuba"],
       description: [
@@ -351,11 +351,11 @@ export const datas = {
       src: ["/Images/newArrivals/image2.jpeg","/Images/newArrivals/image2_blue.png","/Images/newArrivals/image2_red.png"],
       name: "Fiesta",
       newarrival: true,
-      category: "one piece",
+      category: "clothing",
       collection:"party",
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
-      color: [ "orange", "blue", "red"],
+      color: [ "#72E07", "blue", "#FF1D48"],
       price: "19000",
       fabricType:[ " veil net, organza"],
       description: [
@@ -365,14 +365,14 @@ export const datas = {
     },
     {
       id: 215,
-      src: ["/Images/newArrivals/image6.jpeg","/Images/newArrivals/image6.jpeg","/Images/newArrivals/image6.jpeg"],
+      src: ["/Images/newArrivals/image6.jpeg","/Images/newArrivals/image6_1.jpeg","/Images/newArrivals/image6_2.jpeg",],
       name: "Sizzler",
       newarrival: true,
-      category: "one piece",
+      category: "clothing",
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
       collection:"party",
-      color: [ "purple", "silver", "black"],
+      color: [ "#845F8D", "#5B3D07", "#29477D"],
       price: "23000",
       fabricType:[ " sequins"],
       description: [
@@ -406,7 +406,7 @@ export const datas = {
     {
       id: 301,
       name: "men Clothe",
-      category: "one piece",
+      category: "clothing",
       collection: "holiday",
       color: ["Yellow"],
       price: "10000",
