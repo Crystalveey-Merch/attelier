@@ -441,7 +441,7 @@ export const Header = () => {
               <ul className="flex flex-col gap-5">
                 <li className="border-gray-200 pb-2">
                   <NavLink
-                    to="/"
+                    to="/refurblishpage1"
                     className="middle  text-sm  link-item hover:text-gray-750"
                   >
                     Refurblish
@@ -449,7 +449,7 @@ export const Header = () => {
                 </li>
                 <li className="border-gray-200 pb-2">
                   <NavLink
-                    to="/"
+                    to="/sellpage1"
                     className="middle  text-sm link-item  hover:text-gray-750"
                   >
                     Sell
