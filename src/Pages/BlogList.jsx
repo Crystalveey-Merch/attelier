@@ -22,11 +22,11 @@ const BlogList = () => {
                 className="w-96 h-42 my-2 sm:w-full sm:h-40"
               />
 
-              <div  className="border w-96  p-3 border-black">
+              <div  className="border w-96  p-3 border shadow-lg">
                 <h1 className="font-bold Aceh text-2xl  indent-px  sm:text-2xl text-justify text-black">
                   Elegance redefined
                 </h1>
-                <p className=" text-sm text-black py-2  justify-center">
+                <p className=" text-sm text-black py-2  justify-center font-bold">
                   Crystalveey’s Atelier- your one stop destination for the whole
                   family!
                 </p>
@@ -40,7 +40,7 @@ const BlogList = () => {
                   outfit that combines style, comfort and individuality can be
                   quite challenging.
                 </p>
-                <button className="border px-5 py-3 my-4 border-black flex text-black m-auto">Read More</button>
+                <button className="border px-5 py-3 my-4 border-black bg-black flex text-white m-auto">Read More</button>
               </div>
             </div>
           </Link>

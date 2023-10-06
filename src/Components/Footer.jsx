@@ -86,11 +86,11 @@ export const Footer = () => {
               </li>
             </div>
           </ul>
-          <div className=" flex flex-col m-auto justify-center">
-            <h4 className="  text-base sm:text-s  sm:text-center m-auto border-b m font-semibold ">
+          <ul className="flex flex-col gap-6  sm:gap-2  w-max text-sky-600">
+            <h4 className="  middle  hover:text-gray-750  border-b  cursor-pointer text-white">
               Follow Us
             </h4>
-            <div className="flex  gap-4  text-xl mt-5 sm:mt-2 sm:gap-2">
+            <div className="flex  gap-4  text-xl">
               <a href="https://www.instagram.com/explorecrystalveey/">
                 <i className="fa-brands fa-instagram"></i>
               </a>
@@ -106,11 +106,11 @@ export const Footer = () => {
             </div>
 
             <p></p>
-          </div>
+          </ul>
         </div>
         <div className=" flex flex-col sm:py-5 justify-center m-auto ">
           <div className="flex justify-center m-auto sm:w-full ml-24 sm:ml-0 w-full   ">
-            <h1 className="text-2xl m-auto text-center  sm:text-xl text-white Pragmatica tracking-wider">
+            <h1 className="text-2xl m-auto text-center  sm:text-xl text-white Pragmatica tracking-wider ">
               CRYSTALVEEY <span className="Tabac spacing px-2">ATELIER</span>
             </h1>
             {/* <img src="/Images/Avatar/logo.jpeg" alt="logo" className="w-56"/> */}

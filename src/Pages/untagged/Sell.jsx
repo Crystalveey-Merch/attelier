@@ -74,9 +74,9 @@ const Refurblish = () => {
 
           <div className="flex flex-col my-5 gap-2 w-full m-auto ">
             <label className=" Aceh  ">
-              Fair pricing:{" "}
+              Fair pricing{" "}
               <span className="text-gray-300 text-xs">
-                Write the price of your product{" "}
+               ( Write the price of your product){" "}
                 <span className="text-red-500 m-auto">*</span>{" "}
               </span>
             </label>
@@ -97,13 +97,23 @@ const Refurblish = () => {
             required
           ></input>
 
-          <div tabIndex={0} className="collapse bg-white">
+         
+          <div className="flex flex-col gap-4 w-full m-auto  ">
+            <br></br>
+            <label className="Aceh">
+              Add Photos{" "}
+              <span className="text-gray-300 text-xs">
+                .jpg .gif and .png.10MB max
+              </span>{" "}
+              <span className="text-red-500 m-auto">*</span>{" "}
+            </label>
+            <div tabIndex={0} className="collapse bg-white">
            <input type="checkbox" />
             <div className="collapse-title text-sky-500 underline text-sm font-medium">
               Clothe Guidelines
             </div>
             <div className="collapse-content">
-            <p className="text-sm">
+              <p className="text-sm">
                 All clothing items are required to be in excellent condition
                 (damaged items are not allowed). If your clothing item does not
                 meet the required standard, you can either sell another item in
@@ -137,15 +147,6 @@ const Refurblish = () => {
             </div>
           </div>
          
-          <div className="flex flex-col gap-4 w-full m-auto  ">
-            <br></br>
-            <label className="Aceh">
-              Add Photos{" "}
-              <span className="text-gray-300 text-xs">
-                .jpg .gif and .png.10MB max
-              </span>{" "}
-              <span className="text-red-500 m-auto">*</span>{" "}
-            </label>
             <div className="upload-boxes flex gap-2 ">
               <UploadBox />
             </div>
