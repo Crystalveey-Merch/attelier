@@ -34,7 +34,7 @@ export const SectionFour = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className=" flex flex-col gap-10   items-center  2xl:px-10 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
+    <div className=" flex flex-col gap-4   items-center  2xl:px-10 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
       <div className="flex flex-col  ">
         <h3 className=" text-black Aceh text-xl uppercase sm:my-5 my-10 md:text-xl">
           Shop Collections

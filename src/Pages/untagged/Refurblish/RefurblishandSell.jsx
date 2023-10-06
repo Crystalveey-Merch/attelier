@@ -86,6 +86,11 @@ const RefurblishP3 = () => {
               <input type="text" className="p-3 my-4 bg-white border  w-full"></input>
 
               <br />
+              <div>
+            <label className="Aceh">Number of Item(s)</label>
+              <br />
+              <input type="text" className="p-3 my-4 bg-white border  w-full"></input>
+</div>
               
 
               <label >Please describe issues with your item in details</label>

@@ -4,7 +4,7 @@ import image2 from "../../Images/sec6/image2.jpeg";
 export const SectionFive = () => {
   return (
     <div
-      className=" Aceh flex  items-left  m-auto my-10 sm:m-0 w-4/5 sm:w-full rounded-md"
+      className=" Aceh flex  items-left  m-auto my-14 sm:m-0 w-4/5 sm:w-full rounded-md"
       style={{ backgroundImage: `url(${image2})`, backgroundRepeat: 'no-repeat', backgroundPosition:'center', backgroundSize:'cover', }}
     >
       <div className="w-96  sm:w-40 sm:ml-5 ml-20 sm:m-auto   ">

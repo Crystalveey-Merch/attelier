@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
     <div className="flex flex-col gap-10 px-20 pl-48 pt-10 sm:pt-10 pb-8 sm:pb-4 bg-black text-white 2xl:pl-20 xl:pl-7 sm:gap-6 sm:pl-4 sm:px-5 AcehLight">
-      <div className="flex sm:flex-col">
-        <div className="flex gap-40 sm:text-sm  justify-center 2xl:gap-20 xl:gap-5 lg:w-full  lg:justify-between lg:pr-10 sm:flex-wrap">
+      <div className="flex sm:flex-col sm:m-auto">
+        <div className="flex gap-40 sm:gap-62 sm:text-sm sm:m-auto  justify-between 2xl:gap-20 xl:gap-5 lg:w-full  lg:justify-between lg:pr-10 sm:flex-wrap">
           <ul className="flex flex-col gap-6 sm:gap-2 ">
             <li className="middle hover:text-gray-750  border-b  cursor-pointer w-max">
               Company
@@ -63,12 +63,13 @@ export const Footer = () => {
               Privacy Policy
             </li>
           </ul>
-          <div className=" sm:gap-10 gap-10  flex ">
-            <ul className="flex flex-col gap-6  sm:gap-2  w-max text-sky-600">
-              <li className="middle  hover:text-gray-750  border-b  cursor-pointer text-white">
-                Contact
-              </li>
-              <li className=" flex gap-1 items-center  font-medium text-sm cursor-pointer w-max">
+
+          <ul className="flex flex-col gap-6  sm:gap-2  w-max text-sky-600">
+            <li className="middle  hover:text-gray-750  border-b  cursor-pointer text-white">
+              Contact
+            </li>
+            <div className=" flex gap-4 ">
+              <li className=" flex sm:flex-col  gap-1 items-center  font-medium text-xl cursor-pointer w-max">
                 <a
                   href="mailto:office.crystalveey@gmail.com"
                   className="hover:text-gray-750"
@@ -77,34 +78,34 @@ export const Footer = () => {
                   {/* office.crystalveey@gmail.com */}
                 </a>
               </li>
-              <li className=" flex gap-1 items-center  font-medium text-sm cursor-pointer w-max">
+              <li className=" flex gap-1 items-center  font-medium text-xl cursor-pointer w-max">
                 <a href="tel:+2548126091411" className="hover:text-gray-750">
-                  <i className="fa-solid fa-phone"></i> 
+                  <i className="fa-solid fa-phone"></i>
                   {/* +254 812 609 1411 */}
                 </a>
               </li>
-            </ul>
-            <div className="sm:w-full">
-              <h4 className="  text-base sm:text-s  border-b m font-semibold ">
-                Follow Us
-              </h4>
-              <div className="flex gap-4 text-xl mt-5 sm:mt-2 sm:gap-2">
-                <a href="https://www.instagram.com/explorecrystalveey/">
-                  <i className="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://web.facebook.com/crystalveeyshop">
-                  <i className="fa-brands fa-facebook"></i>
-                </a>
-                <a href="https://twitter.com/crystalveeyshop">
-                  <i className="fa-brands fa-x-twitter"></i>
-                </a>
-                <a href="https://wa.link/s55ykr">
-                  <i className="fa-brands fa-whatsapp"></i>
-                </a>
-              </div>
-
-              <p></p>
             </div>
+          </ul>
+          <div className=" flex flex-col m-auto justify-center">
+            <h4 className="  text-base sm:text-s  sm:text-center m-auto border-b m font-semibold ">
+              Follow Us
+            </h4>
+            <div className="flex  gap-4  text-xl mt-5 sm:mt-2 sm:gap-2">
+              <a href="https://www.instagram.com/explorecrystalveey/">
+                <i className="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://web.facebook.com/crystalveeyshop">
+                <i className="fa-brands fa-facebook"></i>
+              </a>
+              <a href="https://twitter.com/crystalveeyshop">
+                <i className="fa-brands fa-x-twitter"></i>
+              </a>
+              <a href="https://wa.link/s55ykr">
+                <i className="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+
+            <p></p>
           </div>
         </div>
         <div className=" flex flex-col sm:py-5 justify-center m-auto ">

@@ -60,7 +60,8 @@ const Refurblish = () => {
           <div className="my-8 flex flex-col m-auto">
             <label className="py-2 Aceh ">
               {" "}
-              Choose  Category <span className="text-red-500 m-auto">
+              Choose appropriate  Category
+<span className="text-red-500 m-auto">
                 *
               </span>{" "}
             </label>
@@ -82,13 +83,20 @@ const Refurblish = () => {
             <label className="Aceh">
               Product Description <span className="text-red-500 m-auto">*</span>{" "}
             </label>
+
             <textarea
               type="text"
               placeholder=""
               className="p-3  w-full h-20 bg-gray-100   rounded w-1/2 "
               required
             />
-          </div>
+          </div>     
+          <div>
+            <label className="Aceh">Number of Item(s)</label>
+              <br />
+              <input type="text" className="p-3 my-4 bg-white border  w-full"></input>
+</div>
+          
           <div className="flex flex-col my-5 gap-2 w-full m-auto ">
           <label className=" Aceh  ">
             Fair pricing:{" "}

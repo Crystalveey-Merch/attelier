@@ -84,6 +84,11 @@ const RefurblishP3 = () => {
               <br />
               <input type="text" className="p-3 my-4 bg-white border  w-full"></input>
 </div>
+ <div>
+              <label className="Aceh">Number of Item(s)</label>
+              <br />
+              <input type="text" className="p-3 my-4 bg-white border  w-full"></input>
+</div>
               <br />
               <label className="Aceh">How will you like to send the item to us ?</label>
                 <div className="flex flex-col gap-3 mb-5">
@@ -112,7 +117,33 @@ const RefurblishP3 = () => {
 
               <label className="Aceh" >Please describe issues with your item in details</label>
               <textarea className="w-full h-40  bg-white border  p-5"></textarea>
-              
+             <div className="flex flex-col">
+              <label className=" Aceh  ">
+            Fair pricing:{" "}
+            <span className="text-gray-300 text-xs">
+              Write the price of your product <span className="text-red-500 m-auto">*</span>{" "}
+            </span>
+            
+          </label>
+          <input
+            type="text"
+            className="sm:w-full  w-1/2 bg-white border  -black p-2"
+          ></input>
+          </div>
+          
+           
+          
+          <br></br>
+          <label className="Aceh">
+            Account Details <span className="text-red-500 m-auto">*</span>{" "}
+          </label>
+          <br></br>
+          <input
+            type="text"
+            className="sm:w-full w-1/2 bg-white border my-3  p-2"
+            required
+          ></input>
+              <br></br>
               <label className="Aceh">Upload clear images of each item, specifically the problem area that needs refurbishing</label>
               <div className="upload-boxes flex gap-4 my-5">
               <UploadBox />
