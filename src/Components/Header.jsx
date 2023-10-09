@@ -387,11 +387,11 @@ export const Header = () => {
       </ul>
       <div className=" header-links z-20  ">
         <div className="hidden bg-white text-black lg:flex flex-col gap-4 sm:gap-0  h-screen w-full p-4 pt-10  w-full  ">
-          {authUser ? (<div className="flex p-3 justify-center text-white  mb-5 w-full bg-red-500" onClick={signOut}>
+          {authUser ? (<><div className="flex p-3 justify-center text-white  mb-5 w-full bg-red-500" onClick={signOut}>
             <i className="fas fa-user  "> <span className=" AcehLight"> Sign out</span> </i>
 
 
-          </div>) : ( <NavLink to="/login"><div className="flex p-3 justify-center  mb-5 w-full bg-gray-300">
+          </div></>) : ( <NavLink to="/login"><div className="flex p-3 justify-center  mb-5 w-full bg-gray-300">
             <i className="fas fa-user  "> <span className=" AcehLight"> Sign in </span> </i>
 
 
@@ -452,6 +452,12 @@ export const Header = () => {
                     Consultation
                   </NavLink>
                 </li>
+                <li className="border-gray-200 link-item pb-2">
+                  <NavLink to="/dashboard" className="middle  text-sm   hover:text-gray-750">
+                  <button className="">Dashboard</button>
+                  </NavLink>
+                </li>
+               
               </ul>
               <hr></hr>
               <ul className="flex flex-col my-4 gap-5">
