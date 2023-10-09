@@ -23,19 +23,40 @@ import CategoriesList from "./Pages/CategoriesList";
 import UntagBuy from "./Pages/untagged/Buy";
 import Checkout from "./Pages/Checkout";
 import Contact from "./Pages/Contact";
+import Giftcard from "./Pages/Giftcard/Giftcard";
 import Consultation from "./Pages/Consultation";
 import { PaymentDetails } from "./Pages/Payment/PaymentDetails";
 import { OrderNow } from "./Pages/Payment/OrderNow";
 import BlogList from "./Pages/BlogList";
 import Custompage1 from "./Pages/CustomMade/Custompage1";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/auth";
+import ProtectedRoute from "./firebase/ProtectedRouteProps";
 import Sellpage1 from "./Pages/untagged/Sellpage1";
 import RefurblishP1 from "./Pages/untagged/Refurblish/RefurblishP1";
 import RefurbishP2 from "./Pages/untagged/Refurblish/RefurblishP2";
 import RefurbishP3 from "./Pages/untagged/Refurblish/RefurblishP3";
 import RefurblishandSell from "./Pages/untagged/Refurblish/RefurblishandSell";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
+
+  const [authUser, setAuthUser] = useState(null);
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
 
   const colors = ["bg-gray-500", "bg-sky-600", "bg-gray-500", "bg-black"];
 
@@ -70,7 +91,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/login" element={<Login />} />
+
           <Route path="/custommade" element={<CustomMade />} />
           <Route path="/newArrival" element={<NewArrival />} />
           <Route path="/collection/:collectionName" element={<Collection />} />
@@ -92,16 +115,31 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/payment" element={<PaymentDetails />} />
-          <Route path="/ordernow/:productID" element={<OrderNow />} />
+          <Route path="/ordernow/:productId" element={<OrderNow />} />
           <Route path="/bloglist" element={<BlogList />} />
-          <Route path="/custompage1" element={<Custompage1/>}/>
-          <Route path="/sellpage1" element={<Sellpage1 />} />
+          <Route path="/custompage1" element={<Custompage1 />} />
+
+          <Route
+            path="/sellpage1"
+            element={
+              <ProtectedRoute>
+                <Sellpage1 />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/refurblishpage1" element={<RefurblishP1 />} />
           <Route path="/refurblishpage2" element={<RefurbishP2 />} />
           <Route path="/refurblishpage3" element={<RefurbishP3 />} />
           <Route path="/refurblishandsell" element={<RefurblishandSell />} />
-
-          
+          <Route path="/giftcards" element={<Giftcard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
         <Footer />
       </div>

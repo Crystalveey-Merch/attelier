@@ -22,7 +22,6 @@ console.log(categoryName)
   
   const [filteredProducts, setFilteredProducts] = useState(categoryProduct);
 
-
   const [sortOrder, setSortOrder] = useState("asc");
   const [isHovered, setIsHovered] = useState(false);
 

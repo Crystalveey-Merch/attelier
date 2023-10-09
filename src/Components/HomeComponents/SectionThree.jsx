@@ -95,15 +95,15 @@ export const SectionThree = () => {
         Get Started
       </button>
       <dialog id="my_modal_2" className="modal ">
-        <div className="modal-box flex gap-10 sm:gap-5 justify-center bg-black">
-        <Link to="/refurblishpage1"> <div className="block bg-gray-700 w-28 p-3 hvr-grow rounded rounded-lg text-white cursor-pointer">
-         <i className="fa-solid fa-scissors text-4xl "></i><h1 className="my-2">Refurblish </h1>
+        <div className="modal-box flex gap-10 sm:gap-2 justify-center bg-black">
+        <Link to="/refurblishpage1"> <div className="block bg-gray-700 w-28 sm:w-24 p-3 hvr-grow rounded rounded-lg text-white cursor-pointer">
+         <i className="fa-solid fa-scissors text-4xl  sm:text-2xl"></i><h1 className="my-2">Refurblish </h1>
           </div> </Link>
-          <Link to="/sellpage1"> <div className="block bg-gray-700 p-3 w-28 hvr-grow rounded rounded-lg text-white cursor-pointer">
-          <i className="fa-solid fa-money-bill-transfer  text-4xl"></i><h1 className="my-2">Sell </h1>
+          <Link to="/sellpage1"> <div className="block bg-gray-700 p-3 w-28 sm:w-24 hvr-grow rounded rounded-lg text-white cursor-pointer">
+          <i className="fa-solid fa-money-bill-transfer  text-4xl sm:text-2xl"></i><h1 className="my-2">Sell </h1>
           </div> </Link>
-          <Link to="/untagbuy"> <div className="block bg-gray-700 p-3 w-28 hvr-grow rounded rounded-lg cursor-pointer text-white">
-           <i className="fa-solid fa-money-bill-transfer text-4xl"></i><h1 className="my-2 ">Buy </h1> 
+          <Link to="/untagbuy"> <div className="block bg-gray-700 p-3 w-28 sm:w-24 hvr-grow rounded rounded-lg cursor-pointer text-white">
+           <i className="fa-solid fa-money-bill-transfer text-4xl sm:text-2xl"></i><h1 className="my-2 ">Buy </h1> 
           </div> </Link>
         </div>
         

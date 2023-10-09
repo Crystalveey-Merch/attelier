@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useCart } from "react-use-cart";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   CitySelect,
   CountrySelect,
@@ -11,20 +11,15 @@ import "react-country-state-city/dist/react-country-state-city.css";
 import { PaystackButton } from "react-paystack";
 // import { useState } from "react";
 import { PAYSTACK_PUBLIC_KEY } from "/src/Pages/Payment/payment.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const goBack = () => {
   window.history.back();
 };
 
 const Checkout = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-
-  const [address, setAddress] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [country, setCountry] = useState("");
+  
 
   const [formData, setFormData] = useState({
     name: "",
@@ -114,14 +109,32 @@ const Checkout = () => {
     channels: ["card"],
     onSuccess: (reference) => {
       console.log("Payment successful. Reference:", reference);
+      toast.success(
+        
+        <div className="text-black text-sm ">
+          Payment successful
+
+        </div>)
       // Handle successful payment (e.g., update order status, redirect)
     },
     onClose: () => {
       console.log("Payment closed");
+      toast.error(
+        
+        <div className="text-black text-sm ">
+          Payment closed
+
+        </div>)
       // Handle payment closure (e.g., show a message to the user)
     },
     onError: (error) => {
       console.error("Payment error:", error);
+      toast.error(
+        
+        <div className="text-black text-sm ">
+          Payment Failed
+
+        </div>)
       // Handle payment error (e.g., show an error message to the user)
     },
   };
@@ -655,23 +668,62 @@ const Checkout = () => {
           {selectePayment === "option4" && (
           <button
           type="button"
-          // onClick={() => myModal.close()}
+          onClick={()=>document.getElementById('my_modal_3').showModal()}
             form="billing-form"
             className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
           >
             {" "}
             PAY NOW
           </button>)}
-          <dialog id="my_modal_3" className="modal" open={isModalOpen}>
-  <div className="modal-box">
+          <dialog id="my_modal_3" className="modal "  >
+  <div className="modal-box bg-white">
     <form method="dialog">
       {/* if there is a button in form, it will close the modal */}
       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
-    <h3 className="font-bold text-lg">Hello!</h3>
-    <p className="py-4">Press ESC key or click on ✕ button to close</p>
+    <video src="/Images/icons/confirm.mp4" autoPlay loop  className="w-1/2 flex m-auto "/>
+    <p className="py-4 text-success text-2xl text-center">We have received your order!!!</p>
+    <h3 className="font-bold text-lg text-center">We will contact you as soon as we have confirmed your payment</h3>
+    <div className="dropdown dropdown-hover flex justify-center">
+  <label tabIndex={0} className="underline text-sm text-sky-500 m-1 text-center">Order Summery</label>
+  <div tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-white text-sky-500 rounded-box w-52">
+  <table className="table ">
+                  {/* head */}
+                  <thead>
+                    <tr className="text-black">
+                      <th></th>
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  {items.map((item, id) => (
+                    <tbody key={id}>
+                      {/* row 1 */}
+                      <tr>
+                        <th className="border">
+
+                        </th>
+                        <td className="border">{item.name}</td>
+                        <td className="border">{item.quantity}</td>
+                        <td className="border">N{item.itemTotal}</td>
+                      </tr>
+                    </tbody>
+                  ))}
+                </table>
+                <h1 className="text-xl AcehLight bold py-2 flex justify-between">
+                  Subtotal ({items.length} items) <span> N{cartTotal}</span>{" "}
+                </h1>
   </div>
-</dialog>
+</div>
+<NavLink to="/">
+
+    <button className="btn flex my-5 m-auto text-white">Go Home</button>
+    </NavLink>
+  </div>
+  
+ </dialog>
+ <ToastContainer />
         </div>
       </div>
     </>

@@ -1,7 +1,11 @@
 import { useCart } from "react-use-cart";
 import { NavLink, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { datas } from "../assets/data.js";
 
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
@@ -10,6 +14,35 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
+  const [authUser, setAuthUser] = useState(null);
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
+
+  const userId = authUser?.uid;
+  //  console.log(userId)\
+
+  const userSignout = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/login");
+        toast.error("Signout Successful");
+      })
+      .catch((error) => toast.error(error));
+  };
+
+
   const { productId } = useParams();
 
   const allProducts = [
@@ -34,7 +67,7 @@ export const Header = () => {
   const handleOnSelect = (item) => {
     // Construct the target URL
     const targetUrl = `/productdes/${item.id}`;
-    
+
 
     // Use history.push() to navigate to the target URL
     navigate(targetUrl);
@@ -50,18 +83,18 @@ export const Header = () => {
         <div className="flex  gap-1" id={item.id}>
           <img src={item.src[0]} className="w-10" />
           <div className="flex-col m-auto">
-          <span
-            className="Aceh"
-            style={{ display: "block", textAlign: "left" }}
-          >
-            {item.name}
-          </span>
-          <span
-            className="Aceh text-sky-500"
-            style={{ display: "block", textAlign: "left" }}
-          >
-            N{item.price}
-          </span>
+            <span
+              className="Aceh"
+              style={{ display: "block", textAlign: "left" }}
+            >
+              {item.name}
+            </span>
+            <span
+              className="Aceh text-sky-500"
+              style={{ display: "block", textAlign: "left" }}
+            >
+              N{item.price}
+            </span>
           </div>
         </div>
       </>
@@ -105,7 +138,7 @@ export const Header = () => {
   return (
     <div
       className="fixed  w-full z-30 top-6 bg-white flex  flex-col gap-0 sm:m-0  w-full items-center xl:px-8 sm:px-0  "
-      // style={{ backgroundColor: "#efd7ec" }}
+    // style={{ backgroundColor: "#efd7ec" }}
     >
       <div className=" flex sm:block AcehLight   m-auto border sm:border-b border justify-between  items-center w-full    py-1 ">
         <div className="flex   gap-96 sm:gap-4  sm:gap-0 sm:px-4 m-auto justify-center  sm:border-b   ">
@@ -135,9 +168,8 @@ export const Header = () => {
           <button
             id="menu-btn"
             onClick={handleMenu}
-            className={`hamburger  ${
-              menuOpen ? "open" : ""
-            } hidden lg:block focus:outline-none z-30 flex flex-col gap-2     my-auto`}
+            className={`hamburger  ${menuOpen ? "open" : ""
+              } hidden lg:block focus:outline-none z-30 flex flex-col gap-2     my-auto`}
           >
             <span className="harburger-top   bg-gray-900 transition duration-500 ease-in-out "></span>
             <span className="harburger-middle    bg-gray-900 transition duration-500 ease-in-out  "></span>
@@ -161,14 +193,14 @@ export const Header = () => {
             <option>$</option>
           </select> */}
 
-            
+
             {/* Open the modal using document.getElementById('ID').showModal() method */}
 
             <button
               className=" flex text-center "
               onClick={() => document.getElementById("my_modal_4").showModal()}
             >
-            <i className="fa-solid fa-magnifying-glass m-auto text-black"></i>
+              <i className="fa-solid fa-magnifying-glass m-auto text-black"></i>
               {/* <svg
                 aria-hidden="true"
                 className="w-6 h-6 text-gray-600 "
@@ -186,29 +218,29 @@ export const Header = () => {
             </button>
             <dialog id="my_modal_4" className="modal ">
               <div className="modal-box bg-white h-96">
-              
-                <div className="my-1 w-full Quicksand  ">
-            <ReactSearchAutocomplete
-            items={allProducts}
-            onSearch={handleOnSearch}
-            onHover={handleOnHover}
-            onSelect={handleOnSelect}
-            onFocus={handleOnFocus}
-            styling={{
-              borderRadius: "none",
-              boxShadow: "none",
-              border:"none",
-              fontSize:"13px",
-              fontFamily: "Quicksand",
-              padding:"2px",
 
-            }}
-            placeholder="Input search"
-            autoFocus
-            className="w-full sm:w-full search border-b text-sm"
-            formatResult={formatResult}
-           />
-           </div>
+                <div className="my-1 w-full Quicksand  ">
+                  <ReactSearchAutocomplete
+                    items={allProducts}
+                    onSearch={handleOnSearch}
+                    onHover={handleOnHover}
+                    onSelect={handleOnSelect}
+                    onFocus={handleOnFocus}
+                    styling={{
+                      borderRadius: "none",
+                      boxShadow: "none",
+                      border: "none",
+                      fontSize: "13px",
+                      fontFamily: "Quicksand",
+                      padding: "2px",
+
+                    }}
+                    placeholder="Input search"
+                    autoFocus
+                    className="w-full sm:w-full search border-b text-sm"
+                    formatResult={formatResult}
+                  />
+                </div>
               </div>
               <form method="dialog" className="modal-backdrop">
                 <button>close</button>
@@ -220,7 +252,7 @@ export const Header = () => {
               onMouseEnter={() => setToggleAccount(true)}
               onMouseLeave={() => setToggleAccount(false)}
             >
-            <i className="fa-regular fa-user m-auto text-black"></i>
+              <i className="fa-regular fa-user m-auto text-black"></i>
               {/* <svg
                 className="w-6 h-6 m-auto"
                 viewBox="0 0 24 24"
@@ -237,13 +269,22 @@ export const Header = () => {
               {toggleAccount && (
                 <ul className="px-5 w-48 py-5 text-black bg-white shadow-2xl absolute top-5 -right-7 text-left flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
                   <li>
-                    <Link to="/" className="  text-sm   hover:text-gray-750">
-                      Welcome
+                    <Link to="/" className=" text-sky-500  text-xs   hover:text-gray-750">
+                    {authUser ? ( <h1>{authUser.email}</h1>):("")}
+                     
                     </Link>
                   </li>
                   <li>
-                    <Link to="/login">Login</Link>
+                    <Link to="/dashboard" className="  text-sm   hover:text-gray-750">
+                     Dashboard
+                    </Link>
                   </li>
+                  {authUser ? (  <li className="text-red-500 hover" onClick={userSignout}>
+                   Sign out
+                  </li>):(  <li>
+                    <Link to="/login">Login</Link>
+                  </li>)}
+                
 
                   <li>Help Center</li>
                 </ul>
@@ -251,9 +292,9 @@ export const Header = () => {
             </button>
             <Link to="/cart" className="  m-auto  w-7  h-5   relative ">
               <button className="flex    ">
-              {/* <i className="fa-regular fa-user"></i> */}
-              {/* <i className="fa-solid fa-cart-shopping m-auto text-black "></i> */}
-              
+                {/* <i className="fa-regular fa-user"></i> */}
+                {/* <i className="fa-solid fa-cart-shopping m-auto text-black "></i> */}
+
                 <svg
                   viewBox="0 0 30 30"
                   className="w-6 h-6 m-auto"
@@ -346,18 +387,22 @@ export const Header = () => {
       </ul>
       <div className=" header-links z-20  ">
         <div className="hidden bg-white text-black lg:flex flex-col gap-4 sm:gap-0  h-screen w-full p-4 pt-10  w-full  ">
-        <div className="flex p-3 justify-center  mb-5 w-full bg-gray-300">
-              <i className="fas fa-user  "> <span className=" AcehLight"> Sign in</span> </i>
-             
-              
-        </div>
+          {authUser ? (<div className="flex p-3 justify-center text-white  mb-5 w-full bg-red-500" onClick={signOut}>
+            <i className="fas fa-user  "> <span className=" AcehLight"> Sign out</span> </i>
+
+
+          </div>) : ( <NavLink to="/login"><div className="flex p-3 justify-center  mb-5 w-full bg-gray-300">
+            <i className="fas fa-user  "> <span className=" AcehLight"> Sign in </span> </i>
+
+
+          </div></NavLink>)}
+
           <div className="tabs w-full   text-black">
             {tabs.map((tab, index) => (
               <a
                 key={index}
-                className={`tab tab-bordered text-black m-auto Aceh  ${
-                  activeTabIndex === index ? "tab-active" : ""
-                }`}
+                className={`tab tab-bordered text-black m-auto Aceh  ${activeTabIndex === index ? "tab-active" : ""
+                  }`}
                 onClick={() => setActiveTabIndex(index)}
               >
                 {tab}
@@ -367,7 +412,7 @@ export const Header = () => {
 
           {activeTabIndex === 0 && (
             <div className="AcehLight">
-            
+
               <ul className="flex flex-col my-4 gap-5">
                 <li className="border-gray-200 link-item pb-2">
                   <NavLink
@@ -429,9 +474,9 @@ export const Header = () => {
               </ul>
               <hr></hr>
               <NavLink to="/contact">
-              <ul className="my-4">
-                <li className="link-item text-sm">Contact Us</li>
-              </ul>
+                <ul className="my-4">
+                  <li className="link-item text-sm">Contact Us</li>
+                </ul>
               </NavLink>
             </div>
           )}
@@ -467,6 +512,8 @@ export const Header = () => {
             </div>
           )}
         </div>
+        <ToastContainer />
+
       </div>
     </div>
   );

@@ -355,7 +355,7 @@ export const datas = {
       collection:"party",
       size:["6", "8", "10", "12", "14", "16", "18", "20"],
 
-      color: [ "#72E07", "blue", "#FF1D48"],
+      color: [ "#FF722E", "blue", "#FF1D48"],
       price: "19000",
       fabricType:[ " veil net, organza"],
       description: [
@@ -658,5 +658,27 @@ export const datas = {
         "Lasting Long",
       ],
     },
+  ],
+
+  giftcards:[
+    {
+      id:111,
+      name: "$100 GiftCard ",
+      price:"55000",
+      src:"/Images/giftcard/100gift.jpeg"
+    },
+    {
+      id:112,
+      name: "$100 GiftCard ",
+      price:"75000",
+      src: "/Images/giftcard/100gift.jpeg"
+    },
+    {
+      id:113,
+      name: "$100 GiftCard ",
+      price:"35000",
+      src: "/Images/giftcard/100gift.jpeg"
+    }
+
   ]
 };
