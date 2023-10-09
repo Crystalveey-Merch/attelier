@@ -147,7 +147,7 @@ export const SectionTwoTest = () => {
                   src= "/Images/sec2.2/watch.jpeg"
                   alt="children"
                   className="w-full m-auto imghgt2 bg-stone-200 "
-                  style={{ height: "260px", width: "400px" }}
+                  style={{ height: "280px", width: "400px" }}
                 />
                 </div>
                
@@ -167,13 +167,13 @@ export const SectionTwoTest = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(null)}
               >
-              <div className="  overflow-hidden bg-stone-200 m-2  "  >
+              <div className="  overflow-hidden bg-stone-200   "  >
              
                 <img
                   src= "/Images/newArrivals/image4_3.png" 
                   alt="children"
                   className="w-full m-auto imghgt2  bg-stone-200 "
-                  style={{ height: "260px", width: "400px" }}
+                  style={{ height: "280px", width: "400px" }}
                 />
                 </div>
                
@@ -199,7 +199,7 @@ export const SectionTwoTest = () => {
                   src= "/Images/sec2.2/shoes.jpeg"
                   alt="children"
                   className="w-full m-auto imghgt2 bg-stone-200 "
-                  style={{ height: "260px", width: "400px" }}
+                  style={{ height: "280px", width: "400px" }}
                 />
                 </div>
                
@@ -224,7 +224,7 @@ export const SectionTwoTest = () => {
                   src= "/Images/newArrivals/image5.jpeg"
                   alt="children"
                   className="w-full m-auto imghgt2 bg-stone-200 "
-                  style={{ height: "260px", width: "400px" }}
+                  style={{ height: "280px", width: "400px" }}
                 />
                 </div>
                
@@ -249,7 +249,7 @@ export const SectionTwoTest = () => {
                   src= "/Images/Products/1.jpg"
                   alt="children"
                   className="w-full m-auto imghgt2 bg-stone-200 "
-                  style={{ height: "260px", width: "400px" }}
+                  style={{ height: "280px", width: "400px" }}
                 />
                 </div>
                
@@ -274,7 +274,7 @@ export const SectionTwoTest = () => {
                   src= "/Images/Products/item-three.jpg"
                   alt="children"
                   className="w-full m-auto imghgt2 bg-stone-200 "
-                  style={{ height: "260px", width: "400px" }}
+                  style={{ height: "280px", width: "400px" }}
                 />
                 </div>
                
