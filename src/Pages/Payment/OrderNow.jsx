@@ -716,7 +716,7 @@ console.log("Form submission")
       {/* if there is a button in form, it will close the modal */}
       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
-    <video src="/Images/icons/confirm.mp4" autoPlay loop  className="w-1/2 flex m-auto "/>
+    <img src="/Images/icons/confirm.gif"   className="w-1/2 flex m-auto "/>
     <p className="py-4 text-success text-2xl text-center">We have received your order!!!</p>
     <h3 className="font-bold text-lg text-center">We will contact you as soon as we have confirmed your payment</h3>
     <div className="dropdown dropdown-hover flex justify-center">

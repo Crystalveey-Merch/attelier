@@ -38,6 +38,7 @@ import RefurbishP2 from "./Pages/untagged/Refurblish/RefurblishP2";
 import RefurbishP3 from "./Pages/untagged/Refurblish/RefurblishP3";
 import RefurblishandSell from "./Pages/untagged/Refurblish/RefurblishandSell";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -140,7 +141,9 @@ function App() {
               </ProtectedRoute>
             }
           />
+           <Route path="*" element={<NotFound />} />
         </Routes>
+       
         <Footer />
       </div>
     </>

@@ -453,15 +453,16 @@ export const Header = () => {
                     Consultation
                   </NavLink>
                 </li>
-                <li className="border-gray-200 link-item pb-2">
-                  <NavLink to="/dashboard" className="middle  text-sm   hover:text-gray-750">
-                  <button className="">Dashboard</button>
-                  </NavLink>
-                </li>
+                
                
               </ul>
               <hr></hr>
               <ul className="flex flex-col my-4 gap-5">
+              <li className="border-gray-200 link-item pb-2">
+                  <NavLink to="/dashboard" className="middle  text-sm   hover:text-gray-750">
+                  <button className="">Dashboard</button>
+                  </NavLink>
+                </li>
                 <li className="border-gray-200 pb-2">
                   <NavLink
                     to="/aboutus"
@@ -472,7 +473,7 @@ export const Header = () => {
                 </li>
                 <li className="border-gray-200 pb-2">
                   <NavLink
-                    to="/"
+                    to="/giftcards"
                     className="middle  text-sm link-item   hover:text-gray-750"
                   >
                     Gift Cards
