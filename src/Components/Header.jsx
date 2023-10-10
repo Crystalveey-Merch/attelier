@@ -268,9 +268,9 @@ export const Header = () => {
               </svg> */}
               {toggleAccount && (
                 <ul className="px-5 w-48 py-5 text-black bg-white shadow-2xl absolute top-5 -right-7 text-left flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
-                  <li>
+                  <li className="w-full">
                     <Link to="/" className=" text-sky-500  text-xs   hover:text-gray-750">
-                    {authUser ? ( <h1>{authUser.email}</h1>):("")}
+                    Welcome!{authUser ? ( <h1>{authUser.displayName}</h1>):("")}
                      
                     </Link>
                   </li>
@@ -387,17 +387,18 @@ export const Header = () => {
       </ul>
       <div className=" header-links z-20  ">
         <div className="hidden bg-white text-black lg:flex flex-col gap-4 sm:gap-0  h-screen w-full p-4 pt-10  w-full  ">
-          {authUser ? (<><div className="flex p-3 justify-center text-white  mb-5 w-full bg-red-500" onClick={userSignout}>
+       {authUser ? (<><div className="flex  justify-left text-red-600  mt-4  w-full text-red-500" onClick={userSignout}>
             <i className="fas fa-user  "> <span className=" AcehLight"> Sign out</span> </i>
 
 
-          </div><h1>{authUser.email}</h1></>) : ( <NavLink to="/login"><div className="flex p-3 justify-center  mb-5 w-full bg-gray-300">
+          </div><h1 className="mb-5 text-sm AcehLight mt-3 text-center  "> Welcome! {authUser.displayName}</h1></>) : ( <NavLink to="/login"><div className="flex p-3 justify-center bg-gray-200 text-black mb-5 w-full ">
             <i className="fas fa-user  "> <span className=" AcehLight"> Sign in </span> </i>
 
 
           </div></NavLink>)}
 
           <div className="tabs w-full   text-black">
+         
             {tabs.map((tab, index) => (
               <a
                 key={index}
@@ -409,7 +410,7 @@ export const Header = () => {
               </a>
             ))}
           </div>
-
+         
           {activeTabIndex === 0 && (
             <div className="AcehLight">
 
@@ -484,6 +485,11 @@ export const Header = () => {
                   <li className="link-item text-sm">Contact Us</li>
                 </ul>
               </NavLink>
+             
+
+          <NavLink to="/contact">
+         
+              </NavLink>
             </div>
           )}
 
@@ -515,11 +521,14 @@ export const Header = () => {
                   </NavLink>
                 </li>
               </ul>
+
             </div>
+         
           )}
+         
         </div>
         <ToastContainer />
-
+       
       </div>
     </div>
   );

@@ -362,7 +362,7 @@ const Checkout = () => {
                       <div className="border p- text-gray-600  rounded flex flex-col py-8 bg-gray-100">
                         <i className="fa-solid fa-credit-card m-auto text-5xl" />
                         <h1 className=" text-md text-center my-2 ">
-                          After clicking on Order now, you will be Redirected to
+                          After clicking on PAY NOW you will be Redirected to
                           Paystack to complete your purchase securely
                         </h1>
                       </div>

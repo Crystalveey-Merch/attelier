@@ -98,7 +98,7 @@ const Refurblish = () => {
           ></input>
 
          
-          <div className="flex flex-col gap-4 w-full m-auto  ">
+          <div className="flex flex-col gap-4 w-full m-auto border bg-gray-100 p-2 ">
             <br></br>
             <label className="Aceh">
               Add Photos{" "}
