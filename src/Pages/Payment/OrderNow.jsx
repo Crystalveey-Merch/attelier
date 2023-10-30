@@ -1,4 +1,7 @@
 import React from "react";
+'use client';
+
+import { Button, Modal } from 'flowbite-react';
 import { useState } from "react";
 import { useCart } from "react-use-cart";
 import { Link, NavLink } from "react-router-dom";
@@ -7,6 +10,9 @@ import { useEffect } from "react";
 import { datas } from "../../assets/data";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase/auth";
+// import { cartDetails } from "../Productdes";
 
 import {
   CitySelect,
@@ -24,7 +30,7 @@ const goBack = () => {
 
 export const OrderNow = () => {
 
-    
+ 
     const [product, setProduct] = useState({ id: null });
 
     const { productId } = useParams();
@@ -46,17 +52,16 @@ export const OrderNow = () => {
     
         if (selectedProduct) {
           // Now you can safely use selectedProduct
-          setProduct(selectedProduct);
+           setProduct(selectedProduct);
           // ...
         }
       }, [product.id, productId]);
       
      
 
-  const [formData, setFormData] = useState({
+  const [billingData, setBillingData] = useState({
     name: "",
     lastname: "",
-    amount: "",
     email: "",
     address: "",
     postalCode: "",
@@ -80,14 +85,17 @@ export const OrderNow = () => {
     phoneNumber: "",
     // Add more fields as needed
   });
-  
+
+  const orderDetails =(cartDetails)
+
+  console.log(orderDetails)
   const myModal = document.getElementById('my_modal_3')
 
   const handleChange = (e) => {
     e.preventDefault(); // Prevent form submission
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-console.log("Form submission")
+    setBillingData({ ...billingData, [name]: value });
+console.log(billingData)
 };
 
   const handleDeliveryForm =(e) => {
@@ -108,10 +116,11 @@ console.log("Form submission")
   const [selectePayment, setSelectedPayment] = useState("");
   const [selecteBilling, setSelectedBilling] = useState("");
   const [emailForPayment, setEmailForPayment] = useState(""); // State to store email for payment
+  const [showModal, setShowModal] = useState(false);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const isPaymentButtonVisible = Object.values(formData).every((value) => value !== "");
+  // const isPaymentButtonVisible = Object.values(billingData).every((value) => value !== "");
 
 
   const handleDelivery = (e) => {
@@ -122,7 +131,7 @@ console.log("Form submission")
   };
   const handleBilling = (e) => {
     setSelectedBilling(e.target.value);
-    if (e.target.value === "option5") {
+    if (e.target.value === "differentAddress") {
       setEmailForPayment(deliveryForm.email);
     } else {
       setEmailForPayment(""); // Reset emailForPayment if "Use a different Billing Address" is selected
@@ -135,7 +144,7 @@ console.log("Form submission")
   const totalCost = parseInt( product.price) + parseInt(shippingFee);
 
   const paymentData = {
-    email: emailForPayment || formData.email,
+    email: emailForPayment || billingData.email,
     amount: totalCost * 100, // Amount in kobo (multiply by 100 to convert to Naira)
     publicKey,
     text: "Pay Now",
@@ -173,6 +182,34 @@ console.log("Form submission")
     },
   };
 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Prepare the data to be stored in Firestore
+    const orderData = {
+      billingData: billingData,
+      deliveryForm: deliveryForm,
+      selectedDelivery: selectedDelivery,
+      selectedPayment: selectePayment,
+      totalCost: totalCost,
+      orderDetails: orderDetails,
+    };
+console.log(orderData)
+    try {
+      // Perform the Firebase action
+      const profileDocRef = doc(db, 'orders', orderDetails.name);
+      await setDoc(profileDocRef, orderData);
+
+      // Show the modal here, e.g., by setting a state variable
+      setShowModal(true);
+
+      // You can also reset the form or perform other actions after success
+    } catch (error) {
+      console.error('Error submitting order: ', error);
+      // Handle the error, show an error message, etc.
+    }
+  };
   return (
     <>
       <div className="mt-24 text-black pt-5 sm:mt-16 w-full AcehLight   ">
@@ -191,22 +228,22 @@ console.log("Form submission")
                   <input
                     type="radio"
                     name="radio-7"
-                    id="option1"
+                    id="pick-up"
                     required
                     className="radio  radio-info radio-sm shadow-white "
-                    value="option1"
-                    checked={selectedDelivery === "option1"}
+                    value="pick-up"
+                    checked={selectedDelivery === "pick-up"}
                     onChange={handleDelivery}
                   />
                   <label
-                    htmlFor="option1"
+                    htmlFor="pick-up"
                     className="text-md w-full cursor-pointer	"
                   >
                     {" "}
                     Pick up
                   </label>
                 </div>
-                {selectedDelivery === "option1" && (
+                {selectedDelivery === "pick-up" && (
                   <div>
                     <div className="mb-2 ">
                       <h1 className="text-sm ">Pick up Location</h1>
@@ -224,15 +261,15 @@ console.log("Form submission")
                 <div className="flex gap-3 border p-3 cursor-pointer	 rounded">
                   <input
                     type="radio"
-                    id="option2"
+                    id="delivery"
                     required
                     className="radio  radio-info radio-sm box-shadow"
-                    value="option2"
-                    checked={selectedDelivery === "option2"}
+                    value="delivery"
+                    checked={selectedDelivery === "delivery"}
                     onChange={handleDelivery}
                   />
                   <label
-                    htmlFor="option2"
+                    htmlFor="delivery"
                     className="text-md w-full cursor-pointer	"
                   >
                     {" "}
@@ -241,7 +278,7 @@ console.log("Form submission")
                 </div>
               </div>
 
-              {selectedDelivery === "option2" && (
+              {selectedDelivery === "delivery" && (
                 <form onSubmit={handleDeliveryForm} id="billing-form">
                   <div>
                     <div className=" p-10  sm:p-4 flex flex-col gap-8">
@@ -359,14 +396,14 @@ console.log("Form submission")
                 <div className="flex gap-3 text-gray-600  border p-3 sm:py-0 cursor-pointer	flex rounded">
                   <input
                     type="radio"
-                    id="option3"
+                    id="paystack"
                     className="radio m-auto radio-info radio-sm "
-                    value="option3"
-                    checked={selectePayment === "option3"}
+                    value="paystack"
+                    checked={selectePayment === "paystack"}
                     onChange={handlePayment}
                   />
                   <label
-                    htmlFor="option3"
+                    htmlFor="paystack"
                     className="text-md w-full cursor-pointer  m-auto flex	"
                   >
                     {" "}
@@ -391,7 +428,7 @@ console.log("Form submission")
                     </span>
                   </label>
                 </div>
-                {selectePayment === "option3" && (
+                {selectePayment === "paystack" && (
                   <div>
                     <div className=" ">
                       <div className="border p- text-gray-600  rounded flex flex-col py-8 bg-gray-100">
@@ -407,23 +444,23 @@ console.log("Form submission")
                 <div className="flex gap-3 border p-3 cursor-pointer	 rounded">
                   <input
                     type="radio"
-                    id="option4"
+                    id="deposit"
                     className="radio m-auto radio-info radio-sm box-shadow"
-                    value="option4"
-                    checked={selectePayment === "option4"}
+                    value="deposit"
+                    checked={selectePayment === "deposit"}
                     onChange={handlePayment}
                   />
                   <label
-                    htmlFor="option4"
+                    htmlFor="deposit"
                     className="text-md w-full  cursor-pointer m-auto	"
                   >
                     {" "}
                     Bank deposit
                   </label>
                 </div>
-                {selectePayment === "option4" && (
+                {selectePayment === "deposit" && (
                   <div>
-                    <div className="bg-gray-200 p-10 sm:p-5 flex flex-col gap-4">
+                    <div className="bg-gray-100 p-10 sm:p-5 flex flex-col gap-4">
                       <p className="flex flex-col">
                         <span className="Aceh">Naira </span>
                         <span>Account name: CRYSTALVEEY MERCH </span>
@@ -443,7 +480,7 @@ console.log("Form submission")
               <div className=" Aceh text-2xl my-4 border-t border-t-8 pt-6">
                 Billing Address
               </div>
-              {selectedDelivery === "option1" && (
+              {selectedDelivery === "pick-up" && (
                 <form onSubmit={handleChange} id="billing-form">
                   <div>
                     <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
@@ -457,13 +494,13 @@ console.log("Form submission")
                         inputClassName="bg-white border-none"
                         containerClassName="bg-white "
                         name="firstName"
-                        value={formData.country}
+                        value={billingData.country}
                       />
                       <input
                         placeholder="First Name"
                         required
                         name="firstName"
-                        value={FormData.firstName}
+                        value={billingData.firstName}
                         onChange={handleChange}
                         className="p-3 w-full border bg-white"
                       ></input>
@@ -472,7 +509,7 @@ console.log("Form submission")
                         required
                         className="p-3 w-full border bg-white"
                         name="lastName"
-                        value={FormData.lastName}
+                        value={billingData.lastName}
                         onChange={handleChange}
                       ></input>
                       <input
@@ -480,7 +517,7 @@ console.log("Form submission")
                         required
                         className="p-3 w-full border bg-white"
                         name="email"
-                        value={formData.email}
+                        value={billingData.email}
                         onChange={handleChange}
                       ></input>
 
@@ -489,7 +526,7 @@ console.log("Form submission")
                         required
                         className="p-3 w-full border bg-white"
                         name="address"
-                        value={formData.address}
+                        value={billingData.address}
                         onChange={handleChange}
                       ></textarea>
 
@@ -523,7 +560,7 @@ console.log("Form submission")
                         required
                         placeholder="Phone number "
                         name="phoneNumber"
-                        value={formData.phoneNumber}
+                        value={billingData.phoneNumber}
                         onChange={handleChange}
                         className="p-3 w-full border bg-white"
                       ></input>
@@ -535,20 +572,20 @@ console.log("Form submission")
                 </form>
               )}
 
-              {selectedDelivery === "option2" && (
+              {selectedDelivery === "delivery" && (
                 <div className=" flex-col flex ">
                   <div className="flex gap-3  border p-3 cursor-pointer	flex rounded">
                     <input
                       type="radio"
-                      id="option5"
+                      id="sameAsAddress"
                       required
                       className="radio m-auto radio-info radio-sm box-shadow"
-                      value="option5"
-                      checked={selecteBilling === "option5"}
+                      value="sameAsAddress"
+                      checked={selecteBilling === "sameAsAddress"}
                       onChange={handleBilling}
                     />
                     <label
-                      htmlFor="option5"
+                      htmlFor="sameAsAddress"
                       className="text-md w-full cursor-pointer  m-auto flex	"
                     >
                       {" "}
@@ -560,21 +597,21 @@ console.log("Form submission")
                     <input
                       type="radio"
                       required
-                      id="option6"
+                      id="differentAddress"
                       className="radio m-auto radio-info radio-sm box-shadow"
-                      value="option6"
-                      checked={selecteBilling === "option6"}
+                      value="differentAddress"
+                      checked={selecteBilling === "differentAddress"}
                       onChange={handleBilling}
                     />
                     <label
-                      htmlFor="option6"
+                      htmlFor="addressAddress"
                       className="text-md w-full  cursor-pointer	"
                     >
                       {" "}
                       Use a different Billing Address
                     </label>
                   </div>
-                  {selecteBilling === "option6" && (
+                  {selecteBilling === "differentAddress" && (
                     <form onSubmit={handleChange} id="billing-form">
                   <div>
                     <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
@@ -588,13 +625,13 @@ console.log("Form submission")
                         inputClassName="bg-white border-none"
                         containerClassName="bg-white "
                         name="firstName"
-                        value={formData.country}
+                        value={billingData.country}
                       />
                       <input
                         placeholder="First Name"
                         required
                         name="firstName"
-                        value={FormData.firstName}
+                        value={billingData.firstName}
                         onChange={handleChange}
                         className="p-3 w-full border bg-white"
                       ></input>
@@ -603,7 +640,7 @@ console.log("Form submission")
                         required
                         className="p-3 w-full border bg-white"
                         name="lastName"
-                        value={FormData.lastName}
+                        value={billingData.lastName}
                         onChange={handleChange}
                       ></input>
                       <input
@@ -611,7 +648,7 @@ console.log("Form submission")
                         required
                         className="p-3 w-full border bg-white"
                         name="email"
-                        value={formData.email}
+                        value={billingData.email}
                         onChange={handleChange}
                       ></input>
 
@@ -620,7 +657,7 @@ console.log("Form submission")
                         required
                         className="p-3 w-full border bg-white"
                         name="address"
-                        value={formData.address}
+                        value={billingData.address}
                         onChange={handleChange}
                       ></textarea>
 
@@ -654,7 +691,7 @@ console.log("Form submission")
                         required
                         placeholder="Phone number "
                         name="phone"
-                        value={formData.phoneNumber}
+                        value={billingData.phoneNumber}
                         onChange={handleChange}
                         className="p-3 w-full border bg-white"
                       ></input>
@@ -675,13 +712,13 @@ console.log("Form submission")
             Subtotal:<span> ₦{product.price} </span>
           </div>
 
-          {selectedDelivery === "option1" && (
+          {selectedDelivery === "pick-up" && (
             <div className="flex justify-between AcehLight text-black">
               <span>Pick up</span>
               <span> Free</span>
             </div>
           )}
-          {selectedDelivery === "option2" && (
+          {selectedDelivery === "delivery" && (
             <div className="flex justify-between AcehLight text-black">
               <span>Delivery Fee:</span>
               <span> ₦{shippingFee}</span>
@@ -691,25 +728,28 @@ console.log("Form submission")
             Total:
             <span>
               {" "}
-              ₦{selectedDelivery === "option2" ? totalCost : product.price}
+              ₦{selectedDelivery === "delivery" ? totalCost : product.price}
             </span>
           </div>
-          {selectePayment === "option3" && isPaymentButtonVisible && (
+          {selectePayment === "paystack" && isPaymentButtonVisible && (
             <PaystackButton
               className="bg-black px-10 py-3 mt-5 m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
               {...paymentData}
             />
           )}
-          {selectePayment === "option4" && (
+          {selectePayment === "deposit" && (
           <button
           type="button"
-          onClick={()=>document.getElementById('my_modal_3').showModal()}
+          onClick={handleSubmit}
             form="billing-form"
+
             className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
           >
             {" "}
             PAY NOW
           </button>)}
+          {showModal && (
+            <>
           <dialog id="my_modal_3" className="modal "  >
   <div className="modal-box bg-white">
     <form method="dialog">
@@ -734,6 +774,8 @@ console.log("Form submission")
   </div>
   
  </dialog>
+ </>
+          )}
  <ToastContainer />
         </div>
       </div>

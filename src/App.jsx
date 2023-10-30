@@ -39,6 +39,9 @@ import RefurbishP3 from "./Pages/untagged/Refurblish/RefurblishP3";
 import RefurblishandSell from "./Pages/untagged/Refurblish/RefurblishandSell";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import NotFound from "./Pages/NotFound";
+import { ToastContainer } from "react-toastify";
+import AdminDash from "./Pages/AdminDash";
+
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -142,8 +145,11 @@ function App() {
             }
           />
            <Route path="*" element={<NotFound />} />
+           <Route path="/admindash" element={<AdminDash />} />
+
         </Routes>
-       
+        <ToastContainer />
+
         <Footer />
       </div>
     </>

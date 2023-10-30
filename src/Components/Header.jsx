@@ -377,6 +377,7 @@ export const Header = () => {
           </Link>
         </li>
         {/* <li>
+        
           <Link
             to="/"
             className="middle  text-sm   hover:text-gray-750"

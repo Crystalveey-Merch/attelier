@@ -1,14 +1,16 @@
 import { useState } from "react";
 import "./upload.css"
+import PropTypes from "prop-types"; // Import PropTypes
 
-const UploadBox = () => {
+const UploadBox = ( {imageList, setImageList,handleImageUpload }) => {
   const [images, setImages] = useState([]);
 
 
-  const handleImageUpload = (e) => {
+
+  const handleImagesUpload = (e) => {
     const files = e.target.files;
     const newImages = [];
-
+    handleImageUpload(files)
     const supportedFormats = ["image/jpeg", "image/jpg", "image/gif", "image/png"];
 
     for (let i = 0; i < files.length; i++) {
@@ -20,6 +22,9 @@ const UploadBox = () => {
             newImages.push(reader.result);
             if (newImages.length === files.length) {
               setImages([...images, ...newImages]);
+              setImageList([...images, ...newImages]);
+             
+
             }
           };
           reader.readAsDataURL(file);
@@ -31,7 +36,7 @@ const UploadBox = () => {
         break; // Stop processing additional files
       }
     }
-  };
+  }
   const removeImage = (index) => {
     const updatedImages = [...images];
     updatedImages.splice(index, 1);
@@ -51,7 +56,7 @@ const UploadBox = () => {
           type="file"
           id="image-upload"
           accept=".jpeg, .jpg, .gif, .png" 
-          onChange={handleImageUpload}
+          onChange={handleImagesUpload}
           style={{ display: "none" }}
           multiple // Allow multiple file selection
         />
@@ -71,6 +76,11 @@ const UploadBox = () => {
         </div></>
       
     );
+  };
+  UploadBox.propTypes = {
+    imageList: PropTypes.array.isRequired, 
+    setImageList: PropTypes.func.isRequired,
+    handleImageUpload: PropTypes.func.isRequired,
   };
   
   export default UploadBox;

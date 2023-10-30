@@ -462,7 +462,7 @@ export const datas = {
       collection: "comfort",
       section:"children",
       color:[ "Blue"],
-      size:["6", "8", "10", "12", "14", "16", "18", "20"],
+      size:["6", "8", "10"],
       src: ["/Images/untagg/ankarachild.png","/Images/untagg/ankarachild.png"],
       description: [
         "It is comfy",

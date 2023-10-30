@@ -22,7 +22,7 @@ export const SectionTwoTest = () => {
       spaceBetween: 10,
     },
     1024: {
-      slidesPerView: 5,
+      slidesPerView: 4,
       spaceBetween: 10,
       loop: true,
       centeredSlides: false,
@@ -41,7 +41,7 @@ export const SectionTwoTest = () => {
       </div>
 
       <Swiper
-        // navigation={true}
+
        slidesPerView={'auto'}
        watchSlidesProgress
        grabCursor={true}

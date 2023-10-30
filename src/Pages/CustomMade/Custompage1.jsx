@@ -13,7 +13,7 @@ const Custompage1 = () => {
       <i className="fas fa-arrow-left text-black"/>
 
       </div>
-      <div className=" pt-10 m-30  m-auto flex flex-col border border-black rounded-xl justify-center text-center text-black sm:px-10 w-1/2 sm:w-full">
+      <div className=" pt-10 m-30  m-auto flex flex-col border shadow-xl rounded-xl justify-center text-center text-black sm:px-10 w-1/2 sm:w-full">
    
         <h1 className="text-2xl text-center Aceh text-black">
         TO ORDER A CUSTOMIZED PRODUCT
@@ -25,7 +25,7 @@ const Custompage1 = () => {
        <li>Choose your preferred mode of taking measurement</li>
        <li>Submit form</li>
        </ul>
-       <div className="relative p-10 m-20 sm:m-5 sm:p-0 border-black rounded-xl  border bg-gray-300">
+       <div className="relative p-10 m-20 sm:m-5 sm:p-0 border rounded-xl  border bg-gray-200">
         <p className="sm:p-5 sm:m-5 ">Thank you for choosing our custom made service! We can’t wait to create something special for you</p>
         <div className="bg-black w-8 h-8 flex rounded-full text-white absolute top-0 right-0"><i className="fas fa-exclamation m-auto"/></div>
         </div>

@@ -91,7 +91,7 @@ const filterMenCollection = () => {
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
+              className="dropdown-content z-[1] menu p-2 shadow bg-gray-900 text-white rounded-box w-52"
             >
             <li onClick={clearFilter}>
                 <a>All</a>
@@ -115,7 +115,7 @@ const filterMenCollection = () => {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
+            className="dropdown-content z-[1] menu p-2 shadow bg-gray-900 text-white rounded-box w-52"
           >
             <li onClick={() => handleSort("asc")}>
               <a>Lowest to highest</a>

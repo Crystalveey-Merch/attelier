@@ -14,7 +14,9 @@ SwiperCore.use([Navigation, Thumbs]);
 
 // import {  Navigation  } from "swiper";
 
+
 const Productdes = () => {
+  
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   //   const products = datas.products;
@@ -84,7 +86,7 @@ const Productdes = () => {
     }
     const id = generateRandomId();
 
-    const cartDetails = {
+    const  cartDetails ={
       id: id,
       name: product.name,
       price: product.price,
@@ -284,4 +286,4 @@ const Productdes = () => {
   );
 };
 
-export default Productdes;
+export  default Productdes;
