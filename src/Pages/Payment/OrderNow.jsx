@@ -777,7 +777,7 @@ setReference(reference);
             {" "}
             PAY NOW
           </button>)}
-          {showModal && (
+         
             <>
           <dialog id="my_modal_5"  className="modal "  >
   <div className="modal-box bg-white">
@@ -798,13 +798,13 @@ setReference(reference);
 </div>
 
 
-    <button className="btn bg-sky-500 flex my-5 m-auto text-white" onClick={goBack}>Go Home</button>
+    <button className="btn bg-sky-500 flex my-5 m-auto text-white" onClick={goBack}>Go Back</button>
   
   </div>
   
  </dialog>
  </>
-          )}
+          
  <ToastContainer />
         </div>
       </div>

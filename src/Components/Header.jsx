@@ -267,7 +267,7 @@ export const Header = () => {
                 />
               </svg> */}
               {toggleAccount && (
-                <ul className="px-5 w-48 py-5 text-black bg-white shadow-2xl absolute top-5 -right-7 text-left flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
+                <ul className="px-5 w-52 py-5 my-2 text-black bg-white shadow-2xl absolute top-5 right-20 text-left flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
                   <li className="w-full">
                     <Link to="/" className=" text-sky-500  text-xs   hover:text-gray-750">
                     Welcome!{authUser ? ( <h1>{authUser.displayName}</h1>):("")}
