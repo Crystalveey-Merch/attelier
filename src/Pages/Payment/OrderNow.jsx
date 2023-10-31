@@ -1,7 +1,6 @@
 import React from "react";
 'use client';
 
-import { Button, Modal } from 'flowbite-react';
 import { useState } from "react";
 import { useCart } from "react-use-cart";
 import { Link, NavLink } from "react-router-dom";
