@@ -11,8 +11,10 @@ import { datas } from "../../assets/data";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../../firebase/auth";
-// import { cartDetails } from "../Productdes";
+import {db, auth} from "../../firebase/auth"
+import cartDetails from "../cardDetails";
+import { onAuthStateChanged } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore";
 
 import {
   CitySelect,
@@ -22,7 +24,7 @@ import {
 import "react-country-state-city/dist/react-country-state-city.css";
 import { PaystackButton } from "react-paystack";
 // import { useState } from "react";
-import { PAYSTACK_PUBLIC_KEY } from "/src/Pages/Payment/payment.js";
+import { PAYSTACK_PUBLIC_KEY } from "../../Pages/Payment/payment";
 
 const goBack = () => {
   window.history.back();
@@ -34,6 +36,24 @@ export const OrderNow = () => {
     const [product, setProduct] = useState({ id: null });
 
     const { productId } = useParams();
+
+    const [authUser, setAuthUser] = useState(null);
+
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
+
+  const userId = authUser?.uid;
    
     useEffect(() => {
         console.log(productId);
@@ -115,10 +135,11 @@ console.log(billingData)
   const [selectedDelivery, setSelectedDelivery] = useState("");
   const [selectePayment, setSelectedPayment] = useState("");
   const [selecteBilling, setSelectedBilling] = useState("");
+
+  const [reference, setReference] = useState("");
   const [emailForPayment, setEmailForPayment] = useState(""); // State to store email for payment
   const [showModal, setShowModal] = useState(false);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const isPaymentButtonVisible = Object.values(billingData).every((value) => value !== "");
 
@@ -150,6 +171,7 @@ console.log(billingData)
     text: "Pay Now",
     channels: ["card"],
     onSuccess: (reference) => {
+setReference(reference);
       console.log("Payment successful. Reference:", reference);
       toast.success(
         
@@ -186,24 +208,31 @@ console.log(billingData)
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    
     // Prepare the data to be stored in Firestore
     const orderData = {
       billingData: billingData,
       deliveryForm: deliveryForm,
       selectedDelivery: selectedDelivery,
       selectedPayment: selectePayment,
+      paymentReference: reference,
       totalCost: totalCost,
       orderDetails: orderDetails,
     };
-console.log(orderData)
+    if (userId) {
+      orderData.userid = userId;
+    }
     try {
       // Perform the Firebase action
-      const profileDocRef = doc(db, 'orders', orderDetails.name);
-      await setDoc(profileDocRef, orderData);
+      const ordersCollectionRef = collection(db, 'orders');
+      await addDoc(ordersCollectionRef, orderData);
 
       // Show the modal here, e.g., by setting a state variable
-      setShowModal(true);
+      document.getElementById('my_modal_5').showModal()
 
+     
+      // This function will navigate to the previous page
+      
       // You can also reset the form or perform other actions after success
     } catch (error) {
       console.error('Error submitting order: ', error);
@@ -733,6 +762,7 @@ console.log(orderData)
           </div>
           {selectePayment === "paystack" && isPaymentButtonVisible && (
             <PaystackButton
+            onClick={handleSubmit}
               className="bg-black px-10 py-3 mt-5 m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
               {...paymentData}
             />
@@ -750,7 +780,7 @@ console.log(orderData)
           </button>)}
           {showModal && (
             <>
-          <dialog id="my_modal_3" className="modal "  >
+          <dialog id="my_modal_5"  className="modal "  >
   <div className="modal-box bg-white">
     <form method="dialog">
       {/* if there is a button in form, it will close the modal */}
@@ -767,10 +797,10 @@ console.log(orderData)
     
   </ul>
 </div>
-<NavLink to="/">
 
-    <button className="btn flex my-5 m-auto text-white">Go Home</button>
-    </NavLink>
+
+    <button className="btn bg-sky-500 flex my-5 m-auto text-white" onClick={goBack}>Go Home</button>
+  
   </div>
   
  </dialog>

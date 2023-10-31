@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Thumbs } from "swiper/core";
 SwiperCore.use([Navigation, Thumbs]);
-
+import cartDetails from "./cardDetails.js";
 // import {  Navigation  } from "swiper";
 
 
@@ -30,7 +30,6 @@ const Productdes = () => {
   const [isActive2, setIsActive2] = useState(null);
   const [activeColorIndex, setActiveColorIndex] = useState(0);
   const swiperRef = useRef(null);
-
 
   const goBack = () => {
     window.history.back();
@@ -75,6 +74,17 @@ const Productdes = () => {
       swiperRef.current.slideTo(colorIndex);
     }
   };
+  
+  const orderDetails = () => {
+    // Set values in cartDetails
+    cartDetails.name = product.name;
+    cartDetails.price = product.price;
+    cartDetails.color = product.color[activeColorIndex];
+    cartDetails.collection = product.collection;
+    cartDetails.src = product.src[activeColorIndex];
+    cartDetails.size = text;
+
+  };
 
   const addToCart = () => {
     // const itemId = productId
@@ -86,7 +96,7 @@ const Productdes = () => {
     }
     const id = generateRandomId();
 
-    const  cartDetails ={
+     const  cartDetails ={
       id: id,
       name: product.name,
       price: product.price,
@@ -96,9 +106,9 @@ const Productdes = () => {
       // description: string[];
       size: text,
     };
+console.log(cartDetails);
 
     addItem(cartDetails);
-
     toast.success(
       <Link to="/cart">
         <div className="text-black text-sm ">
@@ -259,7 +269,7 @@ const Productdes = () => {
         </div>
 
         <div className="flex gap-5 my-10 sm:flex-col  sm:gap-4 text-white m-auto sm:w-full justify-center">
-          <Link to={`/ordernow/${productId}`}><button className="bg-black py-4  w-40 sm:w-full uppercase">Order Now </button></Link>
+          <Link onClick={orderDetails} to={`/ordernow/${productId}`}><button className="bg-black py-4  w-40 sm:w-full uppercase">Order Now </button></Link>
           <button onClick={addToCart} className="uppercase border-2 border-black   py-4  text-black bg-white w-40 sm:w-full">
            ADD TO CART
           </button>
@@ -285,5 +295,5 @@ const Productdes = () => {
     </div>
   );
 };
-
+// export { cartDetails }
 export  default Productdes;
