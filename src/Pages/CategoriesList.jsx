@@ -16,32 +16,32 @@ const CategoriesList = () => {
     
     <div>
     <div className=" grid grid-cols-3 sm:grid-cols-1 mx-5 gap-4  text-black">
-    <Link to="/category/accessories">
+    <Link to="/category/Accessories">
         <div className="flex bg-white border sm:h-auto  w-62 h-64 justify-center  px-5 ">
             <h1 className="text-xl AcehLight m-auto text-left">Accessories</h1>
             <img src="/Images/Fashionista/accessories.jpg" className="w-40 h-42 m-2 sm:w-14 sm:h-16"/>
         </div>
         </Link>
-        <Link to="/category/clothing">
+        <Link to="/category/Clothing">
         <div className="flex bg-white border sm:h-auto w-62 h-64 justify-center px-5 ">
             <h1 className="text-xl AcehLight m-auto text-left">Clothing</h1>
             <img src="/Images/newArrivals/image4_3.png" className="w-40 h-42 m-2 sm:w-14 sm:h-16"/>
         </div>
         </Link>
-        <Link to="/category/shoes">
+        <Link to="/category/Shoes">
         <div className="flex bg-white border sm:h-auto w-62 h-64 justify-center px-5  ">
             <h1 className="text-xl AcehLight m-auto text-left">Shoes</h1>
             <img src="/Images/Fashionista/shoes.jpg" className="w-40 h-42 m-2 sm:w-14 sm:h-16"/>
         </div>
         </Link>
-        <Link to="/category/two pieces">
+        <Link to="/category/Two-pieces">
     
         <div className="flex bg-white border sm:h-auto w-62 h-64 justify-center px-5 ">
             <h1 className="text-xl AcehLight m-auto text-left">Two Pieces</h1>
             <img src="/Images/newArrivals/image5.jpeg" className="w-40 h-42 m-2 sm:w-14 sm:h-16"/>
         </div>
         </Link>
-        <Link to="/category/hoodies">
+        <Link to="/category/Hoodies">
     
         <div className="flex bg-white border sm:h-auto w-62 h-64 justify-center px-5  ">
             <h1 className="text-xl AcehLight m-auto text-left">Hoodies</h1>
@@ -49,7 +49,7 @@ const CategoriesList = () => {
         </div>
         </Link>
     
-        <Link to="/category/merch">
+        <Link to="/category/Merch">
     
         <div className="flex bg-white border sm:h-auto w-62 h-64 justify-center  px-5 ">
             <h1 className="text-xl AcehLight m-auto text-left">Merch</h1>

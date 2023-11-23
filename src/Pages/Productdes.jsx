@@ -13,7 +13,19 @@ import SwiperCore, { Navigation, Pagination, Thumbs } from "swiper/core";
 SwiperCore.use([Navigation, Thumbs]);
 import cartDetails from "./cardDetails.js";
 // import {  Navigation  } from "swiper";
-
+import {
+  addDoc,
+  collection,
+  DocumentSnapshot,
+  endAt,
+  doc,
+  getDoc,
+  endBefore,
+  getDocs,
+  setDoc,
+ 
+} from "firebase/firestore";
+import { db } from "../firebase/auth.js";
 
 const Productdes = () => {
   
@@ -21,6 +33,7 @@ const Productdes = () => {
 
   //   const products = datas.products;
   const { addItem } = useCart();
+  
   const [product, setProduct] = useState("");
   const [text, setText] = useState("Select a size");
   const [color, setColor] = useState("Select a color");
@@ -35,6 +48,27 @@ const Productdes = () => {
     window.history.back();
   };
 
+
+useEffect(() => {
+  const fetchPosts = async () => {
+   
+      try {
+        const docRef = doc(db, "products", productId); 
+        const docSnapshot = await getDoc(docRef);
+
+        if (docSnapshot.exists()) {
+          setProduct(docSnapshot.data());
+        } else {
+          console.error(`Post with id '${productId}' not found.`);
+        }
+
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
+
+  fetchPosts();
+}, [productId]);
   //   const [currentImage, setCurrentImage] = useState(product.src); // Initial image source
 
   useEffect(() => {
@@ -81,7 +115,7 @@ const Productdes = () => {
     cartDetails.price = product.price;
     cartDetails.color = product.color[activeColorIndex];
     cartDetails.collection = product.collection;
-    cartDetails.src = product.src[activeColorIndex];
+    cartDetails.src = product.ImgSrc[activeColorIndex];
     cartDetails.size = text;
 
   };
@@ -102,7 +136,7 @@ const Productdes = () => {
       price: product.price,
       color: product.color[activeColorIndex], // Pass the active color here
       collection: product.collection,
-      src: product.src[activeColorIndex], // Pass the corresponding image URL
+      src: product.imgSrc[activeColorIndex], // Pass the corresponding image URL
       // description: string[];
       size: text,
     };
@@ -159,7 +193,7 @@ console.log(cartDetails);
           className="mySwiper2 my-10 sm:my-0 bg-stone-200 text-white"
           key={product.id}
         >
-          {product.src.map((src, id) => (
+          {product.imgSrc?.map((src, id) => (
             <SwiperSlide key={id} className="sm:wfull h-auto  bg-stone-200">
               <img
                 src={src}
@@ -286,7 +320,7 @@ console.log(cartDetails);
                 </li>
               ))}
             </ul>
-            {product.src.map((item, id) => (
+            {product.imgSrc?.map((item, id) => (
               <img key={id} src={item.src} className="text-sm py-2"></img>
             ))}
           </div>

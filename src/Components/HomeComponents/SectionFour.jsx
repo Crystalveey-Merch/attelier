@@ -61,7 +61,7 @@ export const SectionFour = () => {
         
         
             <SwiperSlide >
-            <Link to="/collection/afrocentric">
+            <Link to="/collection/Afrocentric Wears">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
                
@@ -86,7 +86,7 @@ export const SectionFour = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide >
-            <Link to="/collection/comfort">
+            <Link to="/collection/Comfort Wears">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
                 
@@ -111,7 +111,7 @@ export const SectionFour = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide >
-            <Link to="/collection/formal">
+            <Link to="/collection/Formal Wears">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
                 
@@ -136,7 +136,7 @@ export const SectionFour = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide >
-            <Link to="/collection/party">
+            <Link to="/collection/Party Wears">
 
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
@@ -162,7 +162,7 @@ export const SectionFour = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide >
-            <Link to="/collection/resort">
+            <Link to="/collection/Resort Wears">
 
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
@@ -189,7 +189,7 @@ export const SectionFour = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide >
-            <Link to="/collection/occasion">
+            <Link to="/collection/Occasion Wears">
 
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "

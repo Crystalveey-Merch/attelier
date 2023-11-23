@@ -8,7 +8,11 @@ import { db } from "../../../firebase/auth";
 import { toast } from "react-toastify";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { auth, storage } from "../../../firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc,addDoc,collection } from "firebase/firestore";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import { useEffect } from "react";
+import { useFileUpload } from "react-firebase-file-upload";
 
 const RefurblishP3 = () => {
   const goBack = () => {
@@ -22,20 +26,21 @@ const RefurblishP3 = () => {
   const [images, setImages] = useState([]);
 
   const handleRadioChange = (event) => {
-    setSendingOption(event.target.value);
-   
-    setFormData({
-      ...formData,
-      sendMethod: sendingOption,
-    });
+    const value = event.target.value;
+    setSendingOption(value);
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      sendMethod: value,
+    }));
   };
+  
   const handleRadioChange2 = (event) => {
-    
-    setReceiveOption(event.target.value);
-    setFormData({
-      ...formData,
-      receiveMethod: receiveOption,
-    });
+    const value = event.target.value;
+    setReceiveOption(value);
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      receiveMethod: value,
+    }));
   };
 
   const [formData, setFormData] = useState({
@@ -65,72 +70,51 @@ const RefurblishP3 = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleImagesUpload = (e) => {
-    const files = e.target.files;
-    const newImages = [];
-    const supportedFormats = [
-      "image/jpeg",
-      "image/jpg",
-      "image/gif",
-      "image/png",
-    ];
 
-    for (let i = 0; i < files.length; i++) {
-      if (newImages.length < 4) {
-        // Check the maximum limit
-        const file = files[i];
-        if (supportedFormats.includes(file.type)) {
-          newImages.push(file); // Store the file itself in the newImages array
-        } else {
-          alert(`Unsupported file format: ${file.type}`);
-        }
-      } else {
-        alert("Maximum limit of 4 images reached.");
-        break;
-      }
-    }
-    // Set images in state and upload to Firebase Storage
-    setImages([...images, ...newImages]);
-    handleImageUpload(images);
-    console.log(...images);
-  };
 
-  const handleImageUpload = () => {
-    const urls = [];
-    const supportedFormats = [
-      "image/jpeg",
-      "image/jpg",
-      "image/gif",
-      "image/png",
-    ];
 
-    const uploadPromises = images.map(async (file) => {
-      if (supportedFormats.includes(file.type)) {
-        const storageRef = ref(storage, file.name);
+  const _input = useFileUpload(storage, {
+    // the type of files to upload
+    accept: "image/png, image/jpeg, image/jpg, image/webp",
+    // whether to accept multiple files or just one
+    multiple: true,
+    // where you want to save the uploaded files in firebase storage
+    path: `product-images`,
+  });
+  const {
+    /** Input type */
+    type,
+    /** Accepted file types (e.g. "image/png, image/jpeg") */
+    accept,
+    /** Allow multiple files to be selected */
+    multiple,
+    /** Disable input */
+    disabled,
+    /** onChange event to set selected files */
+    onChange,
+    /** Selected files */
+    files,
+    /** Loading state */
+    loading,
+    /** Error message */
+    error,
+    /** Upload progress for each file */
+    progress,
+    /** Upload status for each file */
+    status,
+    /** Download URL for each file */
+    downloadURL,
+    /** Upload complete state */
+    isCompleted,
+    /** Upload files to firebase storage */
+    onUpload,
+    /** Reset states when finished uploading */
+    onUploadComplete,
+    /** Remove file from selected files */
+    onRemove,
+  } = _input;
 
-        try {
-          const snapshot = await uploadBytesResumable(storageRef, file);
-          const downloadURL = await getDownloadURL(snapshot.ref);
-          urls.push(downloadURL);
-        } catch (error) {
-          console.error("Error uploading image: ", error);
-        }
-      } else {
-        alert(`Unsupported file format: ${file.type}`);
-      }
-    });
 
-    Promise.all(uploadPromises)
-      .then(() => {
-        toast.success("All images uploaded successfully");
-        // Store the download URLs in your state or perform any other desired actions
-        setImageUrl(urls);
-      })
-      .catch((error) => {
-        console.error("Error uploading images:", error);
-        toast.error("Failed to upload images");
-      });
-  };
   const removeImage = (index) => {
     const updatedImages = [...images];
     updatedImages.splice(index, 1);
@@ -139,18 +123,20 @@ const RefurblishP3 = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await handleImageUpload(images);
-    setFormData({
-      ...formData,
-      images: imageUrl,
-    });
+
+   
     console.log(formData);
+    const currentDate = new Date().toLocaleString();
+
     try {
       // Initialize Firebase if you haven't already
       // Add the form data to Firestore
-      const profileDocRef = doc(db, "refurblish", formData.phone); // Assuming you have a "profiles" collection in Firebase
-      await setDoc(profileDocRef, formData);
-      console.log(formData);
+      await addDoc(collection(db, "refurblish"), {
+        ...formData,
+        images: downloadURL,
+        dateTime: currentDate,
+
+      });
       // Reset the form after successful submission
       setFormData({
         firstName: "",
@@ -166,7 +152,7 @@ const RefurblishP3 = () => {
         accountDetails: "",
         images: [],
       });
-
+      onUploadComplete()
       // Display a success message or redirect the user
       toast.success("Form submitted successfully!");
     } catch (error) {
@@ -212,7 +198,7 @@ const RefurblishP3 = () => {
           </div>
 
           <div className="my-10 sm:px-5 text-black">
-            <form className="AcehLight" onSubmit={handleSubmit}>
+            <form className="AcehLight px-20 sm:px-0" onSubmit={handleSubmit}>
               <label className="Aceh"> Name:</label>
               <div className="flex flex-row gap-4 w-full m-auto  ">
                 <input
@@ -288,20 +274,23 @@ const RefurblishP3 = () => {
                 <span className=" flex gap-3">
                   <input
                     type="radio"
+                    id="radio-2"
+
                     name="radio-2"
-                    value="drop-off"
-                    checked={sendingOption === "drop-off"}
+                    value="pick-up"
+                    checked={sendingOption === "pick-up"}
                     onChange={handleRadioChange}
                     className="radio border-gray-600"
                   />
-                  <p>Drop off at the Refurblish centre</p>
+                  <p> Drop off at the Refurblish centre</p>
                 </span>
                 <span className=" flex gap-3">
                   <input
                     type="radio"
-                    name="radio-2"
-                    value="pick-up"
-                    checked={sendingOption === "pick-up"}
+                    id="radio-1"
+                    name="radio-1"
+                    value="drop-off"
+                    checked={sendingOption === "drop-off"}
                     onChange={handleRadioChange}
                     className="radio border-gray-600"
                   />
@@ -310,30 +299,34 @@ const RefurblishP3 = () => {
               </div>
 
               <label className="Aceh">
-                How will receive your refurbish item?{" "}
+                How will you receive your refurbish item?{" "}
               </label>
               <div className="flex flex-col gap-3 mb-5">
                 <span className=" flex gap-3">
                   <input
                     type="radio"
-                    name="radio-1"
+                    id="radio-3"
+                    name="radio-3"
                     checked={receiveOption === "pick-up"}
                     onChange={handleRadioChange2}
                     value="pick-up"
                     className="radio border-gray-600"
                   />
-                  <p>- Pick up from the Refurbish centre</p>
+                  <label htmlFor="radio-3">Deliver to my address </label>
                 </span>
                 <span className=" flex gap-3">
                   <input
                     type="radio"
-                    name="radio-1"
+                    id="radio-4"
+                    name="radio-4"
                     value="deliver"
                     checked={receiveOption === "deliver"}
                     onChange={handleRadioChange2}
                     className="radio border-gray-600"
                   />
-                  <p>Deliver to my address</p>
+                  <label htmlFor="radio-4">
+                    Pick up from the Refurbish centre
+                  </label>
                 </span>
               </div>
 
@@ -341,12 +334,11 @@ const RefurblishP3 = () => {
                 Please describe issues with your item in details
               </label>
               <textarea
-              name="itemIssues"
+                name="itemIssues"
                 className="w-full h-40  bg-white border  p-5"
                 value={formData.itemIssues} // Set the value from the state
                 onChange={handleInputChange}
               ></textarea>
-           
 
               <br></br>
               <label className="Aceh">
@@ -366,46 +358,94 @@ const RefurblishP3 = () => {
                 Upload clear images of each item, specifically the problem area
                 that needs refurbishing
               </label>
-              <div className="upload-boxes flex gap-4 my-5">
-                <div className="upload-box relative ">
-                  <label
-                    htmlFor="image-upload"
-                    className="upload-icon text-sm z-20 h-full w-full  flex m-auto ipointer "
-                  >
-                    <span className="m-auto text-sm">+ Add Images</span>
-                  </label>
-                  <input
-                    type="file"
-                    id="image-upload"
-                    accept=".jpeg, .jpg, .gif, .png"
-                    onChange={handleImagesUpload}
-                    style={{ display: "none" }}
-                    multiple // Allow multiple file selection
+              <div className="flex items-center justify-center w-full p-5">
+          <label
+            htmlFor="dropzone-file"
+            className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+          >
+            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+              <svg
+                className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 16"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                />
+              </svg>
+              <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                <span className="font-semibold">Click to upload</span> or drag
+                and drop
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                SVG, PNG, JPG or GIF (MAX. 800x400px)
+              </p>
+            </div>
+            <input
+              id="dropzone-file"
+              className="hidden"
+              type={type}
+              accept={accept}
+              multiple={multiple}
+              disabled={disabled}
+              onChange={onChange}
+            />
+          </label>
+        </div>
+        <div className="flex gap-4 my-4">
+          {files &&
+            files.map((file, index) => (
+              <div key={index} className="">
+                {file.type?.includes("image") && (
+                  <img
+                    src={URL.createObjectURL(file)}
+                    alt="preview"
+                    style={{
+                      width: "100px",
+                      height: "100px",
+                      objectFit: "cover",
+                    }}
+                    className="rounded-full"
                   />
-                </div>
-                <div className="image-preview-container flex m-5  flex-wrap gap-3">
-                  {imageUrl.map((image, index) => (
-                    <div
-                      className="image-preview w-40 h-40 sm:w-20 sm:h-20    "
-                      key={index}
-                    >
-                      <img
-                        src={image}
-                        alt={`Preview ${index}`}
-                        className="w-full h-full rounded-full"
-                      />
-                      <button
-                        className="remove-image-button text-red-500"
-                        onClick={() => removeImage(index)}
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  ))}
+                )}
+                <div onClick={() => onRemove(file)} className="text-red-500">
+                  Remove
                 </div>
               </div>
-              <p className="my-2">Max File size: 3mb, Max file: 4</p>
-              <button className="p-4 flex m-auto text-center bg-black px-10 my-10 text-white rounded">
+            ))}
+        </div>
+        {progress &&
+          Object.keys(progress).map((key, index) => (
+            <div
+              key={index}
+              className="w-full bg-gray-200 rounded-full dark:bg-gray-700"
+            >
+              <div
+                className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full transition duration-400 ease-in-out"
+                style={{ width: `${progress[key]}%` }}
+              >
+                {" "}
+                {progress[key]}%
+              </div>
+            </div>
+          ))}
+        {loading && <p>Loading...</p>}
+        {error && <p>Error: {error}</p>}
+        {isCompleted && <div className="text-green-500">Upload Complete</div>}
+        <div className="btn" onClick={onUpload}>
+          Upload
+        </div>
+              <button
+                type="submit"
+                className=" btn p-4 flex m-auto text-center bg-black px-10 my-10 text-white rounded"
+                disabled={!isCompleted }
+              >
                 Submit{" "}
               </button>
             </form>

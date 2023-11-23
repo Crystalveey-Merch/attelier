@@ -40,8 +40,13 @@ import RefurblishandSell from "./Pages/untagged/Refurblish/RefurblishandSell";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import NotFound from "./Pages/NotFound";
 import { ToastContainer } from "react-toastify";
-import AdminDash from "./Pages/AdminDash";
-
+import UploadProduct from "./Pages/Admin/Dashboard/UploadProduct";
+import AdminDashboard from "./Pages/Admin/Dashboard/AdminDashboard";
+import AllProducts from "./Pages/Admin/Dashboard/AllProducts";
+import RefurblishList from "./Pages/Admin/Dashboard/Refurblish";
+import UntagSell from "./Pages/Admin/Dashboard/UntagSell";
+import RefurblishAndSell from "./Pages/Admin/Dashboard/RefurblishAndSell";
+import CustonMade from "./Pages/Admin/Dashboard/CustomMade";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -141,11 +146,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <Dashboard />
-              </ProtectedRoute>
+              </ProtectedRoute> 
             }
           />
            <Route path="*" element={<NotFound />} />
-           <Route path="/admindash" element={<AdminDash />} />
+           <Route path="/admindash" element={<AdminDashboard />} >
+           <Route path="/admindash/uploadproduct" element={<UploadProduct />} />
+           <Route path="/admindash/products" element={<AllProducts />} />
+           <Route path="/admindash/uploadproduct/:id" element={<UploadProduct />} />
+           <Route path="/admindash/refurblish" element={<RefurblishList />} />
+           <Route path="/admindash/RefurblishAndSell" element={<RefurblishAndSell />} />
+           <Route path="/admindash/custommade" element={<CustonMade />} />
+
+
+
+
+           </Route>
 
         </Routes>
         <ToastContainer />

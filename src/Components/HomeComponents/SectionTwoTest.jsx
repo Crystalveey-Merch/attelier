@@ -59,84 +59,9 @@ export const SectionTwoTest = () => {
         className="mySwiper w-full  px-4 sm:px-0 lg:px-10"
       >
         
-{/*          
-            <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/children">
-              <div
-                className=" w-full h-full  rounded-full relative   cursor-pointer "
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(null)}
-              >
-              <div className="  overflow-hidden ">
-                <img
-                  src= "/Images/sec2.2/girl.jpeg"
-                  alt="children"
-                  className="w-full m-auto imghgt2 "
-                  style={{ height: "260px", width: "400px" }}
-                />
-                </div>
-               
-              </div>
-              <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
-                <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
-                  Chidren
-                </h5>
-               
-              </div>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/women">
-              <div
-                className=" w-full h-full  rounded-full relative   cursor-pointer "
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(null)}
-              >
-              <div className="  overflow-hidden ">
-                <img
-                  src= "/Images/sec2.2/woman.jpeg"
-                  alt="children"
-                  className="w-full m-auto imghgt2 "
-                  style={{ height: "260px", width: "400px" }}
-                />
-                </div>
-               
-              </div>
-              <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
-                <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
-                  Women
-                </h5>
-               
-              </div>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/men">
-              <div
-                className=" w-full h-full  rounded-full relative   cursor-pointer "
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(null)}
-              >
-              <div className="  overflow-hidden ">
-                <img
-                  src= "/Images/sec2.2/men.jpeg"
-                  alt="children"
-                  className="w-full m-auto imghgt2 "
-                  style={{ height: "260px", width: "400px" }}
-                />
-                </div>
-               
-              </div>
-              <div className=" flex flex-col m-auto justify-center gap-1 sm:gap-2   p-5">
-                <h5 className=" text-gray-900 font-light text-x Aceh font-sans sm:text-x">
-                  Men
-                </h5>
-               
-              </div>
-              </Link>
-              </SwiperSlide> */}
+
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/accessories">
+              <Link to="/category/Accessories">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -161,7 +86,7 @@ export const SectionTwoTest = () => {
               </Link>
               </SwiperSlide>
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/clothing">
+              <Link to="/category/Clothing">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -188,7 +113,7 @@ export const SectionTwoTest = () => {
               </SwiperSlide>
            
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/shoes">
+              <Link to="/category/Shoes">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -213,7 +138,7 @@ export const SectionTwoTest = () => {
               </Link>
               </SwiperSlide>
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/two pieces">
+              <Link to="/category/Two-pieces">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -238,7 +163,7 @@ export const SectionTwoTest = () => {
               </Link>
               </SwiperSlide>
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/hoodies">
+              <Link to="/category/Hoodies">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}
@@ -263,7 +188,7 @@ export const SectionTwoTest = () => {
               </Link>
               </SwiperSlide>
               <SwiperSlide  className="  m-auto sm:mx-0">
-              <Link to="/category/merch">
+              <Link to="/category/Merch">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
                 onMouseEnter={() => setIsHovered(true)}

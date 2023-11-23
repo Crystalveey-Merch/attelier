@@ -53,29 +53,29 @@ export const OrderNow = () => {
   }, []);
 
   const userId = authUser?.uid;
+  
+  useEffect(() => {
+    const fetchPosts = async () => {
+     
+        try {
+          const docRef = doc(db, "products", productId); 
+          const docSnapshot = await getDoc(docRef);
+  
+          if (docSnapshot.exists()) {
+            setProduct(docSnapshot.data());
+          } else {
+            console.error(`Post with id '${productId}' not found.`);
+          }
+  
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+  
+    fetchPosts();
+  }, [productId]);
    
-    useEffect(() => {
-        console.log(productId);
-        console.log("datas:", datas);
-    
-        const allProducts = [
-          ...datas.children,
-          ...datas.women,
-          ...datas.men,
-          ...datas.untagged,
-        ];
-        const selectedProduct = allProducts.find(
-            (p) => p.id === parseInt(productId)
-          );
-        console.log(productId);
-    
-        if (selectedProduct) {
-          // Now you can safely use selectedProduct
-           setProduct(selectedProduct);
-          // ...
-        }
-      }, [product.id, productId]);
-      
+
      
 
   const [billingData, setBillingData] = useState({

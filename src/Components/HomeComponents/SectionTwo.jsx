@@ -1,14 +1,52 @@
 import { datas } from "../../assets/data.js";
-
+import { useEffect, useState } from "react";
+import {
+  addDoc,
+  collection,
+  DocumentSnapshot,
+  endAt,
+  endBefore,
+  getDocs,
+  setDoc,
+ 
+} from "firebase/firestore";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {  Pagination, Navigation, Autoplay } from "swiper";
 import { Link } from "react-router-dom";
-
+import { db } from "../../firebase/auth.js";
 export const SectionTwo = () => {
-  const allProducts = [...datas.children, ...datas.women, ...datas.men];
+
+
+  const [products, setProducts] = useState([]);
+
+
+
+useEffect(() => {
+  const fetchPosts = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "products"));
+      const postData = [];
+      querySnapshot.forEach((doc) => {
+        // Extract the data from each document
+        const post = doc.data();
+        post.id = doc.id;
+        postData.push(post);
+      });
+      const newArrival = postData.filter((product) => product.newarrival === "True");
+      setProducts(newArrival);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+      setProducts([]);
+    }
+  };
+
+  fetchPosts();
+}, []);
+console.log(products) 
+ const allProducts = [...datas.children, ...datas.women, ...datas.men];
   
   const newArrival = () => {
     return allProducts.filter((product) => product.newarrival);
@@ -72,7 +110,7 @@ export const SectionTwo = () => {
         modules={[ Autoplay]}
         className="mySwiper w-full "
       >
-        {newArrival().map((item) => {
+        {products.map((item) => {
           return (
             <SwiperSlide key={item.id} className="mx-2">
             <Link to={`/productdes/${item.id}`}>
@@ -82,7 +120,7 @@ export const SectionTwo = () => {
               >
               <div className="w-full flex justify-center bg-stone-200 overflow overflow-hidden">
                 <img
-                  src={item.src[0]}
+                  src={item.imgSrc[0]}
                   alt={item.name}
                   className="w-full   imghgt2"
                   style={{ height: "330px", width: "200px" }}

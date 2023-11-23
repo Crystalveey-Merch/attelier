@@ -3,11 +3,12 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   FacebookAuthProvider,
-  
+  signInWithRedirect,
+  getRedirectResult
 } from "firebase/auth";
 import "firebase/auth";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth } from "../firebase/auth.js";
 import { db } from "../firebase/auth";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -19,33 +20,45 @@ const Login = () => {
   const navigate = useNavigate();
 
   const signInWithGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-    provider.addScope("profile");
-    provider.addScope("email");
-
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
-
-    // The signed-in user info.
-
-    // This gives you a Google Access Token.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const userRef = doc(db, "users", result.user.uid);
-    const userDetails = {
-      name: user.displayName,
-      email: user.email,
+    try {
+      const provider = new GoogleAuthProvider();
+      provider.addScope("profile");
+      provider.addScope("email");
+      await signInWithRedirect(auth, provider);
+    } catch (error) {
+      console.error("Firebase Error:", error.code, error.message);
+      // Handle the error here, display an error message, or perform any other desired action
+    }
+  };
+  useEffect(() => {
+    const handleRedirectResult = async () => {
+      try {
+        const result = await getRedirectResult(auth);
+        if (result.user) {
+          const user = result.user;
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const userRef = doc(db, "users", result.user.uid);
+          const userDetails = {
+            name: user.displayName,
+            email: user.email,
+          };
+          const docSnapshot = await getDoc(userRef);
+          if (docSnapshot.exists()) {
+            await updateDoc(userRef, userDetails);
+          } else {
+            await setDoc(userRef, userDetails);
+          }
+          toast.success(<div className="text-black text-sm ">Login Successful</div>);
+          navigate("/");
+        }
+      } catch (error) {
+        console.error("Firebase Error:", error.code, error.message);
+        // Handle the error here, display an error message, or perform any other desired action
+      }
     };
 
-    const docSnapshot = await getDoc(userRef);
-    if (docSnapshot.exists()) {
-      await updateDoc(userRef, userDetails);
-    } else {
-      await setDoc(userRef, userDetails);
-    }
-    toast.success(<div className="text-black text-sm ">Login Successful</div>);
-    navigate("/");
-  };
-
+  handleRedirectResult();
+}, []);
   const signInwithFacebook = async () => {
     
     const provider = new FacebookAuthProvider();

@@ -12,6 +12,17 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  addDoc,
+  collection,
+  DocumentSnapshot,
+  endAt,
+  endBefore,
+  getDocs,
+  setDoc,
+ 
+} from "firebase/firestore";
+import { db } from "../firebase/auth.js";
 
 export const Header = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -42,16 +53,32 @@ export const Header = () => {
       .catch((error) => toast.error(error));
   };
 
+  const [products, setProducts] = useState([]);
 
   const { productId } = useParams();
 
-  const allProducts = [
-    ...datas.children,
-    ...datas.women,
-    ...datas.men,
-    ...datas.untagged,
-  ];
-  const selectedProduct = allProducts.find((p) => p.id === parseInt(productId));
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "products"));
+        const postData = [];
+        querySnapshot.forEach((doc) => {
+          // Extract the data from each document
+          const post = doc.data();
+          post.id = doc.id;
+          postData.push(post);
+        });
+        setProducts(postData);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+        setProducts([]);
+      }
+    };
+  
+    fetchPosts();
+  }, []);
+
+ 
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
@@ -81,7 +108,7 @@ export const Header = () => {
     return (
       <>
         <div className="flex  gap-1" id={item.id}>
-          <img src={item.src[0]} className="w-10" />
+          <img src={item.imgSrc[0]} className="w-10" />
           <div className="flex-col m-auto">
             <span
               className="Aceh"
@@ -221,7 +248,7 @@ export const Header = () => {
 
                 <div className="my-1 w-full Quicksand  ">
                   <ReactSearchAutocomplete
-                    items={allProducts}
+                    items={products}
                     onSearch={handleOnSearch}
                     onHover={handleOnHover}
                     onSelect={handleOnSelect}
