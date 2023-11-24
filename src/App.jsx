@@ -47,6 +47,7 @@ import RefurblishList from "./Pages/Admin/Dashboard/Refurblish";
 import UntagSell from "./Pages/Admin/Dashboard/UntagSell";
 import RefurblishAndSell from "./Pages/Admin/Dashboard/RefurblishAndSell";
 import CustonMade from "./Pages/Admin/Dashboard/CustomMade";
+import Orders from "./Pages/Admin/Dashboard/Orders";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -157,6 +158,7 @@ function App() {
            <Route path="/admindash/refurblish" element={<RefurblishList />} />
            <Route path="/admindash/RefurblishAndSell" element={<RefurblishAndSell />} />
            <Route path="/admindash/custommade" element={<CustonMade />} />
+           <Route path="/admindash/orders" element={<Orders />} />
 
 
 

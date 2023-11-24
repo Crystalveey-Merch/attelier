@@ -144,7 +144,7 @@ const AdminDashboard = () => {
                       <li><NavLink to='products'>All Products</NavLink></li>
                       <li><NavLink to='refurblish'>Refurblish </NavLink></li>
                       <li><NavLink to='RefurblishaAndSell'>Refurblish  & Sell</NavLink></li>
-                      <li><NavLink to='bookmarks'>Orders</NavLink></li>
+                      <li><NavLink to='orders'>Orders</NavLink></li>
                       <li><NavLink to='settings'>Users</NavLink></li>
                       <li><NavLink to='untagsell'>Untag Sell</NavLink></li>
                       <li><NavLink to='custommade'>Custom Made</NavLink></li>

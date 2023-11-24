@@ -13,6 +13,8 @@ import { PaystackButton } from "react-paystack";
 import { PAYSTACK_PUBLIC_KEY } from "/src/Pages/Payment/payment.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfo } from "@fortawesome/free-solid-svg-icons";
 
 const goBack = () => {
   window.history.back();
@@ -306,6 +308,10 @@ const Checkout = () => {
                         onChange={(e) => setDeliveryForm({ ...deliveryForm, phoneNumber: e.target.value })}
 
                       ></input>
+                    </div>
+                    <div className="bg-sky-500 flex m-auto text-white p-4 text-center">
+                    <FontAwesomeIcon icon={faInfo} className="border m-auto  px-4 py-3 rounded-full"/>
+                      <p className="text-center text-xl m-auto">Delivery fees to any Location is carged at  N5000</p>
                     </div>
                     <button id="submit1" className=" hidden">
                       submit

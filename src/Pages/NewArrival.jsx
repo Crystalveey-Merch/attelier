@@ -165,15 +165,6 @@ setLoading(false)
             </li>
           </ul>
         </div>
-        {/* <div
-        onClick={() => clearFilter()}
-        className=" border rounded  p-2 border-black "
-      >
-        <i className="fas fa-x" />{" "}
-        <a className="text-red-500 hover:underline cursor-pointer ">
-          Clear filters
-        </a>
-      </div> */}
       </div>
       <hr></hr>
       <div className="flex mt-1  justify-center">

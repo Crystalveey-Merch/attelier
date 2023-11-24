@@ -15,6 +15,7 @@ const Refurblish = () => {
   const [category, setCategory] = useState("");
   const [imageUrl, setImageUrl] = useState([]);
   const [images, setImages] = useState([]);
+  const userId = auth.currentUser.uid;
 
   const goBack = () => {
     window.history.back();
@@ -110,6 +111,7 @@ const Refurblish = () => {
         ...formData,
         images: downloadURL,
         dateTime: currentDate,
+        userId: userId  
 
       });
       console.log(formData);

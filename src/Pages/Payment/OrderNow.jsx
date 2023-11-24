@@ -53,7 +53,7 @@ export const OrderNow = () => {
   }, []);
 
   const userId = authUser?.uid;
-  
+
   useEffect(() => {
     const fetchPosts = async () => {
      
@@ -207,9 +207,11 @@ setReference(reference);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    
+        const currentDate = new Date().toLocaleString();
+
     // Prepare the data to be stored in Firestore
     const orderData = {
+      dateTime: currentDate,
       billingData: billingData,
       deliveryForm: deliveryForm,
       selectedDelivery: selectedDelivery,
@@ -217,9 +219,10 @@ setReference(reference);
       paymentReference: reference,
       totalCost: totalCost,
       orderDetails: orderDetails,
+
     };
     if (userId) {
-      orderData.userid = userId;
+      orderData.userId = userId;
     }
     try {
       // Perform the Firebase action

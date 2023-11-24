@@ -117,65 +117,50 @@ const UntagBuy = () => {
         </div>
         <p className="text-center text-md px-5">Welcome to our recommerce site! Here you will find a wide range of pre owned goods that are in good condition and ready for a new home.
 </p>
-        <div className=" text-black AcehLight bg-white text-l  sm:py-1  flex sm:justify-between px-5  sm:justify-left py-2 sm:gap-5  w-full gap-10 sm:gap-2">
-          <div className="dropdown">
-            <label
-              tabIndex={0}
-              className=" flex justify-center    hover:border-b"
-            >
-              <span className="m-auto flex gap-2 p-2 uppercase ">
-                
-                Filter
-               
-              </span>
-              {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
-              
-            </label>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-800 text-black rounded-box w-52"
-            >
-             <li onClick={clearFilter}>
-                <a>All</a>
-              </li>
-              <li onClick={filterMenCollection}>
-                <a>Men</a>
-              </li>
-              <li onClick={filterWomenCollection}>
-                <a>Women</a>
-              </li>
-              <li onClick={filterChildrenCollection}>
-                <a>Children</a>
-              </li>
-            </ul>
-          </div>
-          {/* <div
-            onClick={() => clearFilter()}
-            className="  p-2 text-sm "
+       <div className="text-gray-800 AcehLight text-l  sm:py-1  flex sm:justify-between px-5  sm:justify-left py-2 sm:gap-5  w-full gap-10 sm:gap-2">
+        <div className="dropdown   ">
+          <label
+            tabIndex={0}
+            className=" flex justify-center    hover:border-b"
           >
-            <i className="fas fa-x" />{" "}
-            <a className="text-red-500 hover:underline cursor-pointer ">
-              Clear filters
-            </a>
-          </div> */}
-          <div className="dropdown   dropdown-end  rounded p-2 ">
-            <label tabIndex={0} className=" m-auto flex gap-2 uppercase ">
-              
-              Sort by
-            
-            </label>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 text-white rounded-box w-52"
-            >
-              <li onClick={() => handleSort("asc")}>
-                <a>Lowest to highest</a>
-              </li>
-              <li onClick={() => handleSort("desc")}>
-                <a>Highest to Lowest</a>
-              </li>
-            </ul>
-          </div>
+            <span className="m-auto flex gap-2 p-2 uppercase ">Filter</span>
+            {/* <h1 className="px-2 ">{filteredProducts.length} Results</h1> */}
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content z-[1] menu p-2 shadow bg-gray-900 text-white light:text-black rounded-box w-52"
+          >
+            <li onClick={clearFilter}>
+              <a>All</a>
+            </li>
+            <li onClick={filterMenCollection}>
+              <a>Men</a>
+            </li>
+            <li onClick={filterWomenCollection}>
+              <a>Women</a>
+            </li>
+            <li onClick={filterChildrenCollection}>
+              <a>Children</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="dropdown  dropdown-end  rounded p-2">
+          <label tabIndex={0} className="m-auto uppercase flex gap-2  ">
+            Sort by
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content z-[1] menu p-2 shadow bg-gray-900 light:text-black text-white rounded-box w-52"
+          >
+            <li onClick={() => handleSort("asc")}>
+              <a>Lowest to highest</a>
+            </li>
+            <li onClick={() => handleSort("desc")}>
+              <a>Highest to Lowest</a>
+            </li>
+          </ul>
+        </div>
          
         </div>
        

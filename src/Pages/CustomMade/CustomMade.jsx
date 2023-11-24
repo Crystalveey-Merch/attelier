@@ -103,13 +103,16 @@ const CustomMade = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-   
+    const currentDate = new Date().toLocaleString();
+
     // setLoading(true)
       try {
         await addDoc(collection(db, "custommade"), {     
 
           ...form,
             images: downloadURL,
+            dateTime: currentDate,
+
           });
 
         console.log("Profile submitted successfully!");

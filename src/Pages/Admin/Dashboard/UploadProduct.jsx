@@ -159,6 +159,7 @@ useEffect(() => {
     fabricType: [],
     filter:[],
     newarrival: "",
+    giftcards: "", 
     untagged:"",
     collection: "",
     imgSrc: [],
@@ -179,6 +180,13 @@ useEffect(() => {
       collection: e.target.value,
     });
   };
+  const handleGiftcardChange = (e) => {
+    setFormData({
+      ...formData,
+      giftcards: e.target.value,
+    });
+  };
+  
   const handleNewArrivalChange = (e) => {
     setFormData({
       ...formData,
@@ -253,6 +261,7 @@ console.log(downloadURL)
           filter:[],
           fabricType: [],
           newarrival: "",
+          giftcards: "", 
           untagged:"",
           collection: "",
           imgSrc: [],
@@ -570,6 +579,23 @@ console.log(downloadURL)
             <option value="Children">Children</option>
             <option value="Giftcards">GiftCard</option>
 
+          </select>
+        </div>
+        <div>
+          <label className="Aceh">Giftcard (True/False)</label>
+          <br />
+          <select
+            type="text"
+            name="giftcards"
+            value={formData.giftcards} // Set the value from the state
+            onChange={handleGiftcardChange}
+            className="p-3 my-4 bg-white border  w-96"
+          >
+            <option  className="text-gray-500">
+              Select
+            </option>
+            <option value="True">True</option>
+            <option value="False">False</option>
           </select>
         </div>
         <br></br>
