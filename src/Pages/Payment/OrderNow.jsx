@@ -17,7 +17,6 @@ import { collection, addDoc } from "firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo } from "@fortawesome/free-solid-svg-icons";
 
-
 import {
   CitySelect,
   CountrySelect,
@@ -27,6 +26,7 @@ import "react-country-state-city/dist/react-country-state-city.css";
 import { PaystackButton } from "react-paystack";
 // import { useState } from "react";
 import { PAYSTACK_PUBLIC_KEY } from "../../Pages/Payment/payment";
+import { Helmet } from "react-helmet-async";
 
 const goBack = () => {
   window.history.back();
@@ -222,6 +222,11 @@ export const OrderNow = () => {
 
   return (
     <>
+    <Helmet>
+     <title>Order Now : {product.name}</title>
+    <meta name='description' content='Payment Page'/>
+    <link rel=" canonical"  href='/ordernow/'/>
+    </Helmet>
       <div className="mt-24 text-black pt-5 sm:mt-16 w-full AcehLight   ">
         <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
           <i className="fas fa-arrow-left text-black" />

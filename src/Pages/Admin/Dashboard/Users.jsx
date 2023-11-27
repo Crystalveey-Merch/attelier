@@ -7,7 +7,6 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { deleteUser as deleteAuthUser } from "firebase/auth";
-import "flowbite";
 
 import { auth, db } from "../../../firebase/auth";
 import { NavLink } from "react-router-dom";
