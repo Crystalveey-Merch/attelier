@@ -38,6 +38,7 @@ const CustonMade = () => {
             const productsDoc = doc.data();
             productsDoc.id = doc.id;
             productsData.push(productsDoc);
+           
             productsIds.push(doc.id);
 
             if (Array.isArray(productsDoc.tags)) {
@@ -50,6 +51,9 @@ const CustonMade = () => {
             }
           })
         );
+         productsData.sort((a, b) => {
+          return b.dateTime - a.dateTime;
+        });
 
         // Set the productsId state with the collected custonMade IDs
         setCustonMadeId(productsIds);
@@ -107,7 +111,7 @@ const CustonMade = () => {
   };
   console.log(custonMade);
   return (
-    <div>CustonMade
+    <div className='p-5'>CustonMade
      <div >
         <label htmlFor="table-search" className="sr-only">
           Search
@@ -138,10 +142,13 @@ const CustonMade = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className="relative overflow-auto w-screen shadow-md sm:rounded-lg m-8 sm:w-full w-10/12 m-auto ">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div className="relative overflow-scroll shadow-md sm:rounded-lg m-8 sm:w-screen  m-auto  ">
+         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+         <thead className="text-xs text-gray-300 uppercase bg-gray-800 dark:bg-gray-700 dark:text-gray-400">
               <tr>
+              <th scope="col" className="px-6 py-3">
+                  Date
+                </th>
               <th scope="col" className="px-6 py-3">
                   Name
                 </th>
@@ -165,12 +172,19 @@ const CustonMade = () => {
                 <th scope="col" className="px-6 py-3">
                   Images
                 </th>
-             
+                <th scope="col" className="px-6 py-3">
+                  Action
+                </th>
               </tr>
             </thead>
             {currentCustonMade?.map((products) => (
               <tbody key={products.id}>
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td
+                      scope="row"
+                      className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+{products.dateTime}                    </td>
                 <td
                       scope="row"
                       className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"

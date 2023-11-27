@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
-import { auth, db } from "../../../firebase/auth";
+import { auth, db } from "../../firebase/auth";
 // import { useParams } from 'react-router';
 import { NavLink } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
@@ -11,104 +11,115 @@ import { faWarning } from "@fortawesome/free-solid-svg-icons";
 import { Pagination } from "@mui/material";
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
+// import { Helmet } from "react-helmet-async";
 
 
-const RefurblishList = () => {
-    const [refurblish, setRefurblish] = useState([]);
-  const [search, setSearch] = useState("");
-  const [productsPerPage] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [prodictId, setRefurblishId] = useState("");
+const UserSell = () => {
+    const [refurblish, setSell] = useState([]);
+    const [search, setSearch] = useState("");
+    const [productsPerPage] = useState(10);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [prodictId, setSellId] = useState("");
+  
+    const userId = auth.currentUser.uid;
 
-
-  useEffect(() => {
-    // setLoading(true);
-    const fetchRefurblish = async () => {
-      try {
+    useEffect(() => {
         // setLoading(true);
-        const querySnapshot = await getDocs(collection(db, "refurblish"));
-        const productsData = [];
-        const productsIds = [];
-        const tags = [];
-        const categories = [];
-
-        // Parallelize fetching data
-        await Promise.all(
-          querySnapshot.docs.map(async (doc) => {
-            const productsDoc = doc.data();
-            productsDoc.id = doc.id;
-            productsData.push(productsDoc);
-            productsIds.push(doc.id);
-
-            if (Array.isArray(productsDoc.tags)) {
-              tags.push(...productsDoc.tags);
-            }
-
-            const category = productsDoc.category;
-            if (category) {
-              categories.push(category);
-            }
-          })
-        );
-
-        // Set the productsId state with the collected refurblish IDs
-        setRefurblishId(productsIds);
-        setRefurblish([...productsData]);
-      } catch (error) {
-        console.error("Error fetching productss:", error);
-        setRefurblish([]);
-        // setLoading(false);
-      }
-    };
-
-    fetchRefurblish();
-  }, []);
-  const handleSearch = () => {
-    if (search.trim() === "") {
-      return refurblish; // Return all users when search input is empty
-    } else {
-      return refurblish.filter(
-        (refurblish) =>
-          (refurblish.name &&
-            refurblish.name.toLowerCase().includes(search.toLowerCase())) ||
-          (refurblish.collection &&
-            refurblish.collection.toLowerCase().includes(search.toLowerCase())) ||
-          (refurblish.category &&
-            refurblish.category.toLowerCase().includes(search.toLowerCase()))
+        const fetchSell = async () => {
+          try {
+            // setLoading(true);
+            const querySnapshot = await getDocs(collection(db, "sell"));
+            const productsData = [];
+            const productsIds = [];
+            const tags = [];
+            const categories = [];
+    
+            // Parallelize fetching data
+            await Promise.all(
+              querySnapshot.docs.map(async (doc) => {
+                const productsDoc = doc.data();
+                productsDoc.id = doc.id;
+                productsData.push(productsDoc);
+                productsIds.push(doc.id);
+    
+                if (Array.isArray(productsDoc.tags)) {
+                  tags.push(...productsDoc.tags);
+                }
+    
+                const category = productsDoc.category;
+                if (category) {
+                  categories.push(category);
+                }
+              })
+            );
+            const userSell = productsData.filter(
+                (product) => product.userId === userId
+              );
+            // Set the productsId state with the collected refurblish IDs
+            setSellId(productsIds);
+            setSell([...userSell]);
+          } catch (error) {
+            console.error("Error fetching productss:", error);
+            setSell([]);
+            // setLoading(false);
+          }
+        };
+    
+        fetchSell();
+      }, [userId]);
+      
+    const handleSearch = () => {
+        if (search.trim() === "") {
+          return refurblish; // Return all users when search input is empty
+        } else {
+          return refurblish.filter(
+            (refurblish) =>
+              (refurblish.name &&
+                refurblish.name.toLowerCase().includes(search.toLowerCase())) ||
+              (refurblish.collection &&
+                refurblish.collection.toLowerCase().includes(search.toLowerCase())) ||
+              (refurblish.category &&
+                refurblish.category.toLowerCase().includes(search.toLowerCase()))
+          );
+        }
+      };
+    
+      const indexOfLastPage = currentPage * productsPerPage;
+      const indexOfFirstPage = indexOfLastPage - productsPerPage;
+      const currentSell = handleSearch().slice(
+        indexOfFirstPage,
+        indexOfLastPage
       );
-    }
-  };
-
-  const indexOfLastPage = currentPage * productsPerPage;
-  const indexOfFirstPage = indexOfLastPage - productsPerPage;
-  const currentRefurblish = handleSearch().slice(
-    indexOfFirstPage,
-    indexOfLastPage
-  );
-
-  const handleDelete = async (productId) => {
-    if (window.confirm("Are you sure you want to delete the user post?")) {
-      try {
-        // Delete the document from Firestore
-        await deleteDoc(doc(db, "refurblish", productId));
-
-        // Update the state after successful deletion
-        const updatedRefurblish = refurblish.filter(
-          (product) => product.id !== productId
-        );
-        setRefurblish(updatedRefurblish);
-
-        toast.success("Post deleted successfully");
-      } catch (error) {
-        console.error("Error deleting post:", error);
-        toast.error("An error occurred while deleting the post");
-      }
-    }
-  };
-  console.log(refurblish);
+    
+    const handleDelete = async (productId) => {
+        if (window.confirm("Are you sure you want to delete the user post?")) {
+          try {
+            // Delete the document from Firestore
+            await deleteDoc(doc(db, "refurblish", productId));
+    
+            // Update the state after successful deletion
+            const updatedSell = refurblish.filter(
+              (product) => product.postId !== productId
+            );
+            setSell(updatedSell);
+    
+            toast.success("Post deleted successfully");
+          } catch (error) {
+            console.error("Error deleting post:", error);
+            toast.error("An error occurred while deleting the post");
+          }
+        }  
+      };
   return (
-    <div className='p-5'>Refurblish
-     <div >
+
+    <div className=''>
+     {/* <Helmet>
+      <title>Untag Sell | Atelier</title>
+      <meta name='description' content='Unteg Sell ' />
+      <link rel=" canonical" href='/dashboard' />
+    </Helmet> */}
+    <p className='text-center '>Untag Sell Submission</p>
+    <div >
         <label htmlFor="table-search" className="sr-only">
           Search
         </label>
@@ -134,45 +145,36 @@ const RefurblishList = () => {
             type="text"
             id="table-search-users"
             className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search for Refurblish"
+            placeholder="Search for Sell"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <div className="relative overflow-scroll shadow-md sm:rounded-lg m-8 sm:w-screen  m-auto  ">
-         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-            <thead className="text-xs text-gray-300 uppercase bg-gray-800 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+        <thead className="text-xs text-gray-300 uppercase bg-gray-800 dark:bg-gray-700 dark:text-gray-400">
               <tr>
               <th scope="col" className="px-6 py-3">
                   Date
                 </th>
-              <th scope="col" className="px-6 py-3">
-                  First name
-                </th>
-               
-                <th scope="col" className="px-6 py-3">
-                  Email
-                </th>
+                              
+                
                 <th scope="col" className="px-6 py-3">
                   Phone Number
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Qty
+                  Category
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Receive Method
+                  Description
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Send Method
-                </th>
-
-                <th scope="col" className="px-6 py-3">
-                  <span className="">Type</span>
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  <span className="">Issues</span>
+                  Pricing
                 </th>
                 <th scope="col" className="px-6 py-3">
                   <span className="">Account </span>
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  <span className="">Qty </span>
                 </th>
                 <th scope="col" className="px-6 py-3">
                   <span className="">Images</span>
@@ -182,7 +184,7 @@ const RefurblishList = () => {
                 </th>
               </tr>
             </thead>
-            {currentRefurblish?.map((products) => (
+            {currentSell?.map((products) => (
               <tbody key={products.id}>
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td
@@ -191,27 +193,19 @@ const RefurblishList = () => {
                     >
                       {products.dateTime}
                     </td>
-                <td
-                      scope="row"
-                      className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      {products.firstName}{" "}{products.lastName}
-                    </td>
                 
                     <td
                       scope="row"
                       className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
                     >
-                      {products.email}
+                      {products.phone}
                     </td>
-                  <td className="px-6 py-4">{products.phone}</td>
-                  <td className="px-6 py-4">{products.itemQuantity}</td>
+                  <td className="px-6 py-4">{products.category}</td>
+                  <td className="px-6 py-4">{products.description}</td>
 
-                  <td className="px-6 py-4">{products.receiveMethod}</td>
-                  <td className="px-6 py-4">{products.sendMethod}</td>
-                  <td className="px-6 py-4">{products.itemType}</td>
-                  <td className="px-6 py-4">{products.itemIssues}</td>
-                  <td className="px-6 py-4">{products.accountDetails}</td>
+                  <td className="px-6 py-4">{products.itemPrice}</td>
+                  <td className="px-6 py-4">{products.accountNo}</td>
+                  <td className="px-6 py-4">{products.itemQuantity}</td>
                   <td className="px-6 py-4">{products.images.map((img) =>(
                     <Zoom  key={products.id} className="flex"><img src={img} width={40}></img></Zoom>
                   ))}</td>  
@@ -263,8 +257,9 @@ const RefurblishList = () => {
             onChange={(event, page) => setCurrentPage(page)}
             hidePrevButton={currentPage === 1}
           />
-      </div></div>
+      </div>
+      </div>
   )
 }
 
-export default RefurblishList
+export default UserSell

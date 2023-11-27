@@ -48,6 +48,9 @@ import UntagSell from "./Pages/Admin/Dashboard/UntagSell";
 import RefurblishAndSell from "./Pages/Admin/Dashboard/RefurblishAndSell";
 import CustonMade from "./Pages/Admin/Dashboard/CustomMade";
 import Orders from "./Pages/Admin/Dashboard/Orders";
+import UserSell from "./Pages/Dashboard/UntagSell";
+import MyOrders from "./Pages/Dashboard/MyOrders";
+import Users from "./Pages/Admin/Dashboard/Users";
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);
@@ -147,24 +150,41 @@ function App() {
             element={
               <ProtectedRoute>
                 <Dashboard />
-              </ProtectedRoute> 
-            }
-          />
-           <Route path="*" element={<NotFound />} />
-           <Route path="/admindash" element={<AdminDashboard />} >
-           <Route path="/admindash/uploadproduct" element={<UploadProduct />} />
-           <Route path="/admindash/products" element={<AllProducts />} />
-           <Route path="/admindash/uploadproduct/:id" element={<UploadProduct />} />
-           <Route path="/admindash/refurblish" element={<RefurblishList />} />
-           <Route path="/admindash/RefurblishAndSell" element={<RefurblishAndSell />} />
-           <Route path="/admindash/custommade" element={<CustonMade />} />
-           <Route path="/admindash/orders" element={<Orders />} />
+              </ProtectedRoute>
+            }>
+              <Route
+              path="/dashboard/untagsell"
+              element={<UserSell />}
+            />
+             <Route
+              path="/dashboard/myorders"
+              element={<MyOrders />}
+            />
+            </Route>
+          
+          <Route path="*" element={<NotFound />} />
+          <Route path="/admindash" element={<AdminDashboard />}>
+            <Route
+              path="/admindash/uploadproduct"
+              element={<UploadProduct />}
+            />
+            <Route path="/admindash/products" element={<AllProducts />} />
+            <Route
+              path="/admindash/uploadproduct/:id"
+              element={<UploadProduct />}
+            />
+            <Route path="/admindash/refurblish" element={<RefurblishList />} />
+            <Route
+              path="/admindash/RefurblishAndSell"
+              element={<RefurblishAndSell />}
+            />
+            <Route path="/admindash/custommade" element={<CustonMade />} />
+            <Route path="/admindash/orders" element={<Orders />} />
 
+            <Route path="/admindash/untagsell" element={<UntagSell />} />
+            <Route path="/admindash/users" element={<Users />} />
 
-
-
-           </Route>
-
+          </Route>
         </Routes>
         <ToastContainer />
 

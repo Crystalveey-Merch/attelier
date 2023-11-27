@@ -1,13 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import {
-  collection,
-  getDocs,
-  doc,
-  deleteDoc,
-  updateDoc,
-} from "firebase/firestore";
-import { auth, db } from "../../../firebase/auth";
+import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { auth, db } from "../../firebase/auth";
 // import { useParams } from 'react-router';
 import { NavLink } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
@@ -17,23 +11,22 @@ import { faWarning } from "@fortawesome/free-solid-svg-icons";
 import { Pagination } from "@mui/material";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import moment from "moment";
 
-const Orders = () => {
+const MyOrders = () => {
   const [order, setOrder] = useState([]);
   const [search, setSearch] = useState("");
   const [productsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [prodictId, setOrderId] = useState("");
   const [open, setOpen] = React.useState(false);
-  const [selectedStatus, setSelectedStatus] = useState('');
-
-
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
+  const userId = auth.currentUser.uid;
 
   useEffect(() => {
     // setLoading(true);
@@ -45,7 +38,6 @@ const Orders = () => {
         const productsIds = [];
         const tags = [];
         const categories = [];
-       const productsData2=[]
 
         // Parallelize fetching data
         await Promise.all(
@@ -53,11 +45,8 @@ const Orders = () => {
             const productsDoc = doc.data();
             productsDoc.id = doc.id;
             productsData.push(productsDoc);
-            // productsData.push(productsData2)
             productsIds.push(doc.id);
-            productsData.sort((a, b) => {
-              return b.dateTime - a.dateTime;
-            });
+
             if (Array.isArray(productsDoc.tags)) {
               tags.push(...productsDoc.tags);
             }
@@ -68,14 +57,12 @@ const Orders = () => {
             }
           })
         );
-       
-
-        const status = productsData.map((product) => product.status);
-        setSelectedStatus(status);
-console.log(selectedStatus)
+        const myOrders = productsData.filter(
+          (product) => product.userId === userId
+        );
         // Set the productsId state with the collected order IDs
         setOrderId(productsIds);
-        setOrder([...productsData]);
+        setOrder([...myOrders]);
       } catch (error) {
         console.error("Error fetching productss:", error);
         setOrder([]);
@@ -84,8 +71,8 @@ console.log(selectedStatus)
     };
 
     fetchOrder();
-  }, [selectedStatus]);
-
+  }, [userId]);
+console.log(order)
   const handleSearch = () => {
     if (search.trim() === "") {
       return order; // Return all users when search input is empty
@@ -120,7 +107,7 @@ console.log(selectedStatus)
     if (window.confirm("Are you sure you want to delete the oredr?")) {
       try {
         // Delete the document from Firestore
-        await deleteDoc(doc(db, "orders", id));
+        await deleteDoc(doc(db, "custommade", id));
 
         // Update the state after successful deletion
         const updatedCustonMade = order.filter((product) => product.id !== id);
@@ -128,50 +115,13 @@ console.log(selectedStatus)
 
         toast.success("Post deleted successfully");
       } catch (error) {
-        console.error("Error deleting order:", error);
-        toast.error("An error occurred while deleting the order");
+        console.error("Error deleting post:", error);
+        toast.error("An error occurred while deleting the post");
       }
     }
   };
-
-const handleStatusSelect = (e, id) => {
-    // Get the selected status from the dropdown
-    const status = e.target.value;
-    setSelectedStatus({ id, status });
-  };
-
-  useEffect(() => {
-    const updateStatus = async () => {
-      try {
-        // Update the order status in Firestore
-        await updateDoc(doc(db, "orders", selectedStatus.id), {
-          status: selectedStatus.status,
-        });
-        // Show a toast for success
-        toast.success("Order status updated successfully");
-      } catch (error) {
-        // Show a toast for error
-        toast.error("An error occurred while updating the order status");
-      }
-    };
-
-    if (selectedStatus.id && selectedStatus.status) {
-      updateStatus();
-    }
-
-  }, [selectedStatus]);
-
-  // const handleOrderStatus= async(id) =>{
-  //   try {
-  //     // Delete the document from Firestore
-  //     await updateDoc(doc(db, "orders", id));
-
-  // }catch(error){
-  //   console.error("Error pushing status:", error);
-  //   toast.error("An error occurred while selecting the status");
-  // }}
   return (
-    <div className="p-5">
+    <div className="">
       <div>
         <label htmlFor="table-search" className="sr-only">
           Search
@@ -198,7 +148,7 @@ const handleStatusSelect = (e, id) => {
             type="text"
             id="table-search-users"
             className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Search for Sell"
+            placeholder="Search Order"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
@@ -210,32 +160,25 @@ const handleStatusSelect = (e, id) => {
                   Date
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Payment Ref.
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Name
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Email
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Phone No.
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Total Paymt
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Order
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Delivery/Billing
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  Status
+                  Product ID
                 </th>
 
                 <th scope="col" className="px-6 py-3">
-                  <span className="">Action</span>
+                  User Id
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Payment Ref
+                </th>
+
+                <th scope="col" className="px-6 py-3">
+                  Order
+                </th>
+
+                <th scope="col" className="px-6 py-3">
+                  <span className="">Address</span>
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Status
                 </th>
               </tr>
             </thead>
@@ -244,25 +187,28 @@ const handleStatusSelect = (e, id) => {
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                   <td
                     scope="row"
+                    className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    {products.dateTime} 
+                  </td>
+                  <td
+                    scope="row"
                     className="px-6 py-4 font-medium Aceh  text-gray-900  dark:text-white"
                   >
-                    {products.dateTime}
-                  </td>
-                  <td className="px-6 py-4">{products.paymentReference}</td>
-                  <td className="px-6 py-4">
-                    {products?.billingData.firstName}{" "}
-                    {products?.billingData.lastName}
+                    {products.id}{" "}
                   </td>
 
-                  <td className="px-6 py-4">{products.billingData.email}</td>
-                  <td className="px-6 py-4">
-                    {products.billingData.phoneNumber}
+                  <td
+                    scope="row"
+                    className="px-6 py-4 font-medium Aceh  text-gray-900  dark:text-white"
+                  >
+                    {products.userid}
                   </td>
-                  <td className="px-6 py-4">N{products.totalCost}({products.selectedPayment})</td>
+                  <td className="px-6 py-4">{products.paymentReference}</td>
 
                   <td className="px-6 py-4">
                     <button
-                      className="btn bg-sky-800 text-white capitalize text-xs"
+                      className="btn bg-sky-800 text-white"
                       onClick={() =>
                         document.getElementById(`my_modal_${products.id}`).showModal()
                       }
@@ -273,7 +219,7 @@ const handleStatusSelect = (e, id) => {
 
                   <td className="px-6 py-4">
                     <button
-                      className=" btn bg-yellow-400 text-black capitalize text-xs"
+                      className=" btn bg-sky-800 text-white"
                       onClick={() =>
                         document.getElementById(`my_modal_2${products.id}`).showModal()
                       }
@@ -281,28 +227,11 @@ const handleStatusSelect = (e, id) => {
                       Billing Address
                     </button>
                   </td>
-                  <td className="px-6 py-4">
-                  <select id="select" value={products.status}  onChange={(e) => handleStatusSelect(e, products.id) }>  
-                   <option value="In Review" >
-                        In Review
-                      </option>
-                      <option value="On Transit" >
-                        On Transit
-                      </option>
-                      <option value="Delivered" >
-                        Delivered
-                      </option>
-                    </select>
-                  </td>
 
-                  <td className="px-6 py-4 text-right">
-                    <button onClick={() => handleDelete(products.id)}>
-                      Delete
-                    </button>
-                  </td>
+                  <td className="px-6 py-4">{products.status}</td>
                 </tr>
 
-                <dialog id={`my_modal_${products.id}`}  className="modal">
+                <dialog id={`my_modal_${products.id}`} className="modal" key={products.id}>
                   <div className="modal-box text-left">
                     <form method="dialog">
                       {/* if there is a button in form, it will close the modal */}
@@ -329,7 +258,7 @@ const handleStatusSelect = (e, id) => {
                     </h3>
                     <p className="text-xl">
                       {" "}
-                      Price: {products.orderDetails.price}
+                      Unit Price:N{products.orderDetails.price}
                     </p>
                     <p className="text-xl">
                       {" "}
@@ -345,7 +274,7 @@ const handleStatusSelect = (e, id) => {
                   </div>
                 </dialog>
                 <dialog id={`my_modal_2${products.id}`} className="modal">
-                  <div className="modal-box text-left">
+                  <div className="modal-box text-left" >
                     <form method="dialog">
                       {/* if there is a button in form, it will close the modal */}
                       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -369,10 +298,7 @@ const handleStatusSelect = (e, id) => {
                     <h3 className=" text-xl  ">
                       Payment Method: {products.selectedPayment}
                     </h3>
-                    <p className="text-xl">
-                      {" "}
-                      Total Cost: N{products.totalCost}
-                    </p>
+                    <p className="text-xl"> Total Cost: {products.totalCost}</p>
                     <div className="border rounded-xl p-4 ">
                       <p className="text-center text-xl ">Delivery Form</p>
                       <p className="text-lg">
@@ -439,13 +365,13 @@ const handleStatusSelect = (e, id) => {
                       </p>
                       <p className="text-lg">
                         {" "}
-                        Name:   {products.billingData.firstName}{" "}
-                    {products.billingData.lastName}
+                        Name: {products.billingData.firstName}{" "}
+                        {products.deliveryForm.lastname}
                       </p>
 
                       <p className="text-lg">
                         {" "}
-                        Phonr No.: {products.deliveryForm.phoneNumber}
+                        Phone No.: {products.deliveryForm.phoneNumber}
                       </p>
                       <p className="text-lg">
                         {" "}
@@ -455,7 +381,6 @@ const handleStatusSelect = (e, id) => {
                         {" "}
                         Email: {products.deliveryForm.email}
                       </p>
-                    
                     </div>
                   </div>
                 </dialog>
@@ -476,4 +401,4 @@ const handleStatusSelect = (e, id) => {
   );
 };
 
-export default Orders;
+export default MyOrders;

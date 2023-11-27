@@ -91,7 +91,7 @@ const AllProducts = () => {
 
         // Update the state after successful deletion
         const updatedProducts = products.filter(
-          (product) => product.productId !== productId
+          (product) => product.id !== productId
         );
         setProducts(updatedProducts);
 
@@ -104,8 +104,8 @@ const AllProducts = () => {
   };
   console.log(products);
   return (
-    <div>
-      AllProducts
+    <div className="p-5">
+      <p className="text-center text-xl">All Products</p>
       <div>
         <label htmlFor="table-search" className="sr-only">
           Search
@@ -170,14 +170,12 @@ const AllProducts = () => {
             {currentProducts?.map((products) => (
               <tbody key={products.id}>
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <NavLink to={`/readmore/${products.id}`}>
                     <td
                       scope="row"
                       className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
                     >
                       {products.name}
                     </td>
-                  </NavLink>
                   <td className="px-6 py-4">{products.collection}</td>
                   <td className="px-6 py-4">{products.category}</td>
 

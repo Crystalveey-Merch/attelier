@@ -1,5 +1,5 @@
 import React from "react";
-'use client';
+("use client");
 
 import { useState } from "react";
 import { useCart } from "react-use-cart";
@@ -10,10 +10,13 @@ import { datas } from "../../assets/data";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import {db, auth} from "../../firebase/auth"
+import { db, auth } from "../../firebase/auth";
 import cartDetails from "../cardDetails";
 import { onAuthStateChanged } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfo } from "@fortawesome/free-solid-svg-icons";
+
 
 import {
   CitySelect,
@@ -30,13 +33,11 @@ const goBack = () => {
 };
 
 export const OrderNow = () => {
+  const [product, setProduct] = useState({ id: null });
 
- 
-    const [product, setProduct] = useState({ id: null });
+  const { productId } = useParams();
 
-    const { productId } = useParams();
-
-    const [authUser, setAuthUser] = useState(null);
+  const [authUser, setAuthUser] = useState(null);
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -56,31 +57,26 @@ export const OrderNow = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-     
-        try {
-          const docRef = doc(db, "products", productId); 
-          const docSnapshot = await getDoc(docRef);
-  
-          if (docSnapshot.exists()) {
-            setProduct(docSnapshot.data());
-          } else {
-            console.error(`Post with id '${productId}' not found.`);
-          }
-  
+      try {
+        const docRef = doc(db, "products", productId);
+        const docSnapshot = await getDoc(docRef);
+
+        if (docSnapshot.exists()) {
+          setProduct(docSnapshot.data());
+        } else {
+          console.error(`Post with id '${productId}' not found.`);
+        }
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
     };
-  
+
     fetchPosts();
   }, [productId]);
-   
-
-     
 
   const [billingData, setBillingData] = useState({
-    name: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     email: "",
     address: "",
     postalCode: "",
@@ -92,8 +88,8 @@ export const OrderNow = () => {
   });
 
   const [deliveryForm, setDeliveryForm] = useState({
-    name: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     city: "",
     state: "",
     amount: "",
@@ -105,24 +101,23 @@ export const OrderNow = () => {
     // Add more fields as needed
   });
 
-  const orderDetails =(cartDetails)
+  const orderDetails = cartDetails;
 
-  console.log(orderDetails)
-  const myModal = document.getElementById('my_modal_3')
+
+  console.log(orderDetails);
+  const myModal = document.getElementById("my_modal_3");
 
   const handleChange = (e) => {
     e.preventDefault(); // Prevent form submission
     const { name, value } = e.target;
     setBillingData({ ...billingData, [name]: value });
-console.log(billingData)
-};
+    console.log(billingData);
+  };
 
-  const handleDeliveryForm =(e) => {
+  const handleDeliveryForm = (e) => {
     const { name, value } = e.target;
     setDeliveryForm({ ...deliveryForm, [name]: value });
-
-    
-  }
+  };
 
   const [isPaymentButtonVisible, setIsPaymentButtonVisible] = useState(true);
   const publicKey = PAYSTACK_PUBLIC_KEY;
@@ -139,9 +134,7 @@ console.log(billingData)
   const [emailForPayment, setEmailForPayment] = useState(""); // State to store email for payment
   const [showModal, setShowModal] = useState(false);
 
-
   // const isPaymentButtonVisible = Object.values(billingData).every((value) => value !== "");
-
 
   const handleDelivery = (e) => {
     setSelectedDelivery(e.target.value);
@@ -152,16 +145,15 @@ console.log(billingData)
   const handleBilling = (e) => {
     setSelectedBilling(e.target.value);
     if (e.target.value === "differentAddress") {
+      setEmailForPayment(billingData.email);
+    } 
+    if (e.target.value === "sameAsAddress") {
       setEmailForPayment(deliveryForm.email);
-    } else {
-      setEmailForPayment(""); // Reset emailForPayment if "Use a different Billing Address" is selected
-    }
-
-    
+    } 
   };
   const shippingFee = "5000";
 
-  const totalCost = parseInt( product.price) + parseInt(shippingFee);
+  const totalCost = parseInt(product.price) + parseInt(shippingFee);
 
   const paymentData = {
     email: emailForPayment || billingData.email,
@@ -170,44 +162,30 @@ console.log(billingData)
     text: "Pay Now",
     channels: ["card"],
     onSuccess: (reference) => {
-setReference(reference);
+      setReference(reference);
+      handleSubmit
       console.log("Payment successful. Reference:", reference);
       toast.success(
-        
-        <div className="text-black text-sm ">
-          Payment successful
-
-        </div>)
+        <div className="text-black text-sm ">Payment successful</div>
+      );
       // Handle successful payment (e.g., update order status, redirect)
     },
     onClose: () => {
       console.log("Payment closed");
-      toast.error(
-        
-          <div className="text-black text-sm ">
-            Payment closed
+      toast.error(<div className="text-black text-sm ">Payment closed</div>);
 
-          </div>)
-        
       // Handle payment closure (e.g., show a message to the user)
     },
     onError: (error) => {
       console.error("Payment error:", error);
-      toast.error(
-        
-        <div className="text-black text-sm ">
-          Payment Failed
-
-        </div>)
+      toast.error(<div className="text-black text-sm ">Payment Failed</div>);
       // Handle payment error (e.g., show an error message to the user)
     },
   };
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-        const currentDate = new Date().toLocaleString();
+    const currentDate = new Date().toLocaleString();
 
     // Prepare the data to be stored in Firestore
     const orderData = {
@@ -219,28 +197,29 @@ setReference(reference);
       paymentReference: reference,
       totalCost: totalCost,
       orderDetails: orderDetails,
-
+      status: "In Review"
     };
     if (userId) {
       orderData.userId = userId;
     }
     try {
       // Perform the Firebase action
-      const ordersCollectionRef = collection(db, 'orders');
+      const ordersCollectionRef = collection(db, "orders");
       await addDoc(ordersCollectionRef, orderData);
 
       // Show the modal here, e.g., by setting a state variable
-      document.getElementById('my_modal_5').showModal()
+      document.getElementById("my_modal_5").showModal();
 
-     
       // This function will navigate to the previous page
-      
+
       // You can also reset the form or perform other actions after success
     } catch (error) {
-      console.error('Error submitting order: ', error);
+      console.error("Error submitting order: ", error);
       // Handle the error, show an error message, etc.
     }
   };
+  
+
   return (
     <>
       <div className="mt-24 text-black pt-5 sm:mt-16 w-full AcehLight   ">
@@ -250,7 +229,7 @@ setReference(reference);
         <h1 className="text-center text-2xl mt-3">Order for {product.name}</h1>
         <div className="Aceh text-2xl my-5 text-center">Billing Details</div>
 
-        <div className="w-full px-72 sm:px-0 m-auto ">
+        <div className="w-full px-72 md:px-20  sm:px-0 m-auto ">
           <div className=" m-auto justify-center sm:w-full ">
             <div className="  sm:mx-0 mx-5 px-5 m-auto bg-white ">
               <div className="Aceh text-2xl my-1 ">Delivery</div>
@@ -316,8 +295,8 @@ setReference(reference);
                       <CountrySelect
                         onChange={(e) => {
                           setCountryid(e.id);
-                          setDeliveryForm({ ...deliveryForm, country: e.name })
-                          console.log(e.name)
+                          setDeliveryForm({ ...deliveryForm, country: e.name });
+                          console.log(e.name);
                         }}
                         required={true}
                         placeHolder="Select Country"
@@ -332,17 +311,26 @@ setReference(reference);
                         required
                         name="firstName"
                         value={deliveryForm.firstName}
-                        onChange={(e) => setDeliveryForm({ ...deliveryForm, firstName: e.target.value })}
+                        onChange={(e) =>
+                          setDeliveryForm({
+                            ...deliveryForm,
+                            firstName: e.target.value,
+                          })
+                        }
                         className="p-3 w-full border bg-white"
                       ></input>
                       <input
                         placeholder="Last Name"
                         required
                         className="p-3 w-full border bg-white"
-                        name="lastname"
-                        value={deliveryForm.lastname}
-                        onChange={(e) => setDeliveryForm({ ...deliveryForm, lastname: e.target.value })}
-
+                        name="lastName"
+                        value={deliveryForm.lastName}
+                        onChange={(e) =>
+                          setDeliveryForm({
+                            ...deliveryForm,
+                            lastName: e.target.value,
+                          })
+                        }
                       ></input>
                       <input
                         placeholder="Email"
@@ -350,8 +338,12 @@ setReference(reference);
                         className="p-3 w-full border bg-white"
                         name="email"
                         value={deliveryForm.email}
-                        onChange={(e) => setDeliveryForm({ ...deliveryForm, email: e.target.value })}
-
+                        onChange={(e) =>
+                          setDeliveryForm({
+                            ...deliveryForm,
+                            email: e.target.value,
+                          })
+                        }
                       ></input>
 
                       <textarea
@@ -360,15 +352,19 @@ setReference(reference);
                         className="p-3 w-full border bg-white"
                         name="address"
                         value={deliveryForm.address}
-                        onChange={(e) => setDeliveryForm({ ...deliveryForm, address: e.target.value })}
-
+                        onChange={(e) =>
+                          setDeliveryForm({
+                            ...deliveryForm,
+                            address: e.target.value,
+                          })
+                        }
                       ></textarea>
 
                       <StateSelect
                         countryid={countryid}
                         onChange={(e) => {
                           setstateid(e.id);
-                          setDeliveryForm({ ...deliveryForm, state: e.name })
+                          setDeliveryForm({ ...deliveryForm, state: e.name });
                         }}
                         required
                         name="state"
@@ -382,13 +378,11 @@ setReference(reference);
                         required
                         onChange={(e) => {
                           console.log(e);
-                          setDeliveryForm({ ...deliveryForm, city: e.name })
-
+                          setDeliveryForm({ ...deliveryForm, city: e.name });
                         }}
                         inputClassName="bg-white border-none"
                         containerClassName="bg-white border-none"
                         placeHolder="Select City"
-
                       />
                       <input
                         required
@@ -396,8 +390,12 @@ setReference(reference);
                         className="p-3 w-full border bg-white"
                         name="postalCode"
                         value={deliveryForm.postalCode}
-                        onChange={(e) => setDeliveryForm({ ...deliveryForm, postalCode: e.target.value })}
-
+                        onChange={(e) =>
+                          setDeliveryForm({
+                            ...deliveryForm,
+                            postalCode: e.target.value,
+                          })
+                        }
                       ></input>
                       <input
                         required
@@ -406,9 +404,22 @@ setReference(reference);
                         value={deliveryForm.phoneNumber}
                         // onChange={handleChange}
                         className="p-3 w-full border bg-white"
-                        onChange={(e) => setDeliveryForm({ ...deliveryForm, phoneNumber: e.target.value })}
-
+                        onChange={(e) =>
+                          setDeliveryForm({
+                            ...deliveryForm,
+                            phoneNumber: e.target.value,
+                          })
+                        }
                       ></input>
+                    </div>
+                    <div className="bg-sky-500 flex m-auto text-white p-4 text-center">
+                      <FontAwesomeIcon
+                        icon={faInfo}
+                        className="border m-auto  px-4 py-3 rounded-full"
+                      />
+                      <p className="text-center text-xl m-auto">
+                        Delivery fees to any Location is carged at N5000
+                      </p>
                     </div>
                     <button id="submit1" className=" hidden">
                       submit
@@ -518,13 +529,15 @@ setReference(reference);
                       <CountrySelect
                         onChange={(e) => {
                           setCountryid(e.id);
+                          setBillingData({ ...billingData, country: e.name });
+
                         }}
                         required={true}
                         placeHolder="Select Country"
                         className="bg-white"
                         inputClassName="bg-white border-none"
                         containerClassName="bg-white "
-                        name="firstName"
+                        name="country"
                         value={billingData.country}
                       />
                       <input
@@ -565,11 +578,14 @@ setReference(reference);
                         countryid={countryid}
                         onChange={(e) => {
                           setstateid(e.id);
+                          setBillingData({ ...billingData, state: e.name });
+
                         }}
                         required
                         placeHolder="Select State"
                         inputClassName="bg-white border-none"
                         containerClassName="bg-white border-none"
+                        
                       />
                       <CitySelect
                         countryid={countryid}
@@ -577,6 +593,8 @@ setReference(reference);
                         required
                         onChange={(e) => {
                           console.log(e);
+                          setBillingData({ ...billingData, city: e.name });
+
                         }}
                         inputClassName="bg-white border-none"
                         containerClassName="bg-white border-none"
@@ -586,6 +604,11 @@ setReference(reference);
                         required
                         placeholder="Postal Code"
                         className="p-3 w-full border bg-white"
+                        onChange={handleChange}
+                        name="postalCode"
+                        value={billingData.postalCode}
+
+
                       ></input>
                       <input
                         required
@@ -624,7 +647,7 @@ setReference(reference);
                     </label>
                   </div>
 
-                  <div  className="flex gap-3 border p-3 cursor-pointer	 rounded">
+                  <div className="flex gap-3 border p-3 cursor-pointer	 rounded">
                     <input
                       type="radio"
                       required
@@ -644,94 +667,98 @@ setReference(reference);
                   </div>
                   {selecteBilling === "differentAddress" && (
                     <form onSubmit={handleChange} id="billing-form">
-                  <div>
-                    <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
-                      <CountrySelect
-                        onChange={(e) => {
-                          setCountryid(e.id);
-                        }}
-                        required={true}
-                        placeHolder="Select Country"
-                        className="bg-white"
-                        inputClassName="bg-white border-none"
-                        containerClassName="bg-white "
-                        name="firstName"
-                        value={billingData.country}
-                      />
-                      <input
-                        placeholder="First Name"
-                        required
-                        name="firstName"
-                        value={billingData.firstName}
-                        onChange={handleChange}
-                        className="p-3 w-full border bg-white"
-                      ></input>
-                      <input
-                        placeholder="Last Name"
-                        required
-                        className="p-3 w-full border bg-white"
-                        name="lastName"
-                        value={billingData.lastName}
-                        onChange={handleChange}
-                      ></input>
-                      <input
-                        placeholder="Email"
-                        required
-                        className="p-3 w-full border bg-white"
-                        name="email"
-                        value={billingData.email}
-                        onChange={handleChange}
-                      ></input>
+                      <div>
+                        <div className="bg-gray-200 p-10  sm:p-4 flex flex-col gap-8">
+                          <CountrySelect
+                            onChange={(e) => {
+                              setCountryid(e.id);
+                            }}
+                            required={true}
+                            placeHolder="Select Country"
+                            className="bg-white"
+                            inputClassName="bg-white border-none"
+                            containerClassName="bg-white "
+                            name="country"
+                            value={billingData.country}
+                          />
+                          <input
+                            placeholder="First Name"
+                            required
+                            name="firstName"
+                            value={billingData.firstName}
+                            onChange={handleChange}
+                            className="p-3 w-full border bg-white"
+                          ></input>
+                          <input
+                            placeholder="Last Name"
+                            required
+                            className="p-3 w-full border bg-white"
+                            name="lastName"
+                            value={billingData.lastName}
+                            onChange={handleChange}
+                          ></input>
+                          <input
+                            placeholder="Email"
+                            required
+                            className="p-3 w-full border bg-white"
+                            name="email"
+                            value={billingData.email}
+                            onChange={handleChange}
+                          ></input>
 
-                      <textarea
-                        placeholder="Address"
-                        required
-                        className="p-3 w-full border bg-white"
-                        name="address"
-                        value={billingData.address}
-                        onChange={handleChange}
-                      ></textarea>
+                          <textarea
+                            placeholder="Address"
+                            required
+                            className="p-3 w-full border bg-white"
+                            name="address"
+                            value={billingData.address}
+                            onChange={handleChange}
+                          ></textarea>
 
-                      <StateSelect
-                        countryid={countryid}
-                        onChange={(e) => {
-                          setstateid(e.id);
-                        }}
-                        required
-                        placeHolder="Select State"
-                        inputClassName="bg-white border-none"
-                        containerClassName="bg-white border-none"
-                      />
-                      <CitySelect
-                        countryid={countryid}
-                        stateid={stateid}
-                        required
-                        onChange={(e) => {
-                          console.log(e);
-                        }}
-                        inputClassName="bg-white border-none"
-                        containerClassName="bg-white border-none"
-                        placeHolder="Select City"
-                      />
-                      <input
-                        required
-                        placeholder="Postal Code"
-                        className="p-3 w-full border bg-white"
-                      ></input>
-                      <input
-                        required
-                        placeholder="Phone number "
-                        name="phone"
-                        value={billingData.phoneNumber}
-                        onChange={handleChange}
-                        className="p-3 w-full border bg-white"
-                      ></input>
-                    </div>
-                    <button id="submit1" className=" hidden">
-                      submit
-                    </button>
-                  </div>
-                </form>
+                          <StateSelect
+                            countryid={countryid}
+                            onChange={(e) => {
+                              setstateid(e.id);
+                            }}
+                            value={billingData.state}
+
+                            required
+                            placeHolder="Select State"
+                            inputClassName="bg-white border-none"
+                            containerClassName="bg-white border-none"
+                          />
+                          <CitySelect
+                            countryid={countryid}
+                            stateid={stateid}
+                            required
+                            onChange={(e) => {
+                              console.log(e);
+                            }}
+                            value={billingData.city}
+
+                            inputClassName="bg-white border-none"
+                            containerClassName="bg-white border-none"
+                            placeHolder="Select City"
+                          />
+                          <input
+                            required
+                            placeholder="Postal Code"
+                            className="p-3 w-full border bg-white"
+                          ></input>
+                          <input
+                            required
+                            placeholder="Phone number "
+                            name="phone"
+                            value={billingData.phoneNumber}
+                            onChange={handleChange}
+                            className="p-3 w-full border bg-white"
+                          ></input>
+                        </div>
+                        <button id="submit1" className=" hidden">
+                          submit
+                        </button>
+                      </div>
+                    </form>
                   )}
                 </div>
               )}
@@ -764,55 +791,76 @@ setReference(reference);
           </div>
           {selectePayment === "paystack" && isPaymentButtonVisible && (
             <PaystackButton
-            onClick={handleSubmit}
               className="bg-black px-10 py-3 mt-5 m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
               {...paymentData}
             />
           )}
           {selectePayment === "deposit" && (
-          <button
-          type="button"
-          onClick={handleSubmit}
-            form="billing-form"
+            <button
+              type="button"
+              onClick={handleSubmit}
+              form="billing-form"
+              className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
+            >
+              {" "}
+              PAY NOW
+            </button>
+          )}
 
-            className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
-          >
-            {" "}
-            PAY NOW
-          </button>)}
-         
-            <>
-          <dialog id="my_modal_5"  className="modal "  >
-  <div className="modal-box bg-white">
-    <form method="dialog">
-      {/* if there is a button in form, it will close the modal */}
-      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-    </form>
-    <img src="/Images/icons/confirm.gif"   className="w-1/2 flex m-auto "/>
-    <p className="py-4 text-success text-2xl text-center">We have received your order!!!</p>
-    <h3 className="font-bold text-lg text-center">We will contact you as soon as we have confirmed your payment</h3>
-    <div className="dropdown dropdown-hover flex justify-center">
-  <label tabIndex={0} className="underline text-sm text-sky-500 m-1 text-center">Order Summery</label>
-  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-white text-sky-500 rounded-box w-52">
-    <div className="flex"><li><a>{product.name}</a></li>
-    <li><a>{product.price}</a></li></div>
-    
-  </ul>
-</div>
+          <>
+            <dialog id="my_modal_5" className="modal ">
+              <div className="modal-box bg-white">
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
+                  <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                    ✕
+                  </button>
+                </form>
+                <img
+                  src="/Images/icons/confirm.gif"
+                  className="w-1/2 flex m-auto "
+                />
+                <p className="py-4 text-success text-2xl text-center">
+                  We have received your order!!!
+                </p>
+                <h3 className="font-bold text-lg text-center">
+                  We will contact you as soon as we have confirmed your payment
+                </h3>
+                <div className="dropdown dropdown-hover flex justify-center">
+                  <label
+                    tabIndex={0}
+                    className="underline text-sm text-sky-500 m-1 text-center"
+                  >
+                    Order Summery
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content z-[1] menu p-2 shadow bg-white text-sky-500 rounded-box w-52"
+                  >
+                    <div className="flex">
+                      <li>
+                        <a>{product.name}</a>
+                      </li>
+                      <li>
+                        <a>{product.price}</a>
+                      </li>
+                    </div>
+                  </ul>
+                </div>
 
+                <button
+                  className="btn bg-sky-500 flex my-5 m-auto text-white"
+                  onClick={goBack}
+                >
+                  Go Back
+                </button>
+              </div>
+            </dialog>
+          </>
 
-    <button className="btn bg-sky-500 flex my-5 m-auto text-white" onClick={goBack}>Go Back</button>
-  
-  </div>
-  
- </dialog>
- </>
-          
- <ToastContainer />
+          <ToastContainer />
         </div>
       </div>
     </>
   );
 };
-
-

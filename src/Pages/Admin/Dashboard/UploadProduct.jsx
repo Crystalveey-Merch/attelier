@@ -19,6 +19,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useFileUpload } from "react-firebase-file-upload";
+import { Helmet } from "react-helmet-async";
+
 const UploadProduct = () => {
   const [imageUrl, setImageUrl] = useState([]);
   const [sendingOption, setSendingOption] = useState("");

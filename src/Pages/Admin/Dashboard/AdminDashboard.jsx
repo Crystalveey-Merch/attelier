@@ -33,7 +33,8 @@ const AdminDashboard = () => {
 
   return (
     <div>
-        <div className="mt-20 py-20 sm:mt-18 sm:py-0 sm:px-0 px-20 w-screen relative ">
+        <div className=" py-40 sm:mt-18 sm:py-0 sm:px-0 px-5 w-screen relative ">
+        <p className="text-center text-2xl">ADMIN DASHBOARD</p>
      <div className=" sticky sm:top-20 z-10 hidden sm:block w-full  mt-5 ">
             <ul className="menu  text-black menu-horizontal bg-gray-200    dark:text-slate-200 m-auto justify-between  rounded-box  w-full">
               <li>
@@ -128,7 +129,8 @@ const AdminDashboard = () => {
           </div>
           <div className="drawer drawer-open">
               <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-              <div className="drawer-content flex   justify-center "> 
+              <div className="drawer-content  
+                 border  justify-center "> 
 
                   <Outlet />
                   {/* Hide the button on small screens (mobile) */}
@@ -143,9 +145,9 @@ const AdminDashboard = () => {
                       <li><NavLink to='uploadproduct'>Upload Product</NavLink></li>
                       <li><NavLink to='products'>All Products</NavLink></li>
                       <li><NavLink to='refurblish'>Refurblish </NavLink></li>
-                      <li><NavLink to='RefurblishaAndSell'>Refurblish  & Sell</NavLink></li>
+                      <li><NavLink to='RefurblishAndSell'>Refurblish  & Sell</NavLink></li>
                       <li><NavLink to='orders'>Orders</NavLink></li>
-                      <li><NavLink to='settings'>Users</NavLink></li>
+                      <li><NavLink to='users'>Users</NavLink></li>
                       <li><NavLink to='untagsell'>Untag Sell</NavLink></li>
                       <li><NavLink to='custommade'>Custom Made</NavLink></li>
 

@@ -94,7 +94,7 @@ const RefurblishAndSell = () => {
 
         // Update the state after successful deletion
         const updatedSell = sell.filter(
-          (product) => product.postId !== productId
+          (product) => product.id !== productId
         );
         setSell(updatedSell);
 
@@ -107,7 +107,7 @@ const RefurblishAndSell = () => {
   };
   console.log(sell);
   return (
-    <div>Sell Untagged
+    <div className='p-5'>Sell Untagged
      <div >
         <label htmlFor="table-search" className="sr-only">
           Search
@@ -138,10 +138,13 @@ const RefurblishAndSell = () => {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className="relative overflow-auto w-screen shadow-md sm:rounded-lg m-8 sm:w-full w-11/12 m-auto ">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div className="relative overflow-scroll shadow-md sm:rounded-lg m-8 sm:w-screen  m-auto  ">
+         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+         <thead className="text-xs text-gray-300 uppercase bg-gray-800 dark:bg-gray-700 dark:text-gray-400">
               <tr>
+              <th scope="col" className="px-6 py-3">
+                  Date
+                </th>
               <th scope="col" className="px-6 py-3">
                   Email
                 </th>
@@ -178,16 +181,18 @@ const RefurblishAndSell = () => {
                       scope="row"
                       className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
                     >
-{products.phone}                    </td>
+{products.dateTime}                    </td>
                 
                   <NavLink to={`/readmore/${products.id}`}>
                     <td
                       scope="row"
                       className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
                     >
-                      {products.email}
+                      {products.phone}
                     </td>
                   </NavLink>
+                                    <td className="px-6 py-4">{products.email}</td>
+
                   <td className="px-6 py-4">{products.firstName}{" "}{products.lastName}</td>
                   <td className="px-6 py-4">{products.description}</td>
                   <td className="px-6 py-4">{products.phone}</td>
