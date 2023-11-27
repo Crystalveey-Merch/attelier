@@ -26,6 +26,7 @@ import {
  
 } from "firebase/firestore";
 import { db } from "../firebase/auth.js";
+import { Helmet } from "react-helmet-async";
 // import { Helmet } from "react-helmet-async";
 
 const Productdes = () => {
@@ -164,7 +165,12 @@ console.log(cartDetails);
     <div
       className="mt-24 sm:mt-16  Quicksand flex text-black  px-10  sm:px-0 flex sm:block justify-center"
       key={product.id}
-    >
+    > 
+    <Helmet>
+     <title>Order Now : {product.name}</title>
+    <meta name='description' content={`${product.name}`}/>
+    <link rel=" canonical"  href='/ordernow/'/>
+    </Helmet>
         <div className="border  m-5 h-full relative  m-auto sm:m-0 sm:w-full w-1/2">
           <div className="hidden fixed z-40  sm:block pt-5 pl-5" onClick={goBack}>
             <i className="fas fa-arrow-left text-black" />

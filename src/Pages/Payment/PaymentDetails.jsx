@@ -2,6 +2,7 @@ import { useCart } from "react-use-cart";
 import { PaystackButton } from "react-paystack";
 import { useState } from "react";
 import { PAYSTACK_PUBLIC_KEY } from "/src/Pages/Payment/payment.js";
+import { Helmet } from "react-helmet-async";
 
 export const PaymentDetails = () => {
   const [isPaymentButtonVisible, setIsPaymentButtonVisible] =useState(true)
@@ -56,6 +57,11 @@ export const PaymentDetails = () => {
 
   return (
     <div className="mt-24 sm:mt-16 AcehLight text-black w-full m-auto">
+     <Helmet>
+     <title> Payment Page| Attelier</title>
+    <meta name='description' content="Payment Page"/>
+    <link rel=" canonical"  href='/:categoryName'/>
+    </Helmet>
       <div className=" pt-5 w-2/5 justify-center m-auto sm:w-full">
       <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
       <i className="fas fa-arrow-left text-black"/>

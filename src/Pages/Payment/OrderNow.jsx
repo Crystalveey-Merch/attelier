@@ -223,7 +223,7 @@ export const OrderNow = () => {
   return (
     <>
     <Helmet>
-     <title>Order Now : {product.name}</title>
+     <title>Order {product.name}| Attelier</title>
     <meta name='description' content='Payment Page'/>
     <link rel=" canonical"  href='/ordernow/'/>
     </Helmet>

@@ -11,6 +11,7 @@ import { faWarning } from "@fortawesome/free-solid-svg-icons";
 import { Pagination } from "@mui/material";
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
+import { Helmet } from 'react-helmet-async';
 // import { Helmet } from "react-helmet-async";
 
 
@@ -113,11 +114,11 @@ const UserSell = () => {
   return (
 
     <div className=''>
-     {/* <Helmet>
-      <title>Untag Sell | Atelier</title>
+     <Helmet>
+      <title>Untag Sell | Attelier</title>
       <meta name='description' content='Unteg Sell ' />
       <link rel=" canonical" href='/dashboard' />
-    </Helmet> */}
+    </Helmet>
     <p className='text-center '>Untag Sell Submission</p>
     <div >
         <label htmlFor="table-search" className="sr-only">

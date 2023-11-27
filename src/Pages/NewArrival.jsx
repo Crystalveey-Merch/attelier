@@ -11,6 +11,7 @@ import {
   getDocs,
   setDoc,
 } from "firebase/firestore";
+import { Helmet } from "react-helmet-async";
 // import SideNav from "../Components/sidebarComponent/SideNav.jsx";
 
 const NewArrival = () => {
@@ -110,6 +111,12 @@ setLoading(false)
   }
   return (
     <div className="mt-24 sm:mt-16  w-full AcehLight  pt-2 sm:px-0">
+     <Helmet>
+     <title>New Arrival| Attelier</title>
+    <meta name='description' content="Explore New Arrivals on Attelier"/>
+    <link rel=" canonical"  href='/newArrival'/>
+    </Helmet>
+
       <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black" />
       </div>

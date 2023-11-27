@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { auth, db, storage } from "../../firebase/auth";
 import { doc, getDoc, setDoc,addDoc,collection } from "firebase/firestore";
 import { useFileUpload } from "react-firebase-file-upload";
+import { Helmet } from "react-helmet-async";
 
 const CustomMade = () => {
   const goBack = () => {
@@ -131,6 +132,11 @@ const CustomMade = () => {
 
   return (
     <div className="mt-24 sm:mt-16 AcehLight w-full">
+     <Helmet>
+     <title>Custom Made| Attelier</title>
+    <meta name='description' content="Order for Custom Made designs"/>
+    <link rel=" canonical"  href='/sell'/>
+    </Helmet>
       <div className="flex flex-row w-full">
         <div className="px-36 sm:px-5 p-10 w-full ">
           <div className="hidden   sm:block pt-5 " onClick={goBack}>

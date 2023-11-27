@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom"
 
 const Ready2Wear = () => {
@@ -6,6 +7,11 @@ const Ready2Wear = () => {
         }
   return (
     <div className="mt-24 sm:mt-16 mb-10 w-full AcehLight  pt-2 sm:px-0" >
+      <Helmet>
+     <title> Payment Page| Attelier</title>
+    <meta name='description' content="Payment Page"/>
+    <link rel=" canonical"  href='/:categoryName'/>
+    </Helmet>
     <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black" />
       </div>

@@ -13,6 +13,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { useEffect } from "react";
 import { useFileUpload } from "react-firebase-file-upload";
+import { Helmet } from "react-helmet-async";
 
 const RefurblishP3 = () => {
   const goBack = () => {
@@ -163,6 +164,11 @@ const RefurblishP3 = () => {
   };
   return (
     <div className="mt-24 sm:mt-16 AcehLight w-full">
+      <Helmet>
+     <title>Refurbish| Attelier</title>
+    <meta name='description' content="Refurblish your Cloth Items"/>
+    <link rel=" canonical"  href='/refurblishpage3'/>
+    </Helmet>
       <div className="flex flex-row w-full">
         <div className="px-36 sm:px-1 p-10 w-full ">
           <div className="hidden   sm:block pt-5 " onClick={goBack}>

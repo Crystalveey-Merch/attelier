@@ -13,6 +13,7 @@ import {
  
 } from "firebase/firestore";
 import { db } from "../firebase/auth.js";
+import { Helmet } from "react-helmet-async";
 
 const Categories = () => {
   const { categoryName } = useParams();
@@ -115,6 +116,11 @@ if (loading) {
 }
   return (
     <div className="mt-24 sm:mt-16 w-full AcehLight  pt-2 sm:px-0">
+    <Helmet>
+     <title> {categoryName} Category| Attelier</title>
+    <meta name='description' content={`Shop ${categoryName} Category`}/>
+    <link rel=" canonical"  href='/:categoryName'/>
+    </Helmet>
      <div className="hidden sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black"/>
       </div>

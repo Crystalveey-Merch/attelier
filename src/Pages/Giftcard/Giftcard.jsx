@@ -14,6 +14,7 @@ import {
   getDocs,
   setDoc,
 } from "firebase/firestore";
+import { Helmet } from "react-helmet-async";
 
 const Giftcard = () => {
   const { addItem } = useCart();
@@ -143,6 +144,11 @@ const Giftcard = () => {
   }
   return (
     <div className="mt-24 sm:mt-16 w-full AcehLight  mb-20 pt-2 sm:px-0">
+     <Helmet>
+     <title> Buy GiftCard| Attelier</title>
+    <meta name='description' content="Shop Gift cards"/>
+    <link rel=" canonical"  href='/:categoryName'/>
+    </Helmet>
       <div className="hidden sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black" />
       </div>

@@ -9,6 +9,7 @@ import { auth, storage } from "../../firebase/auth";
 import { doc, getDoc, setDoc, addDoc, collection } from "firebase/firestore";
 import { PhoneInput } from "react-international-phone";
 import { useFileUpload } from "react-firebase-file-upload";
+import { Helmet } from "react-helmet-async";
 
 const Refurblish = () => {
   const [phone, setPhone] = useState("");
@@ -140,6 +141,11 @@ const Refurblish = () => {
 
   return (
     <div className="mt-24 sm:mt-16 text-black Quicksand sm:px-5 relative  pt-20 sm:pt-5 px-40 py-5">
+      <Helmet>
+     <title>Sell Untagg| Attelier</title>
+    <meta name='description' content="Sell your Cloth Items on Attelier "/>
+    <link rel=" canonical"  href='/sell'/>
+    </Helmet>
       <div className="hidden  absolute top-0  sm:block pt-5 " onClick={goBack}>
         <i className="fas fa-arrow-left text-black" />
       </div>

@@ -13,6 +13,7 @@ import {
  
 } from "firebase/firestore";
 import { db } from "../firebase/auth.js";
+import { Helmet } from "react-helmet-async";
 
 const Collection = () => {
   const [products, setProducts] = useState([]);
@@ -111,6 +112,11 @@ if (loading === true) {
 }
   return (
     <div className="mt-24 sm:mt-16  w-full AcehLight  pt-2 sm:px-0 ">
+     <Helmet>
+     <title> {collectionName} Collection| Attelier</title>
+    <meta name='description' content={`Shop ${collectionName} Collecion`}/>
+    <link rel=" canonical"  href='/:collectionName'/>
+    </Helmet>
       <div>
       <div className="hidden sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black"/>

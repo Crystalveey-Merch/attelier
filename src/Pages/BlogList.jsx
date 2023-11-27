@@ -1,11 +1,18 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 const BlogList = () => {
   const goBack = () => {
     window.history.back();
   };
   return (
-    <div className="mt-24 sm:mt-16 mb-10 w-full Quicksand  pt-2 sm:px-0">
+    <div className="mt-24 sm:mt-16 mb-10 w-full Quicksand  pt-2 sm:px-0">  
+    <Helmet>
+    <title> Blog List| Attelier</title>
+   <meta name='description' content="Read fashion Articles "/>
+   <link rel=" canonical"  href='/:categoryName'/>
+   </Helmet>
+
       <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black" />
       </div>

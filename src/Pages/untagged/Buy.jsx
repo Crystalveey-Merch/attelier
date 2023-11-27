@@ -13,6 +13,7 @@ import {
 } from "firebase/firestore";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+import { Helmet } from "react-helmet-async";
 
 const UntagBuy = () => {
   const [products, setProducts] = useState([]);
@@ -108,6 +109,11 @@ const UntagBuy = () => {
   }
   return (
     <div className="mt-24 sm:mt-16  w-full AcehLight  pt-2 sm:px-0 ">
+    <Helmet>
+     <title>Buy Untagged| Attelier</title>
+    <meta name='description' content="Get your desired untag items"/>
+    <link rel=" canonical"  href='/untagbuy'/>
+    </Helmet>
       <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black" />
       </div>
