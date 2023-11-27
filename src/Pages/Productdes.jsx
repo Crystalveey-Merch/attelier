@@ -79,13 +79,12 @@ useEffect(() => {
   // useEffect(() => {
 
     const orderDetails = () => {
-      cartDetails.name = product.name;
-      cartDetails.price = product.price;
-      cartDetails.collection = product.collection;
-      cartDetails.size = text;
-        cartDetails.color = product.color[activeColorIndex];
-        cartDetails.src = product.imgSrc[activeColorIndex];
-  
+      cartDetails[0].name = product.name;
+      cartDetails[0].price = product.price;
+      cartDetails[0].collection = product.collection;
+      cartDetails[0].size = text;
+      cartDetails[0].color = product.color[activeColorIndex];
+      cartDetails[0].src = product.imgSrc[activeColorIndex];
     };
 
   // }, [activeColorIndex, product.src, product.collection, product.color, product.name, product.price, text, product.ImgSrc.length]);

@@ -103,7 +103,6 @@ export const OrderNow = () => {
 
   const orderDetails = cartDetails;
 
-
   console.log(orderDetails);
   const myModal = document.getElementById("my_modal_3");
 
@@ -146,10 +145,10 @@ export const OrderNow = () => {
     setSelectedBilling(e.target.value);
     if (e.target.value === "differentAddress") {
       setEmailForPayment(billingData.email);
-    } 
+    }
     if (e.target.value === "sameAsAddress") {
       setEmailForPayment(deliveryForm.email);
-    } 
+    }
   };
   const shippingFee = "5000";
 
@@ -163,7 +162,7 @@ export const OrderNow = () => {
     channels: ["card"],
     onSuccess: (reference) => {
       setReference(reference);
-      handleSubmit
+      handleSubmit;
       console.log("Payment successful. Reference:", reference);
       toast.success(
         <div className="text-black text-sm ">Payment successful</div>
@@ -197,7 +196,7 @@ export const OrderNow = () => {
       paymentReference: reference,
       totalCost: totalCost,
       orderDetails: orderDetails,
-      status: "In Review"
+      status: "In Review",
     };
     if (userId) {
       orderData.userId = userId;
@@ -218,15 +217,14 @@ export const OrderNow = () => {
       // Handle the error, show an error message, etc.
     }
   };
-  
 
   return (
     <>
-    <Helmet>
-     <title>Order {product.name}| Attelier</title>
-    <meta name='description' content='Payment Page'/>
-    <link rel=" canonical"  href='/ordernow/'/>
-    </Helmet>
+      <Helmet>
+        <title>{`Order {product.name}| Attelier`}</title>
+        <meta name="description" content="Payment Page" />
+        <link rel=" canonical" href="/ordernow/" />
+      </Helmet>
       <div className="mt-24 text-black pt-5 sm:mt-16 w-full AcehLight   ">
         <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
           <i className="fas fa-arrow-left text-black" />
@@ -234,7 +232,7 @@ export const OrderNow = () => {
         <h1 className="text-center text-2xl mt-3">Order for {product.name}</h1>
         <div className="Aceh text-2xl my-5 text-center">Billing Details</div>
 
-        <div className="w-full px-72 md:px-20  sm:px-0 m-auto ">
+        <div className="w-full px-72 lg:px-20 md:px-20  sm:px-0 m-auto ">
           <div className=" m-auto justify-center sm:w-full ">
             <div className="  sm:mx-0 mx-5 px-5 m-auto bg-white ">
               <div className="Aceh text-2xl my-1 ">Delivery</div>
@@ -509,17 +507,27 @@ export const OrderNow = () => {
                   <div>
                     <div className="bg-gray-100 p-10 sm:p-5 flex flex-col gap-4">
                       <p className="flex flex-col">
-                        <span className="Aceh">Naira </span>
-                        <span>Account name: CRYSTALVEEY MERCH </span>
+                        <span className="Aceh text-xl">
+                          Naira Account Details{" "}
+                        </span>
+                        <span>Bank Name: Guaranty Trust Bank </span>
+                        <span>Account Name: CRYSTALVEEY MERCH </span>
+
                         <span>Account number: 0741537772</span>
-                        <span>Bank: GTBank</span>
-                        <span>Narration: "YOUR NAME"</span>
                       </p>
                       <p className="flex flex-col">
-                        <span className="Aceh">Dollar</span>
-                        <span>0803567624</span>
+                        <span className="Aceh  text-xl">
+                          Dollar Account Details{" "}
+                        </span>
+                        <span>Bank Name: Guaranty Trust Bank </span>
+                        <span>Account Name: CRYSTALVEEY MERCH </span>
+
+                        <span>Account number: 0803567624</span>
                       </p>
                     </div>
+                    <p className="font-bold">Please send a screenshot of your payment to our whatsapp number +254 8126091411
+
+</p>
                   </div>
                 )}
               </div>
@@ -535,7 +543,6 @@ export const OrderNow = () => {
                         onChange={(e) => {
                           setCountryid(e.id);
                           setBillingData({ ...billingData, country: e.name });
-
                         }}
                         required={true}
                         placeHolder="Select Country"
@@ -584,13 +591,11 @@ export const OrderNow = () => {
                         onChange={(e) => {
                           setstateid(e.id);
                           setBillingData({ ...billingData, state: e.name });
-
                         }}
                         required
                         placeHolder="Select State"
                         inputClassName="bg-white border-none"
                         containerClassName="bg-white border-none"
-                        
                       />
                       <CitySelect
                         countryid={countryid}
@@ -599,7 +604,6 @@ export const OrderNow = () => {
                         onChange={(e) => {
                           console.log(e);
                           setBillingData({ ...billingData, city: e.name });
-
                         }}
                         inputClassName="bg-white border-none"
                         containerClassName="bg-white border-none"
@@ -612,8 +616,6 @@ export const OrderNow = () => {
                         onChange={handleChange}
                         name="postalCode"
                         value={billingData.postalCode}
-
-
                       ></input>
                       <input
                         required
@@ -726,7 +728,6 @@ export const OrderNow = () => {
                               setstateid(e.id);
                             }}
                             value={billingData.state}
-
                             required
                             placeHolder="Select State"
                             inputClassName="bg-white border-none"
@@ -740,7 +741,6 @@ export const OrderNow = () => {
                               console.log(e);
                             }}
                             value={billingData.city}
-
                             inputClassName="bg-white border-none"
                             containerClassName="bg-white border-none"
                             placeHolder="Select City"
@@ -808,7 +808,7 @@ export const OrderNow = () => {
               className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
             >
               {" "}
-              PAY NOW
+              Confirm Payment
             </button>
           )}
 

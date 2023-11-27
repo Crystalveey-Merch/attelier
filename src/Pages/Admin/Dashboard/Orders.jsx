@@ -299,7 +299,7 @@ const handleStatusSelect = (e, id) => {
                     <button onClick={() => handleDelete(products.id)}>
                       Delete
                     </button>
-                  </td>
+                  </td> 
                 </tr>
 
                 <dialog id={`my_modal_${products.id}`}  className="modal">
@@ -314,34 +314,32 @@ const handleStatusSelect = (e, id) => {
                       {" "}
                       Order Details
                     </p>
-                    <p className="text-xl text-sky-500 Aceh text-center">
+                    {products.orderDetails.map((cart) => (
+                      <div className=" rounded-xl border shadow-md p-3 flex m-2" key={cart.id}>
+                      <div>
+                      <Zoom>
+                      <img src={cart.src} width={50}></img>
+                      </Zoom></div>
+                      <div>
+                      <p className="text-xl Aceh" key={cart.id}>
                       {" "}
-                      Product ID: {products.id}{" "}
+                       {cart.name}
                     </p>
-
-                    <p className="text-xl">
-                      {" "}
-                      Product Name: {products.orderDetails.name}
-                    </p>
-
                     <h3 className=" text-xl  ">
-                      Color: {products.orderDetails.color}
+                      Color: {cart.color}
                     </h3>
-                    <p className="text-xl">
-                      {" "}
-                      Price: {products.orderDetails.price}
-                    </p>
-                    <p className="text-xl">
-                      {" "}
-                      Size: {products.orderDetails.size}
-                    </p>
-                    <Zoom>
-                      {" "}
-                      <p className="text-xl">
-                        {" "}
-                        <img width={100} src={products.orderDetails.src}></img>
-                      </p>
-                    </Zoom>
+                    <h3 className=" text-xl  ">
+                      Price: N {cart.price}
+                    </h3>
+                    <h3 className=" text-xl  ">
+                      Size: {cart.size}
+                    </h3>
+                    </div>
+                    </div>
+                    ))}
+                   
+                
+                                 
                   </div>
                 </dialog>
                 <dialog id={`my_modal_2${products.id}`} className="modal">

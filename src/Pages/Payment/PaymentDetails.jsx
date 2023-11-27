@@ -21,6 +21,18 @@ export const PaymentDetails = () => {
     email: "",
     // Add more fields as needed
   });
+  console.log(items)
+
+  const orderDetails = items.map((item) => {
+    return {
+      name: item.name,
+      price: item.price,
+      collection: item.collection,
+      size: item.size,
+      color: item.color,
+      src: item.imgSrc,
+    };
+  });
 
   const paymentData = {
     email: formData.email,

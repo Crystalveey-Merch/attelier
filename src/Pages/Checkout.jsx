@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "../firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
+import { Helmet } from "react-helmet-async";
 
 const goBack = () => {
   window.history.back();
@@ -149,10 +150,10 @@ const Checkout = () => {
     },
   };
   console.log(items);
-
+ 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const currentDate = new Date().toLocaleString();
 
     // Prepare the data to be stored in Firestore
@@ -190,6 +191,11 @@ const Checkout = () => {
   return (
     <>
       <div className="mt-24 text-black pt-5 sm:mt-16 w-full AcehLight   ">
+      <Helmet>
+     <title>Checkout | Attelier</title>
+    <meta name='description' content='Payment Page'/>
+    <link rel=" canonical"  href='/checkout/'/>
+    </Helmet>
         <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
           <i className="fas fa-arrow-left text-black" />
         </div>
@@ -468,19 +474,29 @@ const Checkout = () => {
                 </div>
                 {selectePayment === "deposit" && (
                   <div>
-                    <div className="bg-gray-100 p-10 sm:p-5 flex flex-col gap-4">
+                  <div className="bg-gray-100 p-10 sm:p-5 flex flex-col gap-4">
                       <p className="flex flex-col">
-                        <span className="Aceh">Naira </span>
-                        <span>Account name: CRYSTALVEEY MERCH </span>
+                        <span className="Aceh text-xl">
+                          Naira Account Details{" "}
+                        </span>
+                        <span>Bank Name: Guaranty Trust Bank </span>
+                        <span>Account Name: CRYSTALVEEY MERCH </span>
+
                         <span>Account number: 0741537772</span>
-                        <span>Bank: GTBank</span>
-                        <span>Narration: "YOUR NAME"</span>
                       </p>
                       <p className="flex flex-col">
-                        <span className="Aceh">Dollar</span>
-                        <span>0803567624</span>
+                        <span className="Aceh  text-xl">
+                          Dollar Account Details{" "}
+                        </span>
+                        <span>Bank Name: Guaranty Trust Bank </span>
+                        <span>Account Name: CRYSTALVEEY MERCH </span>
+
+                        <span>Account number: 0803567624</span>
                       </p>
                     </div>
+                    <p className="font-bold">Please send a screenshot of your payment to our whatsapp number +254 8126091411
+
+</p>
                   </div>
                 )}
               </div>
