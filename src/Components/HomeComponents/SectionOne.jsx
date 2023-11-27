@@ -1,7 +1,11 @@
 import image1 from "../../Images/sec1/image1.jpeg";  
 import image2 from "../../Images/sec1/image2.png";  
 import image3 from "../../Images/sec1/image3.png";  
-import image4 from "../../Images/sec1/image4.png";  
+import image4 from "../../Images/sec1/image4.png"; 
+import image5 from "../../Images/sec1/image5.jpeg" 
+import image6 from "../../Images/sec1/image6.jpeg" 
+
+
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { EffectFade } from 'swiper/modules';
 import 'swiper/css/effect-fade';
@@ -57,6 +61,13 @@ export const SectionOne = () => {
           className="h-full w-screen   shadow-lg " />
 
     </SwiperSlide>
+    <SwiperSlide>
+    <img
+          src={image6}
+          alt="imgSeven"
+          className="h-full w-screen   shadow-lg " />
+
+    </SwiperSlide>
   </Swiper>
   <Swiper
     modules={[ EffectFade, Autoplay]}
@@ -83,6 +94,13 @@ export const SectionOne = () => {
           src={image4}
           alt="imgSeven"
           className="h-full w-screen  shadow-lg " />
+
+    </SwiperSlide>
+    <SwiperSlide>
+    <img
+          src={image5}
+          alt="imgSeven"
+          className="h-full w-screen   shadow-lg " />
 
     </SwiperSlide>
   </Swiper>
