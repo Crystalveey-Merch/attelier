@@ -22,32 +22,32 @@ Shop Ready to Wear
 
 <div>
 <div className=" grid grid-cols-2 sm:grid-cols-1 mx-5 text-black gap-4 ">
-<Link to="/collection/afrocentric">
+<Link to="/collection/Afrocentric Wears">
     <div className="flex bg-white border sm:h-auto h-64 w-62 justify-center  px-5 ">
         <h1 className="text-xl AcehLight m-auto text-left">AFROCENTRIC WEARS</h1>
         <img src="/Images/sec4/afro.jpeg" className="w-40 h-42 m-2 sm:w-14 sm:h-16"/>
     </div>
     </Link>
-    <Link to="/collection/comfort">
+    <Link to="/collection/Comfort Wears">
     <div className="flex bg-white border h-64 sm:h-auto w-62 justify-center px-5 ">
         <h1 className="text-xl AcehLight m-auto text-left">COMFORT WEARS</h1>
         <img src="/Images/sec4/casual.jpeg" className="w-40 h-42 m-2 sm:w-14 sm:h-16"/>
     </div>
     </Link>
-    <Link to="/collection/formal">
+    <Link to="/collection/Formal Wears">
     <div className="flex bg-white border sm:h-auto  h-64 w-62 justify-center px-5  ">
         <h1 className="text-xl AcehLight m-auto text-left">FORMAL WEARS</h1>
         <img src="/Images/sec4/corporate.jpeg" className="w-40 h-42 m-2 sm:w-14 sm:h-16"/>
     </div>
     </Link>
-    <Link to="/collection/party">
+    <Link to="/collection/Party Wears">
 
     <div className="flex bg-white border h-64 sm:h-auto w-62 justify-center px-5 ">
         <h1 className="text-xl AcehLight m-auto text-left">PARTY WEARS</h1>
         <img src="/Images/sec4/occassion.jpeg" className="w-40 h-42 m-2 sm:w-14 sm:h-16"/>
     </div>
     </Link>
-    <Link to="/collection/resort">
+    <Link to="/collection/Resort Wears">
 
     <div className="flex bg-white border h-64sm:h-auto   w-62 justify-center px-5  ">
         <h1 className="text-xl AcehLight m-auto text-left">RESORT WEARS</h1>
@@ -55,7 +55,7 @@ Shop Ready to Wear
     </div>
     </Link>
 
-    <Link to="/collection/occasion">
+    <Link to="/collection/Occasion Wears">
 
     <div className="flex bg-white border w-62 h-64  sm:h-auto justify-center  px-5 ">
         <h1 className="text-xl AcehLight m-auto text-left">OCCASSION WEARS</h1>
