@@ -8,7 +8,7 @@ const Ready2Wear = () => {
   return (
     <div className="mt-24 sm:mt-16 mb-10 w-full AcehLight  pt-2 sm:px-0" >
       <Helmet>
-     <title> Payment Page| Attelier</title>
+     <title> Ready to wear| Attelier</title>
     <meta name='description' content="Payment Page"/>
     <link rel=" canonical"  href='/:categoryName'/>
     </Helmet>

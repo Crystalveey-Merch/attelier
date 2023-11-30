@@ -168,7 +168,55 @@ console.log(cartDetails);
     <Helmet>
      <title>Order Now : {product.name}</title>
     <meta name='description' content={`${product.name}`}/>
-    <link rel=" canonical"  href='/ordernow/'/>
+    <link rel=" canonical"  href={`http://atelier.crystalveey.com/${productId}`}/>
+  
+    <meta name='description' content={`${product.description.join(", ")}`}/>
+    <meta name="keywords" content={`ecommerce, ${product.name},online shopping, retail, products, services, atelier`}></meta>
+    <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={product.name} />
+        <meta
+          property="og:url"
+          content={`http://atelier.crystalveey.com/${productId}`}
+        />
+        {/* <meta property="og:image" content={posts} /> */}
+        <meta
+          name="og:description"
+          content={`${product.description.join(", ")}`}
+        />
+        <meta name="og:site_name" content="Atelier" />
+
+        <meta name="og:image" content={product.imgSrc[0]}/>
+
+        <meta name="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:url"
+          content={`http://atelier.crystalveey.com/${productId}`}
+        />
+        <meta name="twitter:title" content={product.name} />
+        <meta
+          name="twitter:description"
+          content={`${product.description.join(", ")}`}
+        />
+        <meta name="twitter:image" content={`${product.imgSrc[0]}`}/>
+        <script
+          type="application/ld+json"
+          {...JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: `${product.name}` ,
+            url: `http://atelier.crystalveey.com/${productId}`,
+            price: `${product.price}`,
+            currency: "NGN",
+            availability: "In stock",
+            brand: "Atelier",
+            image: `${product.imgSrc[0]}`,
+            description: `${product.description.join(", ")}`,
+           
+          })}
+        />
+    
     </Helmet>
         <div className="border  m-5 h-full relative  m-auto sm:m-0 sm:w-full w-1/2">
           <div className="hidden fixed z-40  sm:block pt-5 pl-5" onClick={goBack}>
