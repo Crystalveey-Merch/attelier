@@ -145,6 +145,10 @@ const RefurblishAndSell = () => {
               <th scope="col" className="px-6 py-3">
                   Date
                 </th>
+                <th scope="col" className="px-6 py-3">
+                  
+                  Phone Number
+                </th>
               <th scope="col" className="px-6 py-3">
                   Email
                 </th>
@@ -163,6 +167,9 @@ const RefurblishAndSell = () => {
                 </th>
                 <th scope="col" className="px-6 py-3">
                  Price
+                </th>
+                <th scope="col" className="px-6 py-3">
+                 Issues
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Images
@@ -195,7 +202,6 @@ const RefurblishAndSell = () => {
 
                   <td className="px-6 py-4">{products.firstName}{" "}{products.lastName}</td>
                   <td className="px-6 py-4">{products.description}</td>
-                  <td className="px-6 py-4">{products.phone}</td>
                   <td className="px-6 py-4">{products.itemType}</td>
 
                   <td className="px-6 py-4">{products.itemQuantity}</td>

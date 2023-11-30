@@ -181,6 +181,9 @@ const UserSell = () => {
                   <span className="">Images</span>
                 </th>
                 <th scope="col" className="px-6 py-3">
+                  <span className="">Status</span>
+                </th>
+                <th scope="col" className="px-6 py-3">
                   <span className="">Action</span>
                 </th>
               </tr>
@@ -210,6 +213,7 @@ const UserSell = () => {
                   <td className="px-6 py-4">{products.images.map((img) =>(
                     <Zoom  key={products.id} className="flex"><img src={img} width={40}></img></Zoom>
                   ))}</td>  
+                  <td className="px-6 py-4">{products.status}</td>
 
                   <td className="px-6 py-4 text-right">
                     <button onClick={() => handleDelete(products.id)}>

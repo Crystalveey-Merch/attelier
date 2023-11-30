@@ -245,9 +245,13 @@ const RefurblishP3 = () => {
               </div>
 
               <label className="Aceh" >Please describe issues with your item in details</label>
-              <textarea name="description"
+              <textarea 
+                 name="itemIssues"
                 value={formData.itemIssues}
-                onChange={handleInputChange} className="w-full h-40  bg-white border  p-5"></textarea>
+                onChange={handleInputChange} 
+                className="w-full h-40  bg-white border  p-5">
+
+                </textarea>
 
               <label>Upload clear images of each item, specifically the problem area that needs refurbishing</label>
               <div className="flex items-center justify-center w-full p-5">

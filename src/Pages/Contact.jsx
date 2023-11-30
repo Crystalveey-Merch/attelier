@@ -1,8 +1,44 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   return (
     <div className="mt-24 sm:mt-16 AcehLight mb-10 py-36">
+    <Helmet>
+    <title> Contact Page</title>
+
+    <meta name='description' content="Crystalveeys’ atelier is a fashion merchandise and recommerce site that allows individuals to shop their favorite fashion pieces and also sell previously owned clothing items to interested buyers. "/>
+    <meta name="keywords" content="ecommerce, online shopping, retail, products, services, atelier"></meta>
+    <link rel=" canonical"  href='http://atelier.crystalveey.com'/>
+    <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Atelier" />
+        <meta
+          property="og:url"
+          content='http://atelier.crystalveey.com'
+        />
+        {/* <meta property="og:image" content={posts} /> */}
+        <meta
+          name="og:description"
+          content="Crystalveeys’ atelier is a fashion merchandise and recommerce site that allows individuals to shop their favorite fashion pieces and also sell previously owned clothing items to interested buyers."
+        />
+        <meta name="og:site_name" content="Atelier" />
+
+        <meta name="og:image" content="public/Images/logo.jpeg"/>
+
+        <meta name="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:url"
+          content='http://atelier.crystalveey.com'
+        />
+        <meta name="twitter:title" content="Attelier" />
+        <meta
+          name="twitter:description"
+          content="Crystalveeys’ atelier is a fashion merchandise and recommerce site that allows individuals to shop their favorite fashion pieces and also sell previously owned clothing items to interested buyers."
+        />
+        <meta name="twitter:image" content="public/Images/logo.jpeg"/>
+    </Helmet> 
       <div className=" pt-10 m-auto text-center text-black w-1/2 sm:w-full">
         <h1 className="text-2xl text-center Aceh text-black">Atelier Visit</h1>
         <p className="text-black "> Monday - Friday</p>

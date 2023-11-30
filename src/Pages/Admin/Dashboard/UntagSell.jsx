@@ -1,6 +1,7 @@
-import React from 'react'
+import React from "react";
 import { useEffect, useState } from "react";
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs, doc, deleteDoc,   updateDoc,
+} from "firebase/firestore";
 import { auth, db } from "../../../firebase/auth";
 // import { useParams } from 'react-router';
 import { NavLink } from "react-router-dom";
@@ -9,17 +10,16 @@ import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWarning } from "@fortawesome/free-solid-svg-icons";
 import { Pagination } from "@mui/material";
-import Zoom from 'react-medium-image-zoom'
-import 'react-medium-image-zoom/dist/styles.css'
-
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 const UntagSell = () => {
-    const [sell, setSell] = useState([]);
+  const [sell, setSell] = useState([]);
   const [search, setSearch] = useState("");
   const [productsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [prodictId, setSellId] = useState("");
-
+  const [selectedStatus, setSelectedStatus] = useState('');
 
   useEffect(() => {
     // setLoading(true);
@@ -50,7 +50,8 @@ const UntagSell = () => {
             }
           })
         );
-
+        const status = productsData.map((product) => product.status);
+        setSelectedStatus(status);
         // Set the productsId state with the collected sell IDs
         setSellId(productsIds);
         setSell([...productsData]);
@@ -71,7 +72,6 @@ const UntagSell = () => {
         (sell) =>
           (sell.phoneNo &&
             sell.phoneNo.toLowerCase().includes(search.toLowerCase())) ||
-         
           (sell.category &&
             sell.category.toLowerCase().includes(search.toLowerCase()))
       );
@@ -80,10 +80,7 @@ const UntagSell = () => {
 
   const indexOfLastPage = currentPage * productsPerPage;
   const indexOfFirstPage = indexOfLastPage - productsPerPage;
-  const currentSell = handleSearch().slice(
-    indexOfFirstPage,
-    indexOfLastPage
-  );
+  const currentSell = handleSearch().slice(indexOfFirstPage, indexOfLastPage);
 
   const handleDelete = async (productId) => {
     if (window.confirm("Are you sure you want to delete the user post?")) {
@@ -92,9 +89,7 @@ const UntagSell = () => {
         await deleteDoc(doc(db, "sell", productId));
 
         // Update the state after successful deletion
-        const updatedSell = sell.filter(
-          (product) => product.id !== productId
-        );
+        const updatedSell = sell.filter((product) => product.id !== productId);
         setSell(updatedSell);
 
         toast.success("Post deleted successfully");
@@ -105,9 +100,36 @@ const UntagSell = () => {
     }
   };
   console.log(sell);
+  const handleStatusSelect = (e, id) => {
+    // Get the selected status from the dropdown
+    const status = e.target.value;
+    setSelectedStatus({ id, status });
+  };
+
+  useEffect(() => {
+    const updateStatus = async () => {
+      try {
+        // Update the order status in Firestore
+        await updateDoc(doc(db, "sell", selectedStatus.id), {
+          status: selectedStatus.status,
+        });
+        // Show a toast for success
+        toast.success("Order status updated successfully");
+      } catch (error) {
+        // Show a toast for error
+        toast.error("An error occurred while updating the order status");
+      }
+    };
+
+    if (selectedStatus.id && selectedStatus.status) {
+      updateStatus();
+    }
+
+  }, [selectedStatus]);
   return (
-    <div className='p-5'>Sell Untagged
-     <div >
+    <div className="p-5">
+      Sell Untagged
+      <div>
         <label htmlFor="table-search" className="sr-only">
           Search
         </label>
@@ -138,16 +160,16 @@ const UntagSell = () => {
           />
         </div>
         <div className="relative overflow-scroll shadow-md sm:rounded-lg m-8 sm:w-screen  m-auto  ">
-         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-         <thead className="text-xs text-gray-300 uppercase bg-gray-800 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+            <thead className="text-xs text-gray-300 uppercase bg-gray-800 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-               <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Date
                 </th>
-              <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Phobe Number
                 </th>
-               
+
                 <th scope="col" className="px-6 py-3">
                   Account No.
                 </th>
@@ -161,13 +183,15 @@ const UntagSell = () => {
                   Qty
                 </th>
                 <th scope="col" className="px-6 py-3">
-                 Price
+                  Price
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Images
                 </th>
+                <th scope="col" className="px-6 py-3">
+                  Status
+                </th>
 
-              
                 <th scope="col" className="px-6 py-3">
                   <span className="">Action</span>
                 </th>
@@ -176,38 +200,56 @@ const UntagSell = () => {
             {currentSell?.map((products) => (
               <tbody key={products.id}>
                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td
-                      scope="row"
-                      className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-{products.dateTime}                    </td>
-                <td
-                      scope="row"
-                      className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-{products.phone}                    </td>
-                
-                    <td
-                      scope="row"
-                      className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      {products.accountNo}
-                    </td>
+                  <td
+                    scope="row"
+                    className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    {products.dateTime}{" "}
+                  </td>
+                  <td
+                    scope="row"
+                    className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    {products.phone}{" "}
+                  </td>
+
+                  <td
+                    scope="row"
+                    className="px-6 py-4 font-medium Aceh  text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    {products.accountNo}
+                  </td>
                   <td className="px-6 py-4">{products.category}</td>
                   <td className="px-6 py-4">{products.description}</td>
 
                   <td className="px-6 py-4">{products.itemQuantity}</td>
                   <td className="px-6 py-4">{products.itemPrice}</td>
-                  <td className="px-6 py-4">{products.images.map((img) =>(
-                    <Zoom  key={products.id} className="flex"><img src={img} width={40}></img></Zoom>
-                  ))}</td>  
-
+                  <td className="px-6 py-4">
+                    {products.images.map((img) => (
+                      <Zoom key={products.id} className="flex">
+                        <img src={img} width={40}></img>
+                      </Zoom>
+                    ))}
+                  </td>
+                  <td className="px-6 py-4">
+                  <select id="select" value={products.status}  onChange={(e) => handleStatusSelect(e, products.id) }>  
+                   <option value="In Review" >
+                        In Review
+                      </option>
+                      <option value="Passed" >
+                        
+                        Passed
+                      </option>
+                      <option value="Listed" >
+                        Listed
+                      </option>
+                    </select>
+                  </td>
                   <td className="px-6 py-4 text-right">
                     <button onClick={() => handleDelete(products.id)}>
                       Delete
                     </button>
                   </td>
-                  
                 </tr>
                 <dialog id="my_modal_4" className="modal">
                   <div className="modal-box text-center">
@@ -240,17 +282,16 @@ const UntagSell = () => {
               </tbody>
             ))}
           </table>
-         
-          
         </div>
-         <Pagination
-            count={Math.ceil(handleSearch().length / productsPerPage)}
-            page={currentPage}
-            onChange={(event, page) => setCurrentPage(page)}
-            hidePrevButton={currentPage === 1}
-          />
-      </div></div>
-  )
-}
+        <Pagination
+          count={Math.ceil(handleSearch().length / productsPerPage)}
+          page={currentPage}
+          onChange={(event, page) => setCurrentPage(page)}
+          hidePrevButton={currentPage === 1}
+        />
+      </div>
+    </div>
+  );
+};
 
-export default UntagSell
+export default UntagSell;
