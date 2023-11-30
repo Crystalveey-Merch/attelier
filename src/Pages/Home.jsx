@@ -53,6 +53,12 @@ export const Home = () => {
             name: "Atelier",
             url: 'http://atelier.crystalveey.com',
             logo: "public/Images/logo.jpeg",
+            "sameAs": [
+              "https://twitter.com/crystalveeyshop",
+              "https://www.instagram.com/crystalveeysatelier/",
+              "https://www.facebook.com/crystalveeyshop"
+            ],
+
             email: "office.crystalveey@gmail.com",
             phone: "+234 812 609 1411",
             address: {
@@ -61,7 +67,9 @@ export const Home = () => {
               city: "Lekki",
               state: "Lagos",
               postalCode: "100001",
+
             },
+
           })}
         />
     </Helmet>
