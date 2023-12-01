@@ -74,6 +74,7 @@ export const OrderNow = () => {
     fetchPosts();
   }, [productId]);
 
+ 
   const [billingData, setBillingData] = useState({
     firstName: "",
     lastName: "",
@@ -101,6 +102,8 @@ export const OrderNow = () => {
     // Add more fields as needed
   });
 
+
+  
   const orderDetails = cartDetails;
 
   console.log(orderDetails);
@@ -181,6 +184,9 @@ export const OrderNow = () => {
       // Handle payment error (e.g., show an error message to the user)
     },
   };
+  //  (
+  // const disabled = ( billingData.email , deliveryForm.email === "");
+console.log(billingData.email)
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -221,7 +227,7 @@ export const OrderNow = () => {
   return (
     <>
       <Helmet>
-        <title>{`Order {product.name}| Attelier`}</title>
+        <title>{`Order ${product.name}| Attelier`}</title>
         <meta name="description" content="Payment Page" />
         <link rel=" canonical" href="/ordernow/" />
       </Helmet>
@@ -525,7 +531,7 @@ export const OrderNow = () => {
                         <span>Account number: 0803567624</span>
                       </p>
                     </div>
-                    <p className="font-bold">Please send a screenshot of your payment to our whatsapp number +254 8126091411
+                    <p className="font-bold text-xl text-white text-center bg-sky-500">Please send a screenshot of your payment to our whatsapp number +254 8126091411
 
 </p>
                   </div>
@@ -796,7 +802,9 @@ export const OrderNow = () => {
           </div>
           {selectePayment === "paystack" && isPaymentButtonVisible && (
             <PaystackButton
-              className="bg-black px-10 py-3 mt-5 m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
+              className="  btn bg-black px-10 py-3 mt-5 m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
+              disable={deliveryForm.email === "" || billingData.email === ""}
+
               {...paymentData}
             />
           )}
@@ -805,7 +813,9 @@ export const OrderNow = () => {
               type="button"
               onClick={handleSubmit}
               form="billing-form"
-              className="bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
+              // disabled={disabled}
+
+              className=" btn bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
             >
               {" "}
               Confirm Payment

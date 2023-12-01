@@ -312,8 +312,8 @@ export const Header = () => {
                     <Link to="/login">Login</Link>
                   </li>)}
                 
-
-                  <li>Help Center</li>
+                      <Link to="/contact">
+                  <li>Help Center</li></Link>
                 </ul>
               )}
             </button>

@@ -8,18 +8,18 @@ const Faq = () => {
     <div className="mt-24 sm:mt-16  AcehLight">
       <div>
       
-<div className="mx-40 sm:mx-5 my-10 sm:my-5  flex flex-col gap-10 sm:gap-5 text-black ">
+<div className="w-1/2 sm:mx-5 py-20 sm:my-5 m-auto  flex flex-col gap-10 sm:gap-5 text-black ">
 <div className="hidden   sm:block pt-5 " onClick={goBack}>
             <i className="fas fa-arrow-left text-black" />
           </div>
 <h1 className="text-black text-2xl Aceh  text-center ">FAQ</h1>
-        <div className="collapse collapse-arrow bg-gray-100 text-black ">
-          <input type="radio" name="my-accordion-2" checked="checked" />
-          <div className="collapse-title Aceh  text-xl font-medium">
+        <div className="collapse collapse-arrow bg-gray-100 text-black cursor-pointer">
+          <input type="radio" name="my-accordion-2"  />
+          <div className="collapse-title Aceh  text-sky-500 text-xl font-medium">
             How  do i place an order?
           </div>
           <div className="collapse-content">
-            <p className="text-sm">
+            <p className="text-xl">
               To place an order, simply browse through our categories, new
               arrivals or collections, select the items you want to purchase,
               choose the size and color (if applicable), and click on the add to
@@ -30,11 +30,11 @@ const Faq = () => {
         </div>
         <div className="collapse collapse-arrow bg-gray-200">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title Aceh text-xl font-medium">
+          <div className="collapse-title Aceh text-xl text-sky-500 font-medium">
             What payment methods do you accept?
           </div>
           <div className="collapse-content text-sm">
-            <p>
+            <p className="text-xl">
               We accept various payment methods including card payment ( visa,
               mastercard, verve), paystack, and online bank transfers. You can
               opt for the most convenient option during the checkout process.
@@ -43,11 +43,11 @@ const Faq = () => {
         </div>
         <div className="collapse collapse-arrow bg-gray-200">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title Aceh text-xl font-medium">
+          <div className="collapse-title Aceh text-xl text-sky-500 font-medium">
             How long will delivery take?
           </div>
           <div className="collapse-content text-sm">
-            <p>
+            <p className="text-xl">
               Delivery time varies depending on your location and the shipping
               method you choose. Generally, we strive to process and ship all
               orders within 1-3 buisness days.
@@ -56,11 +56,11 @@ const Faq = () => {
         </div>
         <div className="collapse collapse-arrow bg-gray-200">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title Aceh text-xl font-medium">
+          <div className="collapse-title Aceh text-xl text-sky-500 font-medium">
             What is untagg?
           </div> 
           <div className="collapse-content text-sm">
-            <p>
+            <p className="text-xl">
               Untagg is a fashion recommerce platform where you can buy and sell
               pre- owned fashion items. It allows individuals to sell their
               gently used clothings to others who are interested in purchasing
@@ -70,11 +70,11 @@ const Faq = () => {
         </div>
         <div className="collapse collapse-arrow bg-gray-200">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title Aceh text-xl font-medium">
+          <div className="collapse-title Aceh text-xl text-sky-500 font-medium">
             Why should you shop on untagg?
           </div>
           <div className="collapse-content text-sm">
-            <p>
+            <p  className="text-xl">
               <li>
                 It is an affordable way to shop for high quality fashion items
                 at a fraction of the original price{" "}
@@ -89,11 +89,11 @@ const Faq = () => {
         </div>
         <div className="collapse collapse-arrow bg-gray-200">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title Aceh text-xl font-medium">
+          <div className="collapse-title Aceh text-xl text-sky-500  font-medium">
             How do i sell my fashion items on untagg?
           </div>
           <div className="collapse-content">
-            <p>
+            <p className="text-xl">
               To sell your fashion items on untagg, you have to first create an
               account on the website and after that you can upload photos and
               description if you meet our clothing and upload standard.

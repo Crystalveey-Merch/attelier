@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   return (
-    <div className="mt-24 sm:mt-16 AcehLight mb-10 py-36">
+    <div className="mt-18 sm:mt-16 AcehLight mb-10 py-10">
     <Helmet>
     <title> Contact Page</title>
 
@@ -39,7 +39,8 @@ const Contact = () => {
         />
         <meta name="twitter:image" content="public/Images/logo.jpeg"/>
     </Helmet> 
-      <div className=" pt-10 m-auto text-center text-black w-1/2 sm:w-full">
+      <div className=" text-xl pt-10 m-auto text-center text-black w-1/2 sm:w-full">
+      <img src="public/Images/cheerful-call-center-woman-with-headphones_8087-2405.png" width={500} className="m-auto p-10"></img>
         <h1 className="text-2xl text-center Aceh text-black">Atelier Visit</h1>
         <p className="text-black "> Monday - Friday</p>
         <p className="text-black Aceh  "> 9am - 5pm</p>
