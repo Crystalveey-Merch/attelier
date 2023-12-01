@@ -204,6 +204,8 @@ if (loading) {
                 className="my-4 p-2 m-4 sm:m-0 sm:p-0  hvr-shrink cursur-pointer"
                 onMouseEnter={() => setIsHovered(product.id)}
                 onMouseLeave={() => setIsHovered(null)}
+                data-aos="fade-up"
+     data-aos-anchor-placement="top-center"  data-aos-delay="100"
               >
                        {product.untagged === "True" && (
         <div className="text-gray-500 font-medium absolute badge p-3 m-2">Untagged</div>

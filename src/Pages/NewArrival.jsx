@@ -186,6 +186,8 @@ setLoading(false)
                 className="my-4 p-2 m-4 sm:m-0 sm:p-0  hvr-shrink cursur-pointer"
                 onMouseEnter={() => setIsHovered(product.id)}
                 onMouseLeave={() => setIsHovered(null)}
+                data-aos="fade-up"
+     data-aos-anchor-placement="top-center"  data-aos-delay="100"
               >
                 <Link to={`/productdes/${product.id}`} className="bg-gray-300">
                   <img

@@ -73,13 +73,13 @@ export const Home = () => {
           })}
         />
     </Helmet>
-      <SectionOne />
-      <SectionTwo />
+      <SectionOne   />
+      <SectionTwo   />
       {/* <SectionTwo2 /> */}
-      <SectionTwoTest/>
-      <SectionFour />
-      <SectionFive />
-      <SectionThree />
+      <SectionTwoTest  />
+      <SectionFour  />
+      <SectionFive data-aos="fade-left"  />
+      <SectionThree  data-aos="fade-left"/>
       {/* <SectionSix/> */}
     </div>
   );

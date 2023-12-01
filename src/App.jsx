@@ -51,6 +51,10 @@ import Orders from "./Pages/Admin/Dashboard/Orders";
 import UserSell from "./Pages/Dashboard/UntagSell";
 import MyOrders from "./Pages/Dashboard/MyOrders";
 import Users from "./Pages/Admin/Dashboard/Users";
+import 'aos/dist/aos.css'; 
+import AOS from 'aos';
+
+AOS.init();
 
 function App() {
   const [animationIndex, setAnimationIndex] = useState(0);

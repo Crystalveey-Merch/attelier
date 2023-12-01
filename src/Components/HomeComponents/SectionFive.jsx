@@ -3,7 +3,8 @@ import image2 from "../../Images/sec6/image2.jpeg";
 
 export const SectionFive = () => {
   return (
-    <div>
+    <div data-aos="fade-right"
+    data-aos-anchor-placement="top-center">
     <h1 className="text-2xl text-black Aceh mt-8">CUSTOM MADE</h1>
     <div
       className=" Aceh flex  items-left  m-auto my-14 sm:m-0 w-4/5 sm:w-full rounded-md"

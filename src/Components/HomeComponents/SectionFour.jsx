@@ -57,10 +57,12 @@ export const SectionFour = () => {
         }}
         // navigation={true}
         className="mySwiper z-0 swiper-v  h-full w-full"
+
       >
         
         
-            <SwiperSlide >
+            <SwiperSlide   data-aos="fade-up"
+     data-aos-anchor-placement="top-center"  data-aos-delay="200">
             <Link to="/collection/Afrocentric Wears">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
@@ -85,7 +87,8 @@ export const SectionFour = () => {
               </div>
               </Link>
             </SwiperSlide>
-            <SwiperSlide >
+            <SwiperSlide data-aos="fade-up"
+     data-aos-anchor-placement="top-center"  data-aos-delay="70">
             <Link to="/collection/Comfort Wears">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
@@ -110,7 +113,8 @@ export const SectionFour = () => {
               </div>
               </Link>
             </SwiperSlide>
-            <SwiperSlide >
+            <SwiperSlide data-aos="fade-up"
+     data-aos-anchor-placement="top-center"  data-aos-delay="90" >
             <Link to="/collection/Formal Wears">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
@@ -135,7 +139,8 @@ export const SectionFour = () => {
               </div>
               </Link>
             </SwiperSlide>
-            <SwiperSlide >
+            <SwiperSlide data-aos="fade-up"
+     data-aos-anchor-placement="top-center"  data-aos-delay="120" >
             <Link to="/collection/Party Wears">
 
               <div
@@ -161,7 +166,8 @@ export const SectionFour = () => {
               </div>
               </Link>
             </SwiperSlide>
-            <SwiperSlide >
+            <SwiperSlide data-aos="fade-up"
+     data-aos-anchor-placement="top-center"  data-aos-delay="140" >
             <Link to="/collection/Resort Wears">
 
               <div
@@ -188,7 +194,8 @@ export const SectionFour = () => {
               </div>
               </Link>
             </SwiperSlide>
-            <SwiperSlide >
+            <SwiperSlide data-aos="fade-up"
+     data-aos-anchor-placement="top-center"  data-aos-delay="160" >
             <Link to="/collection/Occasion Wears">
 
               <div

@@ -111,7 +111,7 @@ useEffect(() => {
       >
         {products.map((item) => {
           return (
-            <SwiperSlide key={item.id} className="mx-2">
+            <SwiperSlide key={item.id} className="mx-2"   data-aos="fade-up" data-aos-duration="4000" data-aos-delay="200">
             <Link to={`/productdes/${item.id}`}>
               <div
                 className=" w-full h-full    relative hvr-float cursor-pointer "

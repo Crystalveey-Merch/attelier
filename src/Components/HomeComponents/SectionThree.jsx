@@ -36,7 +36,8 @@ export const SectionThree = () => {
   };
 
   return (
-    <div className=" flex flex-col gap-10  mx-10 sm:mx-0 py-5 border  border-4xl rounded items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5">
+    <div className=" flex flex-col gap-10  mx-10 sm:mx-0 py-5 border  border-4xl rounded items-center px-52 2xl:px-28 xl:px-10 lg:px-5 md:px-3 sm:gap-5" data-aos="fade-right"
+    data-aos-delay="100">
       <div className="flex flex-col gap-2 py-2">
         <p className="text-gray-700 Aceh  text-3xl sm:text-2xl">
           Crystalveey's Untagged
@@ -61,6 +62,8 @@ export const SectionThree = () => {
         }}
         // navigation={true}
         className="mySwiper z-0 swiper-v effect-fade h-full w-4/5 "
+        data-aos="fade-up"
+     data-aos-anchor-placement="top-center"
       >
         <SwiperSlide className="hvr-bob mb-10">
           <img src={image1} alt="imgSeven" className="h-full w-screen z-0 bg-stone-200 " />

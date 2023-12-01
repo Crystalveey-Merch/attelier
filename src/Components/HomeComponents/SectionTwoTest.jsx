@@ -57,7 +57,7 @@ export const SectionTwoTest = () => {
         }}
         modules={[ Autoplay]}
         className="mySwiper w-full  px-4 sm:px-0 lg:px-10"
-      >
+        data-aos="fade-up" data-aos-duration="4000" data-aos-delay="200"      >
         
 
               <SwiperSlide  className="  m-auto sm:mx-0">
@@ -85,7 +85,7 @@ export const SectionTwoTest = () => {
               </div>
               </Link>
               </SwiperSlide>
-              <SwiperSlide  className="  m-auto sm:mx-0">
+              <SwiperSlide  className="  m-auto sm:mx-0" >
               <Link to="/category/Clothing">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
@@ -112,7 +112,7 @@ export const SectionTwoTest = () => {
               </Link>
               </SwiperSlide>
            
-              <SwiperSlide  className="  m-auto sm:mx-0">
+              <SwiperSlide  className="  m-auto sm:mx-0" >
               <Link to="/category/Shoes">
               <div
                 className=" w-full h-full  rounded-full relative   cursor-pointer "
