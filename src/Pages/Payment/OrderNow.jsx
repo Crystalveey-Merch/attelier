@@ -185,7 +185,9 @@ export const OrderNow = () => {
     },
   };
   //  (
-  // const disabled = ( billingData.email , deliveryForm.email === "");
+  const disabled = ()=>{
+    (billingData.email === "" || !deliveryForm.email === "");
+}
 console.log(billingData.email)
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -576,6 +578,8 @@ console.log(billingData.email)
                       ></input>
                       <input
                         placeholder="Email"
+                        type="email"
+
                         required
                         className="p-3 w-full border bg-white"
                         name="email"
@@ -711,6 +715,7 @@ console.log(billingData.email)
                             onChange={handleChange}
                           ></input>
                           <input
+                          type="email"
                             placeholder="Email"
                             required
                             className="p-3 w-full border bg-white"
@@ -776,7 +781,7 @@ console.log(billingData.email)
             </div>
           </div>
         </div>
-        <div className="  sm:block  flex flex-col static mb-10 py-10 m-auto   w-1/2">
+        <div className="  sm:block text-2xl flex flex-col static mb-10 py-10 m-auto   w-1/2">
           <div className="text-black AcehLight flex justify-between">
             Subtotal:<span> ₦{product.price} </span>
           </div>
@@ -803,8 +808,7 @@ console.log(billingData.email)
           {selectePayment === "paystack" && isPaymentButtonVisible && (
             <PaystackButton
               className="  btn bg-black px-10 py-3 mt-5 m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
-              disable={deliveryForm.email === "" || billingData.email === ""}
-
+              // disable={deliveryForm.email === "" || billingData.email === ""}
               {...paymentData}
             />
           )}
@@ -813,7 +817,6 @@ console.log(billingData.email)
               type="button"
               onClick={handleSubmit}
               form="billing-form"
-              // disabled={disabled}
 
               className=" btn bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
             >

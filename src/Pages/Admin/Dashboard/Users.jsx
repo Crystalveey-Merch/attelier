@@ -65,7 +65,7 @@ const Users = () => {
     ) {
       try {
         // Delete the document from Firestore
-        await deleteAuthUser(auth, user.id);
+        await auth().deleteUser(user.id);
         await deleteDoc(doc(db, "users", user.id));
         toast.success("User deleted successfully");
         // Update the state after successful deletion

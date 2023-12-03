@@ -16,13 +16,13 @@ export const Home = () => {
      <title> Attelier</title>
     <meta name='description' content="Crystalveeys’ atelier is a fashion merchandise and recommerce site that allows individuals to shop their favorite fashion pieces and also sell previously owned clothing items to interested buyers. "/>
     <meta name="keywords" content="ecommerce, online shopping, retail, products, services, atelier"></meta>
-    <link rel=" canonical"  href='http://atelier.crystalveey.com'/>
+    <link rel="canonical"  href='https://atelier.crystalveey.com'/>
     <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Atelier" />
         <meta
           property="og:url"
-          content='http://atelier.crystalveey.com'
+          content='https://atelier.crystalveey.com'
         />
         {/* <meta property="og:image" content={posts} /> */}
         <meta
@@ -37,7 +37,7 @@ export const Home = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:url"
-          content='http://atelier.crystalveey.com'
+          content='https://atelier.crystalveey.com'
         />
         <meta name="twitter:title" content="Attelier" />
         <meta
@@ -51,7 +51,7 @@ export const Home = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Atelier",
-            url: 'http://atelier.crystalveey.com',
+            url: 'https://atelier.crystalveey.com',
             logo: "public/Images/logo.jpeg",
             "sameAs": [
               "https://twitter.com/crystalveeyshop",
