@@ -23,10 +23,7 @@ const Faq = () => {
         <meta name="og:title" content="FAQs - Atelier " />
         <meta name="og:type" content="website" />
         <meta name="og:url" content="https://explore.crystalveey.com/faq" />
-        <meta
-          name="og:image"
-          content="public/Images/logo.jpeg"
-        />
+        <meta name="og:image" content="public/Images/logo.jpeg" />
         <meta
           name="og:description"
           content="Crystalveeys’ atelier is a fashion merchandise and recommerce site that allows individuals to shop their favorite fashion pieces and also sell previously owned clothing items to interested buyers."

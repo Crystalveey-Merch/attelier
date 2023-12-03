@@ -45,7 +45,6 @@ useEffect(() => {
 
   fetchPosts();
 }, []);
-console.log(products) 
  const allProducts = [...datas.children, ...datas.women, ...datas.men];
   
   const newArrival = () => {

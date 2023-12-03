@@ -112,7 +112,7 @@ const UntagBuy = () => {
     <Helmet>
      <title>Buy Untagged| Attelier</title>
     <meta name='description' content="Get your desired untag items"/>
-    <link rel=" canonical"  href='/untagbuy'/>
+    <link rel="canonical"  href='https://atelier.crystalveey.com/untagbuy'/>
     </Helmet>
       <div className="hidden   sm:block pt-5 pl-5" onClick={goBack}>
         <i className="fas fa-arrow-left text-black" />
