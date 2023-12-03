@@ -8,7 +8,7 @@ const Faq = () => {
   return (
     <div className="mt-24 sm:mt-16  AcehLight">
       <Helmet>
-        <title>FAQs - Wholesome</title>
+        <title>FAQs - Atelier</title>
         <meta
           name="description"
           content="Crystalveeys’ atelier is a fashion merchandise and recommerce site that allows individuals to shop their favorite fashion pieces and also sell previously owned clothing items to interested buyers."
@@ -18,7 +18,7 @@ const Faq = () => {
           content="ecommerce, online shopping, retail, products, services, atelier"
         />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="Wholesome" />
+        <meta name="author" content="Crystalveey Atelier" />
         <meta name="url" content="https://atelier.crystalveey.com/faq" />
         <meta name="og:title" content="FAQs - Atelier " />
         <meta name="og:type" content="website" />
@@ -31,7 +31,7 @@ const Faq = () => {
           name="og:description"
           content="Crystalveeys’ atelier is a fashion merchandise and recommerce site that allows individuals to shop their favorite fashion pieces and also sell previously owned clothing items to interested buyers."
         />
-        <meta name="og:site_name" content="Wholesome" />
+        <meta name="og:site_name" content="Crystalveery Atelier" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:url"
