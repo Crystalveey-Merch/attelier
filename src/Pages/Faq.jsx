@@ -94,12 +94,19 @@ const Faq = () => {
                                 }
                             },
                             {
-                                "@type": "Question",
-                                "name": "How do i sell  my fashion items on untagg?",
-                                "acceptedAnswer": {
-                                    "@type": "Answer",
-                                    "text": "To sell your fashion items on untagg, you have to first create an account on the website and after that you can upload photos and description if you meet our clothing and upload standard."
-                                }
+                              "@type": "Question",
+                              "name": "Why should I shop on untagg?",
+                              "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "It is an affordable way to shop for high-quality fashion items at a fraction of the original price, It promotes sustainable fashion by extending the life span of clothing while reducing textile waste, It offers a wide variety of unique and vintage pieces."
+                              }
+                            },{
+                              "@type": "Question",
+                              "name": "How do I sell  my fashion items on untagg?",
+                              "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "To sell your fashion items on untagg, you must first create an account on the website and after that, you can upload photos and descriptions if you meet our clothing and upload standard."
+                              }
                             }
                         ]
                     }
