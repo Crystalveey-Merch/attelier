@@ -89,8 +89,7 @@ const Faq = () => {
                                 "name": "What is Untagg?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Untagg is a fashion recommerce platform where you can buy and sell pre- owned fashion items. It allows individuals to sell their gently used clothings to others who are interested in purchasing second hand iitems.?",
-"
+                                    "text": "Untagg is a fashion recommerce platform where you can buy and sell pre- owned fashion items. It allows individuals to sell their gently used clothings to others who are interested in purchasing second hand iitems.?"
                                 }
                             },
                             {
