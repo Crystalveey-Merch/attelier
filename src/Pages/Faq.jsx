@@ -93,14 +93,6 @@ const Faq = () => {
 "
                                 }
                             },
-                            // {
-                            //     "@type": "Question",
-                            //     "name": "Why should i shop on untagg?",
-                            //     "acceptedAnswer": {
-                            //         "@type": "Answer",
-                            //         "text": "It is an affordable way to shop for high quality fashion items at a fraction of the original price, It promotes sustainable fashion by extending the life span of clothings while reducing textile waste, It offers a wide variety of unique and vintage pieces."
-                            //     }
-                            // },
                             {
                                 "@type": "Question",
                                 "name": "How do i sell  my fashion items on untagg?",
