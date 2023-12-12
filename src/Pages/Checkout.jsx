@@ -797,7 +797,7 @@ const Checkout = () => {
                 </button>
               </form>
               <video
-                src="/Images/icons/confirm.mp4"
+                src="/Images/icons/confirm.gif"
                 autoPlay
                 loop
                 className="w-1/2 flex m-auto "
