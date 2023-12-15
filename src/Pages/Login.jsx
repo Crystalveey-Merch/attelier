@@ -99,14 +99,7 @@ const Login = () => {
             <div className="btn" onClick={signInWithGoogle}>
               <i className="fa-brands fa-google text-2xl"></i> Login with Google
             </div>
-            <div className="btn" onClick={signInwithFacebook}>
-              <i className="fa-brands fa-facebook text-2xl"></i> Login with
-              Facebook
-            </div>
-            <div className="btn">
-              <i className="fa-brands fa-apple text-2xl"></i> Login with Apple
-              id
-            </div>
+
           </div>
         </div>
       </div>
