@@ -494,7 +494,7 @@ const Checkout = () => {
                         <span>Account number: 0803567624</span>
                       </p>
                     </div>
-                    <p className="font-bold">Please send a screenshot of your payment to our whatsapp number +254 8126091411
+                    <p className="font-bold">Please send a screenshot of your payment to our whatsapp number +234 8126091411
 
 </p>
                   </div>
