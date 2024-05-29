@@ -9,8 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination, Thumbs } from "swiper/core";
-SwiperCore.use([Navigation, Thumbs]);
+import { Navigation, Pagination, Thumbs } from "swiper/modules";
 import cartDetails from "./cardDetails.js";
 // import {  Navigation  } from "swiper";
 import {
@@ -237,7 +236,7 @@ console.log(cartDetails);
               type: 'fraction',
             }}
             // thumbs={{ swiper: thumbsSwiper }}
-            modules={[Pagination]}
+            modules={[Pagination, Navigation, Thumbs]}
             className="mySwiper2 my-10 sm:my-0 bg-stone-200 text-white"
             key={product.id}
           >

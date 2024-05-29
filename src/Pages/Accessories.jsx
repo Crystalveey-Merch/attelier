@@ -129,7 +129,7 @@ const Accessories = () => {
                 onMouseEnter={() => setIsHovered(product.id)}
                 onMouseLeave={() => setIsHovered(null)}
               >
-                <Link to={`/productdes/${product.id}`}>
+                <Link to={`/products/${product.id}`}>
                   <img
                     src={product.src}
                     alt={product.name}

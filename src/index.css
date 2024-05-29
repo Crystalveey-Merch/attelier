@@ -54,6 +54,11 @@
 .Aceh{
   font-family: "Aceh";
 }
+
+.font-public-sans {
+  font-family: "Public Sans", sans-serif;
+}
+
 .middle {
   position: relative;
 }

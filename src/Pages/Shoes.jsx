@@ -63,7 +63,6 @@ const Shoes = () => {
               <i className="fas fa-filter" />
               Filter <i className="fas fa-sort-down" />
               <h1 className="px-2">{filteredProducts.length} Results</h1>
-
             </span>
             <div></div>
           </label>
@@ -123,7 +122,7 @@ const Shoes = () => {
                 onMouseEnter={() => setIsHovered(product.id)}
                 onMouseLeave={() => setIsHovered(null)}
               >
-                <Link to={`/productdes/${product.id}`}>
+                <Link to={`/products/${product.id}`}>
                   <img
                     src={product.src}
                     alt={product.name}

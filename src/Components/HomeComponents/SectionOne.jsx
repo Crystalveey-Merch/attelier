@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import {  } from "swiper/types/modules";
-import { Autoplay, EffectFade } from "swiper";
+import { Autoplay, EffectFade } from "swiper/modules";
 
 export const SectionOne = () => {
   const breakpoints = {

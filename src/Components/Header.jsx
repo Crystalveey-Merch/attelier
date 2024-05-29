@@ -20,7 +20,6 @@ import {
   endBefore,
   getDocs,
   setDoc,
- 
 } from "firebase/firestore";
 import { db } from "../firebase/auth.js";
 
@@ -74,11 +73,10 @@ export const Header = () => {
         setProducts([]);
       }
     };
-  
+
     fetchPosts();
   }, []);
 
- 
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
@@ -93,11 +91,12 @@ export const Header = () => {
 
   const handleOnSelect = (item) => {
     // Construct the target URL
-    const targetUrl = `/productdes/${item.id}`;
-
+    const targetUrl = `/products/${item.id}`;
 
     // Use history.push() to navigate to the target URL
     navigate(targetUrl);
+    // close
+    document.getElementById("my_modal_4").close();
   };
 
   const handleOnFocus = () => {
@@ -108,7 +107,7 @@ export const Header = () => {
     return (
       <>
         <div className="flex  gap-1" id={item.id}>
-          <img src={item.imgSrc[0]} className="w-10" />
+          <img src={item.images[0].frontImage} className="w-10" />
           <div className="flex-col m-auto">
             <span
               className="Aceh"
@@ -120,7 +119,10 @@ export const Header = () => {
               className="Aceh text-sky-500"
               style={{ display: "block", textAlign: "left" }}
             >
-              N{item.price}
+              {item.price.toLocaleString("en-NG", {
+                style: "currency",
+                currency: "NGN",
+              })}
             </span>
           </div>
         </div>
@@ -164,11 +166,11 @@ export const Header = () => {
   const [toggleAccount, setToggleAccount] = useState(false);
   return (
     <div
-      className="fixed  w-full z-30 top-6 bg-white flex  flex-col gap-0 sm:m-0  w-full items-center xl:px-8 sm:px-0  "
-    // style={{ backgroundColor: "#efd7ec" }}
+      className="fixed  w-full z-30 top-6 bg-white flex  flex-col gap-0 sm:m-0 items-center xl:px-8 sm:px-0  "
+      // style={{ backgroundColor: "#efd7ec" }}
     >
-      <div className=" flex sm:block AcehLight   m-auto border sm:border-b border justify-between  items-center w-full    py-1 ">
-        <div className="flex   gap-96 sm:gap-4  sm:gap-0 sm:px-4 m-auto justify-center  sm:border-b   ">
+      <div className=" flex sm:block AcehLight   m-auto border sm:border-b justify-between  items-center w-full    py-1 ">
+        <div className="flex   gap-96 sm:gap-4 sm:px-4 m-auto justify-center  sm:border-b   ">
           <ul className=" flex gap-3 m-auto  text-black lg:hidden">
             <li className="link-item">
               <Link
@@ -179,7 +181,10 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="middle  text-sm   hover:text-gray-750">
+              <Link
+                to="/contact"
+                className="middle  text-sm   hover:text-gray-750"
+              >
                 Contact
               </Link>
             </li>
@@ -195,14 +200,18 @@ export const Header = () => {
           <button
             id="menu-btn"
             onClick={handleMenu}
-            className={`hamburger  ${menuOpen ? "open" : ""
-              } hidden lg:block focus:outline-none z-30 flex flex-col gap-2     my-auto`}
+            className={`hamburger  ${
+              menuOpen ? "open" : ""
+            } hidden focus:outline-none z-30 lg:flex flex-col gap-2     my-auto`}
           >
             <span className="harburger-top   bg-gray-900 transition duration-500 ease-in-out "></span>
             <span className="harburger-middle    bg-gray-900 transition duration-500 ease-in-out  "></span>
             <span className="harburger-bottom   bg-gray-900 transition duration-500 ease-in-out  "></span>
           </button>
-          <Link to="/" className="m-auto flex  sm:ml-12 sm:flex-col justify-center">
+          <Link
+            to="/"
+            className="m-auto flex  sm:ml-12 sm:flex-col justify-center"
+          >
             <h1
               className="text-2xl px-2  sm:px-8	m-auto   text-center  sm:text-base text-black Pragmatica "
               style={{ lineHeight: "1rem" }}
@@ -219,7 +228,6 @@ export const Header = () => {
             <option>₦</option>
             <option>$</option>
           </select> */}
-
 
             {/* Open the modal using document.getElementById('ID').showModal() method */}
 
@@ -245,12 +253,12 @@ export const Header = () => {
             </button>
             <dialog id="my_modal_4" className="modal ">
               <div className="modal-box bg-white h-96">
-
                 <div className="my-1 w-full Quicksand  ">
                   <ReactSearchAutocomplete
                     items={products}
                     onSearch={handleOnSearch}
                     onHover={handleOnHover}
+                    // close on select
                     onSelect={handleOnSelect}
                     onFocus={handleOnFocus}
                     styling={{
@@ -260,7 +268,6 @@ export const Header = () => {
                       fontSize: "13px",
                       fontFamily: "Quicksand",
                       padding: "2px",
-
                     }}
                     placeholder="Input search"
                     autoFocus
@@ -296,24 +303,34 @@ export const Header = () => {
               {toggleAccount && (
                 <ul className="px-5 w-52 py-5 my-2 text-black bg-white shadow-2xl absolute top-5 right-20 text-left flex flex-col gap-5 rounded-lg transition ease-in-out duration-500 ">
                   <li className="w-full">
-                    <Link to="/" className=" text-sky-500  text-xs   hover:text-gray-750">
-                    Welcome!{authUser ? ( <h1>{authUser.displayName}</h1>):("")}
-                     
+                    <Link
+                      to="/"
+                      className=" text-sky-500  text-xs   hover:text-gray-750"
+                    >
+                      Welcome!{authUser ? <h1>{authUser.displayName}</h1> : ""}
                     </Link>
                   </li>
                   <li>
-                    <Link to="/dashboard" className="  text-sm   hover:text-gray-750">
-                     Dashboard
+                    <Link
+                      to="/dashboard"
+                      className="  text-sm   hover:text-gray-750"
+                    >
+                      Dashboard
                     </Link>
                   </li>
-                  {authUser ? (  <li className="text-red-500 hover" onClick={userSignout}>
-                   Sign out
-                  </li>):(  <li>
-                    <Link to="/login">Login</Link>
-                  </li>)}
-                
-                      <Link to="/contact">
-                  <li>Help Center</li></Link>
+                  {authUser ? (
+                    <li className="text-red-500 hover" onClick={userSignout}>
+                      Sign out
+                    </li>
+                  ) : (
+                    <li>
+                      <Link to="/login">Login</Link>
+                    </li>
+                  )}
+
+                  <Link to="/contact">
+                    <li>Help Center</li>
+                  </Link>
                 </ul>
               )}
             </button>
@@ -330,14 +347,15 @@ export const Header = () => {
                   strokeWidth="2"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
-                >co
+                >
+                  co
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                   ></path>
                 </svg>
-                <div className=" top-0 right-0  absolute bg-black h-4 w-4 border border-white md-3 text-white rounded rounded-full">
+                <div className=" top-0 right-0  absolute bg-black h-4 w-4 border border-white md-3 text-white rounded-full">
                   <h1 className="text-xs m-auto flex justify-center  ">
                     {totalUniqueItems}
                   </h1>
@@ -349,9 +367,9 @@ export const Header = () => {
       </div>
 
       <ul className="text-black text-sm flex justify-center gap-10 p-3  xl:gap-6 AcehLight lg:hidden bg-white border-b w-full">
-        <li>
+        <li className="">
           <Link to="/readytowear">
-            <label className="middle  text-sm   hover:text-gray-750">
+            <label className="middle cursor-pointer text-sm   hover:text-gray-750">
               Ready to Wear
             </label>
           </Link>
@@ -365,7 +383,10 @@ export const Header = () => {
           </Link>
         </li>
         <li>
-          <Link to="/consultation" className="middle  text-sm   hover:text-gray-750">
+          <Link
+            to="/consultation"
+            className="middle  text-sm   hover:text-gray-750"
+          >
             Consultation
           </Link>
         </li>
@@ -399,9 +420,14 @@ export const Header = () => {
         </div> */}
 
         <li>
-          <Link to="/untagbuy" className="middle  text-sm  hover:text-gray-750">
-            Untag
-          </Link>
+          <a
+            href="https://untagg.crystalveey.com"
+            target="_blank"
+            rel="noreferrer"
+            className="middle  text-sm  hover:text-gray-750"
+          >
+            Untagg
+          </a>
         </li>
         {/* <li>
         
@@ -414,34 +440,50 @@ export const Header = () => {
         </li> */}
       </ul>
       <div className=" header-links z-20  ">
-        <div className="hidden bg-white text-black lg:flex flex-col gap-4 sm:gap-0  h-screen w-full p-4 pt-10  w-full  ">
-       {authUser ? (<><div className="flex  justify-left text-red-600  mt-4  w-full text-red-500" onClick={userSignout}>
-            <i className="fas fa-user  "> <span className=" AcehLight"> Sign out</span> </i>
-
-
-          </div><h1 className="mb-5 text-sm AcehLight mt-3 text-center  "> Welcome! {authUser.displayName}</h1></>) : ( <NavLink to="/login"><div className="flex p-3 justify-center bg-gray-200 text-black mb-5 w-full ">
-            <i className="fas fa-user  "> <span className=" AcehLight"> Sign in </span> </i>
-
-
-          </div></NavLink>)}
+        <div className="hidden bg-white text-black lg:flex flex-col gap-4 sm:gap-0  h-screen w-full p-4 pt-10  ">
+          {authUser ? (
+            <>
+              <div
+                className="flex  justify-left text-red-600  mt-4  w-full"
+                onClick={userSignout}
+              >
+                <i className="fas fa-user  ">
+                  {" "}
+                  <span className=" AcehLight"> Sign out</span>{" "}
+                </i>
+              </div>
+              <h1 className="mb-5 text-sm AcehLight mt-3 text-center  ">
+                {" "}
+                Welcome! {authUser.displayName}
+              </h1>
+            </>
+          ) : (
+            <NavLink to="/login">
+              <div className="flex p-3 justify-center bg-gray-200 text-black mb-5 w-full ">
+                <i className="fas fa-user  ">
+                  {" "}
+                  <span className=" AcehLight"> Sign in </span>{" "}
+                </i>
+              </div>
+            </NavLink>
+          )}
 
           <div className="tabs w-full   text-black">
-         
             {tabs.map((tab, index) => (
               <a
                 key={index}
-                className={`tab tab-bordered text-black m-auto Aceh  ${activeTabIndex === index ? "tab-active" : ""
-                  }`}
+                className={`tab tab-bordered text-black m-auto Aceh  ${
+                  activeTabIndex === index ? "tab-active" : ""
+                }`}
                 onClick={() => setActiveTabIndex(index)}
               >
                 {tab}
               </a>
             ))}
           </div>
-         
+
           {activeTabIndex === 0 && (
             <div className="AcehLight">
-
               <ul className="flex flex-col my-4 gap-5">
                 <li className="border-gray-200 link-item pb-2">
                   <NavLink
@@ -477,18 +519,22 @@ export const Header = () => {
                 </li>
 
                 <li className="border-gray-200 link-item pb-2">
-                  <NavLink to="/consultation" className="middle  text-sm   hover:text-gray-750">
+                  <NavLink
+                    to="/consultation"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
                     Consultation
                   </NavLink>
                 </li>
-                
-               
               </ul>
               <hr></hr>
               <ul className="flex flex-col my-4 gap-5">
-              <li className="border-gray-200 link-item pb-2">
-                  <NavLink to="/dashboard" className="middle  text-sm   hover:text-gray-750">
-                  <button className="">Dashboard</button>
+                <li className="border-gray-200 link-item pb-2">
+                  <NavLink
+                    to="/dashboard"
+                    className="middle  text-sm   hover:text-gray-750"
+                  >
+                    <button className="">Dashboard</button>
                   </NavLink>
                 </li>
                 <li className="border-gray-200 pb-2">
@@ -514,11 +560,8 @@ export const Header = () => {
                   <li className="link-item text-sm">Contact Us</li>
                 </ul>
               </NavLink>
-             
 
-          <NavLink to="/contact">
-         
-              </NavLink>
+              <NavLink to="/contact"></NavLink>
             </div>
           )}
 
@@ -550,14 +593,10 @@ export const Header = () => {
                   </NavLink>
                 </li>
               </ul>
-
             </div>
-         
           )}
-         
         </div>
         <ToastContainer />
-       
       </div>
     </div>
   );
