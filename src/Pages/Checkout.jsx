@@ -11,7 +11,7 @@ import "react-country-state-city/dist/react-country-state-city.css";
 import { PaystackButton } from "react-paystack";
 // import { useState } from "react";
 import { PAYSTACK_PUBLIC_KEY } from "/src/Pages/Payment/payment.js";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo } from "@fortawesome/free-solid-svg-icons";
@@ -854,7 +854,6 @@ const Checkout = () => {
                 </button>
             </div>
           </dialog>
-          <ToastContainer />
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ import {
   signInWithPopup,
   FacebookAuthProvider,
   signInWithRedirect,
-  getRedirectResult
+  getRedirectResult,
 } from "firebase/auth";
 import "firebase/auth";
 
@@ -13,7 +13,7 @@ import { auth } from "../firebase/auth.js";
 import { db } from "../firebase/auth";
 import { NavLink, useNavigate } from "react-router-dom";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
@@ -48,7 +48,9 @@ const Login = () => {
           } else {
             await setDoc(userRef, userDetails);
           }
-          toast.success(<div className="text-black text-sm ">Login Successful</div>);
+          toast.success(
+            <div className="text-black text-sm ">Login Successful</div>
+          );
           navigate("/");
         }
       } catch (error) {
@@ -57,14 +59,13 @@ const Login = () => {
       }
     };
 
-  handleRedirectResult();
-}, []);
+    handleRedirectResult();
+  }, []);
   const signInwithFacebook = async () => {
-    
     const provider = new FacebookAuthProvider();
     provider.addScope("user_name");
     provider.addScope("user_email");
-    
+
     const result = await signInWithPopup(auth, provider);
 
     // The signed-in user info.
@@ -99,11 +100,9 @@ const Login = () => {
             <div className="btn" onClick={signInWithGoogle}>
               <i className="fa-brands fa-google text-2xl"></i> Login with Google
             </div>
-
           </div>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

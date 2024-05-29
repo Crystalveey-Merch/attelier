@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams, NavLink } from "react-router-dom";
 import Collapsible from "react-collapsible";
-// import {
-//   convertPriceToLocale,
-//   getNoOfOrders,
-//   getProductDetails,
-// } from "@/hooks";
-import { getColorsHex, convertForURL } from "../hooks";
+("@/hooks");
+import {
+  getColorsHex,
+  convertForURL,
+  getNoOfOrders,
+  getProductDetails,
+} from "../hooks";
 import { faPlus, faMinus, faLink } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
@@ -24,8 +25,8 @@ import {
   TelegramShareButton,
 } from "react-share";
 import { toast } from "react-toastify";
-// import { addProductToCart } from "@/config/redux/cart.slice";
-// import { useDispatch } from "react-redux";
+import { addProductToCart } from "../redux/cart.slice";
+import { useDispatch } from "react-redux";
 // import { setCookie } from "cookies-next";
 // import { SizeGuideModal } from "./SizeGuideModal";
 import { useAtUngData } from "../Components/ShareContext";
@@ -49,7 +50,7 @@ export const Product = () => {
   }, [products, productId]);
 
   const navigate = useNavigate();
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [selectedSize, setSelectedSize] = useState("");
   // if size length is 1, set the first size as the selected size else set the selected size to an empty string
   const sizes = product?.sizes;
@@ -126,48 +127,49 @@ export const Product = () => {
   const link = `https://atelier.crystalveey.com/products/${product?.id}`;
 
   // product cartId will be id plus size plus color
-  // const cartId = `${product.id}-${selectedSize}-${selectedColor}`;
-  //   const remaingQuantity = product.quantity - getNoOfOrders(product.id, orders);
+  //   const cartId = `${product?.id}-${selectedSize}-${selectedColor}`;
+  const remaingQuantity =
+    product?.quantity - getNoOfOrders(product?.id, orders);
 
-  //   const handleAddToCart = async () => {
-  //     //  check if the product is in stock
-  //     if (remaingQuantity < 1) {
-  //       toast.error("Product is out of stock");
-  //       return;
-  //     }
+  const handleAddToCart = async () => {
+    //  check if the product is in stock
+    if (remaingQuantity < 1) {
+      toast.error("Product is out of stock");
+      return;
+    }
 
-  //     if (product.sizes.length > 1 && !selectedSize) {
-  //       toast.error("Please select a size");
-  //       return;
-  //     }
-  //     if (product.colors.length > 1 && !selectedColor) {
-  //       toast.error("Please select a color");
-  //       return;
-  //     }
+    if (product?.sizes.length > 1 && !selectedSize) {
+      toast.error("Please select a size");
+      return;
+    }
+    if (product?.colors.length > 1 && !selectedColor) {
+      toast.error("Please select a color");
+      return;
+    }
 
-  //     // const updatedProduct = {
-  //     //   ...product,
-  //     //   productId: product.id,
-  //     //   selectedSize,
-  //     //   selectedColor,
-  //     //   cartQuantity: 1,
-  //     // };
-  //     const updatedProduct = {
-  //       colors: product.colors,
-  //       sizes: product.sizes,
-  //       name: product.name,
-  //       price: product.price,
-  //       images: product.images,
-  //       quantity: product.quantity,
-  //       id: product.id,
-  //       productId: product.id,
-  //       selectedSize,
-  //       selectedColor,
-  //       cartQuantity: 1,
-  //     };
+    // const updatedProduct = {
+    //   ...product,
+    //   productId: product.id,
+    //   selectedSize,
+    //   selectedColor,
+    //   cartQuantity: 1,
+    // };
+    const updatedProduct = {
+      colors: product.colors,
+      sizes: product.sizes,
+      name: product.name,
+      price: product.price,
+      images: product.images,
+      quantity: product.quantity,
+      id: product.id,
+      productId: product.id,
+      selectedSize,
+      selectedColor,
+      cartQuantity: 1,
+    };
 
-  //     dispatch(addProductToCart(updatedProduct));
-  //   };
+    dispatch(addProductToCart(updatedProduct));
+  };
 
   const purchaseData = {
     currency: "NGN",
@@ -191,31 +193,28 @@ export const Product = () => {
     totalBeforeCheckout: product?.price,
   };
 
-  //   const handleOrderNow = () => {
-  //     // check if the product is in stock
-  //     if (remaingQuantity < 1) {
-  //       toast.error("Product is out of stock");
-  //       return;
-  //     }
+  const handleOrderNow = () => {
+    // check if the product is in stock
+    if (remaingQuantity < 1) {
+      toast.error("Product is out of stock");
+      return;
+    }
 
-  //     if (
-  //       getProductDetails(product.id, products)?.sizes.length > 1 &&
-  //       !selectedSize
-  //     ) {
-  //       toast.error("Please select a size");
-  //       return;
-  //     }
-  //     if (
-  //       getProductDetails(product.id, products)?.colors.length > 1 &&
-  //       !selectedColor
-  //     ) {
-  //       toast.error("Please select a color");
-  //       return;
-  //     }
-  //     setCookie("purchaseData", JSON.stringify(purchaseData));
-  //     localStorage.setItem("purchaseData", JSON.stringify(purchaseData));
-  //     navigate("/checkout");
-  //   };
+    if (
+      getProductDetails(product.id, products)?.sizes.length > 1 &&
+      !selectedSize
+    ) {
+      toast.error("Please select a size");
+      return;
+    }
+    if (
+      getProductDetails(product.id, products)?.colors.length > 1 &&
+      !selectedColor
+    ) {
+      toast.error("Please select a color");
+      return;
+    }
+  };
 
   const [openSizeGuide, setOpenSizeGuide] = useState(false);
 
@@ -391,17 +390,38 @@ export const Product = () => {
           {/* add to cart, order now */}
           <div className="flex flex-col gap-2">
             <button
-              //   onClick={handleAddToCart}
+              onClick={handleAddToCart}
               className="w-full bg-black text-white font-semibold text-sm uppercase py-2 rounded-sm transition duration-300 ease-in-out hover:bg-white hover:text-black border border-black"
             >
               Add to Cart
             </button>
-            <button
-              className="w-full border border-black text-black font-semibold text-sm uppercase py-2 rounded-sm transition duration-300 ease-in-out hover:bg-black hover:text-white"
-              //   onClick={handleOrderNow}
-            >
-              Order Now
-            </button>
+            {remaingQuantity < 1 ||
+            (getProductDetails(product.id, products)?.sizes.length > 1 &&
+              !selectedSize) ||
+            (getProductDetails(product.id, products)?.colors.length > 1 &&
+              !selectedColor) ? (
+              <button
+                onClick={handleOrderNow}
+                className="w-full border border-black text-black font-semibold text-sm uppercase py-2 rounded-sm transition duration-300 ease-in-out hover:bg-black hover:text-white"
+              >
+                Order Now
+              </button>
+            ) : (
+              <NavLink
+                to={{
+                  pathname: "/checkout",
+                }}
+                className="sm:w-[100%]"
+                state={{ purchaseData }}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
+                <button className="w-full border border-black text-black font-semibold text-sm uppercase py-2 rounded-sm transition duration-300 ease-in-out hover:bg-black hover:text-white">
+                  Order Now
+                </button>
+              </NavLink>
+            )}
           </div>
           {/* collapsible */}
           <div className="flex flex-col gap-3">

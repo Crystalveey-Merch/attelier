@@ -20,7 +20,7 @@ export default {
     },
     extend: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 };
 
 //bg-pink-300

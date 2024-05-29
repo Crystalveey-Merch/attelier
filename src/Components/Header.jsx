@@ -1,30 +1,22 @@
-import { useCart } from "react-use-cart";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
-import { ToastContainer, toast } from "react-toastify";
+import {toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { datas } from "../assets/data.js";
+import { useAtUngData } from "./ShareContext.jsx";
 
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  addDoc,
-  collection,
-  DocumentSnapshot,
-  endAt,
-  endBefore,
-  getDocs,
-  setDoc,
-} from "firebase/firestore";
-import { db } from "../firebase/auth.js";
+import { useSelector } from "react-redux";
+import { selectTotalItems } from "../redux/cart.slice.js";
 
 export const Header = () => {
   const [authUser, setAuthUser] = useState(null);
+  const { products } = useAtUngData();
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -40,7 +32,6 @@ export const Header = () => {
     };
   }, []);
 
-  const userId = authUser?.uid;
   //  console.log(userId)\
 
   const userSignout = () => {
@@ -52,30 +43,6 @@ export const Header = () => {
       .catch((error) => toast.error(error));
   };
 
-  const [products, setProducts] = useState([]);
-
-  const { productId } = useParams();
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "products"));
-        const postData = [];
-        querySnapshot.forEach((doc) => {
-          // Extract the data from each document
-          const post = doc.data();
-          post.id = doc.id;
-          postData.push(post);
-        });
-        setProducts(postData);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-        setProducts([]);
-      }
-    };
-
-    fetchPosts();
-  }, []);
 
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter
@@ -129,7 +96,8 @@ export const Header = () => {
       </>
     );
   };
-  const { totalUniqueItems } = useCart();
+
+  const totalCartItems = useSelector(selectTotalItems);
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -189,12 +157,14 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link
-                to="/bloglist"
+              <a
+                href="https://blog.crystalveey.com/atelier"
+                target="_blank"
+                rel="noreferrer"
                 className="middle  text-sm   hover:text-gray-750"
               >
                 Blog
-              </Link>
+              </a>
             </li>
           </ul>
           <button
@@ -355,11 +325,13 @@ export const Header = () => {
                     d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                   ></path>
                 </svg>
+                {totalCartItems > 0 && (
                 <div className=" top-0 right-0  absolute bg-black h-4 w-4 border border-white md-3 text-white rounded-full">
                   <h1 className="text-xs m-auto flex justify-center  ">
-                    {totalUniqueItems}
+                    {totalCartItems}
                   </h1>
                 </div>
+              )}
               </button>
             </Link>
           </div>
@@ -596,7 +568,6 @@ export const Header = () => {
             </div>
           )}
         </div>
-        <ToastContainer />
       </div>
     </div>
   );

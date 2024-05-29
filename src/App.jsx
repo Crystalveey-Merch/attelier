@@ -7,21 +7,21 @@ import CustomMade from "./Pages/CustomMade/CustomMade";
 import NewArrival from "./Pages/NewArrival";
 import Categories from "./Pages/Categories";
 import Collection from "./Pages/Collection";
-import Productdes from "./Pages/Productdes";
+// import Productdes from "./Pages/Productdes";
 import Aboutus from "./Pages/Aboutus";
 import Shoes from "./Pages/Shoes";
 import Bags from "./Pages/Bags";
 import Accessories from "./Pages/Accessories";
-import Cart from "./Pages/Cart";
+// import Cart from "./Pages/Cart";
 import Refurblish from "./Pages/untagged/Refurblish/Refurblish";
-import Buy from "./Pages/untagged/Buy";
+// import Buy from "./Pages/untagged/Buy";
 import Sell from "./Pages/untagged/Sell";
 import Blog from "./Pages/Blog";
 import Faq from "./Pages/Faq";
 import Ready2Wear from "./Pages/Ready2Wear";
 import CategoriesList from "./Pages/CategoriesList";
 import UntagBuy from "./Pages/untagged/Buy";
-import Checkout from "./Pages/Checkout";
+// import Checkout from "./Pages/Checkout";
 import Contact from "./Pages/Contact";
 import Giftcard from "./Pages/Giftcard/Giftcard";
 import Consultation from "./Pages/Consultation";
@@ -30,7 +30,7 @@ import { OrderNow } from "./Pages/Payment/OrderNow";
 import BlogList from "./Pages/BlogList";
 import Custompage1 from "./Pages/CustomMade/Custompage1";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase/auth";
+import { auth, createUserProfileDocument } from "./firebase/auth";
 import ProtectedRoute from "./firebase/ProtectedRouteProps";
 import Sellpage1 from "./Pages/untagged/Sellpage1";
 import RefurblishP1 from "./Pages/untagged/Refurblish/RefurblishP1";
@@ -55,28 +55,50 @@ import Users from "./Pages/Admin/Dashboard/Users";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { AtUngDataProvider } from "./Components/SharedData";
-import { Product } from "./Pages";
+import { Product, NewCart } from "./Pages";
+import CheckoutPage from "./Pages/NewCheckout";
+import { useDispatch } from "react-redux";
+import { getDoc } from "firebase/firestore";
+import { loginUser } from "./redux/user.slice";
 
 AOS.init();
 
 function App() {
+  const dispatch = useDispatch();
+
+  onAuthStateChanged(auth, async (userAuth) => {
+    if (userAuth) {
+      const userRef = await createUserProfileDocument(userAuth, {});
+      if (!userRef) return;
+
+      const snapShot = await getDoc(userRef);
+
+      if (!snapShot.exists()) return;
+      const user = { id: snapShot.id, ...snapShot.data() };
+      dispatch(loginUser(user));
+      localStorage.setItem("user", JSON.stringify(user));
+
+      // // Fetch all users from Firestore
+      // const usersRef = collection(db, "users");
+      // const usersSnapshot = await getDocs(usersRef);
+      // const users = [];
+      // usersSnapshot.forEach((doc) => {
+      //   users.push({
+      //     id: doc.id,
+      //     ...doc.data(),
+      //     photoURL: doc.data().photoURL,
+      //     // || handleCreateDefaultAvatar(doc.data().displayName
+      //   });
+      // });
+
+      // dispatch(addUsers(users));
+    } else {
+      dispatch(loginUser(null));
+      localStorage.removeItem("user");
+    }
+  });
+
   const [animationIndex, setAnimationIndex] = useState(0);
-
-  const [authUser, setAuthUser] = useState(null);
-
-  useEffect(() => {
-    const listen = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setAuthUser(user);
-      } else {
-        setAuthUser(null);
-      }
-    });
-
-    return () => {
-      listen();
-    };
-  }, []);
 
   const colors = ["bg-gray-500", "bg-sky-600", "bg-gray-500", "bg-black"];
 
@@ -124,7 +146,7 @@ function App() {
             <Route path="/aboutus" element={<Aboutus />} />
             <Route path="/accessories" element={<Accessories />} />
             <Route path="/bags" element={<Bags />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<NewCart />} />
             <Route path="/shoes" element={<Shoes />} />
             <Route path="/category/:categoryName" element={<Categories />} />
             <Route path="/refurblish" element={<Refurblish />} />
@@ -134,7 +156,7 @@ function App() {
             <Route path="/faq" element={<Faq />} />
             <Route path="/readytowear" element={<Ready2Wear />} />
             <Route path="/categorylist" element={<CategoriesList />} />
-            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/consultation" element={<Consultation />} />
             <Route path="/payment" element={<PaymentDetails />} />

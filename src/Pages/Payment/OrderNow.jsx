@@ -7,7 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { datas } from "../../assets/data";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db, auth } from "../../firebase/auth";
@@ -74,7 +74,6 @@ export const OrderNow = () => {
     fetchPosts();
   }, [productId]);
 
- 
   const [billingData, setBillingData] = useState({
     firstName: "",
     lastName: "",
@@ -102,8 +101,6 @@ export const OrderNow = () => {
     // Add more fields as needed
   });
 
-
-  
   const orderDetails = cartDetails;
 
   console.log(orderDetails);
@@ -185,10 +182,10 @@ export const OrderNow = () => {
     },
   };
   //  (
-  const disabled = ()=>{
-    (billingData.email === "" || !deliveryForm.email === "");
-}
-console.log(billingData.email)
+  const disabled = () => {
+    billingData.email === "" || !deliveryForm.email === "";
+  };
+  console.log(billingData.email);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -533,9 +530,10 @@ console.log(billingData.email)
                         <span>Account number: 0803567624</span>
                       </p>
                     </div>
-                    <p className="font-bold text-xl text-white text-center bg-sky-500">Please send a screenshot of your payment to our whatsapp number +254 8126091411
-
-</p>
+                    <p className="font-bold text-xl text-white text-center bg-sky-500">
+                      Please send a screenshot of your payment to our whatsapp
+                      number +254 8126091411
+                    </p>
                   </div>
                 )}
               </div>
@@ -579,7 +577,6 @@ console.log(billingData.email)
                       <input
                         placeholder="Email"
                         type="email"
-
                         required
                         className="p-3 w-full border bg-white"
                         name="email"
@@ -715,7 +712,7 @@ console.log(billingData.email)
                             onChange={handleChange}
                           ></input>
                           <input
-                          type="email"
+                            type="email"
                             placeholder="Email"
                             required
                             className="p-3 w-full border bg-white"
@@ -817,7 +814,6 @@ console.log(billingData.email)
               type="button"
               onClick={handleSubmit}
               form="billing-form"
-
               className=" btn bg-black px-10 py-3 mt-5  m-auto text-xl sm:text-sm flex capitalize justify-center text-white"
             >
               {" "}
@@ -875,8 +871,6 @@ console.log(billingData.email)
               </div>
             </dialog>
           </>
-
-          <ToastContainer />
         </div>
       </div>
     </>
