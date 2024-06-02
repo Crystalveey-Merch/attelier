@@ -3,10 +3,9 @@ import { Home } from "./Pages/Home";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Login from "./Pages/Login";
-import CustomMade from "./Pages/CustomMade/CustomMade";
 import NewArrival from "./Pages/NewArrival";
 import Categories from "./Pages/Categories";
-import Collection from "./Pages/Collection";
+// import Collection from "./Pages/Collection";
 // import Productdes from "./Pages/Productdes";
 import Aboutus from "./Pages/Aboutus";
 import Shoes from "./Pages/Shoes";
@@ -55,7 +54,13 @@ import Users from "./Pages/Admin/Dashboard/Users";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { AtUngDataProvider } from "./Components/SharedData";
-import { Product, NewCart } from "./Pages";
+import {
+  Product,
+  NewCart,
+  NewCustomMade,
+  NewNewArrival,
+  NewCollection,
+} from "./Pages";
 import CheckoutPage from "./Pages/NewCheckout";
 import { useDispatch } from "react-redux";
 import { getDoc } from "firebase/firestore";
@@ -136,11 +141,12 @@ function App() {
             <Route path="/" element={<Home />} />
 
             <Route path="/login" element={<Login />} />
-            <Route path="/custommade" element={<CustomMade />} />
+            <Route path="/custommade" element={<NewCustomMade />} />
             <Route path="/newArrival" element={<NewArrival />} />
+            <Route path="/new-arrivals" element={<NewNewArrival />} />
             <Route
               path="/collection/:collectionName"
-              element={<Collection />}
+              element={<NewCollection />}
             />
             <Route path="/products/:productId" element={<Product />} />
             <Route path="/aboutus" element={<Aboutus />} />

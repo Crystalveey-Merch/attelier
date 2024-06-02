@@ -14,9 +14,10 @@ const AtUngDataProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [config, setConfig] = useState([]);
+  const [customMades, setCustomMades] = useState([]);
+  const [newArrivals, setNewArrivals] = useState([]);
 
   useEffect(() => {
-
     const unsubscribeCategories = onSnapshot(
       collection(db, "categories"),
       (snapshot) => {
@@ -29,9 +30,13 @@ const AtUngDataProvider = ({ children }) => {
     const unsubscribeProducts = onSnapshot(
       collection(db, "products"),
       (snapshot) => {
-        setProducts(
-          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-        );
+        const products = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })); 
+        // set product if it is pubished, then set newArrivals if product is newArrival and published
+        setProducts(products.filter((product) => product.published));
+        setNewArrivals(products.filter((product) => product.newArrival && product.published));
       }
     );
 
@@ -49,11 +54,21 @@ const AtUngDataProvider = ({ children }) => {
       }
     );
 
+    const unsubscribeCustomMades = onSnapshot(
+      collection(db, "custom-mades"),
+      (snapshot) => {
+        setCustomMades(
+          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        );
+      }
+    );
+
     return () => {
       unsubscribeCategories();
       unsubscribeProducts();
       unsubscribeOrders();
       unsubscribeAUUsers();
+      unsubscribeCustomMades();
     };
   }, []);
 
@@ -70,6 +85,10 @@ const AtUngDataProvider = ({ children }) => {
         setOrders,
         config,
         setConfig,
+        customMades,
+        setCustomMades,
+        newArrivals,
+        setNewArrivals,
       }}
     >
       {children}

@@ -63,7 +63,7 @@ export const SectionFour = () => {
         
             <SwiperSlide   data-aos="fade-up"
      data-aos-anchor-placement="top-center"  data-aos-delay="200">
-            <Link to="/collection/Afrocentric Wears">
+            <Link to="/collection/afrocentric-wears">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
                
@@ -89,7 +89,7 @@ export const SectionFour = () => {
             </SwiperSlide>
             <SwiperSlide data-aos="fade-up"
      data-aos-anchor-placement="top-center"  data-aos-delay="70">
-            <Link to="/collection/Comfort Wears">
+            <Link to="/collection/comfort-wears">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
                 
@@ -115,7 +115,7 @@ export const SectionFour = () => {
             </SwiperSlide>
             <SwiperSlide data-aos="fade-up"
      data-aos-anchor-placement="top-center"  data-aos-delay="90" >
-            <Link to="/collection/Formal Wears">
+            <Link to="/collection/formal-wears">
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
                 
@@ -141,7 +141,7 @@ export const SectionFour = () => {
             </SwiperSlide>
             <SwiperSlide data-aos="fade-up"
      data-aos-anchor-placement="top-center"  data-aos-delay="120" >
-            <Link to="/collection/Party Wears">
+            <Link to="/collection/party-wears">
 
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
@@ -168,7 +168,7 @@ export const SectionFour = () => {
             </SwiperSlide>
             <SwiperSlide data-aos="fade-up"
      data-aos-anchor-placement="top-center"  data-aos-delay="140" >
-            <Link to="/collection/Resort Wears">
+            <Link to="/collection/resort-wears">
 
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
@@ -196,7 +196,7 @@ export const SectionFour = () => {
             </SwiperSlide>
             <SwiperSlide data-aos="fade-up"
      data-aos-anchor-placement="top-center"  data-aos-delay="160" >
-            <Link to="/collection/Occasion Wears">
+            <Link to="/collection/occasion-wears">
 
               <div
                 className=" flex flex-col gap-3 items-center sm:gap-2 cursor-pointer  overflow-hidden mb-10 p-2 sm:p-0 "
@@ -227,7 +227,7 @@ export const SectionFour = () => {
        
       </Swiper>
       <Link to="/readytowear">
-      <button className=" px-9 py-2 bg-gray-950 hover:bg-white border border-gray-950  hover:text-black text-white font-medium text-base hover:bg-gray-900 transition duration-300 ease-in-out">
+      <button className=" px-9 py-2 bg-gray-950 hover:bg-white border border-gray-950  hover:text-black text-white font-medium text-base transition duration-300 ease-in-out">
         See More
       </button>
       </Link>

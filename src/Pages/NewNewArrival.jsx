@@ -1,39 +1,26 @@
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useAtUngData } from "../Components/ShareContext.jsx";
-import { convertForURL, convertToLowercase, revertToTitleCase } from "../hooks/convertString.js";
+import { convertToLowercase } from "../hooks/convertString.js";
 import { Sort } from "../Components/Sort.jsx";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getColorsHex } from "../hooks/getColorsHex.js";
 
-const Categories = () => {
-  const { products } = useAtUngData();
-  const { categoryName } = useParams();
-  const [displayedProducts, setDisplayedProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (products && products.length > 0) {
-      // return products that match the category in the URL and are published
-      setDisplayedProducts(
-        products.filter(
-          (product) => convertForURL(product.category) === categoryName
-        )
-      );
-    }
-    setLoading(false);
-  }, [products, categoryName]);
+export const NewNewArrival = () => {
+  const { newArrivals } = useAtUngData();
 
   const [sortedProducts, setSortedProducts] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (displayedProducts) {
-      setSortedProducts(displayedProducts);
+    if (newArrivals && newArrivals.length > 0) {
+      setSortedProducts(newArrivals);
     }
-  }, [displayedProducts]);
+    setLoading(false);
+  }, [newArrivals]);
 
   const filterRef = useRef(null);
   const [showFilter, setShowFilter] = useState(false);
@@ -60,14 +47,14 @@ const Categories = () => {
   useEffect(() => {
     // filter products based on selected filter option
     if (selectedFilterOption === "All") {
-      setSortedProducts(displayedProducts);
+      setSortedProducts(newArrivals);
     } else {
-      const filteredProducts = displayedProducts.filter((product) =>
+      const filteredProducts = newArrivals.filter((product) =>
         product.genders.includes(convertToLowercase(selectedFilterOption))
       );
       setSortedProducts(filteredProducts);
     }
-  }, [selectedFilterOption, displayedProducts]);
+  }, [selectedFilterOption, newArrivals]);
 
   const handleChangeOption = (option) => {
     setSelectedFilterOption(option);
@@ -99,12 +86,13 @@ const Categories = () => {
       </div>
     );
   }
-  if (!loading && displayedProducts.length === 0) {
+
+  if (!loading && newArrivals.length === 0) {
     return (
       <div className="flex items-center justify-center w-full h-screen border border-gray-200 rounded-lg bg-gray-50/50">
         <div className="text-center">
           <h1 className="text-lg font-semibold text-gray-800">
-            No products found {revertToTitleCase(categoryName)} category
+            No new arrivals found
           </h1>
         </div>
       </div>
@@ -114,18 +102,28 @@ const Categories = () => {
   return (
     <div className="mt-24 text-black px-20 py-6 flex flex-col gap-8 lg:mt-14 xl:px-8 sm:px-2">
       <Helmet>
-        <title> {revertToTitleCase(categoryName)} Category| Attelier</title>
-        <meta name="description" content={`Shop ${categoryName} Category`} />
-        <link rel=" canonical" href="/category/:categoryName" />
+        <title> {`New Arrivals`} </title>
+        <meta
+          name="description"
+          content="Shop the latest new arrivals at Crystalveey's Atelier"
+        />
+        <link
+          rel=" canonical"
+          href="https://atelier.crystalveey.com/new-arrivals"
+        />
       </Helmet>
-
       <div className="flex gap-1.5 items-center">
         <Link className="text-black text-xs" to="/">
           Home
         </Link>
         <p className="text-black text-xs">/</p>
-        <p className="text-black text-xs font-semibold">
-          {displayedProducts[0].category}
+        <p className="text-black text-xs font-semibold font-inter">New Arrivals</p>
+      </div>
+      <div className="text-center sm:text-xl text-2xl text-black py-4 bg-white">
+        <h2>New Arrivals</h2>
+        <p className="text-lg text-gray-600 text-center w-full my-2 md:text-base sm:px-0">
+          Discover our new arrivals to elevate your style and keep you ahead of
+          the fashion curve
         </p>
       </div>
       <div className="w-full flex justify-between">
@@ -159,9 +157,9 @@ const Categories = () => {
             )}
           </div>
         </div>
-        {displayedProducts && displayedProducts.length > 0 && (
+        {newArrivals && newArrivals.length > 0 && (
           <Sort
-            items={displayedProducts}
+            items={newArrivals}
             // displayedItems={sortedProducts}
             setDisplayedItems={setSortedProducts}
           />
@@ -175,7 +173,7 @@ const Categories = () => {
             </p>
           </div>
         ))}
-      {displayedProducts && displayedProducts.length > 0 && sortedProducts && (
+      {newArrivals && newArrivals.length > 0 && sortedProducts && (
         <div className="wfull grid grid-cols-4 gap-6 gap-y-6 justify-center xl:gap-4 lg:grid-cols-3 lg:gap-y-6 md:grid-cols-2 sm:gap-3 sm:gap-y-3">
           {sortedProducts.map((product) => (
             <Link
@@ -231,5 +229,3 @@ const Categories = () => {
     </div>
   );
 };
-
-export default Categories;

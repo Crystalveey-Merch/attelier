@@ -12,18 +12,18 @@ import {
   getProductDetails,
 } from "../hooks";
 import { useAtUngData } from "../Components/ShareContext";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 export default function CheckoutPage() {
-  const location = useLocation();
+  //   const location = useLocation();
   const { orders, products } = useAtUngData();
 
-  //   // Retrieve the purchaseData cookie
-  //   const purchaseDataCookie = getCookie("purchaseData");
-  //   const purchaseData = purchaseDataCookie
-  //     ? JSON.parse(purchaseDataCookie)
-  //     : null;
-  const { purchaseData } = location.state;
+  // Retrieve the purchaseData from localStorage
+  const purchaseDataString = localStorage.getItem("purchaseData");
+  const purchaseData = purchaseDataString
+    ? JSON.parse(purchaseDataString)
+    : null;
+  //   const { purchaseData } = location.state;
 
   // Get the user from the redux store
   const user = useSelector(selectUser);
@@ -46,18 +46,38 @@ export default function CheckoutPage() {
   // delivery states
   const [deliveryMethod, setDeliveryMethod] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
-  const [deliveryCity, setDeliveryCity] = useState("");
-  const [deliveryState, setDeliveryState] = useState("");
-  const [deliveryCountry, setDeliveryCountry] = useState("");
-  const [deliveryZip, setDeliveryZip] = useState("");
+  const [helpfulDeliveryMessage, setHelpfulDeliveryMessage] = useState("");
+  // const [deliveryCity, setDeliveryCity] = useState("");
+  // const [deliveryState, setDeliveryState] = useState("");
+  // const [deliveryCountry, setDeliveryCountry] = useState("");
+  // const [deliveryZip, setDeliveryZip] = useState("");
   const [deliveryPhone, setDeliveryPhone] = useState("");
   const [deliveryFirstName, setDeliveryFirstName] = useState("");
   const [deliveryLastName, setDeliveryLastName] = useState("");
+
+  const [deliveryFee, setDeliveryFee] = useState(0);
+  const [distanceValue, setDistanceValue] = useState(0);
+  const [pickupLocation, setPickupLocation] = useState("");
 
   // payment states
   const [paymentMethod, setPaymentMethod] = useState("");
   const [bankDetailsExpand, setBankDetailsExpand] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
+
+  useEffect(() => {
+    if (distanceValue > 0) {
+      const distance = distanceValue / 1000;
+      if (distance <= 10) {
+        setDeliveryFee(3000);
+      } else if (distance > 10 && distance <= 20) {
+        setDeliveryFee(5000);
+      } else if (distance > 20 && distance <= 30) {
+        setDeliveryFee(10000);
+      } else {
+        setDeliveryFee(15000);
+      }
+    }
+  }, [distanceValue]);
 
   const [loading, setLoading] = useState(false);
 
@@ -90,7 +110,7 @@ export default function CheckoutPage() {
 
   const total =
     deliveryMethod === "home-delivery"
-      ? totalBeforeCheckout + 5000
+      ? totalBeforeCheckout + deliveryFee
       : totalBeforeCheckout;
 
   return (
@@ -115,14 +135,11 @@ export default function CheckoutPage() {
                 setDeliveryMethod={setDeliveryMethod}
                 deliveryAddress={deliveryAddress}
                 setDeliveryAddress={setDeliveryAddress}
-                deliveryCity={deliveryCity}
-                setDeliveryCity={setDeliveryCity}
-                deliveryState={deliveryState}
-                setDeliveryState={setDeliveryState}
-                deliveryCountry={deliveryCountry}
-                setDeliveryCountry={setDeliveryCountry}
-                deliveryZip={deliveryZip}
-                setDeliveryZip={setDeliveryZip}
+                helpfulDeliveryMessage={helpfulDeliveryMessage}
+                setHelpfulDeliveryMessage={setHelpfulDeliveryMessage}
+                setDistanceValue={setDistanceValue}
+                setPickupLocation={setPickupLocation}
+                deliveryFee={deliveryFee}
                 deliveryPhone={deliveryPhone}
                 setDeliveryPhone={setDeliveryPhone}
                 deliveryFirstName={deliveryFirstName}
@@ -140,10 +157,14 @@ export default function CheckoutPage() {
                 setTermsAccepted={setTermsAccepted}
                 deliveryMethod={deliveryMethod}
                 deliveryAddress={deliveryAddress}
-                deliveryCity={deliveryCity}
-                deliveryState={deliveryState}
-                deliveryCountry={deliveryCountry}
-                deliveryZip={deliveryZip}
+                helpfulDeliveryMessage={helpfulDeliveryMessage}
+                distanceValue={distanceValue}
+                pickupLocation={pickupLocation}
+                deliveryFee={deliveryFee}
+                // deliveryCity={deliveryCity}
+                // deliveryState={deliveryState}
+                // deliveryCountry={deliveryCountry}
+                // deliveryZip={deliveryZip}
                 deliveryPhone={deliveryPhone}
                 deliveryFirstName={deliveryFirstName}
                 deliveryLastName={deliveryLastName}
@@ -162,6 +183,7 @@ export default function CheckoutPage() {
                 total={total}
                 deliveryMethod={deliveryMethod}
                 totalBeforeCheckout={totalBeforeCheckout}
+                deliveryFee={deliveryFee}
               />
             </section>
           </div>

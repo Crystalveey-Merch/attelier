@@ -143,7 +143,7 @@ export const SectionTwo = () => {
           })}
         </Swiper>
       </div>
-      <Link to="/newArrival">
+      <Link to="/new-arrivals">
         <button className=" px-9 py-2 bg-gray-950 hover:bg-white border border-gray-950  hover:text-black text-white font-medium text-base transition duration-300 ease-in-out">
           See More
         </button>

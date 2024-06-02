@@ -214,6 +214,8 @@ export const Product = () => {
       toast.error("Please select a color");
       return;
     }
+    localStorage.setItem("purchaseData", JSON.stringify(purchaseData));
+    navigate("/checkout");
   };
 
   const [openSizeGuide, setOpenSizeGuide] = useState(false);
@@ -255,12 +257,12 @@ export const Product = () => {
   return (
     <div className="mt-24 text-black sm:mt-16 px-10 py-6 w-full max-w-[1440px] mx-auto flex flex-col gap-6 lg:px-4">
       <div className="flex gap-1.5 items-center">
-        <NavLink className="text-black text-xs" to="/products">
+        <NavLink className="text-black text-xs" to="/newarrivals">
           Products
         </NavLink>
         <p className="text-black text-xs">/</p>
         <NavLink
-          to={`/${convertForURL(product.category)}`}
+          to={`/category/${convertForURL(product.category)}`}
           className="text-black text-xs"
         >
           {product.category}
@@ -395,19 +397,18 @@ export const Product = () => {
             >
               Add to Cart
             </button>
-            {remaingQuantity < 1 ||
+            {/* {remaingQuantity < 1 ||
             (getProductDetails(product.id, products)?.sizes.length > 1 &&
               !selectedSize) ||
             (getProductDetails(product.id, products)?.colors.length > 1 &&
-              !selectedColor) ? (
-              <button
-                onClick={handleOrderNow}
-                className="w-full border border-black text-black font-semibold text-sm uppercase py-2 rounded-sm transition duration-300 ease-in-out hover:bg-black hover:text-white"
-              >
-                Order Now
-              </button>
-            ) : (
-              <NavLink
+              !selectedColor) ? ( */}
+            <button
+              onClick={handleOrderNow}
+              className="w-full border border-black text-black font-semibold text-sm uppercase py-2 rounded-sm transition duration-300 ease-in-out hover:bg-black hover:text-white"
+            >
+              Order Now
+            </button>
+            {/* <NavLink
                 to={{
                   pathname: "/checkout",
                 }}
@@ -420,8 +421,7 @@ export const Product = () => {
                 <button className="w-full border border-black text-black font-semibold text-sm uppercase py-2 rounded-sm transition duration-300 ease-in-out hover:bg-black hover:text-white">
                   Order Now
                 </button>
-              </NavLink>
-            )}
+              </NavLink> */}
           </div>
           {/* collapsible */}
           <div className="flex flex-col gap-3">

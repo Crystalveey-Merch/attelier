@@ -11,6 +11,7 @@ export const OrderSummary = ({
   purchaseData,
   total,
   deliveryMethod,
+  deliveryFee,
   totalBeforeCheckout,
 }) => {
   const { products } = useAtUngData();
@@ -89,7 +90,14 @@ export const OrderSummary = ({
         <div className="flex justify-between">
           <p className="text-sm text-black font-semibold">Delivey</p>
           <p className="text-base text-black font-semibold">
-            {deliveryMethod === "home-delivery" ? "₦5000" : "₦0"}
+            <p className="text-base text-black font-semibold">
+              {deliveryMethod === "home-delivery"
+                ? deliveryFee?.toLocaleString("en-NG", {
+                    style: "currency",
+                    currency: "NGN",
+                  })
+                : "₦0"}
+            </p>
           </p>
         </div>
         <div className="flex justify-between">

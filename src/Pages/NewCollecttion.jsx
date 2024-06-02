@@ -2,15 +2,19 @@ import { useParams, Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useAtUngData } from "../Components/ShareContext.jsx";
-import { convertForURL, convertToLowercase, revertToTitleCase } from "../hooks/convertString.js";
+import {
+  convertForURL,
+  convertToLowercase,
+  revertToTitleCase,
+} from "../hooks/convertString.js";
 import { Sort } from "../Components/Sort.jsx";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getColorsHex } from "../hooks/getColorsHex.js";
 
-const Categories = () => {
+export const NewCollection = () => {
   const { products } = useAtUngData();
-  const { categoryName } = useParams();
+  const { collectionName } = useParams();
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -19,12 +23,12 @@ const Categories = () => {
       // return products that match the category in the URL and are published
       setDisplayedProducts(
         products.filter(
-          (product) => convertForURL(product.category) === categoryName
+          (product) => convertForURL(product.collection) === collectionName
         )
       );
     }
     setLoading(false);
-  }, [products, categoryName]);
+  }, [products, collectionName]);
 
   const [sortedProducts, setSortedProducts] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
@@ -104,7 +108,7 @@ const Categories = () => {
       <div className="flex items-center justify-center w-full h-screen border border-gray-200 rounded-lg bg-gray-50/50">
         <div className="text-center">
           <h1 className="text-lg font-semibold text-gray-800">
-            No products found {revertToTitleCase(categoryName)} category
+            No products found in {revertToTitleCase(collectionName)} Collection
           </h1>
         </div>
       </div>
@@ -114,18 +118,22 @@ const Categories = () => {
   return (
     <div className="mt-24 text-black px-20 py-6 flex flex-col gap-8 lg:mt-14 xl:px-8 sm:px-2">
       <Helmet>
-        <title> {revertToTitleCase(categoryName)} Category| Attelier</title>
-        <meta name="description" content={`Shop ${categoryName} Category`} />
-        <link rel=" canonical" href="/category/:categoryName" />
+        <title> {revertToTitleCase(collectionName)} Collection| Attelier</title>
+        <meta
+          name="description"
+          content={`Shop ${revertToTitleCase(
+            collectionName
+          )} Collection at Crystalveey Atelier`}
+        />
+        <link rel=" canonical" href="/collection/:collectionName" />
       </Helmet>
-
       <div className="flex gap-1.5 items-center">
         <Link className="text-black text-xs" to="/">
           Home
         </Link>
         <p className="text-black text-xs">/</p>
         <p className="text-black text-xs font-semibold">
-          {displayedProducts[0].category}
+          {displayedProducts[0].collection}
         </p>
       </div>
       <div className="w-full flex justify-between">
@@ -231,5 +239,3 @@ const Categories = () => {
     </div>
   );
 };
-
-export default Categories;

@@ -115,7 +115,7 @@ export const Header = () => {
     setMenuOpen((prev) => !prev);
   };
 
-  const tabs = ["Crystaveey", "Untag"];
+  const tabs = ["Crystaveey's Atelier"];
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   const preventScroll = () => {
@@ -221,7 +221,7 @@ export const Header = () => {
                 ></path>
               </svg> */}
             </button>
-            <dialog id="my_modal_4" className="modal ">
+            <dialog id="my_modal_4" className="modal w-full max-w-2xl rounded-xl sm:w-11/12">
               <div className="modal-box bg-white h-96">
                 <div className="my-1 w-full Quicksand  ">
                   <ReactSearchAutocomplete

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   selectTotalItems,
   selectCart,
@@ -18,6 +18,8 @@ export const NewCart = () => {
   const dispatch = useDispatch();
   const totalCartItems = useSelector(selectTotalItems);
   const cart = useSelector(selectCart);
+
+  const navigate = useNavigate();
 
   const handleRemoveProduct = (product) => {
     // ask user if they are sure they want to remove product from cart
@@ -102,6 +104,9 @@ export const NewCart = () => {
       toast.error("Some products are more than stock");
       return;
     }
+
+    localStorage.setItem("purchaseData", JSON.stringify(purchaseData));
+    navigate("/checkout");
 
     // setCookie("purchaseData", JSON.stringify(purchaseData));
     // router.push("/checkout");
@@ -279,18 +284,18 @@ export const NewCart = () => {
             <p className="text-lg text-black">Total</p>
             <p className="text-lg text-black">{convertNumberToNaira(total)}</p>
           </div> */}
-            {groupedCart.some(
+            {/* {groupedCart.some(
               (item) =>
                 getAvailableQuantity(item) < getSameProductCartQuantity(item)
-            ) ? (
-              <button
-                className="w-full p-3 bg-black text-white rounded-md font-semibold text-center md:p-2.5 md:font-medium md:text-sm"
-                onClick={handleCheckout}
-              >
-                Proceed to checkout
-              </button>
-            ) : (
-              <NavLink
+            ) ? ( */}
+            <button
+              className="w-full p-3 bg-black text-white rounded-md font-semibold text-center md:p-2.5 md:font-medium md:text-sm"
+              onClick={handleCheckout}
+            >
+              Proceed to checkout
+            </button>
+
+            {/* <NavLink
                 to={{
                   pathname: "/checkout",
                 }}
@@ -303,8 +308,7 @@ export const NewCart = () => {
                 <button className="w-full p-3 bg-black text-white rounded-md font-semibold text-center md:p-2.5 md:font-medium md:text-sm">
                   Proceed to checkout
                 </button>
-              </NavLink>
-            )}
+              </NavLink> */}
           </section>
         </div>
       </div>

@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
-import { Country, State } from "country-state-city";
+import { useEffect } from "react";
+// import { Country, State } from "country-state-city";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/user.slice";
 import { toast } from "react-toastify";
+import { RouteMap } from "../RouteMap";
 
 export const Delivery = ({
   deliveryCompStaus,
@@ -14,14 +15,19 @@ export const Delivery = ({
   setDeliveryMethod,
   deliveryAddress,
   setDeliveryAddress,
-  deliveryCity,
-  setDeliveryCity,
-  deliveryState,
-  setDeliveryState,
-  deliveryCountry,
-  setDeliveryCountry,
-  deliveryZip,
-  setDeliveryZip,
+  // deliveryCity,
+  // setDeliveryCity,
+  // deliveryState,
+  // setDeliveryState,
+  // deliveryCountry,
+  // setDeliveryCountry,
+  // deliveryZip,
+  // setDeliveryZip,
+  helpfulDeliveryMessage,
+  setHelpfulDeliveryMessage,
+  setDistanceValue,
+  deliveryFee,
+  setPickupLocation,
   deliveryPhone,
   setDeliveryPhone,
   deliveryFirstName,
@@ -30,27 +36,26 @@ export const Delivery = ({
   setDeliveryLastName,
 }) => {
   const user = useSelector(selectUser);
-  const [countries, setCountries] = useState([]);
-  const [states, setStates] = useState([]);
+  // const [countries, setCountries] = useState([]);
+  // const [states, setStates] = useState([]);
   // const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   // console.log(states, deliveryState, deliveryCity);
-  console.log(isLoading)
+  // console.log(isLoading);
 
-  useEffect(() => {
-    setIsLoading(true);
-    const countries = Country.getAllCountries();
-    setCountries(countries);
-    setIsLoading(false);
-  }, []);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   const countries = Country.getAllCountries();
+  //   setCountries(countries);
+  //   setIsLoading(false);
+  // }, []);
 
-  useEffect(() => {
-    setIsLoading(true);
-    const states = State.getStatesOfCountry(deliveryCountry);
-    setStates(states);
-    setIsLoading(false);
-  }, [deliveryCountry]);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   const states = State.getStatesOfCountry(deliveryCountry);
+  //   setStates(states);
+  //   setIsLoading(false);
+  // }, [deliveryCountry]);
 
   //   useEffect(() => {
   //     setIsLoading(true);
@@ -88,26 +93,6 @@ export const Delivery = ({
         toast.error("Please enter your first and last name");
         return;
       }
-      if (!deliveryCountry) {
-        toast.error("Please select a country");
-        return;
-      }
-      if (!deliveryState) {
-        toast.error("Please select a state");
-        return;
-      }
-      if (!deliveryCity) {
-        toast.error("Please select a city");
-        return;
-      }
-      if (!deliveryAddress) {
-        toast.error("Please enter your address");
-        return;
-      }
-      if (!deliveryZip) {
-        toast.error("Please enter your zip code");
-        return;
-      }
       if (!deliveryPhone || deliveryPhone.length < 9) {
         toast.error("Please enter your phone number");
         return;
@@ -134,7 +119,16 @@ export const Delivery = ({
                   onClick={() => setDeliveryMethod("home-delivery")}
                 />
                 <label htmlFor="delivery" className="flex gap-2 items-center">
-                  <p className="text-sm text-black">Home Delivery (₦5,000)</p>
+                  <p className="text-sm text-black">
+                    Home Delivery (
+                    {deliveryFee
+                      ? `${deliveryFee.toLocaleString("en-NG", {
+                          style: "currency",
+                          currency: "NGN",
+                        })}`
+                      : "Based on distance"}
+                    ){" "}
+                  </p>
                 </label>
               </div>
               <div className="flex gap-4 items-center w-full border border-gray-300 rounded p-4">
@@ -175,7 +169,7 @@ export const Delivery = ({
                       required
                     />
                   </div>
-                  <div className="flex gap-4 sm:flex-col sm:gap-3">
+                  {/* <div className="flex gap-4 sm:flex-col sm:gap-3">
                     <select
                       className="w-full bg-white rounded-md border border-gray-300 py-2.5 px-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       value={deliveryCountry}
@@ -198,8 +192,8 @@ export const Delivery = ({
                       onChange={(e) => setDeliveryZip(e.target.value)}
                       required
                     />
-                  </div>
-                  <div className="flex gap-4 sm:flex-col sm:gap-3">
+                  </div> */}
+                  {/* <div className="flex gap-4 sm:flex-col sm:gap-3">
                     <select
                       className="w-full bg-white rounded-md border border-gray-300 py-2.5 px-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       value={deliveryState}
@@ -222,16 +216,8 @@ export const Delivery = ({
                       onChange={(e) => setDeliveryCity(e.target.value)}
                       required
                     />
-                  </div>
+                  </div> */}
                   <div className="flex gap-4 sm:flex-col sm:gap-3">
-                    <input
-                      type="text"
-                      placeholder="Address"
-                      className="w-full bg-white rounded-md border border-gray-300 py-2.5 px-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                      value={deliveryAddress}
-                      onChange={(e) => setDeliveryAddress(e.target.value)}
-                      required
-                    />
                     <PhoneInput
                       defaultCountry="ng"
                       name="phone"
@@ -240,6 +226,35 @@ export const Delivery = ({
                       onChange={setDeliveryPhone}
                       required
                       className="w-[400px] bg-white rounded-md border border-gray-300 py-2.5 px-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    />
+                    <textarea
+                      placeholder="Helpful delivery instructions"
+                      className="w-full bg-white rounded-md border border-gray-300 py-2.5 px-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      value={helpfulDeliveryMessage}
+                      onChange={(e) =>
+                        setHelpfulDeliveryMessage(e.target.value)
+                      }
+                    />
+                  </div>
+                  <div className="flex gap-4 sm:flex-col sm:gap-3">
+                    <input
+                      type="text"
+                      placeholder="Address"
+                      className="w-full bg-white rounded-md border border-gray-300 py-2.5 px-3 focus:outline-none"
+                      value={deliveryAddress}
+                      onChange={(e) => setDeliveryAddress(e.target.value)}
+                      required
+                      readOnly
+                    />
+                  </div>
+                  <div className="w-full">
+                    <RouteMap
+                      setDistanceValue={setDistanceValue}
+                      setPickupLocation={setPickupLocation}
+                      // setState={setDeliveryState}
+                      // setCity={setDeliveryCity}
+                      setAddress={setDeliveryAddress}
+                      title="Select Delivery Address"
                     />
                   </div>
                 </div>
@@ -293,7 +308,7 @@ export const Delivery = ({
                     {deliveryFirstName} {deliveryLastName}
                   </p>
                 </div>
-                <div className="flex gap-4">
+                {/* <div className="flex gap-4">
                   <p className="text-sm text-black">
                     <span className="font-semibold">Country:</span>{" "}
                     {deliveryCountry}
@@ -310,7 +325,17 @@ export const Delivery = ({
                   <p className="text-sm text-black">
                     <span className="font-semibold">City:</span> {deliveryCity}
                   </p>
-                </div>
+                </div> */}
+                {helpfulDeliveryMessage && (
+                  <div className="flex gap-4">
+                    <p className="text-sm text-black">
+                      <span className="font-semibold">
+                        Helpful Instructions:
+                      </span>{" "}
+                      {helpfulDeliveryMessage}
+                    </p>
+                  </div>
+                )}
                 <div className="flex gap-4 sm:flex-col sm:gap-3">
                   <p className="text-sm text-black">
                     <span className="font-semibold">Address:</span>{" "}
