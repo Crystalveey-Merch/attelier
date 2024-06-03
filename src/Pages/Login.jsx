@@ -9,58 +9,50 @@ import {
 import "firebase/auth";
 
 import { useState, useEffect } from "react";
-import { auth } from "../firebase/auth.js";
+import { auth, googleProvider } from "../firebase/auth.js";
 import { db } from "../firebase/auth";
 import { NavLink, useNavigate } from "react-router-dom";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
+import { selectUser } from "../redux/user.slice.js";
 
 const Login = () => {
   const navigate = useNavigate();
+  const user = useSelector(selectUser);
 
-  const signInWithGoogle = async () => {
-    try {
-      const provider = new GoogleAuthProvider();
-      provider.addScope("profile");
-      provider.addScope("email");
-      await signInWithRedirect(auth, provider);
-    } catch (error) {
-      console.error("Firebase Error:", error.code, error.message);
-      // Handle the error here, display an error message, or perform any other desired action
-    }
-  };
   useEffect(() => {
-    const handleRedirectResult = async () => {
-      try {
-        const result = await getRedirectResult(auth);
-        if (result.user) {
-          const user = result.user;
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const userRef = doc(db, "users", result.user.uid);
-          const userDetails = {
-            name: user.displayName,
-            email: user.email,
-          };
-          const docSnapshot = await getDoc(userRef);
-          if (docSnapshot.exists()) {
-            await updateDoc(userRef, userDetails);
-          } else {
-            await setDoc(userRef, userDetails);
-          }
-          toast.success(
-            <div className="text-black text-sm ">Login Successful</div>
-          );
-          navigate("/");
-        }
-      } catch (error) {
-        console.error("Firebase Error:", error.code, error.message);
-        // Handle the error here, display an error message, or perform any other desired action
-      }
-    };
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
-    handleRedirectResult();
-  }, []);
+  const signInWithGoogle = () => {
+    signInWithRedirect(auth, googleProvider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+        //const token = credential?.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log(user.providerId);
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        // const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        //const email = error.customData?.email;
+        // The AuthCredential type that was used.
+        // const credential = GoogleAuthProvider.credentialFromError(error);
+        toast.error(errorMessage);
+        // ...
+      });
+  };
+
   const signInwithFacebook = async () => {
     const provider = new FacebookAuthProvider();
     provider.addScope("user_name");
@@ -97,7 +89,7 @@ const Login = () => {
             Login to Crystalveey&apos;s Atelier
           </h2>
           <div className="flex flex-col gap-10 mx-40 sm:mx-4 my-10">
-            <div className="btn" onClick={signInWithGoogle}>
+            <div className="btn cursor-pointer" onClick={signInWithGoogle}>
               <i className="fa-brands fa-google text-2xl"></i> Login with Google
             </div>
           </div>

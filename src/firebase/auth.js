@@ -64,6 +64,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     const phoneNumber = "";
     const country = "";
     const lastLogin = serverTimestamp();
+    const isAtelier = true;
 
     try {
       await setDoc(userRef, {
@@ -77,6 +78,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         country,
         createdAt,
         lastLogin,
+        isAtelier,
         ...additionalData,
       });
       //await updateDoc(userRef, { lastLoginAt});
