@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 import { auth, googleProvider } from "../firebase/auth.js";
 import { db } from "../firebase/auth";
 import { NavLink, useNavigate } from "react-router-dom";
-import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
@@ -24,6 +24,11 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
+      const userRef = doc(db, "users", user.id);
+      updateDoc(userRef, {
+        lastLogin: serverTimestamp(),
+        isAtelier: true,
+      });
       navigate("/");
     }
   }, [user, navigate]);
