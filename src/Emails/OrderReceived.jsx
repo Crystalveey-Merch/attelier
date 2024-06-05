@@ -1,10 +1,14 @@
 // src/emailService.js
-import { ElasticEmail } from "@elasticemail/elasticemail-client";
+import {
+  Configuration,
+  EmailsApi,
+} from "@elasticemail/elasticemail-client-ts-axios";
 
-let defaultClient = ElasticEmail.ApiClient.instance;
-const apikey = defaultClient.authentications["apikey"];
-apikey.apiKey = import.meta.env.VITE_APP_ELASTIC_EMAIL_API_KEY;
-let api = new ElasticEmail.EmailsApi();
+const config = new Configuration({
+  apiKey: import.meta.env.VITE_APP_ELASTIC_EMAIL_API_KEY,
+});
+
+const emailsApi = new EmailsApi(config);
 
 export const sendOrderRecieved = async (
   recipientEmail,
@@ -14,7 +18,7 @@ export const sendOrderRecieved = async (
   total
 ) => {
   try {
-    const emailData = {
+    const emailTransactionalMessageData = {
       Recipients: {
         To: [recipientEmail],
       },
@@ -28,7 +32,8 @@ export const sendOrderRecieved = async (
         ],
         TemplateName: "Order Received",
         Merge: {
-          firstname: firstName,
+            // if firstname is not empty, use customer
+          firstname: firstName || "customer",
           orderid: orderID,
           orderdate: orderDate,
           total: total,
@@ -38,8 +43,11 @@ export const sendOrderRecieved = async (
       },
     };
 
-    const response = await api.emailsTransactionalPost(emailData);
-    console.log("Email sent successfully", response);
+    const response = await emailsApi.emailsTransactionalPost(
+      emailTransactionalMessageData
+    );
+    console.log("Transactional email sent successfully.");
+    console.log(response.data);
   } catch (error) {
     console.error("Error sending email:", error);
   }

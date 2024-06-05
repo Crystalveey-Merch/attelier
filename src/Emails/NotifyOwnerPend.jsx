@@ -1,9 +1,13 @@
-import { ElasticEmail } from "@elasticemail/elasticemail-client";
+import {
+  Configuration,
+  EmailsApi,
+} from "@elasticemail/elasticemail-client-ts-axios";
 
-let defaultClient = ElasticEmail.ApiClient.instance;
-const apikey = defaultClient.authentications["apikey"];
-apikey.apiKey = import.meta.env.VITE_APP_ELASTIC_EMAIL_API_KEY;
-let api = new ElasticEmail.EmailsApi();
+const config = new Configuration({
+  apiKey: import.meta.env.VITE_APP_ELASTIC_EMAIL_API_KEY,
+});
+
+const emailsApi = new EmailsApi(config);
 
 export const notifyOwnerPending = async (
   recipientEmail,
@@ -13,7 +17,7 @@ export const notifyOwnerPending = async (
   link
 ) => {
   try {
-    const emailData = {
+    const emailTransactionalMessageData = {
       Recipients: {
         To: ["atelier@crystalveey.com"],
       },
@@ -37,7 +41,9 @@ export const notifyOwnerPending = async (
       },
     };
 
-    const response = await api.emailsTransactionalPost(emailData);
+    const response = await emailsApi.emailsTransactionalPost(
+      emailTransactionalMessageData
+    );
     console.log("Email sent successfully", response);
   } catch (error) {
     console.error("Error sending email:", error);

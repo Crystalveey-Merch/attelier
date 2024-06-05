@@ -264,10 +264,22 @@ export const Payment = ({
 
       await notifyOwnerPending(
         user ? user.email : guestEmail,
-        deliveryFirstName + " " + deliveryLastName,
+        deliveryFirstName
+          ? deliveryFirstName + " " + deliveryLastName
+          : guestEmail,
         total.toLocaleString("en-NG", { style: "currency", currency: "NGN" }),
         date,
         link
+      );
+
+      await sendOrderRecieved(
+        user ? user.email : guestEmail,
+        deliveryFirstName
+          ? deliveryFirstName + " " + deliveryLastName
+          : "Customer",
+        orderId,
+        date,
+        total.toLocaleString("en-NG", { style: "currency", currency: "NGN" })
       );
 
       setDeliveryCompStatus("completed");
@@ -339,6 +351,27 @@ export const Payment = ({
         timeCreated: moment().format("h:mm:ss a"),
         dateCreated: moment().format("MMMM Do YYYY"),
       });
+
+      await notifyOwnerPending(
+        user ? user.email : guestEmail,
+        deliveryFirstName
+          ? deliveryFirstName + " " + deliveryLastName
+          : guestEmail,
+        total.toLocaleString("en-NG", { style: "currency", currency: "NGN" }),
+        date,
+        link
+      );
+
+      await sendOrderRecieved(
+        user ? user.email : guestEmail,
+        deliveryFirstName
+          ? deliveryFirstName + " " + deliveryLastName
+          : "Customer",
+        orderId,
+        date,
+        total.toLocaleString("en-NG", { style: "currency", currency: "NGN" })
+      );
+
       setDeliveryCompStatus("completed");
       setLoading(false);
       setOpenPaymentSentModal(true);
