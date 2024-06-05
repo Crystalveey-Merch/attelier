@@ -53,9 +53,9 @@ export const Footer = () => {
               </li>
             </Link>
             <Link to="/giftcards">
-            <li className="middle  text-sm hover:text-gray-750 cursor-pointer">
-              Gift Cards
-            </li>
+              <li className="middle  text-sm hover:text-gray-750 cursor-pointer">
+                Gift Cards
+              </li>
             </Link>
             <li
               className="middle  font-medium text-sm cursor-pointer w-max"

@@ -25,6 +25,8 @@ import moment from "moment";
 import { SuccessModal } from "./SuccessModal";
 import { emptyCart } from "../../redux/cart.slice";
 import { useAtUngData } from "../ShareContext";
+import { sendOrderRecieved } from "../../Emails/OrderReceived";
+import { notifyOwnerPending } from "../../Emails/NotifyOwnerPend";
 
 export const Payment = ({
   paymentMethod,
@@ -257,6 +259,17 @@ export const Payment = ({
         dateCreated: moment().format("MMMM Do YYYY"),
         paymentScreenshots: screenshotPrevieURLs,
       });
+      const link = `https://admin.crystalveey.com/atelier/orders/${orderId}`;
+      const date = moment().format("MMMM Do YYYY");
+
+      await notifyOwnerPending(
+        user ? user.email : guestEmail,
+        deliveryFirstName + " " + deliveryLastName,
+        total.toLocaleString("en-NG", { style: "currency", currency: "NGN" }),
+        date,
+        link
+      );
+
       setDeliveryCompStatus("completed");
       setLoading(false);
       setOpenPaymentSentModal(true);

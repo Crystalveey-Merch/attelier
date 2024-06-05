@@ -53,7 +53,7 @@ export const SectionTwo = () => {
           modules={[Autoplay, Navigation]}
           className="mySwiper w-full "
         >
-          {newArrival.map((item) => {
+          {newArrival.slice(0, 10).map((item) => {
             return (
               <SwiperSlide
                 key={item.id}
