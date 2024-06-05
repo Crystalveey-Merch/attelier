@@ -8,6 +8,7 @@ const config = new Configuration({
   apiKey: import.meta.env.VITE_APP_ELASTIC_EMAIL_API_KEY,
 });
 
+
 const emailsApi = new EmailsApi(config);
 
 export const sendOrderRecieved = async (
